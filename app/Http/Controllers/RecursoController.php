@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entidadorganizativa;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,6 +27,7 @@ class RecursoController extends Controller
     {
         $title = 'Index - recurso';
         $recursos = Recurso::paginate(6);
+
         return view('recurso.index',compact('recursos','title'));
     }
 
@@ -37,8 +39,8 @@ class RecursoController extends Controller
     public function create()
     {
         $title = 'Create - recurso';
-        
-        return view('recurso.create');
+        $entidades= $this->getEntidadOrganizativas();
+        return view('recurso.create',compact('entidades'));
     }
 
     /**
@@ -134,10 +136,10 @@ class RecursoController extends Controller
         {
             return URL::to('recurso/'. $id . '/edit');
         }
+        $entidades= $this->getEntidadOrganizativas();
 
-        
         $recurso = Recurso::findOrfail($id);
-        return view('recurso.edit',compact('title','recurso'  ));
+        return view('recurso.edit',compact('title','recurso' ,'entidades'  ));
     }
 
     /**
@@ -207,5 +209,14 @@ class RecursoController extends Controller
      	$recurso = Recurso::findOrfail($id);
      	$recurso->delete();
         return URL::to('recurso');
+    }
+
+    /**
+     * get all Entidades organizativas
+     */
+    public function getEntidadOrganizativas(){
+        $entdades = Entidadorganizativa::all();
+        return $entdades;
+
     }
 }

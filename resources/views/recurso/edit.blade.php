@@ -61,9 +61,21 @@
             relevancia!!}">
             </div>
             <div class="form-group">
-                <label for="idEntidadOrganizativa">idEntidadOrganizativa</label>
-                <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
-            idEntidadOrganizativa!!}">
+                <label for="idEntidadOrganizativa">EntidadOrganizativa</label>
+                <!-- <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
+            idEntidadOrganizativa!!}">-->
+                <SELECT id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
+            idEntidadOrganizativa!!}">>
+
+                    @foreach($entidades as $entidad)
+                        @if ($entidad->id==$recurso->idEntidadOrganizativa)
+                            <option value="{{$entidad->id}}" selected="selected" >{{$entidad->nombre}}</option>
+                            @else
+
+                            <option value="{{$entidad->id}}">{{$entidad->nombre}}</option>
+                        @endif
+                    @endforeach
+                </SELECT>
             </div>
             <div class="form-group">
                 <label for="activo">activo</label>

@@ -54,7 +54,13 @@
                     </div>
                     <div class="form-group">
                         <label for="idEntidadOrganizativa">idEntidadOrganizativa</label>
-                        <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control">
+                       <!-- <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control">-->
+                        <SELECT id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control">
+
+                            @foreach($entidades as $entidad)
+                                <option value="{{$entidad->id}}">{{$entidad->nombre}}</option>
+                            @endforeach
+                        </SELECT>
                     </div>
                     <div class="form-group">
                         <label for="activo">activo</label>
