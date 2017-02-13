@@ -6,10 +6,10 @@
             <div class="logo">
                 <a href="index.html"><img src="/img/octagon/logo.png" alt="Octagon" /></a>
             </div><!-- End Logo -->
-            @include('octagon_layout.octagon_left_side.octagon_menu')
-            @include('octagon_layout.octagon_left_side.octagon_posts')
-            @include('octagon_layout.octagon_left_side.octagon_rated')
-            @include('octagon_layout.octagon_left_side.octagon_follow')
+            @include('fo.octagon_layout.octagon_left_side.octagon_menu')
+            @include('fo.octagon_layout.octagon_left_side.octagon_posts')
+            @include('fo.octagon_layout.octagon_left_side.octagon_rated')
+            @include('fo.octagon_layout.octagon_left_side.octagon_follow')
         </div>
         <!-- End Sidebar Menu -->
     </div>

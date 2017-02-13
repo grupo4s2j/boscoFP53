@@ -4,8 +4,8 @@
         <ul>
             <!-- ___Start Category Nav Life Style___ -->
             @foreach ($categorias as $categoria) 
-                <li id="life-style" class="mega-menu-li {{$categoria->Color}}">
-                    <a href="#0">{{$categoria->Nombre}}</a>
+                <li id="life-style" class="mega-menu-li {{$categoria->color}}">
+                    <a href="#0">{{$categoria->nombre}}</a>
                     <ul>
                         <li>
                             @if(count($categoria->subcategorias()) > 0)

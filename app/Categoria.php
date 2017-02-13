@@ -36,4 +36,17 @@ class Categoria extends Model
     {
         return $this->hasMany('App\Subcategoria', 'idCategoria', 'id');
     }
+    
+    public function colorCSS(){
+        switch ($this->color){
+            case 'Rojo': $this->color = 'life-style';break;
+            case 'Verde': $this->color = 'travel';break;
+            case 'Azul': $this->color = 'coding';break;
+            case 'Naranja': $this->color = 'music';break;
+            case 'Azulito': $this->color = 'sports';break;
+            case 'Lila': $this->color = 'design';break;
+            case 'Amarillo': $this->color = 'mobile';break;
+            case 'Rosa': $this->color = 'health';break;
+        }
+    }
 }

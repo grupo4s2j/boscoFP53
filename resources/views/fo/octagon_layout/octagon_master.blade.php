@@ -29,34 +29,34 @@
 			<div class="row	">
 
 				<!-- ___Start Left Menu___ -->
-				@include('octagon_layout.octagon_left_side')
+				@include('fo.octagon_layout.octagon_left_side')
 				<!-- End Left Menu -->
 				
 				<!-- ___Start Column___ -->
 				<div class="col-md-10 no-padding">
 				
                     <!-- ___Start Top Bar___ -->
-                    @include('octagon_layout.octagon_top_bar.octagon_top_bar')
+                    @include('fo.octagon_layout.octagon_top_bar.octagon_top_bar')
                     <!-- End Top Bar -->
 				
                     <!-- ___Start Top Menu___ -->
-                    @include('octagon_layout.octagon_top_bar.octagon_top_menu')
+                    @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu')
                     <!-- End Top Menu -->
                     
                     <!-- ___Start Column___ -->
-                    @include('octagon_layout.octagon_content')
+                    @include('fo.octagon_layout.octagon_content')
                     <!-- End Column -->
                     
                     <!-- ___Start Top Bar___ -->
-                    @include('octagon_layout.octagon_footer.octagon_trend_post')
+                    @include('fo.octagon_layout.octagon_footer.octagon_trend_post')
                     <!-- End Top Bar -->
 				
                     <!-- ___Start Top Menu___ -->
-                    @include('octagon_layout.octagon_footer.octagon_bottom')
+                    @include('fo.octagon_layout.octagon_footer.octagon_bottom')
                     <!-- End Top Menu -->
                     
                     <!-- ___Start Top Menu___ -->
-                    @include('octagon_layout.octagon_footer.octagon_footer')
+                    @include('fo.octagon_layout.octagon_footer.octagon_footer')
                     <!-- End Top Menu -->
                     
                 </div><!-- ___End Column___ -->

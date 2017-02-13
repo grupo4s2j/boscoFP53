@@ -29,8 +29,11 @@ class CategoriaController extends Controller
     public function indexfront()
     {
         $categorias = Categoria::all();
+        foreach ($categorias as $categoria){
+            $categoria->colorCSS();
+        }
 
-        return \View::make('index', compact('categorias'));
+        return \View::make('fo.index', compact('categorias'));
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
 
