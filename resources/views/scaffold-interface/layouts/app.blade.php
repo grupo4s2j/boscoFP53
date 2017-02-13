@@ -111,6 +111,16 @@
 								<i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
 							</a>
 						</li>
+						<?php
+						$entities=\Amranidev\ScaffoldInterface\Models\Scaffoldinterface::all();
+						?>
+						@foreach($entities as $entity)
+							<li class="active treeview">
+								<a href="{{url('/')}}/{{lcfirst(str_singular($entity->tablename))}}" >
+									<i class="fa {{$entity->logo}}"></i> <span>{{$entity->tablename}}</span></i>
+								</a>
+							</li>
+						@endforeach
 						<li class="header">ADMINISTRATOR</li>
 						<li class="treeview"><a href="{{url('/users')}}"><i class="fa fa-users"></i> <span>Users</span></a></li>
 						<li class="treeview"><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> <span>Role</span></a></li>
