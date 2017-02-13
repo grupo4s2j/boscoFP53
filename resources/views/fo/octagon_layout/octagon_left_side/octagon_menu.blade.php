@@ -15,18 +15,14 @@
                             <li><a href="home-6.html">Home Layout - 6</a></li>
                         </ul>
                     </li>
-                    <li><a href="about.html">About</a></li>
-                    <li class="sm-post"><a href="#0">Post Formats</a>
+                    <li class="sm-post"><a href="#0">Categorias</a>
                         <ul class="drop-menu">
-                        <li><a href="single-audio-post.html">Audio Post</a></li>
-                        <li><a href="single-link-post.html">Link Post</a></li>
-                        <li><a href="single-quote-post.html">Quote Post</a></li>
-                        <li><a href="single-slider-post.html">Slider Post</a></li>
-                        <li><a href="single-standard-post.html">Standard Post</a></li>
-                        <li><a href="single-tweet-post.html">Tweet Post</a></li>
-                        <li><a href="single-video-post.html">video Post</a></li>
+                            @foreach($categorias as $categoria)
+                                <li><a href="#">{{$categoria->nombre}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
+                    <li><a href="about.html">About</a></li>
                     <li class="short-code"><a href="#0">Pages</a>
                         <ul class="drop-menu">
                             <li><a href="elements.html">Elements</a></li>

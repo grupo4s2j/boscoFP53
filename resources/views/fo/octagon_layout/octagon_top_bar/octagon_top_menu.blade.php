@@ -8,8 +8,8 @@
                     <a href="#0">{{$categoria->nombre}}</a>
                     <ul>
                         <li>
-                            @if(count($categoria->subcategorias()) > 0)
-                                {{--$categoria->subcategorias()--}}
+                            @if(count($categoria->subcategorias) > 0)
+                                @include('fo.octagon_layout.octagon_top_bar.octagon_top_submenu')
                             @endif
                         </li>
                     </ul>
