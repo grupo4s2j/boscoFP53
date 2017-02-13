@@ -59,7 +59,7 @@ Route::group(['middleware'=> 'web'],function(){
   Route::get('recurso/{id}/delete','\App\Http\Controllers\RecursoController@destroy');
   Route::get('recurso/{id}/deleteMsg','\App\Http\Controllers\RecursoController@DeleteMsg');
 });
-//hola
+
 
 //recursossubcategoria Routes
 Route::group(['middleware'=> 'web'],function(){
