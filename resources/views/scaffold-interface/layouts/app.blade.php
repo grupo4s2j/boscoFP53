@@ -106,21 +106,22 @@
 					<!-- sidebar menu: : style can be found in sidebar.less -->
 					<ul class="sidebar-menu">
 						<li class="header">MAIN NAVIGATION</li>
-						<li class="active treeview">
+						<li {{{ (Request::is('dashboard') ? 'class=active' : '') }}}>
 							<a href="{{url('dashboard')}}">
 								<i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
 							</a>
 						</li>
-						<?php
-						$entities=\Amranidev\ScaffoldInterface\Models\Scaffoldinterface::all();
-						?>
-						@foreach($entities as $entity)
-							<li class="active treeview">
-								<a href="{{url('/')}}/{{lcfirst(str_singular($entity->tablename))}}" >
-									<i class="fa {{$entity->logo}}"></i> <span>{{$entity->tablename}}</span></i>
-								</a>
-							</li>
-						@endforeach
+							<li {{{ (Request::is('categoria') ? 'class=active' : '') }}}><a href="{{url('/categoria')}}"><i class='fa fa-square'></i> <span>Categorías</span></a></li>
+							<li {{{ (Request::is('subcategoria') ? 'class=active' : '') }}}><a href="{{ url('/subcategoria') }}"><i class='fa fa-square-o'></i> <span>Subcategorías</span></a></li>
+							<li {{{ (Request::is('entidadorganizativa') ? 'class=active' : '') }}}><a href="{{ url('entidadorganizativa') }}"><i class='fa 	
+fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
+							<li {{{ (Request::is('recurso') ? 'class=active' : '') }}}><a href="{{ url('recurso') }}"><i class='fa fa-newspaper-o'></i> <span>Recursos</span></a></li>
+							<li {{{ (Request::is('fichero') ? 'class=active' : '') }}}><a href="{{ url('fichero') }}"><i class='fa 	
+fa-file'></i> <span>Ficheros</span></a></li>
+							<li {{{ (Request::is('tag') ? 'class=active' : '') }}}><a href="{{ url('tag') }}"><i class='fa fa-hashtag'></i> <span>Tags</span></a></li>
+							<li {{{ (Request::is('banner') ? 'class=active' : '') }}}><a href="{{ url('banner') }}"><i class='fa fa-bullhorn'></i> <span>Banners</span></a></li>
+							<li {{{ (Request::is('evento') ? 'class=active' : '') }}}><a href="{{ url('evento') }}"><i class='fa fa-calendar'></i> <span>Eventos</span></a></li>
+							<li {{{ (Request::is('redsocial') ? 'class=active' : '') }}}><a href="{{ url('redsocial') }}"><i class='fa fa-twitter'></i> <span>Redes Sociales</span></a></li>
 						<li class="header">ADMINISTRATOR</li>
 						<li class="treeview"><a href="{{url('/users')}}"><i class="fa fa-users"></i> <span>Users</span></a></li>
 						<li class="treeview"><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> <span>Role</span></a></li>
