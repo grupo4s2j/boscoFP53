@@ -66,7 +66,6 @@
             idEntidadOrganizativa!!}">-->
                 <SELECT id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
             idEntidadOrganizativa!!}">>
-
                     @foreach($entidades as $entidad)
                         @if ($entidad->id==$recurso->idEntidadOrganizativa)
                                 <option value="{{$entidad->id}}" selected="selected" >{{$entidad->nombre}}</option>
