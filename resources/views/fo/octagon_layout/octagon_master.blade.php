@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="/css/octagon/style.css">				<!-- ===This Style sheet for Styling the full template=== -->
         <link rel="stylesheet" href="/css/octagon/responsive.css">			<!-- ===This Style sheet for making the template responsive for all devices=== -->
         <script src="/js/octagon/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="/js/octagon/jquery-3.1.1.js"></script>
     </head>
     <body>
 
