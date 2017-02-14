@@ -14,24 +14,24 @@
         id!!}/update'>
             <input type='hidden' name='_token' value='{{Session::token()}}'>
             <div class="form-group">
-                <label for="titulo">titulo</label>
+                <label for="titulo">Titulo</label>
                 <input id="titulo" name="titulo" type="text" class="form-control" value="{!!$recurso->
             titulo!!}">
             </div>
             <div class="form-group">
-                <label for="descripcion">descripcion</label>
+                <label for="descripcion">Descripcion</label>
                 <input id="descripcion" name="descripcion" type="text" class="form-control" value="{!!$recurso->
             descripcion!!}">
             </div>
             <div class="form-group">
-                <label for="contenido">contenido</label>
+                <label for="contenido">Contenido</label>
 
             <textarea id="contenido" name="contenido" type="text" class="ckeditor">
                 {!!$recurso->contenido!!}
             </textarea>
             </div>
             <div class="form-group">
-                <label for="img">img</label>
+                <label for="img">Imagen</label>
                 <input id="img" name="img" type="text" class="form-control" value="{!!$recurso->
             img!!}">
             </div>
@@ -51,17 +51,17 @@
             fechaFin!!}">
             </div>
             <div class="form-group">
-                <label for="rangoEdad">rangoEdad</label>
+                <label for="rangoEdad">Rango de edad</label>
                 <input id="rangoEdad" name="rangoEdad" type="text" class="form-control" value="{!!$recurso->
             rangoEdad!!}">
             </div>
             <div class="form-group">
-                <label for="relevancia">relevancia</label>
+                <label for="relevancia">Relevancia</label>
                 <input id="relevancia" name="relevancia" type="text" class="form-control" value="{!!$recurso->
             relevancia!!}">
             </div>
             <div class="form-group">
-                <label for="idEntidadOrganizativa">EntidadOrganizativa</label>
+                <label for="idEntidadOrganizativa">Entidad organizativa</label>
                 <!-- <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
             idEntidadOrganizativa!!}">-->
                 <SELECT id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
@@ -69,10 +69,9 @@
 
                     @foreach($entidades as $entidad)
                         @if ($entidad->id==$recurso->idEntidadOrganizativa)
-                            <option value="{{$entidad->id}}" selected="selected" >{{$entidad->nombre}}</option>
+                                <option value="{{$entidad->id}}" selected="selected" >{{$entidad->nombre}}</option>
                             @else
-
-                            <option value="{{$entidad->id}}">{{$entidad->nombre}}</option>
+                                <option value="{{$entidad->id}}">{{$entidad->nombre}}</option>
                         @endif
                     @endforeach
                 </SELECT>
