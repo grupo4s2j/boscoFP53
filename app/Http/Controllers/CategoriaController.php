@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Categoria;
+use App\Tag;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 
@@ -29,11 +30,12 @@ class CategoriaController extends Controller
     public function indexfront()
     {
         $categorias = Categoria::all();
+        $tags = Tag::all();
         foreach ($categorias as $categoria){
             $categoria->colorCSS();
         }
 
-        return \View::make('fo.index', compact('categorias'));
+        return \View::make('fo.home', compact('categorias', 'tags'));
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
 
