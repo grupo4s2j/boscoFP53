@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Categoria;
+use App\Tag;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 
@@ -24,14 +25,6 @@ class CategoriaController extends Controller
         $title = 'Index - categoria';
         $categorias = Categoria::paginate(6);
         return view('categoria.index', compact('categorias', 'title'));
-    }
-
-    public function indexfront()
-    {
-        $categorias = Categoria::all();
-
-        return \View::make('index', compact('categorias'));
-        //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
 
     /**
