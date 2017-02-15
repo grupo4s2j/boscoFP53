@@ -41,7 +41,8 @@
 <div class="login-wrap">
     <div class="login-html">
         <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">  <!-- Sign Up --> </label>
+
         <div class="login-form">
 
             <div class="sign-in-htm">
@@ -81,12 +82,13 @@
                     <div class="hr"></div>
                     <div class="foot-lnk">
                         <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                            Forgot Your Password?
+                           <!-- Forgot Your Password?-->
                         </a>
                     </div>
 
                 </form>
             </div>
+
             <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
                 <div class="sign-up-htm">
