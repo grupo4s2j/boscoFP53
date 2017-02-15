@@ -1,39 +1,44 @@
 @extends('scaffold-interface.layouts.app')
-@section('title','Edit')
 @section('content')
-
 <section class="content">
-    <h1>
-        Edit subcategoria
-    </h1>
-    <form method = 'get' action = '{!!url("subcategoria")!!}'>
-        <button class = 'btn btn-danger'>subcategoria Index</button>
-    </form>
-    <br>
-    <form method = 'POST' action = '{!! url("subcategoria")!!}/{!!$subcategoria->
+    <div class="box box-primary">
+        <div class="box-header">
+            <h3>Editar Subcategoria ({{$subcategoria->nombre}})</h3>
+        </div>
+        <div class="box-body">
+            <form method = 'POST' action = '{!! url("subcategoria")!!}/{!!$subcategoria->
         id!!}/update'> 
-        <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
-        <div class="form-group">
-            <label for="idCategoria">idCategoria</label>
-            <input id="idCategoria" name = "idCategoria" type="text" class="form-control" value="{!!$subcategoria->
-            idCategoria!!}"> 
+                {!! csrf_field() !!}
+                <input type="hidden" name = "user_id" value = "{{$subcategoria->id}}">
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input type="text" name = "nombre" value = "{{$subcategoria->nombre}}" class = "form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Orden</label>
+                    <input type="text" name = "orden" value = "{{$subcategoria->orden}}" class = "form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Activo</label>
+                    <input type="text" name = "activo" value = "{{$subcategoria->activo}}" class = "form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Categoría</label>
+                    <select name="idCategoria" id="" class = "form-control">
+                        @foreach($categorias as $categoria)
+                        @if ($categoria->id==$subcategoria->idCategoria)
+                                <option value="{{$categoria->id}}" selected="selected">{{$categoria->nombre}}</option>
+                            @else
+                                <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                        @endif
+                        
+                        @endforeach
+                    </select>
+                </div>
+                <button class = "btn btn-primary" type="submit">Guardar</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="nombre">nombre</label>
-            <input id="nombre" name = "nombre" type="text" class="form-control" value="{!!$subcategoria->
-            nombre!!}"> 
-        </div>
-        <div class="form-group">
-            <label for="orden">orden</label>
-            <input id="orden" name = "orden" type="text" class="form-control" value="{!!$subcategoria->
-            orden!!}"> 
-        </div>
-        <div class="form-group">
-            <label for="activo">activo</label>
-            <input id="activo" name = "activo" type="text" class="form-control" value="{!!$subcategoria->
-            activo!!}"> 
-        </div>
-        <button class = 'btn btn-primary' type ='submit'>Update</button>
-    </form>
+    </div>
 </section>
 @endsection
+    
