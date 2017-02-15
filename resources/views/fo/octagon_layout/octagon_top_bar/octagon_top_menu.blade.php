@@ -17,11 +17,13 @@
             @endforeach
             <!-- End Category Nav Life Style -->
         </ul>
-        <ul>        
-            <div class="load-more load-more-btn scroll" style="cursor:pointer;">
-                <div id="loadMore" class="morebtn text-center"><i class="fa fa-plus"></i> Load more</div>
-            </div>
-        </ul>
+        @if(count($categorias) > 8)
+            <ul>        
+                <div class="load-more load-more-btn scroll" style="cursor:pointer;">
+                    <div id="loadMore" class="morebtn text-center"><i class="fa fa-plus"></i> Load more</div>
+                </div>
+            </ul>
+        @endif
     </div>
 </div>
 <!-- End Category Nav -->

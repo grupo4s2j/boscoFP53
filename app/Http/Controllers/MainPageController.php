@@ -9,7 +9,7 @@ class MainPageController extends Controller
 {
     public function index()
     {
-        $categorias = \App\Categoria::all();
+        $categorias = \App\Categoria::take(8)->get();//all();
         $tags = \App\Tag::topRatedTags();
         //$sumtags = \App\Tag::sumTopRatedTags();
         foreach ($categorias as $categoria){
