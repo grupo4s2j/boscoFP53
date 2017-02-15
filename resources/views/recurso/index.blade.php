@@ -15,7 +15,7 @@
         <thead>
             <th>titulo</th>
             <th>descripcion</th>
-            <th>contenido</th>
+           <!-- <th>contenido</th>-->
             <th>img</th>
             <th>fechaPost</th>
             <th>fechaInicio</th>
@@ -31,7 +31,7 @@
             <tr>
                 <td>{!!$recurso->titulo!!}</td>
                 <td>{!!$recurso->descripcion!!}</td>
-                <td>{!!$recurso->contenido!!}</td>
+                <!--<td>{/*!!$recurso->contenido!!*/}</td>-->
                 <td>{!!$recurso->img!!}</td>
                 <td>{!!$recurso->fechaPost!!}</td>
                 <td>{!!$recurso->fechaInicio!!}</td>

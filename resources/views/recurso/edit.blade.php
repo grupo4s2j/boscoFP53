@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="img">Imagen</label>
-                <input id="img" name="img" type="text" class="form-control" value="{!!$recurso->
+                <input id="img" name="img" type="file" class="form-control" value="{!!$recurso->
             img!!}">
             </div>
             <div class="form-group">
@@ -66,7 +66,6 @@
             idEntidadOrganizativa!!}">-->
                 <SELECT id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
             idEntidadOrganizativa!!}">>
-
                     @foreach($entidades as $entidad)
                         @if ($entidad->id==$recurso->idEntidadOrganizativa)
                                 <option value="{{$entidad->id}}" selected="selected" >{{$entidad->nombre}}</option>

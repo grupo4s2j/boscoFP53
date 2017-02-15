@@ -159,7 +159,7 @@ class RecursoController extends Controller
         
         $recurso->contenido = $request->contenido;
         
-        $recurso->img = $request->img;
+        $recurso->img ="img/recurs/". $request->img;
         
         $recurso->fechaPost = $request->fechaPost;
         
@@ -174,9 +174,15 @@ class RecursoController extends Controller
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
         
         $recurso->activo = $request->activo;
-        
-        
+
+       /* $img=$request->file('img');
+        $name_img=$request->img;
+        $img->move('/img/recur/',$name_img);
+*/
+        //\Storage::disk('recurs')->put($name_img,\File::get($img));
+
         $recurso->save();
+
 
         return redirect('recurso');
     }
