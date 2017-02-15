@@ -27,18 +27,6 @@ class CategoriaController extends Controller
         return view('categoria.index', compact('categorias', 'title'));
     }
 
-    public function indexfront()
-    {
-        $categorias = Categoria::all();
-        $tags = Tag::all();
-        foreach ($categorias as $categoria){
-            $categoria->colorCSS();
-        }
-
-        return \View::make('fo.home', compact('categorias', 'tags'));
-        //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
-    }
-
     /**
      * Show the form for creating a new resource.
      *

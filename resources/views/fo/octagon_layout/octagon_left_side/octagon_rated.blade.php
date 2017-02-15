@@ -6,22 +6,22 @@
 
             <!-- ___Start Top Rated Body___ -->
             <div class="top-rated-body">
-
-                <a href="#0" class="top-rated-item javascript">
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+                @foreach($tags as $tag)
+                    <a href="#0" class="top-rated-item {{$tag->color}}">
+                        <div class="progress" style="width:60%">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{$tag->porcentaje}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$tag->porcentaje}}%;">
+                            </div>
                         </div>
-                    </div>
-                    <div class="top-rated-heading">{{$tags[0]->nombre}}</div>
+                        <div class="top-rated-heading">{{$tag->nombre}}</div>
 
-                    <div class="top-rated-count">
-                        <div class="progress-score">
-                            <i class="fa fa-eye"></i>
-                            <span>2564</span>
+                        <div class="top-rated-count">
+                            <div class="progress-score">
+                                <i class="fa fa-eye"></i>
+                                <span>{{$tag->usado}}</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <!-- End Java Script -->
+                    </a>
+                @endforeach
             </div><!-- End Top Rated Body -->
         </div><!-- End Accordion Content -->
     </div><!-- End Top Rated Head -->

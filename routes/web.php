@@ -136,7 +136,7 @@ Route::group(['middleware'=> 'web'],function(){
 
 ////////FRONTOFFICE////////////////
 
-Route::get('home', 'CategoriaController@indexfront');
+Route::get('home', 'MainPageController@index');
 Route::get('/', function() {
     return view('fo.index');
 });

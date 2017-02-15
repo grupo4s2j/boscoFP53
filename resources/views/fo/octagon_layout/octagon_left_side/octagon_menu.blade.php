@@ -15,15 +15,15 @@
                             <li><a href="home-6.html">Home Layout - 6</a></li>
                         </ul><--></-->
                     </li>
-                    <li class="sm-post"><a href="#0">Categorias</a>
-                        <ul class="drop-menu">
+                    <li class="sm-post"><a href="categorias">Categorias</a>
+                        <!--<ul class="drop-menu">
                             @foreach($categorias as $categoria)
                                 <li><a href="#">{{$categoria->nombre}}</a></li>
                             @endforeach
-                        </ul>
+                        </ul>-->
                     </li>
-                    <li><a href="about.html">Nosotros</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about">Nosotros</a></li>
+                    <li><a href="contact">Contact</a></li>
                 </ul>
             </div><!-- End Menu Body -->
         </div><!-- End According Content -->

@@ -8,7 +8,9 @@
             </div><!-- End Logo -->
             @include('fo.octagon_layout.octagon_left_side.octagon_menu')
             @include('fo.octagon_layout.octagon_left_side.octagon_posts')
-            @include('fo.octagon_layout.octagon_left_side.octagon_rated')
+            @if(!empty($tags))
+                @include('fo.octagon_layout.octagon_left_side.octagon_rated')
+            @endif
             {{--@include('fo.octagon_layout.octagon_left_side.octagon_follow')--}}
         </div>
         <!-- End Sidebar Menu -->
