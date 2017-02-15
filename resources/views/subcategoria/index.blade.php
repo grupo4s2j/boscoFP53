@@ -13,8 +13,8 @@
     <br>
     <table class = "table table-striped table-bordered table-hover" style = 'background:#fff'>
         <thead>
-            <th>Categoría</th>
             <th>Nombre</th>
+            <th>Categoría</th>
             <th>Orden</th>
             <th>Activo</th>
             <th>Acciones</th>
@@ -22,8 +22,8 @@
         <tbody>
             @foreach($subcategorias as $subcategoria) 
             <tr>
-                <td>{!!$subcategoria->categoria->nombre!!}</td>
                 <td>{!!$subcategoria->nombre!!}</td>
+                <td>{!!$subcategoria->categoria->nombre!!}</td>
                 <td>{!!$subcategoria->orden!!}</td>
                 <td>{!!$subcategoria->activo!!}</td>
                 <td>
