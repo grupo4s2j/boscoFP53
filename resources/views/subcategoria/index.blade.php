@@ -13,17 +13,17 @@
     <br>
     <table class = "table table-striped table-bordered table-hover" style = 'background:#fff'>
         <thead>
-            <th>idCategoria</th>
-            <th>nombre</th>
-            <th>orden</th>
-            <th>activo</th>
-            <th>actions</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Orden</th>
+            <th>Activo</th>
+            <th>Acciones</th>
         </thead>
         <tbody>
             @foreach($subcategorias as $subcategoria) 
             <tr>
-                <td>{!!$subcategoria->idCategoria!!}</td>
                 <td>{!!$subcategoria->nombre!!}</td>
+                <td>{!!$subcategoria->categoria->nombre!!}</td>
                 <td>{!!$subcategoria->orden!!}</td>
                 <td>{!!$subcategoria->activo!!}</td>
                 <td>

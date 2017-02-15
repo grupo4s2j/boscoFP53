@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Subcategoria;
+use App\Categoria;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 
@@ -116,7 +117,8 @@ class SubcategoriaController extends Controller
 
         
         $subcategoria = Subcategoria::findOrfail($id);
-        return view('subcategoria.edit',compact('title','subcategoria'  ));
+        $categorias = Categoria::all();
+        return view('subcategoria.edit',compact('title','subcategoria','categorias'  ));
     }
 
     /**

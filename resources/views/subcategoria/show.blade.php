@@ -21,7 +21,7 @@
                 <td>
                     <b><i>idCategoria : </i></b>
                 </td>
-                <td>{!!$subcategoria->idCategoria!!}</td>
+                <td>{!!$subcategoriaa->idCategoria!!}</td>
             </tr>
             <tr>
                 <td>
