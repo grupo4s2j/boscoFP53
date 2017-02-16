@@ -54,17 +54,31 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => /*env('DB_HOST'),*/'g5s2aw.sdslab.cat',
+            'host' => 'g5s2aw.sdslab.cat',
             'port' => env('DB_PORT', '3306'),
-            'database' => /*env('DB_DATABASE', 'forge'),*/'g5s2aw_boscofp',
-            'username' => /*env('DB_USERNAME', 'forge'),*/'g5s2aw_root',
-            'password' =>  /*env('DB_PASSWORD'),*/'12345aA',
+            'database' => 'g5s2aw_boscofp',
+            'username' => 'g5s2aw_root',
+            'password' =>  '12345aA',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
             'strict' => true,
             'engine' => null,
         ],
+    
+        /*'mysql' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' =>  env('DB_PASSWORD'),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],*/
 
         'pgsql' => [
             'driver' => 'pgsql',

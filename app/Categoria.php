@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $Nombre
  * @property string $Color
  * @property string $Img
+ * @property string $Logo
  * @property integer $Orden
  * @property integer $Activo
  * @property Subcategoria[] $subcategorias
@@ -27,7 +28,7 @@ class Categoria extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nombre', 'color', 'img', 'orden', 'activo','logo'];
+    protected $fillable = ['nombre', 'color', 'img', 'logo', 'orden', 'activo','logo'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

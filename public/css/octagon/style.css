@@ -32,6 +32,11 @@
     9.  Pages
 
 */
+/* Template Name : FabLab
+
+    1.  Categorias
+
+*/
 
 /************************
     Color Variable
@@ -3332,3 +3337,69 @@ a.icon-right {
 }
 .elements.load-more {line-height: 50px;padding: 0;}
 .post-author-left img {margin: 0 auto;}
+
+/* Template Name : FabLab
+
+    1.  Categorias
+
+*/
+
+#content-blocks {
+	padding-bottom: 30px;
+	width: auto;	
+	text-align: center;
+}
+
+#content-blocks-row {
+	padding-top: 30px;
+}
+ 
+
+.content-blocks-button {
+	background: #000000;    
+}
+
+#content-blocks h2 {
+	position: absolute;
+	top: 110px;  
+    width: 90%;
+    color: white;
+
+}
+
+#content-blocks-row {
+	padding-top: 30px;
+}
+
+.content-blocks-button {
+	background: #000000;    
+}
+
+#main-menu-button{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.image-fade {
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+
+.image-fade:hover {
+    opacity: 0.5;
+
+}
+
+.image-fade {
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+
+.image-fade:hover {
+    opacity: 0.5;
+
+}

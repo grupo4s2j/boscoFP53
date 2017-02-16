@@ -1,3 +1,4 @@
+@section('content')
 <!-- ___Main Content___ -->
 <div class="main-content">
     <div class="main-slider">
@@ -649,3 +650,4 @@
         </div> <!-- End Row -->
     </div> <!-- End Main Body Post -->
 </div> <!-- End Main Content -->
+@endsection

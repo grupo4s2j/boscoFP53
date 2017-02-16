@@ -30,6 +30,13 @@ class RecursoController extends Controller
 
         return view('recurso.index',compact('recursos','title'));
     }
+    
+    public function indexFront()
+    {
+        //return \View::make('fo.categorias');
+
+        return view('fo.recursos');
+    }
 
     /**
      * Show the form for creating a new resource.
