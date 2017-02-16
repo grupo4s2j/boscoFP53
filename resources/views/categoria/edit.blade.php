@@ -31,6 +31,7 @@
         <div class="form-group">
             <label for="logo">logo</label>
             <select id="logo" name="logo" type="text" class="form-control" style="font-family: 'FontAwesome', 'sans-serif'">
+                <option value="{!!$categoria-> logo!!}" selected="selected"  >{!!$categoria-> logo!!}</option>
                 <option value="fa-align-left">&#xf036; fa-align-left</option>
                 <option value="fa-align-right">&#xf038; fa-align-right</option>
                 <option value="fa-amazon">&#xf270; fa-amazon</option>
