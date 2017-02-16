@@ -65,7 +65,8 @@ class CategoriaController extends Controller
 
         $categoria->activo = $request->activo;
 
-
+        $categoria->logo = $request->logo;
+        
         $categoria->save();
 
         $pusher = App::make('pusher');
@@ -139,6 +140,7 @@ class CategoriaController extends Controller
 
         $categoria->activo = $request->activo;
 
+        $categoria->logo = $request->logo;
 
         $categoria->save();
 
