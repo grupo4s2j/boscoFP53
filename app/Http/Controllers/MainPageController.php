@@ -26,7 +26,7 @@ class MainPageController extends Controller
     public function indexFront()
     {
         //return \View::make('fo.home', compact('categorias', 'tags'));
-        return view('fo.home', compact('categorias', 'tags'));
+        return view('fo.home');
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
 }
