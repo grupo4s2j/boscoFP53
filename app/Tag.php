@@ -38,12 +38,24 @@ class Tag extends Model
     {
         $colores = ['javascript', 'iphone', 'top-hills', 'wordpress', 'ebola-virus'];
         $tags = \DB::table('tags')->orderBy('usado', 'desc')->take(5)->get();
-        $sumtags = 3000;//\DB::table('tags')->selectRaw('sum(usado) as total')->groupBy('usado')->orderBy('usado', 'desc')->take(5)->get();
+        $sumtags = \App\Tag::sumaTags($tags);
+        //$prueba = \DB::table('tags')->selectRaw('sum(usado) as total')->groupBy('usado')->orderBy('usado', 'desc')->take(5)->get();
+        //$prueba = \DB::table('tags')->select(DB::raw('sum(usado)'))->groupBy('usado')->orderBy('usado', 'desc')->take(5)->get();
         
         foreach($tags as $tag){
             $tag->color = $colores[array_rand($colores, 1)];
             $tag->porcentaje = round((100*$tag->usado)/$sumtags);
         }
         return $tags;
+    }
+    
+    public static function sumaTags($tags)
+    {
+        $i = 0;
+        
+        foreach($tags as $tag){
+            $i += $tag->usado;
+        }
+        return $i;
     }
 }
