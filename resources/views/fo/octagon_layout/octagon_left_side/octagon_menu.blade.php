@@ -17,9 +17,9 @@
                     </li>
                     <li class="sm-post"><a href="categorias">Categorias</a>
                         <!--<ul class="drop-menu">
-                            @foreach($categorias as $categoria)
-                                <li><a href="#">{{$categoria->nombre}}</a></li>
-                            @endforeach
+                            {{--@foreach($categorias as $categoria)--}}
+                                <li><a href="#">{{--$categoria->nombre--}}</a></li>
+                            {{--@endforeach--}}
                         </ul>-->
                     </li>
                     <li><a href="about">Nosotros</a></li>

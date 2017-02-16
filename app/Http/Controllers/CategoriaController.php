@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Categoria;
-use App\Tag;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 
@@ -25,6 +24,13 @@ class CategoriaController extends Controller
         $title = 'Index - categoria';
         $categorias = Categoria::paginate(6);
         return view('categoria.index', compact('categorias', 'title'));
+    }
+    
+    public function indexFront()
+    {
+        $categorias = \App\Categoria::all();
+
+        return view('fo.categorias', compact('categorias'));
     }
 
     /**

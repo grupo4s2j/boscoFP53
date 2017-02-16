@@ -16,4 +16,4 @@
             </a>
         </div>
     </div><!-- End Post Bottom Content -->
-</div><!-- End Column -->
+</div>

@@ -41,11 +41,16 @@
                     <!-- End Top Bar -->
 				
                     <!-- ___Start Top Menu___ -->
-                    @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu')
+                    @if(isset($categorias))
+                        @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu')
+                    @endif
                     <!-- End Top Menu -->
                     
                     <!-- ___Start Column___ -->
-                    @include('fo.octagon_layout.octagon_content')
+                    <div class="main-content">
+                        {{--@include('fo.octagon_layout.octagon_content')--}}
+                        @yield('content')
+                    </div>
                     <!-- End Column -->
                     
                     <!-- ___Start Top Bar___ -->
