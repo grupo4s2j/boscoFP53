@@ -69,7 +69,7 @@
 
                     <div class="form-group">
                         <label for="tag_list">Tags:</label>
-                        <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>
+                        <select id="tag_list" name="tag_list[]" class="form-control" multiple required></select>
                     </div>
 
 
