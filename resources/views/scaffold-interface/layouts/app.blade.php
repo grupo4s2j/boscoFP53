@@ -183,7 +183,7 @@ fa-file'></i> <span>Ficheros</span></a></li>
 			$('#tag_list').select2({
 				placeholder: "Choose tags...",
 				tags: true,
-				//tokenSeparators: [',', ' '],
+				tokenSeparators: [',', ' '],
 				minimumInputLength: 2,
 				ajax: {
 					url: '/tag/find',
