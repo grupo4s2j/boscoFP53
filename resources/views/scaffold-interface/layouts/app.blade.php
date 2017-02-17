@@ -7,7 +7,11 @@
 		<!-- Tell the browser to be responsive to screen width -->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<!-- Bootstrap 3.3.7 -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- After Selec2 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+		<!-- Before Selec2 -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
 		<!-- Font Awesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 		<!-- Ionicons -->
@@ -140,8 +144,14 @@ fa-file'></i> <span>Ficheros</span></a></li>
 			</div>
 		</div>
 		<!-- Compiled and minified JavaScript -->
-		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<!-- After select2 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+		<!-- Before select2-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+		<!-- /Before select2-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/app.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/demo.js"></script>
 		<script> var baseURL = "{{ URL::to('/') }}"</script>
@@ -168,6 +178,30 @@ fa-file'></i> <span>Ficheros</span></a></li>
 			</li>'
 			);
 		});
+		</script>
+		<script>
+			$('#tag_list').select2({
+				placeholder: "Choose tags...",
+				tags: true,
+				tokenSeparators: [',', ' '],
+				ajax: {
+					url: '/tag/find',
+					dataType: 'json',
+					data: function (params) {
+
+						return {
+							q: $.trim(params.term)
+						};
+					},
+					processResults: function (data) {
+						return {
+							results: data
+						};
+						alert(data);
+					},
+					cache: true
+				}
+			});
 		</script>
 	</body>
 </html>

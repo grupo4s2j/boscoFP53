@@ -66,9 +66,17 @@
                         <label for="activo">activo</label>
                         <input id="activo" name="activo" type="text" class="form-control">
                     </div>
+
+                    <div class="form-group">
+                        <label for="tag_list">Tags:</label>
+                        <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>
+                    </div>
+
+
                     <button class='btn btn-primary' type='submit'>Create</button>
                 </form>
             </div>
         </div>
+
     </section>
 @endsection

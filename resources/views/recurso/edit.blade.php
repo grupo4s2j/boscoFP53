@@ -80,6 +80,10 @@
                 <input id="activo" name="activo" type="text" class="form-control" value="{!!$recurso->
             activo!!}">
             </div>
+            <div class="form-group">
+                <label for="tag_list">Tags:</label>
+                <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>
+            </div>
             <button class='btn btn-primary' type='submit'>Update</button>
         </form>
     </section>

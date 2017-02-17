@@ -1,7 +1,6 @@
 # Associate users with roles and permissions
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-permission.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-permission)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/spatie/laravel-permission/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-permission)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/a25f93ac-5e8f-48c8-a9a1-5d3ef3f9e8f2.svg?style=flat-square)](https://insight.sensiolabs.com/projects/a25f93ac-5e8f-48c8-a9a1-5d3ef3f9e8f2)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-permission.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-permission)
@@ -345,6 +344,17 @@ Saved permission and roles are also registered with the `Illuminate\Auth\Access\
 ```php
 $user->can('edit articles');
 ```
+All permissions of roles that user is assigned to are inherited to the 
+user automatically. In addition to these permissions particular permission can be assigned to the user too. For instance, 
+```php
+$role->givePermissionTo('edit articles');
+$user->assignRole('writer');
+
+$user->givePermissionTo('delete articles');
+```
+In above example a role is given permission to edit articles and this role is assigned to a user. Now user can edit articles and additionaly delete articles. The permission of 'delete articles' is his direct permission because it is assigned directly to him. When we call `$user->hasDirectPermission('delete articles')` it returns `True` and `False` for `$user->hasDirectPermission('edit articles')`. 
+
+This method is useful if one has a form for setting permissions for roles and users in his application and want to restrict to change inherited permissions of roles of user, i.e. allowing to change only direct permissions of user.
 
 ###Using blade directives
 This package also adds Blade directives to verify whether the

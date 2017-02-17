@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Sofa\Eloquence\Eloquence;
 
 /**
  * Class Tag.
@@ -15,8 +15,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * */
 class Tag extends Model
 {
-	
-	
+
+    use Eloquence;
+
     public $timestamps = false;
     
     protected $table = 'tags';
@@ -25,7 +26,23 @@ class Tag extends Model
      * @var array
      */
     protected $fillable = ['nombre', 'usado'];
+    protected $searchableColumns = ['nombre'];
 
+
+    /**
+     * @param $term
+     * @return mixed
+     * NO FUNCIONA
+     */
+    public static function searchTag($term, $num){
+       //$res= Tag::search($term)->limit(5)->get();
+        $res= \DB::table('tags')
+            ->where('nombre','like', $term )
+            ->take($num)
+            ->get();
+      
+        return $res;
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

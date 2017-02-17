@@ -91,6 +91,7 @@ Route::group(['middleware'=> 'web'],function(){
   Route::post('tag/{id}/update','\App\Http\Controllers\TagController@update');
   Route::get('tag/{id}/delete','\App\Http\Controllers\TagController@destroy');
   Route::get('tag/{id}/deleteMsg','\App\Http\Controllers\TagController@DeleteMsg');
+  Route::get('/tag/find', '\App\Http\Controllers\TagController@find');
 });
 
 //recursotag Routes

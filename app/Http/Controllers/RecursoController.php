@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Entidadorganizativa;
+use App\Tag;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Recurso;
+use App\Recursotag;
+
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 
@@ -96,6 +99,33 @@ class RecursoController extends Controller
         
         
         $recurso->save();
+        
+/*
+         foreach ($request->tag_list as $tag){
+             $ptag=Tag::searchTag($tag,1);
+             $p= $ptag.hasItem();
+             if ($p=="[]()" ){
+                 $newTag=new Tag();
+                 $newTag->nombre=$tag;
+                 $newTag->usado=0;
+                 $newTag->save();
+
+                 $newRecTag = new Recursotag();
+                 $newRecTag->idTag=$newTag->id;
+                 $newRecTag->idRecursos=$recurso->id;
+                 $newRecTag->activo=1;
+                 $newRecTag->save();
+             }else{
+                 $newRecTag = new Recursotag();
+                 $newRecTag->idTag=$ptag[0]->id;
+                 $newRecTag->idRecursos=$recurso->id;
+                 $newRecTag->activo=1;
+                 $newRecTag->save();
+
+             }
+         }
+*/
+        
 
         $pusher = App::make('pusher');
 
@@ -191,6 +221,30 @@ class RecursoController extends Controller
         $recurso->save();
 
 
+
+        foreach ($request->tag_list as $tag){
+            $ptag=Tag::searchTag($tag,1);
+            $p= $ptag.hasItem();
+            if ($p=="[]()" ){
+                $newTag=new Tag();
+                $newTag->nombre=$tag;
+                $newTag->usado=0;
+                $newTag->save();
+
+                $newRecTag = new Recursotag();
+                $newRecTag->idTag=$newTag->id;
+                $newRecTag->idRecursos=$recurso->id;
+                $newRecTag->activo=1;
+                $newRecTag->save();
+            }else{
+                $newRecTag = new Recursotag();
+                $newRecTag->idTag=$ptag[0]->id;
+                $newRecTag->idRecursos=$recurso->id;
+                $newRecTag->activo=1;
+                $newRecTag->save();
+
+            }
+        }
         return redirect('recurso');
     }
 
