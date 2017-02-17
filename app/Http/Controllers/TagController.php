@@ -39,10 +39,12 @@ class TagController extends Controller
         $term = trim($request->q);
 
         if (empty($term)) {
-            return \Respons::json([]);
+            return \Response::json([]);
         }
 
-        $tags = Tag::search($term)->limit(5)->get();
+        $tags = Tag::searchTag("%".$term."%",5);
+            //Tag::searchTag("%".$term."%",5);
+            //Tag::search($term)->limit(5)->get();
 
         $formatted_tags = [];
 

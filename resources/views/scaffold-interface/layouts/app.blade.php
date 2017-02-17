@@ -183,7 +183,8 @@ fa-file'></i> <span>Ficheros</span></a></li>
 			$('#tag_list').select2({
 				placeholder: "Choose tags...",
 				tags: true,
-				tokenSeparators: [',', ' '],
+				//tokenSeparators: [',', ' '],
+				minimumInputLength: 2,
 				ajax: {
 					url: '/tag/find',
 					dataType: 'json',
@@ -197,11 +198,13 @@ fa-file'></i> <span>Ficheros</span></a></li>
 						return {
 							results: data
 						};
-						alert(data);
+
 					},
 					cache: true
 				}
 			});
+			/*http://laraget.com/blog/select2-and-laravel-ajax-autocomplete*/
+			/*http://jsfiddle.net/X6V2s/66/*/
 		</script>
 	</body>
 </html>
