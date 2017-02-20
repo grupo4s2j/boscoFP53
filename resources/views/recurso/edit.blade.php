@@ -84,6 +84,7 @@
                 <label for="tag_list">Tags:</label>
                 <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>
             </div>
+            <script> var data ={!!$tags!!}</script>
             <button class='btn btn-primary' type='submit'>Update</button>
         </form>
     </section>
