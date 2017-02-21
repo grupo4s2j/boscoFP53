@@ -5,7 +5,7 @@
             <div class="row margin-zero">
                 <div class="col-md-3 col-sm-3 no-padding">
                     <div class="submenu-lists">
-                        <h4>{{$categoria->nombre}} News <i class="fa fa-leaf"></i></h4>
+                        <h4>{{$categoria->nombre}} News <i class="fa {{$categoria->logo}}"></i></h4>
                         <!-- ___Nav Tabs___ -->
                         <div class="nav nav-tabs" role="tablist">
                             @foreach($categoria->subcategorias as $subcategoria)

@@ -3381,25 +3381,24 @@ a.icon-right {
 }
 
 .image-fade {
-   opacity: 1;
+   opacity: 0.5;
    transition: opacity .25s ease-in-out;
    -moz-transition: opacity .25s ease-in-out;
    -webkit-transition: opacity .25s ease-in-out;
 }
 
-.image-fade:hover {
-    opacity: 0.5;
-
+.zoomIt{
+    display:block!important;
+    -webkit-transition:-webkit-transform 1s ease-out;
+    -moz-transition:-moz-transform 1s ease-out;
+    -o-transition:-o-transform 1s ease-out;
+    -ms-transition:-ms-transform 1s ease-out;
+    transition:transform 1s ease-out;
 }
-
-.image-fade {
-   opacity: 1;
-   transition: opacity .25s ease-in-out;
-   -moz-transition: opacity .25s ease-in-out;
-   -webkit-transition: opacity .25s ease-in-out;
-}
-
-.image-fade:hover {
-    opacity: 0.5;
-
+.zoomIt:hover{
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1)
 }
