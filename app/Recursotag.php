@@ -43,4 +43,21 @@ class Recursotag extends Model
     {
         return $this->belongsTo('App\Tag', 'idTag', 'id');
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public static function findTagsInRecurs ($id)
+    {
+        $res= \DB::table('recursotags')
+            ->join('tags', 'recursotags.idTag', '=', 'tags.id')
+            ->select('recursotags.idTag as id',  'tags.nombre as text', 'recursotags.id as idrs')
+            ->where('idRecursos','=', $id )
+            ->get();
+
+        return $res;
+    }
+
 }
+

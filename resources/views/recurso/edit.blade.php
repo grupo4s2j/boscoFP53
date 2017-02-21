@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content">
-        <h1>
+        <h1 id="titl">
             Edit recurso
         </h1>
         <form method='get' action='{!!url("recurso")!!}'>
@@ -37,17 +37,17 @@
             </div>
             <div class="form-group">
                 <label for="fechaPost">fechaPost</label>
-                <input id="fechaPost" name="fechaPost" type="text" class="form-control" value="{!!$recurso->
+                <input id="fechaPost" name="fechaPost" type="text" class="form-control datepicker" value="{!!$recurso->
             fechaPost!!}">
             </div>
             <div class="form-group">
                 <label for="fechaInicio">fechaInicio</label>
-                <input id="fechaInicio" name="fechaInicio" type="text" class="form-control" value="{!!$recurso->
+                <input id="fechaInicio" name="fechaInicio" type="text" class="form-control datepicker" value="{!!$recurso->
             fechaInicio!!}">
             </div>
             <div class="form-group">
                 <label for="fechaFin">fechaFin</label>
-                <input id="fechaFin" name="fechaFin" type="text" class="form-control" value="{!!$recurso->
+                <input id="fechaFin" name="fechaFin" type="text" class="form-control datepicker" value="{!!$recurso->
             fechaFin!!}">
             </div>
             <div class="form-group">
@@ -80,6 +80,11 @@
                 <input id="activo" name="activo" type="text" class="form-control" value="{!!$recurso->
             activo!!}">
             </div>
+            <div class="form-group">
+                <label for="tag_list">Tags:</label>
+                <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>
+            </div>
+            <script> var data ={!!$tags!!}</script>
             <button class='btn btn-primary' type='submit'>Update</button>
         </form>
     </section>

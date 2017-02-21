@@ -34,15 +34,15 @@
                     </div>
                     <div class="form-group">
                         <label for="fechaPost">fechaPost</label>
-                        <input id="fechaPost" name="fechaPost" type="text" class="form-control">
+                        <input id="fechaPost" name="fechaPost" type="text" class="form-control datepicker">
                     </div>
                     <div class="form-group">
                         <label for="fechaInicio">fechaInicio</label>
-                        <input id="fechaInicio" name="fechaInicio" type="text" class="form-control">
+                        <input id="fechaInicio" name="fechaInicio" type="text" class="form-control datepicker">
                     </div>
                     <div class="form-group">
                         <label for="fechaFin">fechaFin</label>
-                        <input id="fechaFin" name="fechaFin" type="text" class="form-control">
+                        <input id="fechaFin" name="fechaFin" type="text" class="form-control datepicker">
                     </div>
                     <div class="form-group">
                         <label for="rangoEdad">Rango de edad</label>
@@ -66,9 +66,18 @@
                         <label for="activo">activo</label>
                         <input id="activo" name="activo" type="text" class="form-control">
                     </div>
+
+                    <div class="form-group">
+                        <label for="tag_list">Tags:</label>
+                        <!--data-data='[{"id": "1", "text": "One"}, {"id": "2", "text": "Two"}] data-tags="true"'-->
+                        <select   id="tag_list"  name="tag_list[]" class="form-control"  multiple required></select>
+                    </div>
+
+
                     <button class='btn btn-primary' type='submit'>Create</button>
                 </form>
             </div>
         </div>
+
     </section>
 @endsection

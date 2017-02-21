@@ -18,7 +18,7 @@
 Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index');
-
+Route::get('tag/find', '\App\Http\Controllers\TagController@find');
 
 Route::group(['middleware'=> 'web'],function(){
 });
@@ -59,7 +59,7 @@ Route::group(['middleware'=> 'web'],function(){
   Route::get('recurso/{id}/delete','\App\Http\Controllers\RecursoController@destroy');
   Route::get('recurso/{id}/deleteMsg','\App\Http\Controllers\RecursoController@DeleteMsg');
 });
-//hola
+
 
 //recursossubcategoria Routes
 Route::group(['middleware'=> 'web'],function(){
@@ -91,6 +91,7 @@ Route::group(['middleware'=> 'web'],function(){
   Route::post('tag/{id}/update','\App\Http\Controllers\TagController@update');
   Route::get('tag/{id}/delete','\App\Http\Controllers\TagController@destroy');
   Route::get('tag/{id}/deleteMsg','\App\Http\Controllers\TagController@DeleteMsg');
+
 });
 
 //recursotag Routes

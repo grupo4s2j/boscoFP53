@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+
 use App\Tag;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
+use App\Http\Requests;
+
 
 /**
  * Class TagController.
  *
- * @author  The scaffold-interface created at 2017-02-09 03:50:02pm
- * @link  https://github.com/amranidev/scaffold-interface
  */
 class TagController extends Controller
 {
@@ -29,6 +29,31 @@ class TagController extends Controller
         return view('tag.index',compact('tags','title'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * NO FUNCIONA
+     */
+    public function find(Request $request)
+    {
+        $term = trim($request->q);
+
+        if (empty($term)) {
+            return \Response::json([]);
+        }
+
+        $tags = Tag::searchTag("%".$term."%",5);
+            //Tag::searchTag("%".$term."%",5);
+            //Tag::search($term)->limit(5)->get();
+
+        $formatted_tags = [];
+
+        foreach ($tags as $tag) {
+            $formatted_tags[] = ['id' => $tag->nombre, 'text' => $tag->nombre];
+        }
+
+        return \Response::json($formatted_tags);
+    }
     /**
      * Show the form for creating a new resource.
      *

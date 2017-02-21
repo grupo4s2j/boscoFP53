@@ -183,6 +183,8 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Vinkla\Pusher\PusherServiceProvider::class,
 
+        Sofa\Eloquence\ServiceProvider::class
+
     ],
 
     /*
