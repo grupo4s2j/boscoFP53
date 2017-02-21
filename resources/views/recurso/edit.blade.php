@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content">
-        <h1>
+        <h1 id="titl">
             Edit recurso
         </h1>
         <form method='get' action='{!!url("recurso")!!}'>

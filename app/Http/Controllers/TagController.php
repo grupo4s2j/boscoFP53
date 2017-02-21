@@ -49,7 +49,7 @@ class TagController extends Controller
         $formatted_tags = [];
 
         foreach ($tags as $tag) {
-            $formatted_tags[] = ['id' => $tag->id, 'text' => $tag->nombre];
+            $formatted_tags[] = ['id' => $tag->nombre, 'text' => $tag->nombre];
         }
 
         return \Response::json($formatted_tags);

@@ -195,10 +195,10 @@ fa-file'></i> <span>Ficheros</span></a></li>
 </script>
 <script>
 
-      var $element = $('#tag_list').select2();
-      if ( $element.length ) {
 
+      if (typeof data !== 'undefined') {
 
+          var $element = $('#tag_list').select2();
           //[{"id": "1", "text": "One"}, {"id": "2", "text": "Two"}]
           for (var d = 0; d < data.length; d++) {
               var item = data[d];

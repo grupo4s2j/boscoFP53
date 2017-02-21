@@ -31,9 +31,9 @@ class RecursoController extends Controller
         $title = 'Index - recurso';
         $recursos = Recurso::paginate(6);
 
-        return view('recurso.index',compact('recursos','title'));
+        return view('recurso.index', compact('recursos', 'title'));
     }
-    
+
     public function indexFront()
     {
         //return \View::make('fo.categorias');
@@ -49,87 +49,85 @@ class RecursoController extends Controller
     public function create()
     {
         $title = 'Create - recurso';
-        $entidades= $this->getEntidadOrganizativas();
-        return view('recurso.create',compact('entidades'));
+        $entidades = $this->getEntidadOrganizativas();
+        return view('recurso.create', compact('entidades'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param    \Illuminate\Http\Request  $request
+     * @param    \Illuminate\Http\Request $request
      * @return  \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $recurso = new Recurso();
 
-        
+
         $recurso->titulo = $request->titulo;
 
-        
+
         $recurso->descripcion = $request->descripcion;
 
-        
+
         $recurso->contenido = $request->contenido;
 
-        
+
         $recurso->img = $request->img;
 
-        
+
         $recurso->fechaPost = $request->fechaPost;
 
-        
+
         $recurso->fechaInicio = $request->fechaInicio;
 
-        
+
         $recurso->fechaFin = $request->fechaFin;
 
-        
+
         $recurso->rangoEdad = $request->rangoEdad;
 
-        
+
         $recurso->relevancia = $request->relevancia;
 
-        
+
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
 
-        
+
         $recurso->activo = $request->activo;
 
-        
-        
+
         $recurso->save();
-        
 
-         foreach ($request->tag_list as $tag){
-             $ptag=Tag::searchTag($tag,1);
-             $p= $ptag.hasItems();
-             if ($p=="[]()" ){
-                 $newTag=new Tag();
-                 $newTag->nombre=$tag;
-                 $newTag->usado=1;
-                 $newTag->save();
 
-                 $newRecTag = new Recursotag();
-                 $newRecTag->idTag=$newTag->id;
-                 $newRecTag->idRecursos=$recurso->id;
-                 $newRecTag->activo=1;
-                 $newRecTag->save();
-             }else{
-                 $tag = Tag::findOrfail($ptag[0]->id);
-                 $tag->usado=$tag->usado+1;
-                 $tag->save();
+        foreach ($request->tag_list as $tag) {
+            $ptag = Tag::searchTag($tag, 1);
+            $p = $ptag . hasItems();
+            if ($p == "[]()") {
+                $newTag = new Tag();
+                $newTag->nombre = $tag;
+                $newTag->usado = 1;
+                $newTag->save();
 
-                 $newRecTag = new Recursotag();
-                 $newRecTag->idTag=$ptag[0]->id;
-                 $newRecTag->idRecursos=$recurso->id;
-                 $newRecTag->activo=1;
-                 $newRecTag->save();
+                $newRecTag = new Recursotag();
+                $newRecTag->idTag = $newTag->id;
+                $newRecTag->idRecursos = $recurso->id;
+                $newRecTag->activo = 1;
+                $newRecTag->save();
+            } else {
+                $tag = Tag::findOrfail($ptag[0]->id);
+                $tag->usado = $tag->usado + 1;
+                $tag->save();
 
-             }
-         }
+                $newRecTag = new Recursotag();
+                $newRecTag->idTag = $ptag[0]->id;
+                $newRecTag->idRecursos = $recurso->id;
+                $newRecTag->activo = 1;
+                $newRecTag->save();
 
-        
+            }
+        }
+
 
         $pusher = App::make('pusher');
 
@@ -138,8 +136,8 @@ class RecursoController extends Controller
         //Here is a pusher notification example when you create a new resource in storage.
         //you can modify anything you want or use it wherever.
         $pusher->trigger('test-channel',
-                         'test-event',
-                        ['message' => 'A new recurso has been created !!']);
+            'test-event',
+            ['message' => 'A new recurso has been created !!']);
 
         return redirect('recurso');
     }
@@ -147,115 +145,114 @@ class RecursoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param    \Illuminate\Http\Request  $request
-     * @param    int  $id
+     * @param    \Illuminate\Http\Request $request
+     * @param    int $id
      * @return  \Illuminate\Http\Response
      */
-    public function show($id,Request $request)
+    public function show($id, Request $request)
     {
         $title = 'Show - recurso';
 
-        if($request->ajax())
-        {
-            return URL::to('recurso/'.$id);
+        if ($request->ajax()) {
+            return URL::to('recurso/' . $id);
         }
 
         $recurso = Recurso::findOrfail($id);
-        return view('recurso.show',compact('title','recurso'));
+        return view('recurso.show', compact('title', 'recurso'));
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param    \Illuminate\Http\Request  $request
-     * @param    int  $id
+     * @param    \Illuminate\Http\Request $request
+     * @param    int $id
      * @return  \Illuminate\Http\Response
      */
-    public function edit($id,Request $request)
+    public function edit($id, Request $request)
     {
         $title = 'Edit - recurso';
-        if($request->ajax())
-        {
-            return URL::to('recurso/'. $id . '/edit');
+        if ($request->ajax()) {
+            return URL::to('recurso/' . $id . '/edit');
         }
-        $entidades= $this->getEntidadOrganizativas();
+        $entidades = $this->getEntidadOrganizativas();
 
         $recurso = Recurso::findOrfail($id);
 
         $tags = Recursotag::findTagsInRecurs($id);
 
-        return view('recurso.edit',compact('title','recurso' ,'entidades' , 'tags' ));
+        return view('recurso.edit', compact('title', 'recurso', 'entidades', 'tags'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param    \Illuminate\Http\Request  $request
-     * @param    int  $id
+     * @param    \Illuminate\Http\Request $request
+     * @param    int $id
      * @return  \Illuminate\Http\Response
      */
-    public function update($id,Request $request)
+    public function update($id, Request $request)
     {
         $recurso = Recurso::findOrfail($id);
-    	
+
         $recurso->titulo = $request->titulo;
-        
+
         $recurso->descripcion = $request->descripcion;
-        
+
         $recurso->contenido = $request->contenido;
-        
-        $recurso->img ="img/recurs/". $request->img;
-        
+
+        $recurso->img = "img/recurs/" . $request->img;
+
         $recurso->fechaPost = $request->fechaPost;
-        
+
         $recurso->fechaInicio = $request->fechaInicio;
-        
+
         $recurso->fechaFin = $request->fechaFin;
-        
+
         $recurso->rangoEdad = $request->rangoEdad;
-        
+
         $recurso->relevancia = $request->relevancia;
-        
+
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
-        
+
         $recurso->activo = $request->activo;
 
-       /* $img=$request->file('img');
-        $name_img=$request->img;
-        $img->move('/img/recur/',$name_img);
-*/
+        /* $img=$request->file('img');
+         $name_img=$request->img;
+         $img->move('/img/recur/',$name_img);
+ */
         //\Storage::disk('recurs')->put($name_img,\File::get($img));
 
         $recurso->save();
-//Falta que no elimine siempre para no resetear los contadores 
+        //Falta que no elimine siempre para no resetear los contadores
         $ptags = Recursotag::findTagsInRecurs($id);
-        foreach ($ptags as $ptag){
+        foreach ($ptags as $ptag) {
             $pid = $ptag->idrs;
-            Recursotag::destroy($pid);
-        }
 
-        foreach ($request->tag_list as $tag){
-            $ptag=Tag::searchTag($tag,1);
-            $p= $ptag.hasItems();
-            if ($p=="[]()" ){
-                $newTag=new Tag();
-                $newTag->nombre=$tag;
-                $newTag->usado=1;
+                Recursotag::destroy($pid);
+
+        }
+        foreach ($request->tag_list as $tag) {
+            $ptag = Tag::searchTag($tag, 1);
+            $p = $ptag . hasItems();
+            if ($p == "[]()") {
+                $newTag = new Tag();
+                $newTag->nombre = $tag;
+                $newTag->usado = 1;
                 $newTag->save();
 
                 $newRecTag = new Recursotag();
-                $newRecTag->idTag=$newTag->id;
-                $newRecTag->idRecursos=$recurso->id;
-                $newRecTag->activo=1;
+                $newRecTag->idTag = $newTag->id;
+                $newRecTag->idRecursos = $recurso->id;
+                $newRecTag->activo = 1;
                 $newRecTag->save();
-            }else{
+            } else {
                 $tag = Tag::findOrfail($ptag[0]->id);
-                $tag->usado=$tag->usado+1;
+                $tag->usado = $tag->usado + 1;
                 $tag->save();
 
                 $newRecTag = new Recursotag();
-                $newRecTag->idTag=$ptag[0]->id;
-                $newRecTag->idRecursos=$recurso->id;
-                $newRecTag->activo=1;
+                $newRecTag->idTag = $ptag[0]->id;
+                $newRecTag->idRecursos = $recurso->id;
+                $newRecTag->activo = 1;
                 $newRecTag->save();
 
             }
@@ -266,16 +263,15 @@ class RecursoController extends Controller
     /**
      * Delete confirmation message by Ajaxis.
      *
-     * 
-     * @param    \Illuminate\Http\Request  $request
+     *
+     * @param    \Illuminate\Http\Request $request
      * @return  String
      */
-    public function DeleteMsg($id,Request $request)
+    public function DeleteMsg($id, Request $request)
     {
-        $msg = Ajaxis::BtDeleting('Warning!!','Would you like to remove This?','/recurso/'. $id . '/delete');
+        $msg = Ajaxis::BtDeleting('Warning!!', 'Would you like to remove This?', '/recurso/' . $id . '/delete');
 
-        if($request->ajax())
-        {
+        if ($request->ajax()) {
             return $msg;
         }
     }
@@ -288,15 +284,16 @@ class RecursoController extends Controller
      */
     public function destroy($id)
     {
-     	$recurso = Recurso::findOrfail($id);
-     	$recurso->delete();
+        $recurso = Recurso::findOrfail($id);
+        $recurso->delete();
         return URL::to('recurso');
     }
 
     /**
      * get all Entidades organizativas
      */
-    public function getEntidadOrganizativas(){
+    public function getEntidadOrganizativas()
+    {
         $entdades = Entidadorganizativa::all();
         return $entdades;
 
