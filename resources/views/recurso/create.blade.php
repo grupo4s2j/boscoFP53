@@ -34,15 +34,15 @@
                     </div>
                     <div class="form-group">
                         <label for="fechaPost">fechaPost</label>
-                        <input id="fechaPost" name="fechaPost" type="text" class="form-control">
+                        <input id="fechaPost" name="fechaPost" type="text" class="form-control datepicker">
                     </div>
                     <div class="form-group">
                         <label for="fechaInicio">fechaInicio</label>
-                        <input id="fechaInicio" name="fechaInicio" type="text" class="form-control">
+                        <input id="fechaInicio" name="fechaInicio" type="text" class="form-control datepicker">
                     </div>
                     <div class="form-group">
                         <label for="fechaFin">fechaFin</label>
-                        <input id="fechaFin" name="fechaFin" type="text" class="form-control">
+                        <input id="fechaFin" name="fechaFin" type="text" class="form-control datepicker">
                     </div>
                     <div class="form-group">
                         <label for="rangoEdad">Rango de edad</label>

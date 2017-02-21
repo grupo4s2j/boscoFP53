@@ -37,17 +37,17 @@
             </div>
             <div class="form-group">
                 <label for="fechaPost">fechaPost</label>
-                <input id="fechaPost" name="fechaPost" type="text" class="form-control" value="{!!$recurso->
+                <input id="fechaPost" name="fechaPost" type="text" class="form-control datepicker" value="{!!$recurso->
             fechaPost!!}">
             </div>
             <div class="form-group">
                 <label for="fechaInicio">fechaInicio</label>
-                <input id="fechaInicio" name="fechaInicio" type="text" class="form-control" value="{!!$recurso->
+                <input id="fechaInicio" name="fechaInicio" type="text" class="form-control datepicker" value="{!!$recurso->
             fechaInicio!!}">
             </div>
             <div class="form-group">
                 <label for="fechaFin">fechaFin</label>
-                <input id="fechaFin" name="fechaFin" type="text" class="form-control" value="{!!$recurso->
+                <input id="fechaFin" name="fechaFin" type="text" class="form-control datepicker" value="{!!$recurso->
             fechaFin!!}">
             </div>
             <div class="form-group">

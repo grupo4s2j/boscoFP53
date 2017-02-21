@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/css/AdminLTE.min.css">
+    <!-- Datepicker Files -->
+    <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.css')}}">
+    <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.standalone.css')}}">
+
+
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/css/skins/_all-skins.min.css">
@@ -173,6 +178,10 @@ fa-file'></i> <span>Ficheros</span></a></li>
 <script src="{{URL::asset('js/scaffold-interface-js/customA.js') }}"></script>
 <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
 <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+<!-- Datepicker Files -->
+<script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
+<!-- Languaje -->
+<script src="{{asset('datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
 <script>
     // pusher log to console.
     Pusher.logToConsole = true;
@@ -242,7 +251,13 @@ fa-file'></i> <span>Ficheros</span></a></li>
     /*http://laraget.com/blog/select2-and-laravel-ajax-autocomplete*/
     /*http://jsfiddle.net/X6V2s/66/*/
 </script>
-
+<script>
+    $('.datepicker').datepicker({
+        format: "yyyy/mm/dd",
+        language: "es",
+        autoclose: true
+    });
+</script>
 
 </body>
 </html>
