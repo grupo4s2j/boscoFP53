@@ -21,11 +21,18 @@ class CategoriaController extends Controller
      */
     public function index()
     {
+        $search = \Request::get('search');
+
+        $paginate = \Request::get('rows');
+        if ($paginate=="") {
+            $paginate = 6;
+        }
         $title = 'Index - categoria';
-        $categorias = Categoria::paginate(6);
+        $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')
+            ->paginate($paginate);
         return view('categoria.index', compact('categorias', 'title'));
     }
-    
+
     public function indexFront()
     {
         $categorias = \App\Categoria::all();
@@ -66,7 +73,7 @@ class CategoriaController extends Controller
         $categoria->activo = $request->activo;
 
         $categoria->logo = $request->logo;
-        
+
         $categoria->save();
 
         $pusher = App::make('pusher');
@@ -131,7 +138,7 @@ class CategoriaController extends Controller
         $categoria = Categoria::findOrfail($id);
 
         $categoria->nombre = $request->nombre;
-        
+
         $categoria->img = $request->img;
 
         $categoria->color = $request->color;

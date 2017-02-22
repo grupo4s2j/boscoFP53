@@ -26,7 +26,7 @@ class PermissionRegistrar
     protected $cacheKey = 'spatie.permission.cache';
 
     /**
-     * @param Gate       $gate
+     * @param Gate $gate
      * @param Repository $cache
      */
     public function __construct(Gate $gate, Repository $cache)
@@ -51,9 +51,11 @@ class PermissionRegistrar
 
             return true;
         } catch (Exception $exception) {
-            Log::alert(
-                "Could not register permissions because {$exception->getMessage()}".PHP_EOL
-                .$exception->getTraceAsString());
+            if ($this->shouldLogException()) {
+                Log::alert(
+                    "Could not register permissions because {$exception->getMessage()}".PHP_EOL
+                    .$exception->getTraceAsString());
+            }
 
             return false;
         }
@@ -77,5 +79,19 @@ class PermissionRegistrar
         return $this->cache->rememberForever($this->cacheKey, function () {
             return app(Permission::class)->with('roles')->get();
         });
+    }
+
+    /**
+     * @return bool
+     */
+    protected function shouldLogException()
+    {
+        $logSetting = config('laravel-permission.log_registration_exception');
+
+        if (is_null($logSetting)) {
+            return true;
+        }
+
+        return $logSetting;
     }
 }
