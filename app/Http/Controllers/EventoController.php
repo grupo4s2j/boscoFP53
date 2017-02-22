@@ -58,7 +58,15 @@ class EventoController extends Controller
         $evento->descripcion = $request->descripcion;
 
         
-        $evento->img = $request->img;
+        if ($request->hasFile('img')) {
+           
+            $file = $request->file('img');
+            $nombreimagen = '/img/Evento/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+            
+
+            $evento->img = $nombreimagen;
+        }
 
         
         $evento->fechaInicio = $request->fechaInicio;
@@ -140,7 +148,15 @@ class EventoController extends Controller
         
         $evento->descripcion = $request->descripcion;
         
-        $evento->img = $request->img;
+        if ($request->hasFile('img')) {
+           
+            $file = $request->file('img');
+            $nombreimagen = '/img/Evento/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+            
+
+            $evento->img = $nombreimagen;
+        }
         
         $evento->fechaInicio = $request->fechaInicio;
         

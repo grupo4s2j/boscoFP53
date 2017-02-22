@@ -52,7 +52,15 @@ class FicheroController extends Controller
         $fichero = new Fichero();
 
         
-        $fichero->url = $request->url;
+       if ($request->hasFile('url')) {
+           
+            $file = $request->file('url');
+            $nombreurlagen = '/ficheros/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreurlagen, \File::get($file));
+            
+
+            $fichero->url = $nombreurlagen;
+        }
 
         
         $fichero->idRecurso = $request->idRecurso;
@@ -124,7 +132,15 @@ class FicheroController extends Controller
     {
         $fichero = Fichero::findOrfail($id);
     	
-        $fichero->url = $request->url;
+        if ($request->hasFile('url')) {
+           
+            $file = $request->file('url');
+            $nombreurlagen = '/ficheros/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreurlagen, \File::get($file));
+            
+
+            $fichero->url = $nombreurlagen;
+        }
         
         $fichero->idRecurso = $request->idRecurso;
         
