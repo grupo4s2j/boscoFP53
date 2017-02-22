@@ -27,9 +27,15 @@ class CategoriaController extends Controller
         if ($paginate=="") {
             $paginate = 6;
         }
+        if ($search=="") {
+
+            $categorias = Categoria::paginate($paginate);
+        }else {
+            $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')
+                ->paginate($paginate);
+        }
         $title = 'Index - categoria';
-        $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')
-            ->paginate($paginate);
+
         return view('categoria.index', compact('categorias', 'title'));
     }
 
