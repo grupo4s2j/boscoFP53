@@ -6,12 +6,12 @@
     <h1>
         Edit categoria
     </h1>
-    <form method = 'get' action = '{!!url("categoria")!!}'>
+    <form method = 'get' action = '{!!url("categoria")!!}' >
         <button class = 'btn btn-danger'>categoria Index</button>
     </form>
     <br>
     <form method = 'POST' action = '{!! url("categoria")!!}/{!!$categoria->
-        id!!}/update'> 
+        id!!}/update' enctype="multipart/form-data"> 
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="nombre">nombre</label>
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="img">img</label>
-            <input id="img" name = "img" type="text" class="form-control" value="{!!$categoria->
+            <input id="img" name = "img" type="file" class="form-control" value="{!!$categoria->
             img!!}">
         </div>
         <div class="form-group">

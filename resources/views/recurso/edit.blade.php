@@ -11,7 +11,7 @@
         </form>
         <br>
         <form method='POST' action='{!! url("recurso")!!}/{!!$recurso->
-        id!!}/update'>
+        id!!}/update'  enctype="multipart/form-data">
             <input type='hidden' name='_token' value='{{Session::token()}}'>
             <div class="form-group">
                 <label for="titulo">Titulo</label>
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="img">Imagen</label>
-                <input id="img" name="img" type="file" class="form-control" value="{!!$recurso->
+                <input id="imgen" name="imgen" type="file" class="form-control" value="{!!$recurso->
             img!!}">
             </div>
             <div class="form-group">
