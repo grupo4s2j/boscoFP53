@@ -41,7 +41,7 @@ class CategoriaController extends Controller
 
     public function indexFront()
     {
-        $categorias = Categoria::all();
+        $categorias = \App\Categoria::all();
 
         return view('fo.categorias', compact('categorias'));
     }

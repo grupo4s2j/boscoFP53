@@ -136,14 +136,11 @@ Route::group(['middleware'=> 'web'],function(){
 ///////////////////////////////////
 
 ////////FRONTOFFICE////////////////
-Route::get('/', function() { return view('fo.index'); });
-Route::get('/home', 'MainPageController@indexFront');
-Route::post('/search', 'TagController@search');
-Route::get('/categorias', 'CategoriaController@indexFront');
-Route::get('/categorias/{id}', 'SubcategoriaController@indexFront');
-Route::get('/recursos/{id}', 'RecursoController@showRecurso');
-Route::get('/recursos', 'RecursoController@indexFront');
 
-
-Route::get('find', 'TagController@find');
+Route::get('home', 'MainPageController@indexFront');
+Route::get('categorias', 'CategoriaController@indexFront');
+Route::get('recursos', 'RecursoController@indexFront');
+Route::get('/', function() {
+    return view('fo.index');
+});
 ////////////////////////////////////

@@ -6,7 +6,7 @@
             <div class="latest-post-body">
                 <div class="post">
                     <div class="post-img">
-                        <img class="img-responsive" src="{{ asset('img/octagon/slim-menu-post/sm-post-1.jpg') }}" alt="" />
+                        <img class="img-responsive" src="/img/octagon/slim-menu-post/sm-post-1.jpg" alt="" />
                         <div class="post-icon">
                             <i class="fa fa-leaf"> </i>
                             <a href="#0" class="post-category lifestyle-bg"><i class="fa fa-leaf"> </i>Life Style</a>
@@ -19,7 +19,7 @@
 
                 <div class="post">
                     <div class="post-img">
-                        <img class="img-responsive" src="{{ asset('img/octagon/slim-menu-post/sm-post-2.jpg') }}" alt="" />
+                        <img class="img-responsive" src="/img/octagon/slim-menu-post/sm-post-2.jpg" alt="" />
                         <div class="post-icon">
                             <i class="fa fa-code"> </i>
                             <a href="#0" class="post-category code-bg"><i class="fa fa-code"> </i>Coding</a>
@@ -33,7 +33,7 @@
 
                 <div class="post">
                     <div class="post-img">
-                        <img class="img-responsive" src="{{ asset('img/octagon/slim-menu-post/sm-post-3.jpg') }}" alt="" />
+                        <img class="img-responsive" src="/img/octagon/slim-menu-post/sm-post-3.jpg" alt="" />
                         <div class="post-icon">
                             <i class="fa fa-plane"> </i>
                             <a href="#0" class="post-category travel-bg"><i class="fa fa-plane"> </i>Travel</a>

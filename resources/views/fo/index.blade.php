@@ -12,13 +12,13 @@
     <title>TSFI - Taules vectorial formació industrial</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/stylish_portfolio/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="css/stylish_portfolio/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{ asset('css/stylish_portfolio/stylish-portfolio.css') }}" rel="stylesheet">
+    <link href="css/stylish_portfolio/stylish-portfolio.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="{{ asset('fonts/stylish_portfolio/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="fonts/stylish_portfolio/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,8 +39,8 @@
             <br>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-2" style="height:146px; padding-top:50px;"><a href="{{ url('/home') }}"><button type="button" class="btn btn-primary btn-lg">Student</button></a></div>
-                    <div class="col-md-4" style="height:146px; padding-top:50px;"><a href="{{ url('/home') }}"><button type="button" class="btn btn-secondary btn-lg">Professor</button></a></div>
+                    <div class="col-md-4 col-md-offset-2" style="height:146px; padding-top:50px;"><a href="/home"><button type="button" class="btn btn-primary btn-lg">Student</button></a></div>
+                    <div class="col-md-4" style="height:146px; padding-top:50px;"><a href="/home"><button type="button" class="btn btn-secondary btn-lg">Professor</button></a></div>
                 </div>
             </div>
         </div>
@@ -69,10 +69,10 @@
     
 
     <!-- jQuery -->
-    <script src="{{ asset('js/stylish_portfolio/jquery.js') }}"></script>
+    <script src="js/stylish_portfolio/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('js/stylish_portfolio/bootstrap.min.js') }}"></script>
+    <script src="js/stylish_portfolio/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script>

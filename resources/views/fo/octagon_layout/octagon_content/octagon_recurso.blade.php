@@ -1,9 +1,8 @@
 <div class="col-md-6">
     <div class="post-bottom-content">
-        <a href="{{ url('recursos/' . $recurso->id) }}"><img class="img-responsive" src="{{ asset('img/recursos/' . $recurso->img) }}" alt=""></a>
-        <a href="{{ url('recursos/'. $recurso->id) }}"><h3>{{$recurso->titulo}}</h3></a>
-        <h3><span class="travel-bg">4<a class="travel-bg" href="{{ url('recursos/'. $recurso->id) }}">4 comment</a></span></h3>
-        <span class="date">{{$recurso->fechaPosteo}}</span>
+        <img class="img-responsive" src="images/pb-md-content/pbc-md-1.jpg" alt="">
+        <h3>we enjoy the tour with thrill in Himalaya <span class="travel-bg">4<a class="travel-bg" href="#0">4 comment</a></span></h3>
+        <span class="date">Jan 20, 2015</span>
 
         <!-- ___Post Meta___ -->
         <div class="post-meta">

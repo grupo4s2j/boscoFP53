@@ -16,10 +16,8 @@
     <div class="top-bar-body">
         <div class="search-body targetDiv" id="div1">
             <p>What are you looking for?</p>
-            <form id="buscador" name="test-form" method="POST" action="{{ url('/search') }}">
-                <!--<input id="tags" type="text" class="form-control no-radius" placeholder="Search here |">-->
-                <select name="tags[]" class="form-control no-radius" multiple="multiple" id="tags" style="width:100%;"></select>
-                <button type="submit" value="Submit" class="btn btn-secondary btn-md">Submit</button>
+            <form>
+                <input type="text" class="form-control no-radius" placeholder="Search here |">
             </form>
         </div>
 
@@ -38,37 +36,3 @@
         <!-- End Mail Body -->
     </div><!-- End Top Bar Body -->
 </div><!-- ___Start Top Bar___ -->
-
-@section('scripts')
-<!-- Script para el Select2 -->
-<script type="text/javascript">
-    $(document).ready(function () {
-        // inicializamos el plugin
-        $('#tags').select2({
-            createTag: function(params) {
-                return undefined;
-            },
-            //placeholder: "Choose tags...",
-            tags: true,
-            tokenSeparators: [',', ' '],
-            minimumInputLength: 2,
-
-            ajax: {
-                url: '{{ url("find") }}',
-                dataType: 'json',
-                data: function (params) {
-                    return {
-                      q: $.trim(params.term)
-                    };
-                },
-                processResults: function (data) {
-                    return {
-                        results: data
-                    };
-                },
-                cache: true
-            }
-        });
-    });
-</script>
-@endsection

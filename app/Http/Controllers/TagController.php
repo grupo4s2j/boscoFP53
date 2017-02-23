@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Tag;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
-use DB;
+use App\Http\Requests;
 
 
 /**
@@ -17,48 +17,6 @@ use DB;
  */
 class TagController extends Controller
 {
-    /**
-     * Buscador de Tags
-     *
-     * @return  los tags
-     */
-    public function find2(Request $request)
-    {
-        $data = [];
-
-        if($request->has('q')){
-            $search = $request->q;
-            /*$data = DB::table("tags")
-            		->select("id","nombre")
-            		->where('nombre','LIKE',"%$search%")
-            		->get();
-            */
-            $data = Tag::select("id","nombre")
-            		->where('nombre','LIKE',"%$search%")
-            		->get();
-        }
-
-        return response()->json($data);
-    }
-    
-    /**
-     * Buscador de Tags
-     *
-     * @return  los tags
-     */
-    public function search(Request $request)
-    {
-
-        /*if($request->has('tags')){
-            $search = $request->tags;
-        }
-
-        return view('fo.search',compact('search'));*/
-        $input = Request::all();
-        
-        return $input;
-    }    
-    
     /**
      * Display a listing of the resource.
      *

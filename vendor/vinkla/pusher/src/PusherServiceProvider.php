@@ -9,8 +9,6 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace Vinkla\Pusher;
 
 use Illuminate\Contracts\Container\Container;
@@ -118,7 +116,7 @@ class PusherServiceProvider extends ServiceProvider
      *
      * @return string[]
      */
-    public function provides(): array
+    public function provides()
     {
         return [
             'pusher',

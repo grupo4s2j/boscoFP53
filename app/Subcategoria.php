@@ -27,7 +27,7 @@ class Subcategoria extends Model
     /**
      * @var array
      */
-    protected $fillable = ['idCategoria', 'nombre', 'img', 'orden', 'activo'];
+    protected $fillable = ['idCategoria', 'nombre', 'orden', 'activo'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -183,14 +183,6 @@ return [
         Amranidev\Ajaxis\AjaxisServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Vinkla\Pusher\PusherServiceProvider::class,
-        /*
-         * Buscador mas rapido
-         */
-        Sofa\Eloquence\ServiceProvider::class,
-        /*
-         * Forms COllective
-         */
-        Collective\Html\HtmlServiceProvider::class,
 
         Sofa\Eloquence\ServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
