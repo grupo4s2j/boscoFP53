@@ -55,7 +55,7 @@ class FicheroController extends Controller
        if ($request->hasFile('url')) {
            
             $file = $request->file('url');
-            $nombreurlagen = '/ficheros/' . $file->getClientOriginalName();
+            $nombreurlagen = '/assets/ficheros/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreurlagen, \File::get($file));
             
 
@@ -135,7 +135,7 @@ class FicheroController extends Controller
         if ($request->hasFile('url')) {
            
             $file = $request->file('url');
-            $nombreurlagen = '/ficheros/' . $file->getClientOriginalName();
+            $nombreurlagen = '/assets/ficheros/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreurlagen, \File::get($file));
             
 

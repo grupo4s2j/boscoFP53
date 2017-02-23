@@ -25,7 +25,7 @@
             <tr>
                 <td>{!!$categoria->nombre!!}</td>
                 <td>{!!$categoria->color!!}</td>
-                <td>{!!$categoria->img!!}</td>
+                <td><img src="{!!$categoria->img!!}" style="height:100px; width:100px;"><img></td>
                 <td>{!!$categoria->orden!!}</td>
                 <td>{!!$categoria->activo!!}</td>
                 <td>

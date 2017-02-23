@@ -21,7 +21,7 @@
         <tbody>
             @foreach($banners as $banner) 
             <tr>
-                <td>{!!$banner->img!!}</td>
+                <td><img src="{!!$banner->img!!}" style="height: 100px; width: 100px;"></img></td>
                 <td>{!!$banner->url!!}</td>
                 <td>{!!$banner->activo!!}</td>
                 <td>

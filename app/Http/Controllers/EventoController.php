@@ -61,7 +61,7 @@ class EventoController extends Controller
         if ($request->hasFile('img')) {
            
             $file = $request->file('img');
-            $nombreimagen = '/img/Evento/' . $file->getClientOriginalName();
+            $nombreimagen = '/assets/eventos/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
@@ -151,7 +151,7 @@ class EventoController extends Controller
         if ($request->hasFile('img')) {
            
             $file = $request->file('img');
-            $nombreimagen = '/img/Evento/' . $file->getClientOriginalName();
+            $nombreimagen = '/assets/eventos/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 

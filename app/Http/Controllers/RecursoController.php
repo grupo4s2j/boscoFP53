@@ -76,7 +76,7 @@ class RecursoController extends Controller
         if ($request->hasFile('imgen')) {
             echo "<script>alert('Hay imagen')</script>";
             $file = $request->file('imgen');
-            $nombreimagen = '/img/recurs/' . $file->getClientOriginalName();
+            $nombreimagen = '/assets/recursos/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
@@ -209,7 +209,7 @@ class RecursoController extends Controller
         if ($request->hasFile('imgen')) {
             echo "<script>alert('Hay imagen')</script>";
             $file = $request->file('imgen');
-            $nombreimagen = '/img/recurs/' . $file->getClientOriginalName();
+            $nombreimagen = '/assets/recursos/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
