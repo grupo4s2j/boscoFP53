@@ -24,7 +24,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-2.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-2.jpg') }}" alt="" />
                                             <h3><a href="#0">Roam roads covered by leafs</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -32,7 +32,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-3.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-3.jpg') }}" alt="" />
                                             <h3><a href="#0">Wayne Rooney still troubled by groin injury</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -40,7 +40,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-4.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-4.jpg') }}" alt="" />
                                             <h3><a href="#0">The world cup football match starts on march</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -54,7 +54,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-5.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-5.jpg') }}" alt="" />
                                             <h3><a href="#0">Wayne Rooney still troubled by groin injury</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -62,7 +62,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-6.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-6.jpg') }}" alt="" />
                                             <h3><a href="#0">College football: Pelini hired at Youngstown State</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -70,7 +70,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-7.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-7.jpg') }}" alt="" />
                                             <h3><a href="#0">The world cup football match starts on march</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -84,7 +84,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-23.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-23.jpg') }}" alt="" />
                                             <h3><a href="#0">The world cup football match starts on march</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -92,7 +92,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-29.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-29.jpg') }}" alt="" />
                                             <h3><a href="#0">Wayne Rooney still troubled by groin injury</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -100,7 +100,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-30.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-30.jpg') }}" alt="" />
                                             <h3><a href="#0">College football: Pelini hired at Youngstown State</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -114,7 +114,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-21.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-21.jpg') }}" alt="" />
                                             <h3><a href="#0">Wayne Rooney still troubled by groin injury</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -122,7 +122,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-23.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-23.jpg') }}" alt="" />
                                             <h3><a href="#0">College football: Pelini hired at Youngstown State</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -130,7 +130,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-22.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-22.jpg') }}" alt="" />
                                             <h3><a href="#0">The world cup football match starts on march</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -144,7 +144,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-1.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-1.jpg') }}" alt="" />
                                             <h3><a href="#0">College football: Pelini hired at Youngstown State</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -152,7 +152,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-5.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-5.jpg') }}" alt="" />
                                             <h3><a href="#0">Wayne Rooney still troubled by groin injury</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -160,7 +160,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-28.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-28.jpg') }}" alt="" />
                                             <h3><a href="#0">The world cup football match starts on march</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -174,7 +174,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-7.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-7.jpg') }}" alt="" />
                                             <h3><a href="#0">The world cup football match starts on march</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -182,7 +182,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-1.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-1.jpg') }}" alt="" />
                                             <h3><a href="#0">College football: Pelini hired at Youngstown State</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->
@@ -190,7 +190,7 @@
                                 <div class="col-md-4 col-sm-4  no-padding">
                                     <div class="menu-post">
                                         <div class="post">
-                                            <img class="img-responsive" src="img/octagon/mm/mm-post-29.jpg" alt="" />
+                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-29.jpg') }}" alt="" />
                                             <h3><a href="#0">Wayne Rooney still troubled by groin injury</a></h3>
                                         </div>
                                     </div><!-- End Menu Post -->

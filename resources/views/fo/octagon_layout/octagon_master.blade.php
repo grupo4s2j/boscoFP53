@@ -10,18 +10,21 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="/css/octagon/highlight.css">			<!-- ===This Style sheet for Highlight === -->
-		<link rel="stylesheet" href="/css/octagon/Pe-icon-7-stroke.css">			<!-- ===This Style sheet for Stoke Icon === -->
-		<link rel="stylesheet" href="/css/octagon/meanmenu.css">				<!-- ===This Style sheet for Responsive Menu=== -->
-		<link rel="stylesheet" href="/css/octagon/animate.css">				<!-- ===This Style sheet for Animations=== -->
-		<link rel="stylesheet" href="/css/octagon/owl.carousel.css">			<!-- ===This Style sheet for Owl Carousel=== -->
-		<link rel="stylesheet" href="/css/octagon/owl.theme.css">			<!-- ===This Style sheet for Owl Carousel=== -->
-		<link rel="stylesheet" href="/css/octagon/font-awesome.min.css">		<!-- ===This Style sheet for Font Awesome fonts & icons=== -->
-        <link rel="stylesheet" href="/css/octagon/bootstrap.min.css">		<!-- ===This Style sheet for Bootstrap classes=== -->
-        <link rel="stylesheet" href="/css/octagon/style.css">				<!-- ===This Style sheet for Styling the full template=== -->
-        <link rel="stylesheet" href="/css/octagon/responsive.css">			<!-- ===This Style sheet for making the template responsive for all devices=== -->
-        <script src="/js/octagon/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="/js/octagon/jquery-3.1.1.js"></script>
+		<link rel="stylesheet" href="{{ asset('/css/octagon/highlight.css') }}">			<!-- ===This Style sheet for Highlight === -->
+		<link rel="stylesheet" href="{{ asset('/css/octagon/Pe-icon-7-stroke.css') }}">			<!-- ===This Style sheet for Stoke Icon === -->
+		<link rel="stylesheet" href="{{ asset('/css/octagon/meanmenu.css') }}">				<!-- ===This Style sheet for Responsive Menu=== -->
+		<link rel="stylesheet" href="{{ asset('/css/octagon/animate.css') }}">				<!-- ===This Style sheet for Animations=== -->
+		<link rel="stylesheet" href="{{ asset('/css/octagon/owl.carousel.css') }}">			<!-- ===This Style sheet for Owl Carousel=== -->
+		<link rel="stylesheet" href="{{ asset('/css/octagon/owl.theme.css') }}">			<!-- ===This Style sheet for Owl Carousel=== -->
+		<link rel="stylesheet" href="{{ asset('/css/octagon/font-awesome.min.css') }}">		<!-- ===This Style sheet for Font Awesome fonts & icons=== -->
+        <link rel="stylesheet" href="{{ asset('/css/octagon/bootstrap.min.css') }}">		<!-- ===This Style sheet for Bootstrap classes=== -->
+        <link rel="stylesheet" href="{{ asset('/css/octagon/style.css') }}">				<!-- ===This Style sheet for Styling the full template=== -->
+        <link rel="stylesheet" href="{{ asset('/css/octagon/responsive.css') }}">			<!-- ===This Style sheet for making the template responsive for all devices=== -->
+        <script src="{{ asset('/js/octagon/vendor/modernizr-2.6.2.min.js') }}"></script>
+        <script src="{{ asset('/js/octagon/jquery-3.1.1.js') }}"></script>
+        
+        <link rel="stylesheet" href="{{ asset('/css/select2/select2.min.css') }}">
+        <script src="{{ asset('/js/select2/select2.min.js') }}"></script>
     </head>
     <body>
 
@@ -72,13 +75,13 @@
 
 
 
-        <script src="/js/octagon/vendor/jquery.min.js"></script>
-        <script src="/js/octagon/scripts.js"></script>				<!-- ===This Script for Custom Script=== -->
-        <script src="/js/octagon/owl.carousel.min.js"></script>			<!-- ===This Script for Owl Carousel=== -->
-        <script src="/js/octagon/bootstrap.min.js"></script>			<!-- ===This Script for Bootstrap=== -->
-        <script src="/js/octagon/wow.min.js"></script>				<!-- ===This Script for Wow JS=== -->
-        <script src="/js/octagon/jquery.meanmenu.min.js"></script>		<!-- ===This Script for Main Menu=== -->
-		<script src="/js/octagon/jquery.jscroll.js"></script>
+        <script src="{{ asset('/js/octagon/vendor/jquery.min.js') }}"></script>
+        <script src="{{ asset('/js/octagon/scripts.js') }}"></script>				<!-- ===This Script for Custom Script=== -->
+        <script src="{{ asset('/js/octagon/owl.carousel.min.js') }}"></script>			<!-- ===This Script for Owl Carousel=== -->
+        <script src="{{ asset('/js/octagon/bootstrap.min.js') }}"></script>			<!-- ===This Script for Bootstrap=== -->
+        <script src="{{ asset('/js/octagon/wow.min.js') }}"></script>				<!-- ===This Script for Wow JS=== -->
+        <script src="{{ asset('/js/octagon/jquery.meanmenu.min.js') }}"></script>		<!-- ===This Script for Main Menu=== -->
+		<script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
 
 
 		<script>
@@ -86,6 +89,8 @@
 				jQuery('.category-nav ').meanmenu();
 			});
 		</script>
+    
+        @yield('scripts')
 
     </body>
 </html>

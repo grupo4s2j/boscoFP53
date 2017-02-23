@@ -29,6 +29,18 @@ class SubcategoriaController extends Controller
         $subcategorias = Subcategoria::paginate(6);
         return view('subcategoria.index',compact('subcategorias','title'));
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return  \Illuminate\Http\Response
+     */
+    public function indexFront($id)
+    {
+        $categoria = Categoria::find($id);
+        return view('fo.subcategorias',compact('categoria'));
+        //return view('fo.subcategorias',compact('subcategorias'));
+    }
 
     /**
      * Show the form for creating a new resource.

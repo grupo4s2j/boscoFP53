@@ -76,6 +76,11 @@ class Recurso extends Model
      */
     public function recursotags()
     {
-        return $this->hasMany('App\Recursotag', 'idRecurso', 'id');
+        return $this->hasMany('App\Recursotag', 'idRecursos', 'id');
+    }
+    
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag', 'recursotags', 'idRecursos', 'idTag');
     }
 }

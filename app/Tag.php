@@ -66,6 +66,16 @@ class Tag extends Model
         return $tags;
     }
     
+    public function recursos()
+    {
+        /*$tags = array();
+        foreach ($this->recursotags as $recursotag){
+            $tags[]=$recursotag->tag;
+        }
+        return $tags;*/
+        return $this->belongsToMany('App\Recurso', 'recursotags', 'idTag', 'idRecursos');
+    }
+    
     public static function sumaTags($tags)
     {
         $i = 0;
