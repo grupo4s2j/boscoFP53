@@ -26,14 +26,14 @@ class Recursotag extends Model
     /**
      * @var array
      */
-    protected $fillable = ['idRecurso', 'idTag', 'activo'];
+    protected $fillable = ['idRecursos', 'idTag', 'activo'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function recurso()
     {
-        return $this->belongsTo('App\Recurso', 'idRecurso', 'id');
+        return $this->belongsTo('App\Recurso', 'idRecursos', 'id');
     }
 
     /**

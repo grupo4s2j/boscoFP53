@@ -10,7 +10,7 @@
                 <!-- ___Start Slider___ -->
                 <div id="slider">
                     <div class="post item">
-                        <img class="img-responsive" src="img/octagon/slider/slider-1.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/slider/slider-1.jpg') }}" alt="" />
                         <div class="carousel-caption">
                             <span>Jan 20, 2015</span>
                             <h3>COUPLE CYCLE RIDE ON ROAD</h3>
@@ -18,7 +18,7 @@
                     </div>	<!-- End Post Item -->
 
                     <div class="post item">
-                        <img class="img-responsive" src="img/octagon/slider/slider-2.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/slider/slider-2.jpg') }}" alt="" />
                         <div class="carousel-caption">
                             <span>Jan 20, 2015</span>
                             <h3>COUPLE CYCLE RIDE ON ROAD</h3>
@@ -26,7 +26,7 @@
                     </div>	<!-- End Post Item -->
 
                     <div class="post item">
-                        <img class="img-responsive" src="img/octagon/slider/slider-3.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/slider/slider-3.jpg') }}" alt="" />
                         <div class="carousel-caption">
                             <span>Jan 20, 2015</span>
                             <h3>COUPLE CYCLE RIDE ON ROAD</h3>
@@ -34,7 +34,7 @@
                     </div>	<!-- End Post Item -->
 
                     <div class="post item">
-                        <img class="img-responsive" src="img/octagon/slider/slider-4.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/slider/slider-4.jpg') }}" alt="" />
                         <div class="carousel-caption">
                             <span>Jan 20, 2015</span>
                             <h3>COUPLE CYCLE RIDE ON ROAD</h3>
@@ -42,7 +42,7 @@
                     </div>	<!-- End Post Item -->
 
                     <div class="post item">
-                        <img class="img-responsive" src="img/octagon/slider/slider-5.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/slider/slider-5.jpg') }}" alt="" />
                         <div class="carousel-caption">
                             <span>Jan 20, 2015</span>
                             <h3>COUPLE CYCLE RIDE ON ROAD</h3>
@@ -55,7 +55,7 @@
             <div class="col-md-4 no-padding">
                 <div class="slider-side-post">
                     <div class="post">
-                        <img class="img-responsive" src="img/octagon/slider/slider-sp-1.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/slider/slider-sp-1.jpg') }}" alt="" />
                         <div class="post-info">
                             <span class="mobile-bg">Jan 20, 2016</span>
                             <h3>NEW NEXUS TAB RELEASED ON NEXT WEAK</h3>
@@ -63,7 +63,7 @@
                     </div><!-- End Post -->
 
                     <div class="post">
-                        <img class="img-responsive" src="img/octagon/slider/slider-sp-2.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/slider/slider-sp-2.jpg') }}" alt="" />
                         <div class="post-info">
                             <span class="lifestyle-bg">Jan 20, 2016</span>
                             <h3>NEW NEXUS TAB RELEASED ON NEXT WEAK</h3>
@@ -83,7 +83,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-1.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-1.jpg') }}" alt="" />
                         <h3>comming soon watsup on your pc <span class="music-bg">15<a class="travel-bg" href="#0">15 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -104,7 +104,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-2.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-2.jpg') }}" alt="" />
                         <h3>asian football cup starts at night<span class="sports-bg">2<a class="sports-bg" href="#0">2 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -126,7 +126,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-3.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-3.jpg') }}" alt="" />
                         <h3>relax your mind with meditation<span class="health-bg">1<a class="health-bg" href="#0">1 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -148,7 +148,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-4.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-4.jpg') }}" alt="" />
                         <h3>we enjoy the tour with thrill in Himalaya<span class="travel-bg">4<a class="travel-bg" href="#0">4 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -170,7 +170,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-5.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-5.jpg') }}" alt="" />
                         <h3>wimming is the best excercise for women<span class="code-bg">9<a class="code-bg" href="#0">9 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -192,7 +192,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-6.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-6.jpg') }}" alt="" />
                         <h3>very danger: water ride <span class="music-bg">5<a class="music-bg" href="#0">5 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -214,7 +214,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-7.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-7.jpg') }}" alt="" />
                         <h3>very danger: water ride <span class="sports-bg">14<a class="sports-bg" href="#0">14 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -236,7 +236,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-8.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-8.jpg') }}" alt="" />
                         <h3>kids must vision check-up regularly<span class="health-bg">18<a class="health-bg" href="#0">18 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -258,7 +258,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-9.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-9.jpg') }}" alt="" />
                         <h3>first time dual core processor in ninja s - 87<span class="mobile-bg">45<a class="sports-bg" href="#0">45 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -280,7 +280,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-10.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-10.jpg') }}" alt="" />
                         <h3>roam roads covered by leafs<span class="lifestyle-bg">11<a class="lifestyle-bg" href="#0">11 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -302,7 +302,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-11.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-11.jpg') }}" alt="" />
                         <h3>fantastic theme park jolly water ride<span class="travel-bg">13<a class="travel-bg" href="#0">13 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -324,7 +324,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-12.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-12.jpg') }}" alt="" />
                         <h3>30 days java script free tutorial<span class="code-bg">25<a class="code-bg" href="#0">25 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -346,7 +346,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-13.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-13.jpg') }}" alt="" />
                         <h3>world live music evenet-2014<span class="music-bg">4<a class="music-bg" href="#0">4 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -368,7 +368,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-14.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-14.jpg') }}" alt="" />
                         <h3>how to hack email password within 10 min<span class="sports-bg">33<a class="sports-bg" href="#0">33 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -390,7 +390,7 @@
                 <!-- ___Post Bottom Content___ -->
                 <div class="col-md-4">
                     <div class="post-bottom-content">
-                        <img class="img-responsive" src="img/octagon/pb-content/pb-sm-15.jpg" alt="" />
+                        <img class="img-responsive" src="{{ asset('img/octagon/pb-content/pb-sm-15.jpg') }}" alt="" />
                         <h3>nisan galaxy car give extra mileage<span class="design-bg">2<a class="design-bg" href="#0">2 comment</a></span></h3>
                         <span class="date">Jan 20, 2015</span>
 
@@ -442,7 +442,7 @@
                                                         <p class="travel-color">Travel</p>
                                                     </div>
                                                     <div class="media-right">
-                                                        <img class="img-responsive" src="img/octagon/widget/widget-tag-1.jpg" alt="">
+                                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/widget-tag-1.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- End Media -->
                                             </li>
@@ -455,7 +455,7 @@
                                                         <p class="mobile-color">Mobile</p>
                                                     </div>
                                                     <div class="media-right">
-                                                        <img class="img-responsive" src="img/octagon/widget/widget-tag-2.jpg" alt="">
+                                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/widget-tag-2.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- End Media -->
                                             </li>
@@ -468,7 +468,7 @@
                                                         <p class="health-color">Health</p>
                                                     </div>
                                                     <div class="media-right">
-                                                        <img class="img-responsive" src="img/octagon/widget/widget-tag-3.jpg" alt="">
+                                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/widget-tag-3.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- End Media -->
                                             </li>
@@ -487,7 +487,7 @@
                                                         <p class="mobile-color">Mobile</p>
                                                     </div>
                                                     <div class="media-right">
-                                                        <img class="img-responsive" src="img/octagon/widget/widget-tag-3.jpg" alt="">
+                                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/widget-tag-3.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- End Media -->
                                             </li>
@@ -500,7 +500,7 @@
                                                         <p class="travel-color">Travel</p>
                                                     </div>
                                                     <div class="media-right">
-                                                        <img class="img-responsive" src="img/octagon/widget/widget-tag-1.jpg" alt="">
+                                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/widget-tag-1.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- End Media -->
                                             </li>
@@ -513,7 +513,7 @@
                                                         <p class="health-color">Health</p>
                                                     </div>
                                                     <div class="media-right">
-                                                        <img class="img-responsive" src="img/octagon/widget/widget-tag-2.jpg" alt="">
+                                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/widget-tag-2.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- End Media -->
                                             </li>
@@ -532,7 +532,7 @@
                                                         <p class="travel-color">Travel</p>
                                                     </div>
                                                     <div class="media-right">
-                                                        <img class="img-responsive" src="img/octagon/widget/widget-tag-2.jpg" alt="">
+                                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/widget-tag-2.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- End Media -->
                                             </li>
@@ -545,7 +545,7 @@
                                                         <p class="health-color">Health</p>
                                                     </div>
                                                     <div class="media-right">
-                                                        <img class="img-responsive" src="img/octagon/widget/widget-tag-3.jpg" alt="">
+                                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/widget-tag-3.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- End Media -->
                                             </li>
@@ -558,7 +558,7 @@
                                                         <p class="mobile-color">Mobile</p>
                                                     </div>
                                                     <div class="media-right">
-                                                        <img class="img-responsive" src="img/octagon/widget/widget-tag-1.jpg" alt="">
+                                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/widget-tag-1.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- End Media -->
                                             </li>
@@ -572,7 +572,7 @@
                         <div class="sidebar-widget sidebar-about">
                             <h3>About Octagon</h3>
                             <div class="about-image">
-                                <img class="img-responsive" src="img/octagon/widget/sidebar-about.jpg" alt="" />
+                                <img class="img-responsive" src="{{ asset('img/octagon/widget/sidebar-about.jpg') }}" alt="" />
                             </div>
                             <p>Octagon is one of the excellent blog in the World, Because Octogon Have an Uniqe and interesting post. so It give Treat for visiters eyes.</p>
                         </div> <!-- End Side About -->
@@ -583,13 +583,13 @@
                                 <!-- ___Wrapper for Slides___ -->
                                 <div class="carousel-inner" role="listbox">
                                     <div class="item active">
-                                        <img class="img-responsive" src="img/octagon/widget/sidebar-slider-1.jpg" alt="">
+                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/sidebar-slider-1.jpg') }}" alt="">
                                     </div>
                                     <div class="item">
-                                        <img class="img-responsive" src="img/octagon/widget/sidebar-slider-2.jpg" alt="">
+                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/sidebar-slider-2.jpg') }}" alt="">
                                     </div>
                                     <div class="item">
-                                        <img class="img-responsive" src="img/octagon/widget/sidebar-slider-3.jpg" alt="">
+                                        <img class="img-responsive" src="{{ asset('img/octagon/widget/sidebar-slider-3.jpg') }}" alt="">
                                     </div>
                                 </div>
 
@@ -628,7 +628,7 @@
                         </div><!-- End sidebar-archive-->
 
                         <div class="sidebar-widget sidebar-ads">
-                            <img class="img-responsive" src="img/octagon/widget/side-bar-ads.jpg" alt="" />
+                            <img class="img-responsive" src="{{ asset('img/octagon/widget/side-bar-ads.jpg') }}" alt="" />
                         </div>
 
                         <!-- ___Start Subscribe___ -->
