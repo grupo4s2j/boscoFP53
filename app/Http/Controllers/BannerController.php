@@ -53,7 +53,7 @@ class BannerController extends Controller
         if ($request->hasFile('img')) {
            
             $file = $request->file('img');
-            $nombreimagen = '/assets/banners/' . $file->getClientOriginalName();
+            $nombreimagen = 'img/banners/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
@@ -133,7 +133,7 @@ class BannerController extends Controller
        if ($request->hasFile('img')) {
            
             $file = $request->file('img');
-            $nombreimagen = '/assets/banners/' . $file->getClientOriginalName();
+            $nombreimagen = 'img/banners/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 

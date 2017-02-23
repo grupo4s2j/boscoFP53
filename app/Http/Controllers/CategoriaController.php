@@ -60,7 +60,7 @@ class CategoriaController extends Controller
         if ($request->hasFile('img')) {
            
             $file = $request->file('img');
-            $nombreimagen = '/assets/categorias/' . $file->getClientOriginalName();
+            $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
@@ -143,7 +143,7 @@ class CategoriaController extends Controller
         if ($request->hasFile('img')) {
             echo "<script>alert('Hay imagen')</script>";
             $file = $request->file('img');
-            $nombreimagen = '/assets/categorias/' . $file->getClientOriginalName();
+            $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
