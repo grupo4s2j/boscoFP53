@@ -260,7 +260,7 @@ fa-file'></i> <span>Ficheros</span></a></li>
     });
 </script>
 <script>
-    var fixHelperModified = function (e, tr) {
+   var fixHelperModified = function (e, tr) {
                 var $originals = tr.children();
                 var $helper = tr.clone();
                 $helper.children().each(function (index) {
@@ -269,6 +269,8 @@ fa-file'></i> <span>Ficheros</span></a></li>
                 return $helper;
             },
             updateIndex = function (e, ui) {
+                var data = $(this).sortable('serialize');
+                //save_sortable(data);
                 $('td.orden', ui.item.parent()).each(function (i) {
                     $(this).html(i + 1);
 
@@ -279,8 +281,25 @@ fa-file'></i> <span>Ficheros</span></a></li>
         helper: fixHelperModified,
         stop: updateIndex
     }).disableSelection();
+    function save_sortable(serial)
+    {
+        $.ajax({
+            url: "save.php",
+            type: 'POST',
+            data: serial,
+            success: function (data) {
+                alert(data);
+            },
+            error: function(){
+                alert("theres an error with AJAX");
+            }
 
-   //$( "tbody" ).sortable();
+        });
+    }
+   //$( "tbody" ).sortable();*/
+
+
+
 </script>
 </body>
 </html>

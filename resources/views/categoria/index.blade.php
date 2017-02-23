@@ -56,14 +56,14 @@
             <th>activo</th>
             <th>actions</th>
             </thead>
-            <tbody>
+            <tbody >
             @foreach($categorias as $categoria)
-                <tr>
-                    <td>{!!$categoria->nombre!!}</td>
-                    <td>{!!$categoria->color!!}</td>
-                    <td>{!!$categoria->img!!}</td>
+                <tr class={!! $categoria  !!}>
+                    <td class="nombre">{!!$categoria->nombre!!}</td>
+                    <td class="color">{!!$categoria->color!!}</td>
+                    <td class="img">{!!$categoria->img!!}</td>
                     <td class="orden">{!!$categoria->orden!!}</td>
-                    <td>{!!$categoria->activo!!}</td>
+                    <td class="activo">{!!$categoria->activo!!}</td>
                     <td>
                         <a data-toggle="modal" data-target="#myModal" class='delete btn btn-danger btn-xs'
                            data-link="/categoria/{!!$categoria->id!!}/deleteMsg"><i
