@@ -50,7 +50,15 @@ class BannerController extends Controller
         $banner = new Banner();
 
 
-        $banner->img = $request->img;
+        if ($request->hasFile('img')) {
+           
+            $file = $request->file('img');
+            $nombreimagen = 'img/banners/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+            
+
+            $banner->img = $nombreimagen;
+        }
 
 
         $banner->url = $request->url;
@@ -122,7 +130,15 @@ class BannerController extends Controller
     {
         $banner = Banner::findOrfail($id);
 
-        $banner->img = $request->img;
+       if ($request->hasFile('img')) {
+           
+            $file = $request->file('img');
+            $nombreimagen = 'img/banners/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+            
+
+            $banner->img = $nombreimagen;
+        }
 
         $banner->url = $request->url;
 

@@ -10,11 +10,11 @@
         <button class = 'btn btn-danger'>banner Index</button>
     </form>
     <br>
-    <form method = 'POST' action = '{!!url("banner")!!}'>
+    <form method = 'POST' action = '{!!url("banner")!!}' enctype="multipart/form-data">
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="img">img</label>
-            <input id="img" name = "img" type="text" class="form-control">
+            <input id="img" name = "img" type="file" class="form-control">
         </div>
         <div class="form-group">
             <label for="url">url</label>

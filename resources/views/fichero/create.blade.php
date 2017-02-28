@@ -10,11 +10,11 @@
         <button class = 'btn btn-danger'>fichero Index</button>
     </form>
     <br>
-    <form method = 'POST' action = '{!!url("fichero")!!}'>
+    <form method = 'POST' action = '{!!url("fichero")!!}' enctype="multipart/form-data">
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="url">url</label>
-            <input id="url" name = "url" type="text" class="form-control">
+            <input id="url" name = "url" type="file" class="form-control">
         </div>
         <div class="form-group">
             <label for="idRecurso">idRecurso</label>

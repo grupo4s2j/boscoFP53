@@ -70,7 +70,15 @@ class CategoriaController extends Controller
 
         $categoria->nombre = $request->nombre;
 
-        $categoria->img = $request->img;
+        if ($request->hasFile('img')) {
+           
+            $file = $request->file('img');
+            $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+            
+
+        $categoria->img = $nombreimagen;
+        }
 
         $categoria->color = $request->color;
 
@@ -144,8 +152,16 @@ class CategoriaController extends Controller
         $categoria = Categoria::findOrfail($id);
 
         $categoria->nombre = $request->nombre;
+        
+        if ($request->hasFile('img')) {
+            echo "<script>alert('Hay imagen')</script>";
+            $file = $request->file('img');
+            $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+            
 
-        $categoria->img = $request->img;
+        $categoria->img = $nombreimagen;
+        }
 
         $categoria->color = $request->color;
 

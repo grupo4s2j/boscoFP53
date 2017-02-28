@@ -11,11 +11,11 @@
     </form>
     <br>
     <form method = 'POST' action = '{!! url("fichero")!!}/{!!$fichero->
-        id!!}/update'> 
+        id!!}/update' enctype="multipart/form-data"> 
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="url">url</label>
-            <input id="url" name = "url" type="text" class="form-control" value="{!!$fichero->
+            <input id="url" name = "url" type="file" class="form-control" value="{!!$fichero->
             url!!}"> 
         </div>
         <div class="form-group">

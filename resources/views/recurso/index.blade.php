@@ -32,7 +32,7 @@
                 <td>{!!$recurso->titulo!!}</td>
                 <td>{!!$recurso->descripcion!!}</td>
                 <!--<td>{/*!!$recurso->contenido!!*/}</td>-->
-                <td>{!!$recurso->img!!}</td>
+                <td><img src="{!!$recurso->img!!}" style="width: 100px; height: 100px;"></img></td>
                 <td>{!!$recurso->fechaPost!!}</td>
                 <td>{!!$recurso->fechaInicio!!}</td>
                 <td>{!!$recurso->fechaFin!!}</td>

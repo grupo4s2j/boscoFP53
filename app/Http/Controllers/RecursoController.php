@@ -73,7 +73,15 @@ class RecursoController extends Controller
         $recurso->contenido = $request->contenido;
 
 
-        $recurso->img = $request->img;
+        if ($request->hasFile('imgen')) {
+            echo "<script>alert('Hay imagen')</script>";
+            $file = $request->file('imgen');
+            $nombreimagen = '/img/recursos/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+            
+
+        $recurso->img = $nombreimagen;
+        }
 
 
         $recurso->fechaPost = $request->fechaPost;
@@ -198,9 +206,15 @@ class RecursoController extends Controller
         $recurso->descripcion = $request->descripcion;
 
         $recurso->contenido = $request->contenido;
+        if ($request->hasFile('imgen')) {
+            echo "<script>alert('Hay imagen')</script>";
+            $file = $request->file('imgen');
+            $nombreimagen = '/img/recursos/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+            
 
-        $recurso->img = "img/recurs/" . $request->img;
-
+        $recurso->img = $nombreimagen;
+        }
         $recurso->fechaPost = $request->fechaPost;
 
         $recurso->fechaInicio = $request->fechaInicio;

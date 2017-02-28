@@ -11,11 +11,11 @@
     </form>
     <br>
     <form method = 'POST' action = '{!! url("banner")!!}/{!!$banner->
-        id!!}/update'> 
+        id!!}/update' enctype="multipart/form-data"> 
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="img">img</label>
-            <input id="img" name = "img" type="text" class="form-control" value="{!!$banner->
+            <input id="img" name = "img" type="file" class="form-control" text="{!!$banner->
             img!!}"> 
         </div>
         <div class="form-group">

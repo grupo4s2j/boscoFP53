@@ -26,7 +26,7 @@
             <tr>
                 <td>{!!$evento->titulo!!}</td>
                 <td>{!!$evento->descripcion!!}</td>
-                <td>{!!$evento->img!!}</td>
+                <td><img src="{!!$evento->img!!}" style="height: 100px; width:100px;"></img></td>
                 <td>{!!$evento->fechaInicio!!}</td>
                 <td>{!!$evento->fechaFin!!}</td>
                 <td>{!!$evento->activo!!}</td>

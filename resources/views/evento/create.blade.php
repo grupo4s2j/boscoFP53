@@ -10,7 +10,7 @@
         <button class = 'btn btn-danger'>evento Index</button>
     </form>
     <br>
-    <form method = 'POST' action = '{!!url("evento")!!}'>
+    <form method = 'POST' action = '{!!url("evento")!!}' enctype="multipart/form-data">
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="titulo">titulo</label>
@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="img">img</label>
-            <input id="img" name = "img" type="text" class="form-control">
+            <input id="img" name = "img" type="file" class="form-control">
         </div>
         <div class="form-group">
             <label for="fechaInicio">fechaInicio</label>

@@ -13,7 +13,7 @@
             </form>
             <br>
             <div class="box-body">
-                <form method='POST' action='{!!url("recurso")!!}'>
+                <form method='POST' action='{!!url("recurso")!!}' enctype="multipart/form-data">
                     <input type='hidden' name='_token' value='{{Session::token()}}'>
                     <div class="form-group">
                         <label for="titulo">Titulo</label>
@@ -29,8 +29,8 @@
                             </textarea>
                     </div>
                     <div class="form-group">
-                        <label for="img">Imagen</label>
-                        <input id="img" name="img" type="text" class="form-control">
+                        <label for="imgen">Imagen</label>
+                        <input id="imgen" name="imgen" type="file" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="fechaPost">fechaPost</label>
