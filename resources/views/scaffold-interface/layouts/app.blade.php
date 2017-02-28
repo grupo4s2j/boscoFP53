@@ -168,6 +168,7 @@ fa-file'></i> <span>Ficheros</span></a></li>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 <!-- Before select2-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <!-- /Before select2-->
@@ -205,48 +206,48 @@ fa-file'></i> <span>Ficheros</span></a></li>
 <script>
 
 
-      if (typeof data !== 'undefined') {
+    if (typeof data !== 'undefined') {
 
-          var $element = $('#tag_list').select2();
-          //[{"id": "1", "text": "One"}, {"id": "2", "text": "Two"}]
-          for (var d = 0; d < data.length; d++) {
-              var item = data[d];
+        var $element = $('#tag_list').select2();
+        //[{"id": "1", "text": "One"}, {"id": "2", "text": "Two"}]
+        for (var d = 0; d < data.length; d++) {
+            var item = data[d];
 
-              // Create the DOM option that is pre-selected by default
-              var option = new Option(item.text, item.text, true, true);
+            // Create the DOM option that is pre-selected by default
+            var option = new Option(item.text, item.text, true, true);
 
-              // Append it to the select
-              $element.append(option);
-          }
+            // Append it to the select
+            $element.append(option);
+        }
 
-          // Update the selected options that are displayed
-          $element.trigger('change');
-      }
-      $('#tag_list').select2({
-          //placeholder: "Choose tags...",
-          tags: true,
-          tokenSeparators: [',', ' '],
-          minimumInputLength: 2,
+        // Update the selected options that are displayed
+        $element.trigger('change');
+    }
+    $('#tag_list').select2({
+        //placeholder: "Choose tags...",
+        tags: true,
+        tokenSeparators: [',', ' '],
+        minimumInputLength: 2,
 
-          ajax: {
-              url: '/tag/find',
-              dataType: 'json',
-              data: function (params) {
+        ajax: {
+            url: '/tag/find',
+            dataType: 'json',
+            data: function (params) {
 
-                  return {
-                      q: $.trim(params.term)
-                  };
-              },
-              processResults: function (data) {
-                  return {
-                      results: data
-                  };
+                return {
+                    q: $.trim(params.term)
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
 
-              },
-              cache: true
-          }
+            },
+            cache: true
+        }
 
-      });
+    });
 
     /*http://laraget.com/blog/select2-and-laravel-ajax-autocomplete*/
     /*http://jsfiddle.net/X6V2s/66/*/
@@ -258,6 +259,47 @@ fa-file'></i> <span>Ficheros</span></a></li>
         autoclose: true
     });
 </script>
+<script>
+   var fixHelperModified = function (e, tr) {
+                var $originals = tr.children();
+                var $helper = tr.clone();
+                $helper.children().each(function (index) {
+                    $(this).width($originals.eq(index).width())
+                });
+                return $helper;
+            },
+            updateIndex = function (e, ui) {
+                var data = $(this).sortable('serialize');
+                //save_sortable(data);
+                $('td.orden', ui.item.parent()).each(function (i) {
+                    $(this).html(i + 1);
 
+                });
+            };
+
+    $("#taula tbody").sortable({
+        helper: fixHelperModified,
+        stop: updateIndex
+    }).disableSelection();
+    function save_sortable(serial)
+    {
+        $.ajax({
+            url: "save.php",
+            type: 'POST',
+            data: serial,
+            success: function (data) {
+                alert(data);
+            },
+            error: function(){
+                alert("theres an error with AJAX");
+            }
+
+        });
+    }
+   //$( "tbody" ).sortable();*/
+
+
+
+</script>
 </body>
 </html>
