@@ -32,7 +32,7 @@ class CategoriaController extends Controller
             $categorias = Categoria::paginate($paginate);
         }else {
             $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')
-                ->paginate($paginate);
+                ->paginate(1000);
         }
         $title = 'Index - categoria';
 
