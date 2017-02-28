@@ -23,7 +23,7 @@
             <th>rangoEdad</th>
             <th>relevancia</th>
             <th>idEntidadOrganizativa</th>
-            <th>activo</th>
+            {{--<th>activo</th>--}}
             <th>actions</th>
         </thead>
         <tbody>
@@ -39,7 +39,7 @@
                 <td>{!!$recurso->rangoEdad!!}</td>
                 <td>{!!$recurso->relevancia!!}</td>
                 <td>{!!$recurso->idEntidadOrganizativa!!}</td>
-                <td>{!!$recurso->activo!!}</td>
+                {{--<td>{!!$recurso->activo!!}</td>--}}
                 <td>
                     <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/recurso/{!!$recurso->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
                     <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/recurso/{!!$recurso->id!!}/edit'><i class = 'material-icons'>edit</i></a>

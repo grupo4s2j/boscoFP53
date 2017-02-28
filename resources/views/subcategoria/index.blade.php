@@ -15,8 +15,8 @@
         <thead>
             <th>Nombre</th>
             <th>Categoría</th>
-            <th>Orden</th>
-            <th>Activo</th>
+            {{--<th>Orden</th>--}}
+            {{--<th>Activo</th>--}}
             <th>Acciones</th>
         </thead>
         <tbody>
@@ -24,8 +24,8 @@
             <tr>
                 <td>{!!$subcategoria->nombre!!}</td>
                 <td>{!!$subcategoria->categoria->nombre!!}</td>
-                <td>{!!$subcategoria->orden!!}</td>
-                <td>{!!$subcategoria->activo!!}</td>
+                {{--<td>{!!$subcategoria->orden!!}</td>--}}
+                {{--<td>{!!$subcategoria->activo!!}</td>--}}
                 <td>
                     <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/subcategoria/{!!$subcategoria->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
                     <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/subcategoria/{!!$subcategoria->id!!}/edit'><i class = 'material-icons'>edit</i></a>

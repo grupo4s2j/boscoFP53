@@ -18,7 +18,7 @@
             <th>img</th>
             <th>fechaInicio</th>
             <th>fechaFin</th>
-            <th>activo</th>
+            {{--<th>activo</th>--}}
             <th>actions</th>
         </thead>
         <tbody>
@@ -29,7 +29,7 @@
                 <td><img src="{!!$evento->img!!}" style="height: 100px; width:100px;"></img></td>
                 <td>{!!$evento->fechaInicio!!}</td>
                 <td>{!!$evento->fechaFin!!}</td>
-                <td>{!!$evento->activo!!}</td>
+                {{--<td>{!!$evento->activo!!}</td>--}}
                 <td>
                     <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/evento/{!!$evento->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
                     <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/evento/{!!$evento->id!!}/edit'><i class = 'material-icons'>edit</i></a>

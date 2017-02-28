@@ -15,7 +15,7 @@
         <thead>
             <th>img</th>
             <th>url</th>
-            <th>activo</th>
+            {{--<th>activo</th>--}}
             <th>actions</th>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
             <tr>
                 <td><img src="{!!$banner->img!!}" style="height: 100px; width: 100px;"></img></td>
                 <td>{!!$banner->url!!}</td>
-                <td>{!!$banner->activo!!}</td>
+                {{--<td>{!!$banner->activo!!}</td>--}}
                 <td>
                     <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/banner/{!!$banner->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
                     <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/banner/{!!$banner->id!!}/edit'><i class = 'material-icons'>edit</i></a>

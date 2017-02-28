@@ -16,7 +16,7 @@
             <th>nombre</th>
             <th>direccion</th>
             <th>geolocalizacion</th>
-            <th>activo</th>
+            {{--<th>activo</th>--}}
             <th>actions</th>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
                 <td>{!!$entidadorganizativa->nombre!!}</td>
                 <td>{!!$entidadorganizativa->direccion!!}</td>
                 <td>{!!$entidadorganizativa->geolocalizacion!!}</td>
-                <td>{!!$entidadorganizativa->activo!!}</td>
+                {{--<td>{!!$entidadorganizativa->activo!!}</td>--}}
                 <td>
                     <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/entidadorganizativa/{!!$entidadorganizativa->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
                     <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/entidadorganizativa/{!!$entidadorganizativa->id!!}/edit'><i class = 'material-icons'>edit</i></a>
