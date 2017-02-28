@@ -75,11 +75,11 @@
                     @endforeach
                 </SELECT>
             </div>
-            <div class="form-group">
+           {{-- <div class="form-group">
                 <label for="activo">activo</label>
                 <input id="activo" name="activo" type="text" class="form-control" value="{!!$recurso->
             activo!!}">
-            </div>
+            </div>--}}
             <div class="form-group">
                 <label for="tag_list">Tags:</label>
                 <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>

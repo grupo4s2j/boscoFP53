@@ -17,6 +17,7 @@
             <th>Categoría</th>
             {{--<th>Orden</th>--}}
             {{--<th>Activo</th>--}}
+            <th>Img</th>
             <th>Acciones</th>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
             <tr>
                 <td>{!!$subcategoria->nombre!!}</td>
                 <td>{!!$subcategoria->categoria->nombre!!}</td>
+                <td>{!!$subcategoria->categoria->img!!}</td>
                 {{--<td>{!!$subcategoria->orden!!}</td>--}}
                 {{--<td>{!!$subcategoria->activo!!}</td>--}}
                 <td>

@@ -24,10 +24,10 @@
             <label for="geolocalizacion">geolocalizacion</label>
             <input id="geolocalizacion" name = "geolocalizacion" type="text" class="form-control">
         </div>
-        <div class="form-group">
+       {{-- <div class="form-group">
             <label for="activo">activo</label>
             <input id="activo" name = "activo" type="text" class="form-control">
-        </div>
+        </div>--}}
         <button class = 'btn btn-primary' type ='submit'>Create</button>
     </form>
 </section>

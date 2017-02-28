@@ -53,7 +53,7 @@
                         <input id="relevancia" name="relevancia" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="idEntidadOrganizativa">idEntidadOrganizativa</label>
+                        <label for="idEntidadOrganizativa">Entidad Organizativa</label>
                        <!-- <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control">-->
                         <SELECT id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control">
 
@@ -62,10 +62,10 @@
                             @endforeach
                         </SELECT>
                     </div>
-                    <div class="form-group">
+                   {{-- <div class="form-group">
                         <label for="activo">activo</label>
                         <input id="activo" name="activo" type="text" class="form-control">
-                    </div>
+                    </div>--}}
 
                     <div class="form-group">
                         <label for="tag_list">Tags:</label>

@@ -14,14 +14,14 @@
                     <label for="">Nombre</label>
                     <input type="text" name = "nombre" value = "{{$subcategoria->nombre}}" class = "form-control" required>
                 </div>
-                <div class="form-group">
+                {{--<div class="form-group">
                     <label for="">Orden</label>
                     <input type="text" name = "orden" value = "{{$subcategoria->orden}}" class = "form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="">Activo</label>
                     <input type="text" name = "activo" value = "{{$subcategoria->activo}}" class = "form-control" required>
-                </div>
+                </div>--}}
                 <div class="form-group">
                     <label for="">Categoría</label>
                     <select name="idCategoria" id="" class = "form-control">
@@ -34,6 +34,10 @@
                         
                         @endforeach
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="img">img</label>
+                    <input id="img" name = "img" type="file" class="form-control">
                 </div>
                 <button class = "btn btn-primary" type="submit">Guardar</button>
             </form>

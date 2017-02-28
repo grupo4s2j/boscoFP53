@@ -13,21 +13,33 @@
     <form method = 'POST' action = '{!!url("subcategoria")!!}'>
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
-            <label for="idCategoria">idCategoria</label>
-            <input id="idCategoria" name = "idCategoria" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="nombre">nombre</label>
+            <label for="nombre">Nombre</label>
             <input id="nombre" name = "nombre" type="text" class="form-control">
         </div>
         <div class="form-group">
+            <label for="">Categoría</label>
+            <select name="idCategoria" id="idCategoria" class = "form-control">
+                @foreach($categorias as $categoria)
+
+                        <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+
+
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="img">img</label>
+            <input id="img" name = "img" type="file" class="form-control">
+        </div>
+        {{--<div class="form-group">
             <label for="orden">orden</label>
             <input id="orden" name = "orden" type="text" class="form-control">
         </div>
         <div class="form-group">
             <label for="activo">activo</label>
             <input id="activo" name = "activo" type="text" class="form-control">
-        </div>
+        </div>--}}
         <button class = 'btn btn-primary' type ='submit'>Create</button>
     </form>
 </section>

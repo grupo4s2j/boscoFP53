@@ -27,6 +27,7 @@ class SubcategoriaController extends Controller
     {
         $title = 'Index - subcategoria';
         $subcategorias = Subcategoria::paginate(6);
+
         return view('subcategoria.index',compact('subcategorias','title'));
     }
 
@@ -38,8 +39,8 @@ class SubcategoriaController extends Controller
     public function create()
     {
         $title = 'Create - subcategoria';
-        
-        return view('subcategoria.create');
+        $categorias = Categoria::all();
+        return view('subcategoria.create',compact('categorias'));
     }
 
     /**
