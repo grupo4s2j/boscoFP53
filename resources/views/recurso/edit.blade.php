@@ -11,7 +11,7 @@
         </form>
         <br>
         <form method='POST' action='{!! url("recurso")!!}/{!!$recurso->
-        id!!}/update'  enctype="multipart/form-data">
+        id!!}/update' enctype="multipart/form-data">
             <input type='hidden' name='_token' value='{{Session::token()}}'>
             <div class="form-group">
                 <label for="titulo">Titulo</label>
@@ -68,18 +68,18 @@
             idEntidadOrganizativa!!}">>
                     @foreach($entidades as $entidad)
                         @if ($entidad->id==$recurso->idEntidadOrganizativa)
-                                <option value="{{$entidad->id}}" selected="selected" >{{$entidad->nombre}}</option>
-                            @else
-                                <option value="{{$entidad->id}}">{{$entidad->nombre}}</option>
+                            <option value="{{$entidad->id}}" selected="selected">{{$entidad->nombre}}</option>
+                        @else
+                            <option value="{{$entidad->id}}">{{$entidad->nombre}}</option>
                         @endif
                     @endforeach
                 </SELECT>
             </div>
-           {{-- <div class="form-group">
-                <label for="activo">activo</label>
-                <input id="activo" name="activo" type="text" class="form-control" value="{!!$recurso->
-            activo!!}">
-            </div>--}}
+            {{-- <div class="form-group">
+                 <label for="activo">activo</label>
+                 <input id="activo" name="activo" type="text" class="form-control" value="{!!$recurso->
+             activo!!}">
+             </div>--}}
             <div class="form-group">
                 <label for="tag_list">Tags:</label>
                 <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>
@@ -87,5 +87,49 @@
             <script> var data ={!!$tags!!}</script>
             <button class='btn btn-primary' type='submit'>Update</button>
         </form>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3>Subcategorias </h3>
+                    </div>
+                    <div class="box-body">
+                        <form action="{{url('recurso/addSubcategoria')}}" method="post">
+                            {!! csrf_field() !!}
+                            <input type="hidden" name="idRecursos" value="{{$recurso->id}}">
+                            <div class="form-group">
+                                <select name="subcategoria_id" id="" class="form-control">
+                                    @foreach($subcategorias as $role)
+                                        <option value="{{$role->id}}">{{$role->nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button class='btn btn-primary'>Add Subcategoria</button>
+                            </div>
+                        </form>
+                        <table class='table'>
+                            <thead>
+                            <th>Subcategoria</th>
+                            <th>Action</th>
+                            </thead>
+                            <tbody>
+                            @foreach($recursoSubcategorias as $role)
+                                <tr>
+                                    <td>{{$role->nombre}}</td>
+                                    <td>
+                                        <a href="{{url('recurso/removeSubcategoria')}}/{{str_slug($role->id,'-')}}/{{$recurso->id}}"
+                                           class="btn btn-danger btn-sm"><i class="fa fa-trash-o"
+                                                                            aria-hidden="true"></i></a></td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
     </section>
 @endsection

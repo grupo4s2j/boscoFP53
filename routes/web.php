@@ -58,6 +58,10 @@ Route::group(['middleware'=> 'web'],function(){
   Route::post('recurso/{id}/update','\App\Http\Controllers\RecursoController@update');
   Route::get('recurso/{id}/delete','\App\Http\Controllers\RecursoController@destroy');
   Route::get('recurso/{id}/deleteMsg','\App\Http\Controllers\RecursoController@DeleteMsg');
+  Route::post('recurso/addSubcategoria', '\App\Http\Controllers\RecursoController@addSubcategoria');
+ // Route::post('recurso/addPermission', '\App\Http\Controllers\ScaffoldInterface\UserController@addPermission');
+ // Route::get('recurso/removePermission/{permission}/{user_id}', '\App\Http\Controllers\ScaffoldInterface\UserController@revokePermission');
+  Route::get('recurso/removeSubcategoria/{role}/{user_id}', '\App\Http\Controllers\RecursoController@removeSubcategoria');
 });
 
 

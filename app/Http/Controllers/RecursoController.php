@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Entidadorganizativa;
+use App\Fichero;
+use App\Recursossubcategoria;
+use App\Subcategoria;
 use App\Tag;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
@@ -11,6 +14,7 @@ use App\Recurso;
 use App\Recursotag;
 
 use Amranidev\Ajaxis\Ajaxis;
+use Illuminate\Support\Facades\DB;
 use URL;
 
 /**
@@ -78,9 +82,9 @@ class RecursoController extends Controller
             $file = $request->file('imgen');
             $nombreimagen = '/img/recursos/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
-            
 
-        $recurso->img = $nombreimagen;
+
+            $recurso->img = $nombreimagen;
         }
 
 
@@ -187,7 +191,39 @@ class RecursoController extends Controller
 
         $tags = Recursotag::findTagsInRecurs($id);
 
-        return view('recurso.edit', compact('title', 'recurso', 'entidades', 'tags'));
+        $subcategorias = Subcategoria::all();
+        $recursoSubcategorias = $recurso->recursosubcategorias;
+        $ficheros = Fichero::all();
+
+        return view('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias'));
+    }
+
+
+    public function addSubcategoria(Request $request)
+    {
+        //$user = \App\User::findOrfail($request->user_id);
+        //$user->assignRole($request->role_name);
+        $recsub = new Recursossubcategoria();
+        $recsub->IdRecursos = $request->idRecursos;
+        $recsub->IdSubCategorias = $request->subcategoria_id;
+        $recsub->save();
+        return redirect('recurso/' . $request->idRecursos . '/edit/');
+    }
+
+    public function removeSubcategoria($idsub, $idrec)
+    {
+//        $idsub = preg_replace('/\d/', '', $idsub);
+//        $idrec = preg_replace('/\d/', '', $idrec);
+        $subcat = DB::table('recursossubcategorias')
+            ->select('recursossubcategorias.id')
+            ->join('subcategorias', 'recursossubcategorias.idSubcategorias', '=', 'subcategorias.id')
+            ->join('recursos', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
+            ->where('recursossubcategorias.idSubcategorias', '=', $idsub)
+            ->where('recursossubcategorias.idRecursos', '=', $idrec)
+            ->get();
+        $subcategoria = Recursossubcategoria::findOrfail($subcat[0]->id);
+        $subcategoria->delete();
+        return redirect('recurso/' . $idrec . '/edit/');
     }
 
     /**
@@ -211,9 +247,9 @@ class RecursoController extends Controller
             $file = $request->file('imgen');
             $nombreimagen = '/img/recursos/' . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
-            
 
-        $recurso->img = $nombreimagen;
+
+            $recurso->img = $nombreimagen;
         }
         $recurso->fechaPost = $request->fechaPost;
 
@@ -241,7 +277,7 @@ class RecursoController extends Controller
         foreach ($ptags as $ptag) {
             $pid = $ptag->idrs;
 
-                Recursotag::destroy($pid);
+            Recursotag::destroy($pid);
 
         }
         foreach ($request->tag_list as $tag) {

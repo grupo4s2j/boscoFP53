@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class Recursossubcategoria.
  *
  * @property integer $Id
- * @property integer $IdRecurso
- * @property integer $IdSubCategoria
+ * @property integer $IdRecursos
+ * @property integer $IdSubCategorias
  * @property Recurso $recurso
  * @property Subcategoria $subcategoria
  */
