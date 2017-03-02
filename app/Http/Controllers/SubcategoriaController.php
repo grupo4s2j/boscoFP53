@@ -49,6 +49,18 @@ class SubcategoriaController extends Controller
 
         return view('fo.subcategorias', compact('subcategorias'));
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return  \Illuminate\Http\Response
+     */
+    public function indexFront($id)
+    {
+        $categoria = Categoria::find($id);
+        return view('fo.subcategorias',compact('categoria'));
+        //return view('fo.subcategorias',compact('subcategorias'));
+    }
 
     
 

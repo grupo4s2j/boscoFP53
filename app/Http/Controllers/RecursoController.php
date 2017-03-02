@@ -52,17 +52,61 @@ class RecursoController extends Controller
 
         return view('recurso.index', compact('recursos', 'title'));
     }
-
+    
+    /**
+     * Mustra un tablón con todos los posts/recursos
+     *
+     * @return  \Illuminate\Http\Response
+     */
     public function indexFront()
     {
-        $recursos = \App\Recurso::all();
+        //return \View::make('fo.categorias');
+        $recursos = Recurso::all();
+        foreach($recursos as $recurso){
+            $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
+        }
 
-        return view('fo.recurso', compact('recursos'));
+        return view('fo.tablon_recursos', compact('recursos'));
     }
     
-
+    /**
+     * Formatea la fecha para que se muestre como queremos
+     *
+     * @return  $recurso->fecha
+     */
+    public function formatFecha($fechaPosteo)
+    {
+        $fecha = explode('-', $fechaPosteo);
+        switch($fecha[1]){
+            case '01' : $fecha[1] = 'January';break;
+            case '02' : $fecha[1] = 'February';break;
+            case '03' : $fecha[1] = 'March';break;
+            case '04' : $fecha[1] = 'April';break;
+            case '05' : $fecha[1] = 'May';break;
+            case '06' : $fecha[1] = 'June';break;
+            case '07' : $fecha[1] = 'July';break;
+            case '08' : $fecha[1] = 'August';break;
+            case '09' : $fecha[1] = 'September';break;
+            case '10' : $fecha[1] = 'October';break;
+            case '11' : $fecha[1] = 'November';break;
+            case '12' : $fecha[1] = 'December';break;
+        }
+        return $fechaFormat = $fecha[1] . ' ' . $fecha[2] . ', ' . $fecha[0];
+    }
     
+    /**
+     * Nos muestra un post/recurso
+     *
+     * @return  recursos/id
+     */
+    public function showRecurso($id)
+    {
+        $recurso = Recurso::find($id);
+        $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
 
+        return view('fo.recurso_post', compact('recurso'));
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
