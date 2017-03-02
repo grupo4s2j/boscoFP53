@@ -22,9 +22,29 @@ class EntidadorganizativaController extends Controller
      */
     public function index()
     {
-        $title = 'Index - entidadorganizativa';
-        $entidadorganizativas = Entidadorganizativa::paginate(6);
-        return view('entidadorganizativa.index',compact('entidadorganizativas','title'));
+        $search = \Request::get('search');
+
+        $paginate = \Request::get('rows');
+        if ($paginate=="") {
+            $paginate = 6;
+        }
+        if ($search=="") {
+
+            $entidadorganizativas = Entidadorganizativa::where('activo', '=', '1')->paginate($paginate);
+        }else {
+            $entidadorganizativas = Entidadorganizativa::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
+                ->paginate(1000);
+        }
+        $title = 'Index - Entidad Organizativa';
+
+        return view('entidadorganizativa.index', compact('entidadorganizativas', 'title'));
+    }
+
+    public function indexFront()
+    {
+        $entidadorganizativa = \App\Entidadorganizativa::all();
+
+        return view('fo.entidadorganizativa', compact('entidadorganizativa'));
     }
 
     /**
@@ -59,7 +79,6 @@ class EntidadorganizativaController extends Controller
         $entidadorganizativa->geolocalizacion = $request->geolocalizacion;
 
         
-        $entidadorganizativa->activo = $request->activo;
 
         
         
@@ -134,8 +153,6 @@ class EntidadorganizativaController extends Controller
         
         $entidadorganizativa->geolocalizacion = $request->geolocalizacion;
         
-        $entidadorganizativa->activo = $request->activo;
-        
         
         $entidadorganizativa->save();
 
@@ -168,7 +185,8 @@ class EntidadorganizativaController extends Controller
     public function destroy($id)
     {
      	$entidadorganizativa = Entidadorganizativa::findOrfail($id);
-     	$entidadorganizativa->delete();
+     	$entidadorganizativa->activo = 0;
+        $entidadorganizativa->save();
         return URL::to('entidadorganizativa');
     }
 }

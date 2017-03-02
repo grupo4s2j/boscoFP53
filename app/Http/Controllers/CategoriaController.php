@@ -29,9 +29,9 @@ class CategoriaController extends Controller
         }
         if ($search=="") {
 
-            $categorias = Categoria::paginate($paginate);
+            $categorias = Categoria::where('activo', '=', '1')->paginate($paginate);
         }else {
-            $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')
+            $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
                 ->paginate(1000);
         }
         $title = 'Index - categoria';
@@ -74,17 +74,14 @@ class CategoriaController extends Controller
            
             $file = $request->file('img');
             $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+            Storage::disk('local')->put($nombreimagen, File::get($file));
             
 
         $categoria->img = $nombreimagen;
         }
 
         $categoria->color = $request->color;
-
-        $categoria->orden = $request->orden;
-
-        $categoria->activo = $request->activo;
+        
 
         $categoria->logo = $request->logo;
 
@@ -167,8 +164,6 @@ class CategoriaController extends Controller
 
         $categoria->orden = $request->orden;
 
-        $categoria->activo = $request->activo;
-
         $categoria->logo = $request->logo;
 
         $categoria->save();
@@ -201,7 +196,9 @@ class CategoriaController extends Controller
     public function destroy($id)
     {
         $categoria = Categoria::findOrfail($id);
-        $categoria->delete();
+        $categoria->activo = 0;
+
+        $categoria->save();
         return URL::to('categoria');
     }
 }

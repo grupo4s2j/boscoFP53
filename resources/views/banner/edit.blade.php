@@ -23,11 +23,6 @@
             <input id="url" name = "url" type="text" class="form-control" value="{!!$banner->
             url!!}"> 
         </div>
-        <div class="form-group">
-            <label for="activo">activo</label>
-            <input id="activo" name = "activo" type="text" class="form-control" value="{!!$banner->
-            activo!!}"> 
-        </div>
         <button class = 'btn btn-primary' type ='submit'>Update</button>
     </form>
 </section>

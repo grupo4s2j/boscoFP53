@@ -22,10 +22,31 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $title = 'Index - banner';
-        $banners = Banner::paginate(6);
+        $search = \Request::get('search');
+
+        $paginate = \Request::get('rows');
+        if ($paginate=="") {
+            $paginate = 6;
+        }
+        if ($search=="") {
+
+            $banners = Banner:::where('activo', '=', '1')->paginate($paginate);
+        }else {
+            $banners = Banner::where('url', 'like', '%' . $search . '%')->where('activo', '=', '1')
+                ->paginate(1000);
+        }
+        $title = 'Index - Banner';
+
         return view('banner.index', compact('banners', 'title'));
     }
+
+    public function indexFront()
+    {
+        $banners = \App\Categoria::all();
+
+        return view('fo.banner', compact('banners'));
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -62,10 +83,7 @@ class BannerController extends Controller
 
 
         $banner->url = $request->url;
-
-
-        $banner->activo = $request->activo;
-
+        
 
         $banner->save();
 
@@ -142,9 +160,6 @@ class BannerController extends Controller
 
         $banner->url = $request->url;
 
-        $banner->activo = $request->activo;
-
-
         $banner->save();
 
         return redirect('banner');
@@ -175,7 +190,8 @@ class BannerController extends Controller
     public function destroy($id)
     {
         $banner = Banner::findOrfail($id);
-        $banner->delete();
+        $banner->activo = 0;
+        $banner->save();
         return URL::to('banner');
     }
 }

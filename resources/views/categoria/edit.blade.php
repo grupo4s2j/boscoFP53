@@ -471,11 +471,6 @@
             <input id="orden" name = "orden" type="text" class="form-control" value="{!!$categoria->
             orden!!}">
         </div>
-        <div class="form-group">
-            <label for="activo">activo</label>
-            <input id="activo" name = "activo" type="text" class="form-control" value="{!!$categoria->
-            activo!!}">
-        </div>
         <button class = 'btn btn-primary' type ='submit'>Update</button>
     </form>
 </section>

@@ -67,9 +67,6 @@ class ComentarioController extends Controller
         $comentario->numContestado = $request->numContestado;
 
         
-        $comentario->activo = $request->activo;
-
-        
         $comentario->idRecurso = $request->idRecurso;
 
         
@@ -151,8 +148,6 @@ class ComentarioController extends Controller
         
         $comentario->numContestado = $request->numContestado;
         
-        $comentario->activo = $request->activo;
-        
         $comentario->idRecurso = $request->idRecurso;
         
         
@@ -187,7 +182,8 @@ class ComentarioController extends Controller
     public function destroy($id)
     {
      	$comentario = Comentario::findOrfail($id);
-     	$comentario->delete();
+     	$comentario->activo = 0;
+        $categoria->save();
         return URL::to('comentario');
     }
 }

@@ -20,10 +20,6 @@
             <label for="url">url</label>
             <input id="url" name = "url" type="text" class="form-control">
         </div>
-        <div class="form-group">
-            <label for="activo">activo</label>
-            <input id="activo" name = "activo" type="text" class="form-control">
-        </div>
         <button class = 'btn btn-primary' type ='submit'>Create</button>
     </form>
 </section>

@@ -24,10 +24,31 @@ class FicheroController extends Controller
      */
     public function index()
     {
-        $title = 'Index - fichero';
-        $ficheros = Fichero::paginate(6);
-        return view('fichero.index',compact('ficheros','title'));
+        $search = \Request::get('search');
+
+        $paginate = \Request::get('rows');
+        if ($paginate=="") {
+            $paginate = 6;
+        }
+        if ($search=="") {
+
+            $ficheros = Fichero::paginate($paginate);
+        }else {
+            $ficheros = Fichero::where('url', 'like', '%' . $search . '%')
+                ->paginate(1000);
+        }
+        $title = 'Index - Ficheros';
+
+        return view('fichero.index', compact('ficheros', 'title'));
     }
+
+    public function indexFront()
+    {
+        $ficheros = \App\Fichero::all();
+
+        return view('fo.ficheros', compact('ficheros'));
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -177,6 +198,7 @@ class FicheroController extends Controller
     {
      	$fichero = Fichero::findOrfail($id);
      	$fichero->delete();
+        $fichero->save();
         return URL::to('fichero');
     }
 }

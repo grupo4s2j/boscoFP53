@@ -464,14 +464,6 @@
                 <option value="fa-tags">&#xf02c; fa-tags</option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="orden">orden</label>
-            <input id="orden" name = "orden" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="activo">activo</label>
-            <input id="activo" name = "activo" type="text" class="form-control">
-        </div>
         <button class = 'btn btn-primary' type ='submit'>Create</button>
     </form>
 </section>

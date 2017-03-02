@@ -24,10 +24,31 @@ class TagController extends Controller
      */
     public function index()
     {
-        $title = 'Index - tag';
-        $tags = Tag::paginate(6);
-        return view('tag.index',compact('tags','title'));
+        $search = \Request::get('search');
+
+        $paginate = \Request::get('rows');
+        if ($paginate=="") {
+            $paginate = 6;
+        }
+        if ($search=="") {
+
+            $tags = Tag::paginate($paginate);
+        }else {
+            $tags = Tag::where('nombre', 'like', '%' . $search . '%')
+                ->paginate($paginate);
+        }
+        $title = 'Index - Tag';
+
+        return view('tag.index', compact('tags', 'title'));
     }
+
+    public function indexFront()
+    {
+        $tags = \App\Tag::all();
+
+        return view('fo.tag', compact('tags'));
+    }
+   
 
     /**
      * @param Request $request
@@ -182,6 +203,8 @@ class TagController extends Controller
      * @param    int $id
      * @return  \Illuminate\Http\Response
      */
+
+    //TODO: NEVER DELETE TAGS
     public function destroy($id)
     {
      	$tag = Tag::findOrfail($id);
