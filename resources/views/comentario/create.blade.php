@@ -37,10 +37,6 @@
             <input id="numContestado" name = "numContestado" type="text" class="form-control">
         </div>
         <div class="form-group">
-            <label for="activo">activo</label>
-            <input id="activo" name = "activo" type="text" class="form-control">
-        </div>
-        <div class="form-group">
             <label for="idRecurso">idRecurso</label>
             <input id="idRecurso" name = "idRecurso" type="text" class="form-control">
         </div>

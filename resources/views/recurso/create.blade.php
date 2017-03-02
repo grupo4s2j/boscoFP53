@@ -72,8 +72,6 @@
                         <!--data-data='[{"id": "1", "text": "One"}, {"id": "2", "text": "Two"}] data-tags="true"'-->
                         <select   id="tag_list"  name="tag_list[]" class="form-control"  multiple required></select>
                     </div>
-
-
                     <button class='btn btn-primary' type='submit'>Create</button>
                 </form>
             </div>

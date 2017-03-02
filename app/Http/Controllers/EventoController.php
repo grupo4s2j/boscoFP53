@@ -24,10 +24,31 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $title = 'Index - evento';
-        $eventos = Evento::paginate(6);
-        return view('evento.index',compact('eventos','title'));
+        $search = \Request::get('search');
+
+        $paginate = \Request::get('rows');
+        if ($paginate=="") {
+            $paginate = 6;
+        }
+        if ($search=="") {
+
+            $eventos = Evento::where('activo', '=', '1')->paginate($paginate);
+        }else {
+            $eventos = Evento::where('titulo', 'like', '%' . $search . '%')->where('activo', '=', '1')
+                ->paginate(1000);
+        }
+        $title = 'Index - Evento';
+
+        return view('evento.index', compact('eventos', 'title'));
     }
+
+    public function indexFront()
+    {
+        $eventos = \App\Evento::all();
+
+        return view('fo.evento', compact('eventos'));
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -74,8 +95,6 @@ class EventoController extends Controller
         
         $evento->fechaFin = $request->fechaFin;
 
-        
-        $evento->activo = $request->activo;
 
         
         
@@ -162,8 +181,6 @@ class EventoController extends Controller
         
         $evento->fechaFin = $request->fechaFin;
         
-        $evento->activo = $request->activo;
-        
         
         $evento->save();
 
@@ -196,7 +213,8 @@ class EventoController extends Controller
     public function destroy($id)
     {
      	$evento = Evento::findOrfail($id);
-     	$evento->delete();
+     	$evento->activo = 0;
+        $evento->save();
         return URL::to('evento');
     }
 }

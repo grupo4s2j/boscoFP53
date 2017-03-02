@@ -24,9 +24,29 @@ class RedsocialController extends Controller
      */
     public function index()
     {
-        $title = 'Index - redsocial';
-        $redsocials = Redsocial::paginate(6);
-        return view('redsocial.index',compact('redsocials','title'));
+        $search = \Request::get('search');
+
+        $paginate = \Request::get('rows');
+        if ($paginate=="") {
+            $paginate = 6;
+        }
+        if ($search=="") {
+
+            $redsocials = Redsocial::paginate($paginate);
+        }else {
+            $redsocials = Redsocial::where('redSocial', 'like', '%' . $search . '%')
+                ->paginate(1000);
+        }
+        $title = 'Index - Red Sociales';
+
+        return view('redsocial.index', compact('redsocials', 'title'));
+    }
+
+    public function indexFront()
+    {
+        $redsocials = \App\Redsocial::all();
+
+        return view('fo.redsocial', compact('redsocials'));
     }
 
     /**

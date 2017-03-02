@@ -32,18 +32,36 @@ class RecursoController extends Controller
      */
     public function index()
     {
-        $title = 'Index - recurso';
-        $recursos = Recurso::paginate(6);
+        $search = \Request::get('search');
+
+        $paginate = \Request::get('rows');
+        if ($paginate=="") {
+            $paginate = 6;
+        }
+        if ($search=="") {
+
+            $recursos = Recurso::where('activo', '=', '1')->paginate($paginate);
+        }else {
+                $recursos = Recurso::where('activo', '=', '1')
+                                    ->where( function ($query ) use ($search){
+                                            $query->where('titulo', 'like', '%' . $search . '%')
+                                                    ->orWhere('descripcion', 'like', '%' . $search . '%');
+            })->paginate(1000);
+        }
+        $title = 'Index - Recurso';
 
         return view('recurso.index', compact('recursos', 'title'));
     }
 
     public function indexFront()
     {
-        //return \View::make('fo.categorias');
+        $recursos = \App\Recurso::all();
 
-        return view('fo.recursos');
+        return view('fo.recurso', compact('recursos'));
     }
+    
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -105,8 +123,6 @@ class RecursoController extends Controller
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
 
-
-        $recurso->activo = $request->activo;
 
 
         $recurso->save();
@@ -263,8 +279,6 @@ class RecursoController extends Controller
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
 
-        $recurso->activo = $request->activo;
-
         /* $img=$request->file('img');
          $name_img=$request->img;
          $img->move('/img/recur/',$name_img);
@@ -280,6 +294,7 @@ class RecursoController extends Controller
             Recursotag::destroy($pid);
 
         }
+        //TODO: Delete this to count tags on TagController with count(*)
         foreach ($request->tag_list as $tag) {
             $ptag = Tag::searchTag($tag, 1);
             $p = $ptag . hasItems();
@@ -335,7 +350,8 @@ class RecursoController extends Controller
     public function destroy($id)
     {
         $recurso = Recurso::findOrfail($id);
-        $recurso->delete();
+        $recurso->activo = 0;
+        $recurso->save();
         return URL::to('recurso');
     }
 

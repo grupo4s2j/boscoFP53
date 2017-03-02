@@ -58,7 +58,6 @@ class RecursotagController extends Controller
         $recursotag->idTag = $request->idTag;
 
         
-        $recursotag->activo = $request->activo;
 
         
         
@@ -131,7 +130,6 @@ class RecursotagController extends Controller
         
         $recursotag->idTag = $request->idTag;
         
-        $recursotag->activo = $request->activo;
         
         
         $recursotag->save();

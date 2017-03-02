@@ -23,13 +23,34 @@ class SubcategoriaController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
-    public function index()
+        public function index()
     {
-        $title = 'Index - subcategoria';
-        $subcategorias = Subcategoria::paginate(6);
+        $search = \Request::get('search');
 
-        return view('subcategoria.index',compact('subcategorias','title'));
+        $paginate = \Request::get('rows');
+        if ($paginate=="") {
+            $paginate = 6;
+        }
+        if ($search=="") {
+
+            $subcategorias = Subcategoria::paginate($paginate);
+        }else {
+            $subcategorias = Subcategoria::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
+                ->paginate(1000);
+        }
+        $title = 'Index - Subcategoria';
+
+        return view('subcategoria.index', compact('subcategorias', 'title'));
     }
+
+    public function indexFront()
+    {
+        $subcategorias = \App\Subcategoria::all();
+
+        return view('fo.subcategorias', compact('subcategorias'));
+    }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -59,13 +80,16 @@ class SubcategoriaController extends Controller
         
         $subcategoria->nombre = $request->nombre;
 
-        
-        $subcategoria->orden = $request->orden;
+        if ($request->hasFile('img')) {
+           
+            $file = $request->file('img');
+            $nombreimagen = '/img/subcategorias/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
-        
-        $subcategoria->activo = $request->activo;
+            $subcategoria->img = $nombreimagen;
+        }
 
-        
+
         
         $subcategoria->save();
 
@@ -133,13 +157,19 @@ class SubcategoriaController extends Controller
     {
         $subcategoria = Subcategoria::findOrfail($id);
     	
+        if ($request->hasFile('img')) {
+            echo "<script>alert('Hay imagen')</script>";
+            $file = $request->file('img');
+            $nombreimagen = '/img/subcategorias/' . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+            
+
+        $subcategoria->img = $nombreimagen;
+        }
+
         $subcategoria->idCategoria = $request->idCategoria;
         
         $subcategoria->nombre = $request->nombre;
-        
-        $subcategoria->orden = $request->orden;
-        
-        $subcategoria->activo = $request->activo;
         
         
         $subcategoria->save();
@@ -173,7 +203,8 @@ class SubcategoriaController extends Controller
     public function destroy($id)
     {
      	$subcategoria = Subcategoria::findOrfail($id);
-     	$subcategoria->delete();
+     	$subcategoria->activo = 0;
+        $subcategoria->save();
         return URL::to('subcategoria');
     }
 }

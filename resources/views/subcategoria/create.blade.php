@@ -6,11 +6,11 @@
     <h1>
         Create subcategoria
     </h1>
-    <form method = 'get' action = '{!!url("subcategoria")!!}'>
+    <form method = 'get' action = '{!!url("subcategoria")!!}' enctype="multipart/form-data">
         <button class = 'btn btn-danger'>subcategoria Index</button>
     </form>
     <br>
-    <form method = 'POST' action = '{!!url("subcategoria")!!}'>
+    <form method = 'POST' action = '{!!url("subcategoria")!!}' enctype="multipart/form-data">
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -36,7 +36,6 @@
             <label for="orden">orden</label>
             <input id="orden" name = "orden" type="text" class="form-control">
         </div>
-        <div class="form-group">
             <label for="activo">activo</label>
             <input id="activo" name = "activo" type="text" class="form-control">
         </div>--}}
