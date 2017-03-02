@@ -118,7 +118,7 @@ class PusherServiceProvider extends ServiceProvider
      *
      * @return string[]
      */
-    public function provides(): array
+    public function provides()//: array
     {
         return [
             'pusher',

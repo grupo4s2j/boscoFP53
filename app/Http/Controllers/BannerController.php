@@ -30,7 +30,7 @@ class BannerController extends Controller
         }
         if ($search=="") {
 
-            $banners = Banner:::where('activo', '=', '1')->paginate($paginate);
+            $banners = Banner::where('activo', '=', '1')->paginate($paginate);
         }else {
             $banners = Banner::where('url', 'like', '%' . $search . '%')->where('activo', '=', '1')
                 ->paginate(1000);

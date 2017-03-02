@@ -52,7 +52,7 @@ return [
             'prefix' => '',
         ],
 
-        /*'mysql' => [
+        'mysql' => [
             'driver' => 'mysql',
             'host' => 'g5s2aw.sdslab.cat',
             'port' => env('DB_PORT', '3306'),
@@ -64,9 +64,9 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
-        ],*/
+        ],
     
-        'mysql' => [
+        /*'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST'),
             'port' => env('DB_PORT', '3306'),
@@ -79,7 +79,7 @@ return [
             'strict' => true,
             'engine' => null,
         ],
-
+*/
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),

@@ -13,6 +13,9 @@ body {
     background-color: #dd4b39;
 
 }
+html, body {
+    height:100%;
+}
 
 *, :after, :before {
     box-sizing: border-box
