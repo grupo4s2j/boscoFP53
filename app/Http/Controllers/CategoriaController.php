@@ -73,12 +73,17 @@ class CategoriaController extends Controller
         if ($request->hasFile('img')) {
            
             $file = $request->file('img');
+<<<<<<< HEAD
             $directorio= $dirpublic . '/img/categorias/';
             if( !file_exists($directorio) ){
                 mkdir($directorio, 077, true);
             }
             $nombreimagen =  $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
+=======
+            $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
+            //Storage::disk('local')->put($nombreimagen, File::get($file));
+>>>>>>> master
             
 
         $categoria->img = $nombreimagen;
@@ -91,15 +96,15 @@ class CategoriaController extends Controller
 
         $categoria->save();
 
-        $pusher = App::make('pusher');
-
-        //default pusher notification.
-        //by default channel=test-channel,event=test-event
-        //Here is a pusher notification example when you create a new resource in storage.
-        //you can modify anything you want or use it wherever.
-        $pusher->trigger('test-channel',
-            'test-event',
-            ['message' => 'A new categoria has been created !!']);
+//        $pusher = App::make('pusher');
+//
+//        //default pusher notification.
+//        //by default channel=test-channel,event=test-event
+//        //Here is a pusher notification example when you create a new resource in storage.
+//        //you can modify anything you want or use it wherever.
+//        $pusher->trigger('test-channel',
+//            'test-event',
+//            ['message' => 'A new categoria has been created !!']);
 
         return redirect('categoria');
     }

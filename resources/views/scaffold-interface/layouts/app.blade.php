@@ -179,6 +179,7 @@ fa-file'></i> <span>Ficheros</span></a></li>
 <script src="{{URL::asset('js/scaffold-interface-js/customA.js') }}"></script>
 <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
 <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+{{--<script src="{{ asset('/kcfinder/ckfinder.js') }}"></script>--}}
 <!-- Datepicker Files -->
 <script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
 <!-- Languaje -->
@@ -300,6 +301,16 @@ fa-file'></i> <span>Ficheros</span></a></li>
 
 
 
+</script>
+<script>
+    CKEDITOR.replace( 'contenido', {
+        filebrowserBrowseUrl: '/ckeditor/ckfinder/ckfinder.html',
+        filebrowserImageBrowseUrl: '/ckeditor/ckfinder/ckfinder.html?type=Images',
+        filebrowserFlashBrowseUrl: '/ckeditor/ckfinder/ckfinder.html?type=Flash',
+        filebrowserUploadUrl: '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl: '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserFlashUploadUrl: '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    } );
 </script>
 </body>
 </html>

@@ -1,0 +1,110 @@
+2017-02-07 17:45:08.9347|ERROR|thread:15|ComparisonGraph|JavaScript Alert from the comparison graph: http://github-app/: TypeError: Cannot read property 'selectCommit' of null
+2017-02-07 17:41:56.1830|INFO|thread: 1|CommandLineHandler|Parsing command line arguments:
+2017-02-07 17:41:56.1990|INFO|thread: 1|CommandLineHandler|Unprocessed args: 
+2017-02-07 17:41:56.1990|INFO|thread: 1|AppInstance|Starting up as master instance of GitHub Desktop
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| #########################################
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| GitHub Desktop started. VERSION: 3.3.4.0
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| Build version: 50415dfc92210fcda6c1e5a82b0e4aec7c60bec6
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| ***************************************
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| ***                                 ***
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| ***                                 ***
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| ***        Have a problem?          ***
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| ***    Email support@github.com     ***
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| ***      and include this file      ***
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| ***                                 ***
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| ***                                 ***
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| ***************************************
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| OS Version: Windows 10 10.0.14393.0 x86
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| CLR Version: 4.0.30319.42000
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| Current culture: es-ES
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| Environment.CurrentDirectory: C:\Users\G6S2AW\AppData\Local\Apps\2.0\2HBAT7DT.8TZ\0WD59BAW.9YR\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| currentProcess.StartInfo.WorkingDirectory: 
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| Terminal Services session: no
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| Location: C:\Users\G6S2AW\AppData\Local\Apps\2.0\2HBAT7DT.8TZ\0WD59BAW.9YR\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14\GitHub.exe
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| ActivationUri: https://github-windows.s3.amazonaws.com/GitHub.application
+2017-02-07 17:41:56.2342|INFO|thread: 7|StartupLogging| System.Environment.CommandLine: C:\Users\G6S2AW\AppData\Local\Apps\2.0\2HBAT7DT.8TZ\0WD59BAW.9YR\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14\GitHub.exe
+2017-02-07 17:41:56.2770|INFO|thread: 7|GitEnvironment|Process set up with this SSH Agent info: 6688:/tmp/ssh-o9dPf6eym1HC/agent.3820
+2017-02-07 17:41:56.2770|INFO|thread: 7|GitEnvironment|PATH is C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd;C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\usr\bin;C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\usr\share\git-tfs;C:\Users\G6S2AW\AppData\Local\Apps\2.0\2HBAT7DT.8TZ\0WD59BAW.9YR\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14;C:\Users\G6S2AW\AppData\Local\GitHub\lfs-x86_1.5.5;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\G6S2AW\AppData\Local\Microsoft\WindowsApps;C:\Users\G6S2AW\AppData\Roaming\Composer\vendor\bin;C:\Users\G6S2AW\AppData\Roaming\npm;C:\Windows\Microsoft.NET\Framework\v4.0.30319\
+2017-02-07 17:41:56.2770|INFO|thread: 7|StartupLogging| =====================================================
+2017-02-07 17:41:56.2770|INFO|thread: 7|StartupLogging|  DIAGNOSTICS                                        |
+2017-02-07 17:41:56.2770|INFO|thread: 7|StartupLogging| =====================================================
+2017-02-07 17:41:56.2770|INFO|thread: 7|StartupLogging| Git Extracted: 'False:
+2017-02-07 17:41:56.2770|ERROR|thread: 7|StartupLogging| MISSING PortableGit Dir: 'C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db'
+2017-02-07 17:41:56.2930|ERROR|thread: 7|PortableGitManager|git.exe doesn't exist at 'C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe'
+2017-02-07 17:41:56.2930|ERROR|thread: 7|StartupLogging| MISSING Git Executable: 'C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe'
+2017-02-07 17:41:56.2930|ERROR|thread: 7|StartupLogging| MISSING PATH!!: 'C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd'
+2017-02-07 17:41:56.2930|ERROR|thread: 7|StartupLogging| MISSING PATH!!: 'C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\usr\bin'
+2017-02-07 17:41:56.2930|ERROR|thread: 7|StartupLogging| MISSING PATH!!: 'C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\usr\share\git-tfs'
+2017-02-07 17:41:56.2930|ERROR|thread: 7|StartupLogging| MISSING PATH!!: 'C:\Users\G6S2AW\AppData\Local\GitHub\lfs-x86_1.5.5'
+2017-02-07 17:41:56.2930|INFO|thread: 7|StartupLogging| ----------------------------------------------------
+2017-02-07 17:41:56.2930|INFO|thread: 7|StartupLogging| PATH: C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\G6S2AW\AppData\Local\Microsoft\WindowsApps;C:\Users\G6S2AW\AppData\Roaming\Composer\vendor\bin;C:\Users\G6S2AW\AppData\Roaming\npm
+2017-02-07 17:41:56.3555|INFO|thread: 7|StartupLogger|Proxy information: (None)
+2017-02-07 17:41:56.3555|INFO|thread: 7|StartupLogger|Couldn't fetch creds for proxy
+2017-02-07 17:41:56.3865|INFO|thread: 1|HardwareRenderingHelper|Your video card appears to support hardware rendering. If this isn't the case and you see glitches
+2017-02-07 17:41:56.3865|INFO|thread: 1|HardwareRenderingHelper|set the GH_FORCE_SW_RENDERING environment variable to 1
+2017-02-07 17:41:56.3865|INFO|thread: 1|App|Checking whether application is network deployed: True
+2017-02-07 17:41:56.3865|INFO|thread: 1|App|Shortcut C:\Users\G6S2AW\AppData\Local\GitHub\GitHub.appref-ms exists? True
+2017-02-07 17:41:56.4180|INFO|thread: 1|ClickOnceAppIconHelper|Updating registry with our application icon 'C:\Users\G6S2AW\AppData\Local\Apps\2.0\2HBAT7DT.8TZ\0WD59BAW.9YR\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14\Images\App.ico'
+2017-02-07 17:41:56.4490|INFO|thread: 7|PortablePackageManager|About to cleanup old package 'C:\Users\G6S2AW\AppData\Local\GitHub\lfs-x86_1.3.1', current version is 'C:\Users\G6S2AW\AppData\Local\GitHub\lfs-x86_1.5.5'
+2017-02-07 17:41:56.4955|INFO|thread: 7|PortablePackageManager|About to cleanup old package 'C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_d7effa1a4a322478cd29c826b52a0c118ad3db11', current version is 'C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db'
+2017-02-07 17:41:57.2457|INFO|thread: 7|UrlProtocolInstaller|Registered UrlAppLauncher protocol: "C:\Users\G6S2AW\AppData\Local\Apps\2.0\2HBAT7DT.8TZ\0WD59BAW.9YR\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14\GitHub.exe" -u="%1"
+2017-02-07 17:41:57.7147|INFO|thread: 7|ProcessWrapper|Starting: Process - FileName: 'C:\Users\G6S2AW\AppData\Local\Apps\2.0\2HBAT7DT.8TZ\0WD59BAW.9YR\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14\lib\7za.exe', Args: 'x -y "-oC:\Users\G6S2AW\AppData\Local\GitHub\13f2hvsa.xy2.deleteme" "C:\Users\G6S2AW\AppData\Local\Apps\2.0\2HBAT7DT.8TZ\0WD59BAW.9YR\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14\PortableGit.7z"', Working Directory: 
+2017-02-07 17:41:57.8547|INFO|thread: 7|PortablePackageManager|Extracting PortableGit.7z is (so far) successful
+2017-02-07 17:41:59.5579|INFO|thread: 1|ReactiveScreen|Activating GitHub.ViewModels.ShellViewModel.
+2017-02-07 17:41:59.5579|INFO|thread: 1|ReactiveScreen|Activating GitHub.ViewModels.DashboardViewModel.
+2017-02-07 17:42:04.1050|INFO|thread: 1|PortablePackageManager|Already extracted gitignore.7z, returning 100%
+2017-02-07 17:42:06.6053|INFO|thread:20|SoftwareUpdateViewModel|Checking for new version
+2017-02-07 17:42:06.7613|WARN|thread:20|LoginCache|Could not get login for host 'GitHub.HostAddress'
+System.Collections.Generic.KeyNotFoundException: The given key 'login:null' was not present in the cache.
+2017-02-07 17:42:09.4336|INFO|thread: 1|RepositoryHost|Log in from cache for login 'GitCarlosMoreno' to host 'https://api.github.com/' SUCCEEDED
+2017-02-07 17:42:10.1833|INFO|thread:13|DashboardViewModel|Selected repository '/Tutorial'
+2017-02-07 17:42:10.1995|INFO|thread:13|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 1 at GitClient.cs:605
+2017-02-07 17:42:10.2148|INFO|thread:13|AsyncReaderWriterLock|Acquiring exclusive scheduler for operation 2 at GitClient.cs:583
+2017-02-07 17:42:10.2148|INFO|thread:20|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 1 at GitClient.cs:605 after waiting 0.0156446s
+2017-02-07 17:42:13.9172|INFO|thread:24|AsyncReaderWriterLock|Released concurrent scheduler for operation: 1 at GitClient.cs:605 after blocking 3.6898722s
+2017-02-07 17:42:13.9172|INFO|thread:24|AsyncReaderWriterLock|Acquired exclusive scheduler for operation: 2 at GitClient.cs:583 after waiting 3.7032652s
+2017-02-07 17:42:18.1832|INFO|thread:24|DashboardViewModel|Took 7995ms to Create RepositoryViewModel for location C:\Users\G6S2AW\AppData\Local\GitHub\TutorialRepository_d0aa732a2b4666b3029e2320f1a06cd39e99c9fc\new-repo
+2017-02-07 17:42:18.1832|INFO|thread:24|AsyncReaderWriterLock|Released exclusive scheduler for operation: 2 at GitClient.cs:583 after blocking 4.2770797s
+2017-02-07 17:42:20.5270|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 3 at GitClient.cs:588
+2017-02-07 17:42:20.5581|INFO|thread: 4|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 3 at GitClient.cs:588 after waiting 0.0254366s
+2017-02-07 17:42:20.5581|INFO|thread:24|AsyncReaderWriterLock|Released concurrent scheduler for operation: 3 at GitClient.cs:588 after blocking 0.0026053s
+2017-02-07 17:42:26.5968|ERROR|thread:15|ComparisonGraph|JavaScript Alert from the comparison graph: http://github-app/: TypeError: Cannot read property 'selectCommit' of null
+2017-02-07 17:42:43.3579|INFO|thread: 1|ReactiveScreen|Activating GitHub.ViewModels.RepositoryOptionsViewModel.
+2017-02-07 17:42:43.3579|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 4 at GitClient.cs:181
+2017-02-07 17:42:43.3579|INFO|thread: 4|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 4 at GitClient.cs:181 after waiting 0.0066082s
+2017-02-07 17:42:43.3769|INFO|thread:24|GitClient|Grabbing Repo Settings
+2017-02-07 17:42:44.4240|INFO|thread:24|AsyncReaderWriterLock|Released concurrent scheduler for operation: 4 at GitClient.cs:181 after blocking 1.0511753s
+2017-02-07 17:42:44.6401|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 5 at GitClient.cs:626
+2017-02-07 17:42:44.6401|INFO|thread:24|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 5 at GitClient.cs:626 after waiting 0.0047627s
+2017-02-07 17:42:44.6766|INFO|thread: 4|AsyncReaderWriterLock|Released concurrent scheduler for operation: 5 at GitClient.cs:626 after blocking 0.0322738s
+2017-02-07 17:42:51.2964|INFO|thread: 1|ReactiveScreen|Deactivating GitHub.ViewModels.RepositoryOptionsViewModel.
+2017-02-07 17:42:51.2964|INFO|thread: 1|ReactiveScreen|Closed GitHub.ViewModels.RepositoryOptionsViewModel.
+2017-02-07 17:43:37.7878|INFO|thread: 1|ReactiveScreen|Activating GitHub.ViewModels.OptionsViewModel.
+2017-02-07 17:43:40.2433|INFO|thread: 1|RepositoryHost|Logged user GitCarlosMoreno off of host 'https://api.github.com/'
+2017-02-07 17:43:40.2433|INFO|thread: 1|LoginCache|Erasing the git credential cache for host 'github.com'
+2017-02-07 17:43:43.9898|INFO|thread: 1|ReactiveScreen|Activating GitHub.ViewModels.LoginViewModel.
+2017-02-07 17:44:03.8266|INFO|thread: 1|RepositoryHost|Log in from cache for login 'grupo4s2j' to host 'https://api.github.com/' SUCCEEDED
+2017-02-07 17:44:03.8386|INFO|thread: 1|RepositoryHosts|Log in to GitHub.com with username 'grupo4s2j@gmail.com' SUCCEEDED
+2017-02-07 17:44:04.5722|INFO|thread: 1|ReactiveScreen|Deactivating GitHub.ViewModels.LoginViewModel.
+2017-02-07 17:44:04.5722|INFO|thread: 1|ReactiveScreen|Closed GitHub.ViewModels.LoginViewModel.
+2017-02-07 17:44:15.1873|INFO|thread: 1|DashboardViewModel|Received request to clone: 'https://github.com/grupo4s2j/boscoFP.git'
+2017-02-07 17:45:07.5345|INFO|thread: 1|RepositoryModel|Cloning repo https://github.com/grupo4s2j/boscoFP.git
+2017-02-07 17:45:07.5440|INFO|thread: 1|GitLfsSmudgeTail|Setting Git LFS smudge progress environment variable
+2017-02-07 17:45:07.5440|INFO|thread: 1|RepositoryModel|Cloning 'https://github.com/grupo4s2j/boscoFP.git' to 'boscoFP' in directory 'C:\Users\G6S2AW\Desktop
+2017-02-07 17:45:07.5773|INFO|thread: 1|GitEnvironment|Process set up with this SSH Agent info: (null):(null)
+2017-02-07 17:45:07.5773|INFO|thread: 1|GitEnvironment|PATH is C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd;C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\usr\bin;C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\usr\share\git-tfs;C:\Users\G6S2AW\AppData\Local\Apps\2.0\2HBAT7DT.8TZ\0WD59BAW.9YR\gith..tion_317444273a93ac29_0003.0003_5794af8169eeff14;C:\Users\G6S2AW\AppData\Local\GitHub\lfs-x86_1.5.5;C:\Windows\System32;C:\Windows\Microsoft.NET\Framework\v4.0.30319\
+2017-02-07 17:45:07.5773|INFO|thread: 1|ProcessWrapper|Starting: Process - FileName: 'C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe', Args: 'clone --progress --recursive  --  "https://github.com/grupo4s2j/boscoFP.git" "boscoFP" ', Working Directory: C:\Users\G6S2AW\Desktop
+2017-02-07 17:45:07.5934|ERROR|thread: 1|ProcessWrapper|Exception thrown while running the following command: 'C:\Users\G6S2AW\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe clone --progress --recursive  --  "https://github.com/grupo4s2j/boscoFP.git" "boscoFP" '
+2017-02-07 17:45:07.5934|INFO|thread: 1|GitLfsSmudgeTail|Cleaning up Git LFS smudge progress environment variable
+2017-02-07 17:45:07.6206|INFO|thread:13|DashboardViewModel|Selected repository 'grupo4s2j/boscoFP'
+2017-02-07 17:45:07.8299|WARN|thread: 1|StandardUserErrors|Showing user error Please check your log file for more details, or contact out support team if you are still having problems.
+System.ComponentModel.Win32Exception (0x80004005): El sistema no puede encontrar el archivo especificado
+   en System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   en System.Diagnostics.Process.Start()
+   en GitHub.IO.ProcessWrapper.Start()
+   en GitHub.IO.ObservableProcess..ctor(IProcess process, Boolean throwOnNonZeroExitCode)
+2017-02-07 17:45:07.8727|INFO|thread:13|DashboardViewModel|Took 0ms to Create RepositoryViewModel for location C:\Users\G6S2AW\Desktop\boscoFP
+2017-02-07 17:45:08.1633|INFO|thread:13|DashboardViewModel|Selected repository '/Tutorial'
+2017-02-07 17:45:08.3863|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 6 at GitClient.cs:588
+2017-02-07 17:45:08.6535|INFO|thread:24|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 6 at GitClient.cs:588 after waiting 0.2515202s
+2017-02-07 17:45:08.7210|INFO|thread:29|AsyncReaderWriterLock|Released concurrent scheduler for operation: 6 at GitClient.cs:588 after blocking 0.0586099s
