@@ -26,11 +26,11 @@
         </div>
         <div class="form-group">
             <label for="fechaInicio">fechaInicio</label>
-            <input id="fechaInicio" name = "fechaInicio" type="text" class="form-control">
+            <input id="fechaInicio" name = "fechaInicio" type="text" class="form-control datepicker">
         </div>
         <div class="form-group">
             <label for="fechaFin">fechaFin</label>
-            <input id="fechaFin" name = "fechaFin" type="text" class="form-control">
+            <input id="fechaFin" name = "fechaFin" type="text" class="form-control datepicker">
         </div>
         <button class = 'btn btn-primary' type ='submit'>Create</button>
     </form>

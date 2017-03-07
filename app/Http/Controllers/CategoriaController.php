@@ -73,8 +73,12 @@ class CategoriaController extends Controller
         if ($request->hasFile('img')) {
            
             $file = $request->file('img');
-            $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
-            Storage::disk('local')->put($nombreimagen, File::get($file));
+            $directorio= $dirpublic . '/img/categorias/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
+            $nombreimagen =  $directorio . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
         $categoria->img = $nombreimagen;
@@ -151,9 +155,13 @@ class CategoriaController extends Controller
         $categoria->nombre = $request->nombre;
         
         if ($request->hasFile('img')) {
-            echo "<script>alert('Hay imagen')</script>";
+            
+            $directorio= $dirpublic . '/img/categorias/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
             $file = $request->file('img');
-            $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 

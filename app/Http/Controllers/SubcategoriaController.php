@@ -42,19 +42,20 @@ class SubcategoriaController extends Controller
 
         return view('subcategoria.index', compact('subcategorias', 'title'));
     }
-
+/*
     public function indexFront()
     {
         $subcategorias = \App\Subcategoria::all();
 
         return view('fo.subcategorias', compact('subcategorias'));
     }
-    
+    */
     /**
      * Display a listing of the resource.
      *
      * @return  \Illuminate\Http\Response
      */
+    
     public function indexFront($id)
     {
         $categoria = Categoria::find($id);
@@ -93,9 +94,13 @@ class SubcategoriaController extends Controller
         $subcategoria->nombre = $request->nombre;
 
         if ($request->hasFile('img')) {
-           
+            
+            $directorio= $dirpublic . '/img/subcategoria/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
             $file = $request->file('img');
-            $nombreimagen = '/img/subcategorias/' . $file->getClientOriginalName();
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
             $subcategoria->img = $nombreimagen;
@@ -170,9 +175,13 @@ class SubcategoriaController extends Controller
         $subcategoria = Subcategoria::findOrfail($id);
     	
         if ($request->hasFile('img')) {
-            echo "<script>alert('Hay imagen')</script>";
+            
+            $directorio= $dirpublic . '/img/banner/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
             $file = $request->file('img');
-            $nombreimagen = '/img/subcategorias/' . $file->getClientOriginalName();
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
