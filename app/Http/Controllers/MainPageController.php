@@ -10,7 +10,7 @@ class MainPageController extends Controller
 {
     public function index($view)
     {
-        $categorias = \App\Categoria::all();
+        $categorias = \App\Categoria::where('activo', 1)->get();
         $tags = \App\Tag::topRatedTags();
 
         foreach ($categorias as $categoria){

@@ -43,9 +43,9 @@ class SubcategoriaController extends Controller
         return view('subcategoria.index', compact('subcategorias', 'title'));
     }
 
-    public function indexFront2()
+    public function getAllSubcategorias()
     {
-        $subcategorias = \App\Subcategoria::all();
+        $subcategorias = Subcategoria::all();
 
         return view('fo.subcategorias', compact('subcategorias'));
     }
@@ -59,7 +59,6 @@ class SubcategoriaController extends Controller
     {
         $categoria = Categoria::find($id);
         return view('fo.subcategorias',compact('categoria'));
-        //return view('fo.subcategorias',compact('subcategorias'));
     }
 
     

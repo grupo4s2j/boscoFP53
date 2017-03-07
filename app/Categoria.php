@@ -48,6 +48,7 @@ class Categoria extends Model
             case 'Lila': $this->color = 'design';break;
             case 'Amarillo': $this->color = 'mobile';break;
             case 'Rosa': $this->color = 'health';break;
+            default: $this->color = 'music';break;
         }
     }
 }
