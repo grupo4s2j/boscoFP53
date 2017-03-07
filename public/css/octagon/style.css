@@ -108,7 +108,7 @@ hr {
   margin: 30px 0;
 }
 img {
-  max-width: 100%;
+  max-width: 106%;
   height: auto;
 }
 p {
@@ -239,7 +239,7 @@ iframe {
   text-align: center;
 }
 .logo img {
-  width: inherit !important;
+  height:234px;
   padding: 55px 0px;
 }
 
