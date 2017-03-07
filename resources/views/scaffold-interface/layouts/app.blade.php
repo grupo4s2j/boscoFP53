@@ -21,7 +21,7 @@
     <!-- Datepicker Files -->
     <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.css')}}">
     <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.standalone.css')}}">
-
+    
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->

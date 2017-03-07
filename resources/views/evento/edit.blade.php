@@ -30,12 +30,12 @@
         </div>
         <div class="form-group">
             <label for="fechaInicio">fechaInicio</label>
-            <input id="fechaInicio" name = "fechaInicio" type="text" class="form-control" value="{!!$evento->
+            <input id="fechaInicio" name = "fechaInicio" type="text" class="form-control datepicker" value="{!!$evento->
             fechaInicio!!}"> 
         </div>
         <div class="form-group">
             <label for="fechaFin">fechaFin</label>
-            <input id="fechaFin" name = "fechaFin" type="text" class="form-control" value="{!!$evento->
+            <input id="fechaFin" name = "fechaFin" type="text" class="form-control datepicker" value="{!!$evento->
             fechaFin!!}"> 
         </div>
         <button class = 'btn btn-primary' type ='submit'>Update</button>

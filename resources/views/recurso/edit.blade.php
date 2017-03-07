@@ -1,3 +1,4 @@
+
 @extends('scaffold-interface.layouts.app')
 @section('title','Edit')
 @section('content')
@@ -31,9 +32,12 @@
             </textarea>
             </div>
             <div class="form-group">
-                <label for="img">Imagen</label>
-                <input id="imgen" name="imgen" type="file" class="form-control" value="{!!$recurso->
-            img!!}">
+                
+                    <label for="img">img</label>
+                    <img id="imgmuestra" style="width: 100px; height: 100px" src="{{$recurso->img}}"></img>
+                    <input type="button" class="btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+                   
+                <input id="img" name="img" type="file" class="form-control" style="display: none">
             </div>
             <div class="form-group">
                 <label for="fechaPost">fechaPost</label>
