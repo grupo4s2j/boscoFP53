@@ -308,7 +308,7 @@ class RecursoController extends Controller
         $recurso->contenido = $request->contenido;
         if ($request->hasFile('img')) {
              
-            $directorio= '/img/recurso2/';
+            $directorio= '/img/recurso/';
             if( !file_exists($directorio) ){
                 mkdir($directorio, 077, true);
             }
