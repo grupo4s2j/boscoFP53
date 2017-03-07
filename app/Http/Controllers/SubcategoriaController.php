@@ -43,7 +43,7 @@ class SubcategoriaController extends Controller
         return view('subcategoria.index', compact('subcategorias', 'title'));
     }
 
-    public function indexFront()
+    public function indexFront2()
     {
         $subcategorias = \App\Subcategoria::all();
 
