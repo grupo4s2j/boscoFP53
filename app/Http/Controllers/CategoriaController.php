@@ -41,7 +41,8 @@ class CategoriaController extends Controller
 
     public function indexFront()
     {
-        $categorias = Categoria::all();
+        //$categorias = Categoria::all();
+        $categorias = Categoria::where('activo', 1)->get();
 
         return view('fo.categorias', compact('categorias'));
     }
@@ -83,7 +84,6 @@ class CategoriaController extends Controller
 =======
             $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
             //Storage::disk('local')->put($nombreimagen, File::get($file));
->>>>>>> master
             
 
         $categoria->img = $nombreimagen;
