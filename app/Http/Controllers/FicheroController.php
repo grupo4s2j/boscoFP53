@@ -75,8 +75,8 @@ class FicheroController extends Controller
         
        if ($request->hasFile('url')) {
            
-            $dirpublic= \Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
-            $directorio= $dirpublic . '/img/fichero';
+            
+            $directorio= '/img/fichero';
             if( !file_exists() ){
                 mkdir($directorio, 077, true);
             }

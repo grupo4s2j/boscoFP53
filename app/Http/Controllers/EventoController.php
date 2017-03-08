@@ -82,7 +82,7 @@ class EventoController extends Controller
         if ($request->hasFile('img')) {
            
              
-            $directorio= $dirpublic . '/img/banner/';
+            $directorio=  '/img/banner/';
             if( !file_exists($directorio) ){
                 mkdir($directorio, 077, true);
             }
@@ -175,7 +175,7 @@ class EventoController extends Controller
         if ($request->hasFile('img')) {
            
             
-            $directorio= $dirpublic . '/img/banner/';
+            $directorio=  '/img/banner/';
             if( !file_exists($directorio) ){
                 mkdir($directorio, 077, true);
             }
