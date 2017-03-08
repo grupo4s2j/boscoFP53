@@ -134,8 +134,8 @@
 fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
                 <li {{{ (Request::is('recurso') ? 'class=active' : '') }}}><a href="{{ url('recurso') }}"><i
                                 class='fa fa-newspaper-o'></i> <span>Recursos</span></a></li>
-                <li {{{ (Request::is('fichero') ? 'class=active' : '') }}}><a href="{{ url('fichero') }}"><i class='fa
-fa-file'></i> <span>Ficheros</span></a></li>
+                {{--<li {{{ (Request::is('fichero') ? 'class=active' : '') }}}><a href="{{ url('fichero') }}"><i class='fa--}}
+{{--fa-file'></i> <span>Ficheros</span></a></li>--}}
                 <li {{{ (Request::is('tag') ? 'class=active' : '') }}}><a href="{{ url('tag') }}"><i
                                 class='fa fa-hashtag'></i> <span>Tags</span></a></li>
                 <li {{{ (Request::is('banner') ? 'class=active' : '') }}}><a href="{{ url('banner') }}"><i
@@ -146,10 +146,10 @@ fa-file'></i> <span>Ficheros</span></a></li>
                                 class='fa fa-twitter'></i> <span>Redes Sociales</span></a></li>
                 <li class="header">ADMINISTRATOR</li>
                 <li class="treeview"><a href="{{url('/users')}}"><i class="fa fa-users"></i> <span>Users</span></a></li>
-                <li class="treeview"><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> <span>Role</span></a>
-                </li>
-                <li class="treeview"><a href="{{url('/permissions')}}"><i class="fa fa-key"></i>
-                        <span>Permissions</span></a></li>
+                {{--<li class="treeview"><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> <span>Role</span></a>--}}
+                {{--</li>--}}
+                {{--<li class="treeview"><a href="{{url('/permissions')}}"><i class="fa fa-key"></i>--}}
+                        {{--<span>Permissions</span></a></li>--}}
             </ul>
         </section>
         <!-- /.sidebar -->
