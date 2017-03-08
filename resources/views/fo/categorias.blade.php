@@ -10,7 +10,7 @@
                 <div class="col-md-3 col-sm-4" id="main-menu-button">
                     <div class="content-blocks-button">
 
-                    <a href="{{ url('categorias/'. $categoria->id)}}"><img src="{{ asset($categoria->img) }}" class="image-fade">
+                    <a href="{{ url('categorias/'. $categoria->id)}}"><img src="{{ asset('./img/categorias/'. $categoria->img) }}" class="image-fade">
                     <h2 class="content-blocks-text" style="font-size:24px;">{{$categoria->nombre}}</h2></a>  
 
                     </div> 

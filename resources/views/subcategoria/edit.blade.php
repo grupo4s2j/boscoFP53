@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label for="img">img</label><br>
                     <input id="botonimg" type="button" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
-                    <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px" src="{{ $subcategoria->img }}"></img>
+                    <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px" src="/img/subcategorias/{{ $subcategoria->img }}"></img>
                     <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
                 </div>
                 <button class = "btn btn-primary" type="submit">Guardar</button>
