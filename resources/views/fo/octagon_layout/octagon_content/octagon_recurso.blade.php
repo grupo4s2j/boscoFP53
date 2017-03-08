@@ -1,6 +1,6 @@
 <div class="col-md-6">
     <div class="post-bottom-content">
-        <a href="{{ url('recursos/' . $recurso->id) }}"><img class="img-responsive" src="{{ asset('img/recursos/' . $recurso->img) }}" alt=""></a>
+        <a href="{{ url('recursos/' . $recurso->id) }}"><img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}" alt=""></a>
         <a href="{{ url('recursos/'. $recurso->id) }}"><h3>{{$recurso->titulo}}</h3></a>
         <h3><span class="travel-bg">4<a class="travel-bg" href="{{ url('recursos/'. $recurso->id) }}">4 comment</a></span></h3>
         <span class="date">{{$recurso->fechaPosteo}}</span>
