@@ -40,19 +40,23 @@ class RecursoController extends Controller
         }
         if ($search=="") {
 
-            $recursos = Recurso::where('activo', '=', '1')->paginate($paginate);
+            $recursos = Recurso::where('recursos.activo', '=', '1')
+                -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
+                ->select('recursos.*','entidadorganizativas.nombre')
+                ->paginate($paginate);
         }else {
-                $recursos = Recurso::where('activo', '=', '1')
-                                    ->where( function ($query ) use ($search){
-                                            $query->where('titulo', 'like', '%' . $search . '%')
-                                                    ->orWhere('descripcion', 'like', '%' . $search . '%');
-            })->paginate(1000);
+            $recursos = Recurso::where('activo', '=', '1')
+                -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
+                ->select('recursos.*','entidadorganizativas.nombre')
+                ->where( function ($query ) use ($search){
+                    $query->where('titulo', 'like', '%' . $search . '%')
+                        ->orWhere('descripcion', 'like', '%' . $search . '%');
+                })->paginate(1000);
         }
         $title = 'Index - Recurso';
 
         return view('recurso.index', compact('recursos', 'title'));
     }
-    
     /**
      * Mustra un tablón con todos los posts/recursos
      *
