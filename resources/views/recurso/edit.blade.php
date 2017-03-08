@@ -13,89 +13,93 @@
             <button class='btn btn-danger'>recurso Index</button>
         </form>
         <br>
-        <form method='POST' action='{!! url("recurso")!!}/{!!$recurso->
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3>Subcategorias </h3>
+            </div>
+            <div class="box-body">
+                <form method='POST' action='{!! url("recurso")!!}/{!!$recurso->
         id!!}/update' enctype="multipart/form-data">
-            <input type='hidden' name='_token' value='{{Session::token()}}'>
-            <div class="form-group">
-                <label for="titulo">Titulo</label>
-                <input id="titulo" name="titulo" type="text" class="form-control" value="{!!$recurso->
+                    <input type='hidden' name='_token' value='{{Session::token()}}'>
+                    <div class="form-group">
+                        <label for="titulo">Titulo</label>
+                        <input id="titulo" name="titulo" type="text" class="form-control" value="{!!$recurso->
             titulo!!}">
-            </div>
-            <div class="form-group">
-                <label for="descripcion">Descripcion</label>
-                <input id="descripcion" name="descripcion" type="text" class="form-control" value="{!!$recurso->
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripcion</label>
+                        <input id="descripcion" name="descripcion" type="text" class="form-control" value="{!!$recurso->
             descripcion!!}">
-            </div>
-            <div class="form-group">
-                <label for="contenido">Contenido</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="contenido">Contenido</label>
 
             <textarea id="contenido" name="contenido" type="text" class="ckeditor">
                 {!!$recurso->contenido!!}
             </textarea>
-            </div>
-            <div class="form-group">
-                
-                    <label for="img">img</label><br>
-                    <input id="botonimg" type="button" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
-                    <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px" src="/img/recursos/{{$recurso->img}}"></img>
-                    
-                   
-                <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
-            </div>
-            <div class="form-group">
-                <label for="fechaPost">fechaPost</label>
-                <input id="fechaPost" name="fechaPost" type="text" class="form-control datepicker" value="{!!$recurso->
+                    </div>
+                    <div class="form-group">
+                        <label for="img">Imagen</label>
+                        <input id="imgen" name="imgen" type="file" class="form-control" value="{!!$recurso->
+            img!!}">
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaPost">fechaPost</label>
+                        <input id="fechaPost" name="fechaPost" type="text" class="form-control datepicker" value="{!!$recurso->
             fechaPost!!}">
-            </div>
-            <div class="form-group">
-                <label for="fechaInicio">fechaInicio</label>
-                <input id="fechaInicio" name="fechaInicio" type="text" class="form-control datepicker" value="{!!$recurso->
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaInicio">fechaInicio</label>
+                        <input id="fechaInicio" name="fechaInicio" type="text" class="form-control datepicker" value="{!!$recurso->
             fechaInicio!!}">
-            </div>
-            <div class="form-group">
-                <label for="fechaFin">fechaFin</label>
-                <input id="fechaFin" name="fechaFin" type="text" class="form-control datepicker" value="{!!$recurso->
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaFin">fechaFin</label>
+                        <input id="fechaFin" name="fechaFin" type="text" class="form-control datepicker" value="{!!$recurso->
             fechaFin!!}">
-            </div>
-            <div class="form-group">
-                <label for="rangoEdad">Rango de edad</label>
-                <input id="rangoEdad" name="rangoEdad" type="text" class="form-control" value="{!!$recurso->
+                    </div>
+                    <div class="form-group">
+                        <label for="rangoEdad">Rango de edad</label>
+                        <input id="rangoEdad" name="rangoEdad" type="text" class="form-control" value="{!!$recurso->
             rangoEdad!!}">
-            </div>
-            <div class="form-group">
-                <label for="relevancia">Relevancia</label>
-                <input id="relevancia" name="relevancia" type="text" class="form-control" value="{!!$recurso->
+                    </div>
+                    <div class="form-group">
+                        <label for="relevancia">Relevancia</label>
+                        <input id="relevancia" name="relevancia" type="text" class="form-control" value="{!!$recurso->
             relevancia!!}">
-            </div>
-            <div class="form-group">
-                <label for="idEntidadOrganizativa">Entidad organizativa</label>
-                <!-- <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
+                    </div>
+                    <div class="form-group">
+                        <label for="idEntidadOrganizativa">Entidad organizativa</label>
+                        <!-- <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
             idEntidadOrganizativa!!}">-->
-                <SELECT id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
+                        <SELECT id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control"
+                                value="{!!$recurso->
             idEntidadOrganizativa!!}">>
-                    @foreach($entidades as $entidad)
-                        @if ($entidad->id==$recurso->idEntidadOrganizativa)
-                            <option value="{{$entidad->id}}" selected="selected">{{$entidad->nombre}}</option>
-                        @else
-                            <option value="{{$entidad->id}}">{{$entidad->nombre}}</option>
-                        @endif
-                    @endforeach
-                </SELECT>
+                            @foreach($entidades as $entidad)
+                                @if ($entidad->id==$recurso->idEntidadOrganizativa)
+                                    <option value="{{$entidad->id}}" selected="selected">{{$entidad->nombre}}</option>
+                                @else
+                                    <option value="{{$entidad->id}}">{{$entidad->nombre}}</option>
+                                @endif
+                            @endforeach
+                        </SELECT>
+                    </div>
+                    {{-- <div class="form-group">
+                         <label for="activo">activo</label>
+                         <input id="activo" name="activo" type="text" class="form-control" value="{!!$recurso->
+                     activo!!}">
+                     </div>--}}
+                    <div class="form-group">
+                        <label for="tag_list">Tags:</label>
+                        <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>
+                    </div>
+                    <script> var data ={!!$tags!!}</script>
+                    <button class='btn btn-primary' type='submit'>Update</button>
+                </form>
             </div>
-            {{-- <div class="form-group">
-                 <label for="activo">activo</label>
-                 <input id="activo" name="activo" type="text" class="form-control" value="{!!$recurso->
-             activo!!}">
-             </div>--}}
-            <div class="form-group">
-                <label for="tag_list">Tags:</label>
-                <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>
-            </div>
-            <script> var data ={!!$tags!!}</script>
-            <button class='btn btn-primary' type='submit'>Update</button>
-        </form>
+        </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3>Subcategorias </h3>

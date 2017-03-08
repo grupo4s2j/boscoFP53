@@ -51,12 +51,12 @@
             <th>titulo</th>
             <th>descripcion</th>
            <!-- <th>contenido</th>-->
-            {{--<th>img</th>--}}
+            <th>img</th>
             <th>fechaPost</th>
-            <th>fechaInicio</th>
-            <th>fechaFin</th>
-            <th>rangoEdad</th>
-            <th>relevancia</th>
+            {{--<th>fechaInicio</th>--}}
+            {{--<th>fechaFin</th>--}}
+            {{--<th>rangoEdad</th>--}}
+            {{--<th>relevancia</th>--}}
             <th>EntidadOrganizativa</th>
             {{--<th>activo</th>--}}
             <th>actions</th>
@@ -67,12 +67,13 @@
                 <td>{!!$recurso->titulo!!}</td>
                 <td>{!!$recurso->descripcion!!}</td>
                 <!--<td>{/*!!$recurso->contenido!!*/}</td>-->
+                <td><a href="{!!$recurso->img!!}">{!!$recurso->img!!}</a></td>
                 {{--<td><img src="{!!$recurso->img!!}" style="width: 100px; height: 100px;"></img></td>--}}
                 <td>{!!$recurso->fechaPost!!}</td>
-                <td>{!!$recurso->fechaInicio!!}</td>
-                <td>{!!$recurso->fechaFin!!}</td>
-                <td>{!!$recurso->rangoEdad!!}</td>
-                <td>{!!$recurso->relevancia!!}</td>
+                {{--<td>{!!$recurso->fechaInicio!!}</td>--}}
+                {{--<td>{!!$recurso->fechaFin!!}</td>--}}
+                {{--<td>{!!$recurso->rangoEdad!!}</td>--}}
+                {{--<td>{!!$recurso->relevancia!!}</td>--}}
                 <td>{!!$recurso->nombre!!}</td>
                 {{--<td>{!!$recurso->activo!!}</td>--}}
                 <td>
