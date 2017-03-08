@@ -81,12 +81,17 @@ class EventoController extends Controller
         
         if ($request->hasFile('img')) {
            
+             
+            $directorio=  '/img/banner/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
             $file = $request->file('img');
-            $nombreimagen = '/assets/eventos/' . $file->getClientOriginalName();
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $evento->img = $nombreimagen;
+            $evento->img = $file->getClientOriginalName();
         }
 
         
@@ -169,12 +174,17 @@ class EventoController extends Controller
         
         if ($request->hasFile('img')) {
            
+            
+            $directorio=  '/img/banner/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
             $file = $request->file('img');
-            $nombreimagen = '/assets/eventos/' . $file->getClientOriginalName();
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $evento->img = $nombreimagen;
+            $evento->img = $file->getClientOriginalName();
         }
         
         $evento->fechaInicio = $request->fechaInicio;

@@ -73,12 +73,17 @@ class BannerController extends Controller
 
         if ($request->hasFile('img')) {
            
+           
+            $directorio=  '/img/banner/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
             $file = $request->file('img');
-            $nombreimagen = 'img/banners/' . $file->getClientOriginalName();
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $banner->img = $nombreimagen;
+            $banner->img = $file->getClientOriginalName();
         }
 
 
@@ -150,12 +155,17 @@ class BannerController extends Controller
 
        if ($request->hasFile('img')) {
            
+             
+            $directorio=  '/img/banner/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
             $file = $request->file('img');
-            $nombreimagen = 'img/banners/' . $file->getClientOriginalName();
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $banner->img = $nombreimagen;
+            $banner->img = $file->getClientOriginalName();
         }
 
         $banner->url = $request->url;

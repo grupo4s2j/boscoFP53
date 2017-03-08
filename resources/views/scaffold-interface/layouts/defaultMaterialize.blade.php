@@ -22,5 +22,6 @@
 		<script>
 		$('select').material_select();
 		</script>
+		<script type="text/javascript" src="/js/ImgMuestra.js"></script>
 	</body>
 </html>

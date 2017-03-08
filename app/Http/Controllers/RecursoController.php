@@ -144,13 +144,17 @@ class RecursoController extends Controller
 
 
         if ($request->hasFile('imgen')) {
-            echo "<script>alert('Hay imagen')</script>";
-            $file = $request->file('imgen');
-            $nombreimagen = '/img/recursos/' . $file->getClientOriginalName();
+           
+            $directorio=  '/img/recurso/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
+            $file = $request->file('img');
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
 
-            $recurso->img = $nombreimagen;
+            $recurso->img = $file->getClientOriginalName();
         }
 
 
@@ -306,14 +310,18 @@ class RecursoController extends Controller
         $recurso->descripcion = $request->descripcion;
 
         $recurso->contenido = $request->contenido;
-        if ($request->hasFile('imgen')) {
-            echo "<script>alert('Hay imagen')</script>";
-            $file = $request->file('imgen');
-            $nombreimagen = '/img/recursos/' . $file->getClientOriginalName();
+        if ($request->hasFile('img')) {
+             
+            $directorio= '/img/recurso/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
+            $file = $request->file('img');
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
 
-            $recurso->img = $nombreimagen;
+            $recurso->img = $file->getClientOriginalName();
         }
         $recurso->fechaPost = $request->fechaPost;
 
