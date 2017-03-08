@@ -1,4 +1,6 @@
 @extends('scaffold-interface.layouts.app')
+<script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/js/ImgMuestra.js"></script>
 @section('title','Edit')
 @section('content')
 
@@ -24,9 +26,10 @@
             color!!}">
         </div>
         <div class="form-group">
-            <label for="img">img</label>
-            <input id="img" name = "img" type="file" class="form-control" value="{!!$categoria->
-            img!!}">
+            <label for="img">img</label><br>
+            <input id="botonimg" type="button" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+            <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px" src="{{ $categoria->img }}"></img>
+            <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
         </div>
         <div class="form-group">
             <label for="logo">logo</label>

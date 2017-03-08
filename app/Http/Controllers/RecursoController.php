@@ -150,7 +150,7 @@ class RecursoController extends Controller
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
 
-            $recurso->img = $nombreimagen;
+            $recurso->img = $file->getClientOriginalName();
         }
 
 
@@ -317,7 +317,7 @@ class RecursoController extends Controller
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
 
-            $recurso->img = $nombreimagen;
+            $recurso->img = $file->getClientOriginalName();
         }
         $recurso->fechaPost = $request->fechaPost;
 

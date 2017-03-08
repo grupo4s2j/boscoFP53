@@ -83,7 +83,7 @@ class BannerController extends Controller
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $banner->img = $nombreimagen;
+            $banner->img = $file->getClientOriginalName();
         }
 
 
@@ -165,7 +165,7 @@ class BannerController extends Controller
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $banner->img = $nombreimagen;
+            $banner->img = $file->getClientOriginalName();
         }
 
         $banner->url = $request->url;

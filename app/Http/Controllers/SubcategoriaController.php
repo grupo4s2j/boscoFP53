@@ -42,7 +42,7 @@ class SubcategoriaController extends Controller
 
         return view('subcategoria.index', compact('subcategorias', 'title'));
     }
-<<<<<<< HEAD
+
 /*
     public function indexFront()
 =======
@@ -98,7 +98,7 @@ class SubcategoriaController extends Controller
 
         if ($request->hasFile('img')) {
             
-            $directorio= $dirpublic . '/img/subcategoria/';
+            $directorio=  '/img/subcategoria/';
             if( !file_exists($directorio) ){
                 mkdir($directorio, 077, true);
             }
@@ -106,7 +106,7 @@ class SubcategoriaController extends Controller
             $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
-            $subcategoria->img = $nombreimagen;
+            $subcategoria->img = $file->getClientOriginalName();
         }
 
 
@@ -179,7 +179,7 @@ class SubcategoriaController extends Controller
     	
         if ($request->hasFile('img')) {
             
-            $directorio= $dirpublic . '/img/banner/';
+            $directorio=  '/img/banner/';
             if( !file_exists($directorio) ){
                 mkdir($directorio, 077, true);
             }
@@ -188,7 +188,7 @@ class SubcategoriaController extends Controller
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-        $subcategoria->img = $nombreimagen;
+        $subcategoria->img = $file->getClientOriginalName();
         }
 
         $subcategoria->idCategoria = $request->idCategoria;

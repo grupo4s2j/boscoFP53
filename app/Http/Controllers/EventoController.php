@@ -91,7 +91,7 @@ class EventoController extends Controller
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $evento->img = $nombreimagen;
+            $evento->img = $file->getClientOriginalName();
         }
 
         
@@ -184,7 +184,7 @@ class EventoController extends Controller
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $evento->img = $nombreimagen;
+            $evento->img = $file->getClientOriginalName();
         }
         
         $evento->fechaInicio = $request->fechaInicio;
