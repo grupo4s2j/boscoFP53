@@ -34,7 +34,10 @@ class CategoriaController extends Controller
 //            $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
 //                ->paginate(1000);
 //        }
-        $categorias = Categoria::where('activo', '=', '1')->get();
+        $categorias = Categoria::where('activo', '=', '1')
+            ->orderBy('orden','asc')
+            ->orderBy('nombre','asc')
+            ->get();
         $title = 'Index - categoria';
 
         return view('categoria.index', compact('categorias', 'title'));

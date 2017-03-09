@@ -39,7 +39,7 @@
                 <td class="sorting_1" >{!!$tag->nombre!!}</td>
                 <td >{!!$tag->usado!!}</td>
                 <td>
-                    <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/tag/{!!$tag->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
+                    {{--<a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/tag/{!!$tag->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>--}}
                     <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/tag/{!!$tag->id!!}/edit'><i class = 'material-icons'>edit</i></a>
                 </td>
             </tr>

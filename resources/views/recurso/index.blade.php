@@ -51,7 +51,7 @@
                     <td class="sorting_1">{!!$recurso->titulo!!}</td>
                     <td>{!!$recurso->descripcion!!}</td>
                     <!--<td>{/*!!$recurso->contenido!!*/}</td>-->
-                    <td><a href="{!!$recurso->img!!}">{!!$recurso->img!!}</a></td>
+                    <td><a href="{!!$recurso->img!!}">Imagen</a></td>
                     {{--<td><img src="{!!$recurso->img!!}" style="width: 100px; height: 100px;"></img></td>--}}
                     <td>{!!$recurso->fechaPost!!}</td>
                     {{--<td>{!!$recurso->fechaInicio!!}</td>--}}

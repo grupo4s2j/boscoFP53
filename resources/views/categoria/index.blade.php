@@ -43,7 +43,7 @@
                 <tr role="row" class="odd">
                     <td class="sorting_1">{!!$categoria->nombre!!}</td>
                     <td>{!!$categoria->color!!}</td>
-                    <td><a href="{!!$categoria->img!!}">{!!$categoria->img!!}</a></td>
+                    <td><a href="{!!$categoria->img!!}">Imagen</a></td>
                     <td>
                         <a data-toggle="modal" data-target="#myModal" class='delete btn btn-danger btn-xs'
                            data-link="/categoria/{!!$categoria->id!!}/deleteMsg"><i class='material-icons'>delete</i></a>
@@ -54,14 +54,7 @@
                 </tr>
             @endforeach
             </tbody>
-            <tfoot>
-            <tr>
-                <th rowspan="1" colspan="1">nombre</th>
-                <th rowspan="1" colspan="1">color</th>
-                <th rowspan="1" colspan="1">img</th>
-                <th rowspan="1" colspan="1">actions</th>
-            </tr>
-            </tfoot>
+
         </table>
 
 
