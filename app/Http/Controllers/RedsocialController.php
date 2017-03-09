@@ -38,7 +38,7 @@ class RedsocialController extends Controller
 //                ->paginate(1000);
 //        }
         $title = 'Index - Red Sociales';
-        $redsocials = Redsocial::all();
+        $redsocials = Redsocial::orderBy('redSocial','asc')->get();
         return view('redsocial.index', compact('redsocials', 'title'));
     }
 

@@ -53,7 +53,7 @@ class RecursoController extends Controller
 //                        ->orWhere('descripcion', 'like', '%' . $search . '%');
 //                })->paginate(1000);
 //        }
-        $recursos = Recurso::where('recursos.activo', '=', '1')
+        $recursos = Recurso::where('recursos.activo', '=', '1')->orderBy('titulo','asc')
             -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
             ->select('recursos.*','entidadorganizativas.nombre')->get();
         $title = 'Index - Recurso';
@@ -122,7 +122,7 @@ class RecursoController extends Controller
     public function create()
     {
         $title = 'Create - recurso';
-        $entidades = $this->getEntidadOrganizativas();
+        $entidades = Entidadorganizativa::where('activo', '=', '1')->orderBy('nombre', 'asc')->get();
         return view('recurso.create', compact('entidades'));
     }
 
@@ -256,13 +256,13 @@ class RecursoController extends Controller
         if ($request->ajax()) {
             return URL::to('recurso/' . $id . '/edit');
         }
-        $entidades = $this->getEntidadOrganizativas();
+        $entidades = Entidadorganizativa::where('activo', '=', '1')->orderBy('nombre', 'asc')->get();
 
         $recurso = Recurso::findOrfail($id);
 
         $tags = Recursotag::findTagsInRecurs($id);
 
-        $subcategorias = Subcategoria::all();
+        $subcategorias = Subcategoria::orderBy('nombre', 'asc')->get();
         $recursoSubcategorias = $recurso->subcategorias;
         $ficheros = Fichero::all();
 
