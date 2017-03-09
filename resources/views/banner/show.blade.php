@@ -21,7 +21,7 @@
                 <td>
                     <b><i>img : </i></b>
                 </td>
-                <td>{!!$banner->img!!}</td>
+                <td>/img/banners/{!!$banner->img!!}</td>
             </tr>
             <tr>
                 <td>

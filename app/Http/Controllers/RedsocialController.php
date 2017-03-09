@@ -24,21 +24,21 @@ class RedsocialController extends Controller
      */
     public function index()
     {
-        $search = \Request::get('search');
-
-        $paginate = \Request::get('rows');
-        if ($paginate=="") {
-            $paginate = 6;
-        }
-        if ($search=="") {
-
-            $redsocials = Redsocial::paginate($paginate);
-        }else {
-            $redsocials = Redsocial::where('redSocial', 'like', '%' . $search . '%')
-                ->paginate(1000);
-        }
+//        $search = \Request::get('search');
+//
+//        $paginate = \Request::get('rows');
+//        if ($paginate=="") {
+//            $paginate = 6;
+//        }
+//        if ($search=="") {
+//
+//            $redsocials = Redsocial::paginate($paginate);
+//        }else {
+//            $redsocials = Redsocial::where('redSocial', 'like', '%' . $search . '%')
+//                ->paginate(1000);
+//        }
         $title = 'Index - Red Sociales';
-
+        $redsocials = Redsocial::all();
         return view('redsocial.index', compact('redsocials', 'title'));
     }
 

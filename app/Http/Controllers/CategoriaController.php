@@ -21,19 +21,20 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $search = \Request::get('search');
-
-        $paginate = \Request::get('rows');
-        if ($paginate=="") {
-            $paginate = 6;
-        }
-        if ($search=="") {
-
-            $categorias = Categoria::where('activo', '=', '1')->paginate($paginate);
-        }else {
-            $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
-                ->paginate(1000);
-        }
+//        $search = \Request::get('search');
+//
+//        $paginate = \Request::get('rows');
+//        if ($paginate=="") {
+//            $paginate = 6;
+//        }
+//        if ($search=="") {
+//
+//            $categorias = Categoria::where('activo', '=', '1')->paginate($paginate);
+//        }else {
+//            $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
+//                ->paginate(1000);
+//        }
+        $categorias = Categoria::where('activo', '=', '1')->get();
         $title = 'Index - categoria';
 
         return view('categoria.index', compact('categorias', 'title'));
@@ -74,11 +75,18 @@ class CategoriaController extends Controller
         if ($request->hasFile('img')) {
            
             $file = $request->file('img');
-            $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
-            //Storage::disk('local')->put($nombreimagen, File::get($file));
+
+            $directorio=  '/img/categorias/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
+            $nombreimagen =  $directorio . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+
+           
             
 
-        $categoria->img = $nombreimagen;
+        $categoria->img = $file->getClientOriginalName();
         }
 
         $categoria->color = $request->color;
@@ -152,13 +160,17 @@ class CategoriaController extends Controller
         $categoria->nombre = $request->nombre;
         
         if ($request->hasFile('img')) {
-            echo "<script>alert('Hay imagen')</script>";
+            
+            $directorio=  '/img/categorias/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
             $file = $request->file('img');
-            $nombreimagen = '/img/categorias/' . $file->getClientOriginalName();
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-        $categoria->img = $nombreimagen;
+        $categoria->img = $file->getClientOriginalName();
         }
 
         $categoria->color = $request->color;
@@ -198,7 +210,18 @@ class CategoriaController extends Controller
     {
         $categoria = Categoria::findOrfail($id);
         $categoria->activo = 0;
+        $subcategorias = $categoria->subcategorias; 
+ 
+        foreach ($subcategorias as $subcategoria) { 
+            $subcategoria->activo = 0;
+            $recursossubcategorias = $subcategoria->recursosubcategorias;
+      
+            foreach ($recursossubcategorias as $rec){
+                $rec->delete();
+            }
 
+            $subcategoria->save(); 
+        } 
         $categoria->save();
         return URL::to('categoria');
     }

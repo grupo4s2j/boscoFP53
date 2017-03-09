@@ -1,4 +1,7 @@
+
 @extends('scaffold-interface.layouts.app')
+<script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/js/ImgMuestra.js"></script>
 @section('title','Edit')
 @section('content')
 
@@ -34,15 +37,19 @@
             <textarea id="contenido" name="contenido" type="text" class="ckeditor">
                 {!!$recurso->contenido!!}
             </textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="img">Imagen</label>
-                        <input id="imgen" name="imgen" type="file" class="form-control" value="{!!$recurso->
-            img!!}">
-                    </div>
-                    <div class="form-group">
-                        <label for="fechaPost">fechaPost</label>
-                        <input id="fechaPost" name="fechaPost" type="text" class="form-control datepicker" value="{!!$recurso->
+            </div>
+            <div class="form-group">
+                
+                    <label for="img">img</label><br>
+                    <input id="botonimg" type="button" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+                    <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px" src="/img/recursos/{{$recurso->img}}"></img>
+                    
+                   
+                <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
+            </div>
+            <div class="form-group">
+                <label for="fechaPost">fechaPost</label>
+                <input id="fechaPost" name="fechaPost" type="text" class="form-control datepicker" value="{!!$recurso->
             fechaPost!!}">
                     </div>
                     <div class="form-group">

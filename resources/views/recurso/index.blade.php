@@ -6,86 +6,83 @@
     if (isset($_POST['num_rows'])) {
         $rowperpage = $_POST['num_rows'];
     }?>
-<section class="content">
-    <h1>
-        Recurso Index
-    </h1>
-    <form class = 'col s3' method = 'get' action = '{!!url("recurso")!!}/create'>
-        <button class = 'btn btn-primary' type = 'submit'>Create New recurso</button>
-    </form>
-    <br>
-    {!! Form::open(['method'=>'GET','url'=>'recurso','class'=>'navbar-form navbar-right','role'=>'search'])  !!}
-        <div class="input-group custom-search-form ">
-            <input type="text" class="form-control" name="search" placeholder="Search...">
-            <span class="input-group-btn">
-                <button class="btn btn-default-sm" type="submit">
-                    <a class="fa fa-search"></a>
-                </button>
-            </span>
-        </div>
-
-        {!! Form::close() !!}
-        <form action="/recurso" method="Get">
-           Mostrar  <select name="rows" id="rows" onchange="this.form.submit()">
-                <?php
-                if (isset($_GET['rows'])){?>
-                <?php if( $_GET['rows']==5){echo '<option value="5" selected>5</option>';}else{  echo '<option value="5" >5</option>';} ?>
-                <?php if( $_GET['rows']==10){echo '<option value="10" selected>10</option>';}else{  echo '<option value="10" >10</option>';} ?>
-                <?php if( $_GET['rows']==20){echo '<option value="20" selected>20</option>';}else{  echo '<option value="20" >20</option>';} ?>
-                <?php if( $_GET['rows']==50){echo '<option value="50" selected>50</option>';}else{  echo '<option value="50" >50</option>';} ?>
-                <?php if( $_GET['rows']==100){echo '<option value="100" selected>100</option>';}else{  echo '<option value="100" >100</option>';} ?>
-            <?php  }
-                else{
-            echo '<option value="5" selected="">5</option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>';
-                }?>
-
-            </select> filas.
+    <section class="content">
+        <h1>
+            Recurso Index
+        </h1>
+        <form class='col s3' method='get' action='{!!url("recurso")!!}/create'>
+            <button class='btn btn-primary' type='submit'>Create New recurso</button>
         </form>
-    <br>
-    <table class = "table table-striped table-bordered table-hover" style = 'background:#fff'>
-        <thead>
-            <th>titulo</th>
-            <th>descripcion</th>
-           <!-- <th>contenido</th>-->
-            <th>img</th>
-            <th>fechaPost</th>
-            {{--<th>fechaInicio</th>--}}
-            {{--<th>fechaFin</th>--}}
-            {{--<th>rangoEdad</th>--}}
-            {{--<th>relevancia</th>--}}
-            <th>EntidadOrganizativa</th>
-            {{--<th>activo</th>--}}
-            <th>actions</th>
-        </thead>
-        <tbody>
-            @foreach($recursos as $recurso) 
-            <tr>
-                <td>{!!$recurso->titulo!!}</td>
-                <td>{!!$recurso->descripcion!!}</td>
-                <!--<td>{/*!!$recurso->contenido!!*/}</td>-->
-                <td><a href="{!!$recurso->img!!}">{!!$recurso->img!!}</a></td>
-                {{--<td><img src="{!!$recurso->img!!}" style="width: 100px; height: 100px;"></img></td>--}}
-                <td>{!!$recurso->fechaPost!!}</td>
-                {{--<td>{!!$recurso->fechaInicio!!}</td>--}}
-                {{--<td>{!!$recurso->fechaFin!!}</td>--}}
-                {{--<td>{!!$recurso->rangoEdad!!}</td>--}}
-                {{--<td>{!!$recurso->relevancia!!}</td>--}}
-                <td>{!!$recurso->nombre!!}</td>
-                {{--<td>{!!$recurso->activo!!}</td>--}}
-                <td>
-                    <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/recurso/{!!$recurso->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
-                    <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/recurso/{!!$recurso->id!!}/edit'><i class = 'material-icons'>edit</i></a>
-                    <a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/recurso/{!!$recurso->id!!}'><i class = 'material-icons'>info</i></a>
-                </td>
-            </tr>
-            @endforeach 
-        </tbody>
-    </table>
-    {!! $recursos->render() !!}
+        <br>
+        <table  id="example1" class = "table table-striped table-bordered table-hover"      aria-describedby="example1_info" role="grid" style = 'background:#fff'>
+            <thead style="background-color:#ffccbc ">
 
-</section>
+            <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
+                    colspan="1" aria-label="Rendering engine: activate to sort column descending"
+                    style="width: 86px;" aria-sort="ascending">titulo
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-label="Browser: activate to sort column ascending" style="width: 110px;">
+                    descripcion
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-label="Platform(s): activate to sort column ascending"
+                    style="width: 95px;">img
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-label="Engine version: activate to sort column ascending"
+                    style="width: 71px;">fechaPost
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-label="CSS grade: activate to sort column ascending" style="width: 48px;">
+                    EntidadOrganizativa
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-label="CSS grade: activate to sort column ascending" style="width: 48px;">
+                    actions
+                </th>
+            </tr>
+
+            </thead>
+            <tbody>
+            @foreach($recursos as $recurso)
+                <tr role="row" class="odd">
+                    <td class="sorting_1">{!!$recurso->titulo!!}</td>
+                    <td>{!!$recurso->descripcion!!}</td>
+                    <!--<td>{/*!!$recurso->contenido!!*/}</td>-->
+                    <td><a href="{!!$recurso->img!!}">{!!$recurso->img!!}</a></td>
+                    {{--<td><img src="{!!$recurso->img!!}" style="width: 100px; height: 100px;"></img></td>--}}
+                    <td>{!!$recurso->fechaPost!!}</td>
+                    {{--<td>{!!$recurso->fechaInicio!!}</td>--}}
+                    {{--<td>{!!$recurso->fechaFin!!}</td>--}}
+                    {{--<td>{!!$recurso->rangoEdad!!}</td>--}}
+                    {{--<td>{!!$recurso->relevancia!!}</td>--}}
+                    <td>{!!$recurso->nombre!!}</td>
+                    {{--<td>{!!$recurso->activo!!}</td>--}}
+                    <td>
+                        <a data-toggle="modal" data-target="#myModal" class='delete btn btn-danger btn-xs'
+                           data-link="/recurso/{!!$recurso->id!!}/deleteMsg"><i class='material-icons'>delete</i></a>
+                        <a href='#' class='viewEdit btn btn-primary btn-xs'
+                           data-link='/recurso/{!!$recurso->id!!}/edit'><i class='material-icons'>edit</i></a>
+                        <a href='#' class='viewShow btn btn-warning btn-xs' data-link='/recurso/{!!$recurso->id!!}'><i
+                                    class='material-icons'>info</i></a>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+            <tfoot>
+            <tr>
+                <th rowspan="1" colspan="1">titulo</th>
+                <th rowspan="1" colspan="1">descripcion</th>
+                <th rowspan="1" colspan="1">img</th>
+                <th rowspan="1" colspan="1">fechaPost</th>
+                <th rowspan="1" colspan="1">EntidadOrganizativa</th>
+                <th rowspan="1" colspan="1">actions</th>
+            </tr>
+            </tfoot>
+        </table>
+        {{--{!! $recursos->render() !!}--}}
+
+    </section>
 @endsection

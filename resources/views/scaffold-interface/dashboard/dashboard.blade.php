@@ -31,42 +31,42 @@
 
                 </div>
             </div>
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-red">
+            {{--<div class="col-lg-3 col-xs-6">--}}
+                {{--<!-- small box -->--}}
+                {{--<div class="small-box bg-red">--}}
 
-                        <div class="inner">
-                            <a href="{{url('roles')}}" style="color:white">
-                            <h3>Roles</h3>
-                            <p>{{$roles}}</p>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-user-plus"></i>
-                        </div>
-                        <a href="{{url('roles')}}" class="small-box-footer">More info <i
-                                    class="fa fa-arrow-circle-right"></i></a>
+                        {{--<div class="inner">--}}
+                            {{--<a href="{{url('roles')}}" style="color:white">--}}
+                            {{--<h3>Roles</h3>--}}
+                            {{--<p>{{$roles}}</p>--}}
+                            {{--</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="icon">--}}
+                            {{--<i class="fa fa-user-plus"></i>--}}
+                        {{--</div>--}}
+                        {{--<a href="{{url('roles')}}" class="small-box-footer">More info <i--}}
+                                    {{--class="fa fa-arrow-circle-right"></i></a>--}}
 
-                </div>
-            </div>
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-yellow">
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-lg-3 col-xs-6">--}}
+                {{--<!-- small box -->--}}
+                {{--<div class="small-box bg-yellow">--}}
 
-                        <div class="inner">
-                            <a href="{{url('permissions')}}" style="color:white">
-                            <h3>Permissions</h3>
-                            <p>{{$permissions}}</p>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-key"></i>
-                        </div>
-                        <a href="{{url('permissions')}}" class="small-box-footer">More info <i
-                                    class="fa fa-arrow-circle-right"></i></a>
+                        {{--<div class="inner">--}}
+                            {{--<a href="{{url('permissions')}}" style="color:white">--}}
+                            {{--<h3>Permissions</h3>--}}
+                            {{--<p>{{$permissions}}</p>--}}
+                            {{--</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="icon">--}}
+                            {{--<i class="fa fa-key"></i>--}}
+                        {{--</div>--}}
+                        {{--<a href="{{url('permissions')}}" class="small-box-footer">More info <i--}}
+                                    {{--class="fa fa-arrow-circle-right"></i></a>--}}
 
-                </div>
-            </div>
+                {{--</div>--}}
+            {{--</div>--}}
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-green">
@@ -142,25 +142,25 @@
 
                 </div>
             </div>
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-red">
+            {{--<div class="col-lg-3 col-xs-6">--}}
+                {{--<!-- small box -->--}}
+                {{--<div class="small-box bg-red">--}}
 
-                        <div class="inner">
-                            <a href="{{url('fichero')}}" style="color:white">
-                            <h3>Ficheros</h3>
-                            <p>{{$fichero->count()}}</p>
-                    </a>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-file"></i>
-                        </div>
-                        <a href="{{url('fichero')}}" class="small-box-footer">More info <i
-                                    class="fa fa-arrow-circle-right"></i></a>
+                        {{--<div class="inner">--}}
+                            {{--<a href="{{url('fichero')}}" style="color:white">--}}
+                            {{--<h3>Ficheros</h3>--}}
+                            {{--<p>{{$fichero->count()}}</p>--}}
+                    {{--</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="icon">--}}
+                            {{--<i class="fa fa-file"></i>--}}
+                        {{--</div>--}}
+                        {{--<a href="{{url('fichero')}}" class="small-box-footer">More info <i--}}
+                                    {{--class="fa fa-arrow-circle-right"></i></a>--}}
 
 
-                </div>
-            </div>
+                {{--</div>--}}
+            {{--</div>--}}
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-orange">

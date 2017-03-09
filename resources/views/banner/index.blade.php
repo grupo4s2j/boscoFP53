@@ -15,8 +15,8 @@
 
 
     <br>
-    <table class = "table table-striped table-bordered table-hover" style = 'background:#fff'>
-        <thead>
+    <table  id="example1" class = "table table-striped table-bordered table-hover"      aria-describedby="example1_info" role="grid" style = 'background:#fff'>
+        <thead style="background-color:#ffccbc ">
             <th>img</th>
             <th>url</th>
             {{--<th>activo</th>--}}
@@ -25,7 +25,7 @@
         <tbody>
             @foreach($banners as $banner) 
             <tr>
-                <td><img src="{!!$banner->img!!}" style="height: 100px; width: 100px;"></img></td>
+                <td><img src="/img/banners/{!!$banner->img!!}" style="height: 100px; width: 100px;"></img></td>
                 <td>{!!$banner->url!!}</td>
                 {{--<td>{!!$banner->activo!!}</td>--}}
                 <td>

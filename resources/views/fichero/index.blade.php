@@ -55,7 +55,7 @@
         <tbody>
             @foreach($ficheros as $fichero) 
             <tr>
-                <td>{!!$fichero->url!!}</td>
+                <td><img src="{!!$fichero->url!!}" style="height: 100px; width: 100px;"></img></td>
                 <td>{!!$fichero->idRecurso!!}</td>
                 <td>
                     <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/fichero/{!!$fichero->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>

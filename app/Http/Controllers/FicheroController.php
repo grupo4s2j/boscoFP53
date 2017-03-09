@@ -75,12 +75,17 @@ class FicheroController extends Controller
         
        if ($request->hasFile('url')) {
            
-            $file = $request->file('url');
-            $nombreurlagen = '/img/ficheros/' . $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombreurlagen, \File::get($file));
+            
+            $directorio= '/img/fichero';
+            if( !file_exists() ){
+                mkdir($directorio, 077, true);
+            }
+            $file = $request->file('img');
+            $nombreimagen = $directorio . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $fichero->url = $nombreurlagen;
+            $fichero->url = $nombreimagen;
         }
 
         
@@ -155,12 +160,17 @@ class FicheroController extends Controller
     	
         if ($request->hasFile('url')) {
            
-            $file = $request->file('url');
-            $nombreurlagen = '/img/ficheros/' . $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombreurlagen, \File::get($file));
+             $dirpublic= \Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
+            $directorio= $dirpublic . '/img/fichero';
+            if( !file_exists() ){
+                mkdir($directorio, 077, true);
+            }
+            $file = $request->file('img');
+            $nombreimagen = $directorio . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $fichero->url = $nombreurlagen;
+            $fichero->url = $nombreimagen;
         }
         
         $fichero->idRecurso = $request->idRecurso;

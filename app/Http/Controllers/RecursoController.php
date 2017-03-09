@@ -32,27 +32,30 @@ class RecursoController extends Controller
      */
     public function index()
     {
-        $search = \Request::get('search');
+  //      $search = \Request::get('search');
 
-        $paginate = \Request::get('rows');
-        if ($paginate=="") {
-            $paginate = 6;
-        }
-        if ($search=="") {
-
-            $recursos = Recurso::where('recursos.activo', '=', '1')
-                -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
-                ->select('recursos.*','entidadorganizativas.nombre')
-                ->paginate($paginate);
-        }else {
-            $recursos = Recurso::where('activo', '=', '1')
-                -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
-                ->select('recursos.*','entidadorganizativas.nombre')
-                ->where( function ($query ) use ($search){
-                    $query->where('titulo', 'like', '%' . $search . '%')
-                        ->orWhere('descripcion', 'like', '%' . $search . '%');
-                })->paginate(1000);
-        }
+//        $paginate = \Request::get('rows');
+//        if ($paginate=="") {
+//            $paginate = 6;
+//        }
+//        if ($search=="") {
+//
+//            $recursos = Recurso::where('recursos.activo', '=', '1')
+//                -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
+//                ->select('recursos.*','entidadorganizativas.nombre')
+//                ->paginate($paginate);
+//        }else {
+//            $recursos = Recurso::where('activo', '=', '1')
+//                -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
+//                ->select('recursos.*','entidadorganizativas.nombre')
+//                ->where( function ($query ) use ($search){
+//                    $query->where('titulo', 'like', '%' . $search . '%')
+//                        ->orWhere('descripcion', 'like', '%' . $search . '%');
+//                })->paginate(1000);
+//        }
+        $recursos = Recurso::where('recursos.activo', '=', '1')
+            -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
+            ->select('recursos.*','entidadorganizativas.nombre')->get();
         $title = 'Index - Recurso';
 
         return view('recurso.index', compact('recursos', 'title'));
@@ -144,13 +147,17 @@ class RecursoController extends Controller
 
 
         if ($request->hasFile('imgen')) {
-            echo "<script>alert('Hay imagen')</script>";
-            $file = $request->file('imgen');
-            $nombreimagen = '/img/recursos/' . $file->getClientOriginalName();
+           
+            $directorio=  '/img/recursos/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
+            $file = $request->file('img');
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
 
-            $recurso->img = $nombreimagen;
+            $recurso->img = $file->getClientOriginalName();
         }
 
 
@@ -256,7 +263,7 @@ class RecursoController extends Controller
         $tags = Recursotag::findTagsInRecurs($id);
 
         $subcategorias = Subcategoria::all();
-        $recursoSubcategorias = $recurso->recursosubcategorias;
+        $recursoSubcategorias = $recurso->subcategorias;
         $ficheros = Fichero::all();
 
         return view('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias'));
@@ -285,7 +292,7 @@ class RecursoController extends Controller
             ->where('recursossubcategorias.idSubcategorias', '=', $idsub)
             ->where('recursossubcategorias.idRecursos', '=', $idrec)
             ->get();
-        $subcategoria = Recursossubcategoria::findOrfail($subcat[0]->id);
+        $subcategoria = Recursossubcategoria::findOrf.ail($subcat[0]->id);
         $subcategoria->delete();
         return redirect('recurso/' . $idrec . '/edit/');
     }
@@ -306,14 +313,18 @@ class RecursoController extends Controller
         $recurso->descripcion = $request->descripcion;
 
         $recurso->contenido = $request->contenido;
-        if ($request->hasFile('imgen')) {
-            echo "<script>alert('Hay imagen')</script>";
-            $file = $request->file('imgen');
-            $nombreimagen = '/img/recursos/' . $file->getClientOriginalName();
+        if ($request->hasFile('img')) {
+             
+            $directorio= '/img/recursos/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
+            $file = $request->file('img');
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
 
-            $recurso->img = $nombreimagen;
+            $recurso->img = $file->getClientOriginalName();
         }
         $recurso->fechaPost = $request->fechaPost;
 
@@ -399,6 +410,12 @@ class RecursoController extends Controller
     {
         $recurso = Recurso::findOrfail($id);
         $recurso->activo = 0;
+        $recursossubcategorias = $recurso->recursosubcategorias;
+      
+        foreach ($recursossubcategorias as $rec){
+            $rec->delete();
+        }
+
         $recurso->save();
         return URL::to('recurso');
     }
@@ -410,6 +427,5 @@ class RecursoController extends Controller
     {
         $entdades = Entidadorganizativa::all();
         return $entdades;
-
     }
 }

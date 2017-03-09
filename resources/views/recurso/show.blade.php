@@ -39,7 +39,7 @@
                 <td>
                     <b><i>img : </i></b>
                 </td>
-                <td>{!!$recurso->img!!}</td>
+                <td>/img/recursos/{!!$recurso->img!!}</td>
             </tr>
             <tr>
                 <td>

@@ -43,6 +43,6 @@ class Subcategoria extends Model
      */
     public function recursosubcategorias()
     {
-        return $this->hasMany('App\Recursosubcategorium', 'idSubCategoria', 'id');
+        return $this->hasMany('App\Recursossubcategoria', 'idSubcategorias', 'id');
     }
 }

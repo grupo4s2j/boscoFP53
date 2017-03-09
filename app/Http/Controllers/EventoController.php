@@ -24,21 +24,21 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $search = \Request::get('search');
-
-        $paginate = \Request::get('rows');
-        if ($paginate=="") {
-            $paginate = 6;
-        }
-        if ($search=="") {
-
-            $eventos = Evento::where('activo', '=', '1')->paginate($paginate);
-        }else {
-            $eventos = Evento::where('titulo', 'like', '%' . $search . '%')->where('activo', '=', '1')
-                ->paginate(1000);
-        }
+//        $search = \Request::get('search');
+//
+//        $paginate = \Request::get('rows');
+//        if ($paginate=="") {
+//            $paginate = 6;
+//        }
+//        if ($search=="") {
+//
+//            $eventos = Evento::where('activo', '=', '1')->paginate($paginate);
+//        }else {
+//            $eventos = Evento::where('titulo', 'like', '%' . $search . '%')->where('activo', '=', '1')
+//                ->paginate(1000);
+//        }
         $title = 'Index - Evento';
-
+        $eventos = Evento::where('activo', '=', '1')->get();
         return view('evento.index', compact('eventos', 'title'));
     }
 
@@ -81,12 +81,17 @@ class EventoController extends Controller
         
         if ($request->hasFile('img')) {
            
+             
+            $directorio=  '/img/banner/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
             $file = $request->file('img');
-            $nombreimagen = '/assets/eventos/' . $file->getClientOriginalName();
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $evento->img = $nombreimagen;
+            $evento->img = $file->getClientOriginalName();
         }
 
         
@@ -169,12 +174,17 @@ class EventoController extends Controller
         
         if ($request->hasFile('img')) {
            
+            
+            $directorio=  '/img/banner/';
+            if( !file_exists($directorio) ){
+                mkdir($directorio, 077, true);
+            }
             $file = $request->file('img');
-            $nombreimagen = '/assets/eventos/' . $file->getClientOriginalName();
+            $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $evento->img = $nombreimagen;
+            $evento->img = $file->getClientOriginalName();
         }
         
         $evento->fechaInicio = $request->fechaInicio;

@@ -33,7 +33,7 @@
                 <td>
                     <b><i>img : </i></b>
                 </td>
-                <td>{!!$evento->img!!}</td>
+                <td>/img/eventos/{!!$evento->img!!}</td>
             </tr>
             <tr>
                 <td>
