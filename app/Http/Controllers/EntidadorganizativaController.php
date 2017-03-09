@@ -35,7 +35,7 @@ class EntidadorganizativaController extends Controller
 //            $entidadorganizativas = Entidadorganizativa::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
 //                ->paginate(1000);
 //        }
-        $entidadorganizativas = Entidadorganizativa::where('activo', '=', '1')->get();
+        $entidadorganizativas = Entidadorganizativa::where('activo', '=', '1')->orderBy('nombre','asc')->get();
         $title = 'Index - Entidad Organizativa';
 
         return view('entidadorganizativa.index', compact('entidadorganizativas', 'title'));

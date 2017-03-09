@@ -6,6 +6,7 @@
 		  reader.onload = function (e) {
 		  	var Imagen = new Image;
  			Imagen.onload = function() {
+		  		document.getElementById('imgmuestra').style["display"] = "block";
 		  		document.getElementById('imgmuestra').src = Imagen.src;	
  			}
  			Imagen.src = reader.result;

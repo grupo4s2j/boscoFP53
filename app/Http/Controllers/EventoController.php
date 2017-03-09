@@ -38,7 +38,7 @@ class EventoController extends Controller
 //                ->paginate(1000);
 //        }
         $title = 'Index - Evento';
-        $eventos = Evento::where('activo', '=', '1')->get();
+        $eventos = Evento::where('activo', '=', '1')->orderBy('titulo','asc')->get();
         return view('evento.index', compact('eventos', 'title'));
     }
 
