@@ -22,19 +22,20 @@ class EntidadorganizativaController extends Controller
      */
     public function index()
     {
-        $search = \Request::get('search');
-
-        $paginate = \Request::get('rows');
-        if ($paginate=="") {
-            $paginate = 6;
-        }
-        if ($search=="") {
-
-            $entidadorganizativas = Entidadorganizativa::where('activo', '=', '1')->paginate($paginate);
-        }else {
-            $entidadorganizativas = Entidadorganizativa::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
-                ->paginate(1000);
-        }
+//        $search = \Request::get('search');
+//
+//        $paginate = \Request::get('rows');
+//        if ($paginate=="") {
+//            $paginate = 6;
+//        }
+//        if ($search=="") {
+//
+//            $entidadorganizativas = Entidadorganizativa::where('activo', '=', '1')->paginate($paginate);
+//        }else {
+//            $entidadorganizativas = Entidadorganizativa::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
+//                ->paginate(1000);
+//        }
+        $entidadorganizativas = Entidadorganizativa::where('activo', '=', '1')->orderBy('nombre','asc')->get();
         $title = 'Index - Entidad Organizativa';
 
         return view('entidadorganizativa.index', compact('entidadorganizativas', 'title'));
@@ -186,6 +187,11 @@ class EntidadorganizativaController extends Controller
     {
      	$entidadorganizativa = Entidadorganizativa::findOrfail($id);
      	$entidadorganizativa->activo = 0;
+        $recursos = $entidadorganizativa->recursos;
+        foreach ($recursos as $recurso) {
+            $recurso->idEntidadOrganizativa = null;
+            $recurso->save();   
+        }
         $entidadorganizativa->save();
         return URL::to('entidadorganizativa');
     }

@@ -312,5 +312,16 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
         filebrowserFlashUploadUrl: '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
     } );
 </script>
+<script src="{{URL::asset('js/admin-lte/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{URL::asset('js/admin-lte/datatables/dataTables.bootstrap.min.js') }}"></script>
+{{--<script src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>--}}
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "aaSorting": []
+        });
+        $("#example1_filter").css( "float", "right" );
+    });
+</script>
 </body>
 </html>

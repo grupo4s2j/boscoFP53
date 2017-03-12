@@ -24,21 +24,21 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $search = \Request::get('search');
-
-        $paginate = \Request::get('rows');
-        if ($paginate=="") {
-            $paginate = 6;
-        }
-        if ($search=="") {
-
-            $eventos = Evento::where('activo', '=', '1')->paginate($paginate);
-        }else {
-            $eventos = Evento::where('titulo', 'like', '%' . $search . '%')->where('activo', '=', '1')
-                ->paginate(1000);
-        }
+//        $search = \Request::get('search');
+//
+//        $paginate = \Request::get('rows');
+//        if ($paginate=="") {
+//            $paginate = 6;
+//        }
+//        if ($search=="") {
+//
+//            $eventos = Evento::where('activo', '=', '1')->paginate($paginate);
+//        }else {
+//            $eventos = Evento::where('titulo', 'like', '%' . $search . '%')->where('activo', '=', '1')
+//                ->paginate(1000);
+//        }
         $title = 'Index - Evento';
-
+        $eventos = Evento::where('activo', '=', '1')->orderBy('titulo','asc')->get();
         return view('evento.index', compact('eventos', 'title'));
     }
 

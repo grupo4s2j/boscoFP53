@@ -25,19 +25,20 @@ class SubcategoriaController extends Controller
      */
         public function index()
     {
-        $search = \Request::get('search');
-
-        $paginate = \Request::get('rows');
-        if ($paginate=="") {
-            $paginate = 6;
-        }
-        if ($search=="") {
-
-            $subcategorias = Subcategoria::paginate($paginate);
-        }else {
-            $subcategorias = Subcategoria::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
-                ->paginate(1000);
-        }
+//        $search = \Request::get('search');
+//
+//        $paginate = \Request::get('rows');
+//        if ($paginate=="") {
+//            $paginate = 6;
+//        }
+//        if ($search=="") {
+//
+//            $subcategorias = Subcategoria::paginate($paginate);
+//        }else {
+//            $subcategorias = Subcategoria::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
+//                ->paginate(1000);
+//        }
+            $subcategorias = Subcategoria::where('activo', '=', '1')->orderBy('orden','asc')->orderBy('nombre','asc')->get();
         $title = 'Index - Subcategoria';
 
         return view('subcategoria.index', compact('subcategorias', 'title'));
@@ -76,7 +77,7 @@ class SubcategoriaController extends Controller
     public function create()
     {
         $title = 'Create - subcategoria';
-        $categorias = Categoria::all();
+        $categorias = Categoria::where('activo', '=', '1')->orderBy('nombre', 'asc')->get();
         return view('subcategoria.create',compact('categorias'));
     }
 
@@ -162,7 +163,7 @@ class SubcategoriaController extends Controller
 
         
         $subcategoria = Subcategoria::findOrfail($id);
-        $categorias = Categoria::all();
+        $categorias = Categoria::where('activo', '=', '1')->orderBy('nombre', 'asc')->get();
         return view('subcategoria.edit',compact('title','subcategoria','categorias'  ));
     }
 
@@ -228,6 +229,12 @@ class SubcategoriaController extends Controller
     {
      	$subcategoria = Subcategoria::findOrfail($id);
      	$subcategoria->activo = 0;
+        $recursossubcategorias = $subcategoria->recursosubcategorias;
+      
+        foreach ($recursossubcategorias as $rec){
+            $rec->delete();
+        }
+
         $subcategoria->save();
         return URL::to('subcategoria');
     }

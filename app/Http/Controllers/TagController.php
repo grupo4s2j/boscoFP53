@@ -66,19 +66,20 @@ class TagController extends Controller
      */
     public function index()
     {
-        $search = \Request::get('search');
-
-        $paginate = \Request::get('rows');
-        if ($paginate=="") {
-            $paginate = 6;
-        }
-        if ($search=="") {
-
-            $tags = Tag::paginate($paginate);
-        }else {
-            $tags = Tag::where('nombre', 'like', '%' . $search . '%')
-                ->paginate($paginate);
-        }
+//        $search = \Request::get('search');
+//
+//        $paginate = \Request::get('rows');
+//        if ($paginate=="") {
+//            $paginate = 6;
+//        }
+//        if ($search=="") {
+//
+//            $tags = Tag::paginate($paginate);
+//        }else {
+//            $tags = Tag::where('nombre', 'like', '%' . $search . '%')
+//                ->paginate($paginate);
+//        }
+        $tags = Tag::all();
         $title = 'Index - Tag';
 
         return view('tag.index', compact('tags', 'title'));

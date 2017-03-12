@@ -30,7 +30,7 @@ class PusherFactory
      *
      * @return \Pusher
      */
-    public function make(array $config): Pusher
+    public function make(array $config)//: Pusher
     {
         $config = $this->getConfig($config);
 
@@ -46,7 +46,7 @@ class PusherFactory
      *
      * @return array
      */
-    protected function getConfig(array $config): array
+    protected function getConfig(array $config)//: array
     {
         $keys = [
             'auth_key',
@@ -74,7 +74,7 @@ class PusherFactory
      *
      * @return \Pusher
      */
-    protected function getClient(array $auth): Pusher
+    protected function getClient(array $auth)//: Pusher
     {
         return new Pusher(
             $auth['auth_key'],

@@ -21,19 +21,23 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $search = \Request::get('search');
-
-        $paginate = \Request::get('rows');
-        if ($paginate=="") {
-            $paginate = 6;
-        }
-        if ($search=="") {
-
-            $categorias = Categoria::where('activo', '=', '1')->paginate($paginate);
-        }else {
-            $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
-                ->paginate(1000);
-        }
+//        $search = \Request::get('search');
+//
+//        $paginate = \Request::get('rows');
+//        if ($paginate=="") {
+//            $paginate = 6;
+//        }
+//        if ($search=="") {
+//
+//            $categorias = Categoria::where('activo', '=', '1')->paginate($paginate);
+//        }else {
+//            $categorias = Categoria::where('nombre', 'like', '%' . $search . '%')->where('activo', '=', '1')
+//                ->paginate(1000);
+//        }
+        $categorias = Categoria::where('activo', '=', '1')
+            ->orderBy('orden','asc')
+            ->orderBy('nombre','asc')
+            ->get();
         $title = 'Index - categoria';
 
         return view('categoria.index', compact('categorias', 'title'));
@@ -209,7 +213,18 @@ class CategoriaController extends Controller
     {
         $categoria = Categoria::findOrfail($id);
         $categoria->activo = 0;
+        $subcategorias = $categoria->subcategorias; 
+ 
+        foreach ($subcategorias as $subcategoria) { 
+            $subcategoria->activo = 0;
+            $recursossubcategorias = $subcategoria->recursosubcategorias;
+      
+            foreach ($recursossubcategorias as $rec){
+                $rec->delete();
+            }
 
+            $subcategoria->save(); 
+        } 
         $categoria->save();
         return URL::to('categoria');
     }

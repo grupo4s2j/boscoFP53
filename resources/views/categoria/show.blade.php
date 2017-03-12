@@ -21,7 +21,7 @@
                 <td>
                     <b><i>nombre : </i></b>
                 </td>
-                <td>{!!$categoria->nombre!!}</td>
+                <td>/img/categorias/{!!$categoria->nombre!!}</td>
             </tr>
         </tbody>
     </table>

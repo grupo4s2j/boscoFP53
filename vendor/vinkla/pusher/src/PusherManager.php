@@ -53,7 +53,7 @@ class PusherManager extends AbstractManager
      *
      * @return \Pusher
      */
-    protected function createConnection(array $config): Pusher
+    protected function createConnection(array $config)//: Pusher
     {
         return $this->factory->make($config);
     }
@@ -63,7 +63,7 @@ class PusherManager extends AbstractManager
      *
      * @return string
      */
-    protected function getConfigName(): string
+    protected function getConfigName()//: string
     {
         return 'pusher';
     }
@@ -73,7 +73,7 @@ class PusherManager extends AbstractManager
      *
      * @return \Vinkla\Pusher\PusherFactory
      */
-    public function getFactory(): PusherFactory
+    public function getFactory()//: PusherFactory
     {
         return $this->factory;
     }

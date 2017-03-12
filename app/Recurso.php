@@ -68,8 +68,12 @@ class Recurso extends Model
      */
     public function recursosubcategorias()
     {
-       // return $this->hasMany('App\Recursossubcategoria', 'idRecursos', 'id');
-        return $this->belongsToMany('App\Subcategoria','recursossubcategorias','idRecursos','idSubcategorias' );
+       return $this->hasMany('App\Recursossubcategoria', 'idRecursos', 'id');
+    }
+
+    public function subcategorias()
+    {
+        return $this->belongsToMany('App\Subcategoria','recursossubcategorias','idRecursos','idSubcategorias' )->orderBy('nombre', 'asc');
     }
 
     /**
