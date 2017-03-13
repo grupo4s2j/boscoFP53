@@ -25,10 +25,10 @@ $events = $req->fetchAll();
     <title>Bare - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="calendar/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/calendar/css/bootstrap.min.css" rel="stylesheet">
 	
 	<!-- FullCalendar -->
-	<link href='calendar/css/fullcalendar.css' rel='stylesheet' />
+	<link href='/calendar/css/fullcalendar.css' rel='stylesheet' />
 
 
     <!-- Custom CSS -->
@@ -66,7 +66,7 @@ $events = $req->fetchAll();
 		<div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="addEvent.php">
+			<form class="form-horizontal" method="POST" action="./calendar/addEvent.php">
 			
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -125,7 +125,7 @@ $events = $req->fetchAll();
 		<div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="editEventTitle.php">
+			<form class="form-horizontal" method="POST" action="./calendar/editEventTitle.php">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Edit Event</h4>
@@ -179,14 +179,14 @@ $events = $req->fetchAll();
     <!-- /.container -->
 
     <!-- jQuery Version 1.11.1 -->
-    <script src="calendar/js/jquery.js"></script>
+    <script src="/calendar/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="calendar/js/bootstrap.min.js"></script>
+    <script src="/calendar/js/bootstrap.min.js"></script>
 	
 	<!-- FullCalendar -->
-	<script src='calendar/js/moment.min.js'></script>
-	<script src='calendar/js/fullcalendar.min.js'></script>
+	<script src='/calendar/js/moment.min.js'></script>
+	<script src='/calendar/js/fullcalendar.min.js'></script>
 	
 	<script>
 
