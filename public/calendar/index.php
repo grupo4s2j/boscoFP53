@@ -56,7 +56,9 @@ $events = $req->fetchAll();
 </head>
 
 <body>
+<div id="messages" >
 
+</div>
 
                 <div id="calendar" class="col-centered">
                 </div>
@@ -270,19 +272,46 @@ $events = $req->fetchAll();
 			Event[2] = end;
 			
 			$.ajax({
-			 url: 'editEventDate.php',
+			 url: '/calendar/editEventDate.php',
 			 type: "POST",
 			 data: {Event:Event},
 			 success: function(rep) {
 					if(rep == 'OK'){
-						alert('Saved');
+						$('#messages').append('' +
+							'<div id="alertdiv" class="alert alert-success">' +
+							'<a class="close" data-dismiss="alert">×</a>' +
+							'<span>Guardado</span>' +
+							'</div>');
+							setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+
+
+							$("#alertdiv").remove();
+
+						}, 3000);
+
 					}else{
-						alert('Could not be saved. try again.'+rep);
+						$('#messages').append('' +
+							'<div id="alertdiv" class="alert alert-danger">' +
+							'<a class="close" data-dismiss="alert">×</a>' +
+							'<span>Could not be saved. try again.'+rep+'</span>' +
+							'</div>');
+						setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+
+
+							$("#alertdiv").remove();
+
+						}, 3000);
+
+
+
 					}
 				}
 			});
 		}
-		
+
+
+
+
 	});
 
 </script>
