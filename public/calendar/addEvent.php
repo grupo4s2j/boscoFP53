@@ -28,7 +28,7 @@ if (isset($_POST['title']) && isset($_POST['start']) && isset($_POST['end']) && 
 	}
 
 }
-header('Location: '.$_SERVER['HTTP_REFERER']);
+header('Location: ./index.php');
 
 	
 ?>
