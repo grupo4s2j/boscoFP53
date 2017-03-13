@@ -98,6 +98,16 @@
                         <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>
                     </div>
                     <script> var data ={!!$tags!!}</script>
+                    <div class="form-group">
+                        <label class="checkbox-inline">
+                            <input type="hidden" name="alumno" value="0" />
+                            <input id="alumno" name="alumno" type="checkbox" checked value = "1">Alumnos
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="hidden" name="profesor" value="0" />
+                            <input id="profesor" name="profesor" type="checkbox" checked value = "1">Profesores
+                        </label>
+                    </div>
                     <button class='btn btn-primary' type='submit'>Update</button>
                 </form>
             </div>

@@ -338,6 +338,10 @@ class RecursoController extends Controller
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
 
+        $recurso->alumno = $request->alumno;
+
+        $recurso->profesor = $request->profesor;
+
         /* $img=$request->file('img');
          $name_img=$request->img;
          $img->move('/img/recur/',$name_img);
@@ -353,33 +357,36 @@ class RecursoController extends Controller
             Recursotag::destroy($pid);
 
         }
-        //TODO: Delete this to count tags on TagController with count(*)
-        foreach ($request->tag_list as $tag) {
-            $ptag = Tag::searchTag($tag, 1);
-            $p = $ptag . hasItems();
-            if ($p == "[]()") {
-                $newTag = new Tag();
-                $newTag->nombre = $tag;
-                $newTag->usado = 1;
-                $newTag->save();
 
-                $newRecTag = new Recursotag();
-                $newRecTag->idTag = $newTag->id;
-                $newRecTag->idRecursos = $recurso->id;
-                $newRecTag->activo = 1;
-                $newRecTag->save();
-            } else {
-                $tag = Tag::findOrfail($ptag[0]->id);
-                $tag->usado = $tag->usado + 1;
-                $tag->save();
+        if(isset($request->tag_list)){
+            //TODO: Delete this to count tags on TagController with count(*)
+            foreach ($request->tag_list as $tag) {
+                $ptag = Tag::searchTag($tag, 1);
+                $p = $ptag . hasItems();
+                if ($p == "[]()") {
+                    $newTag = new Tag();
+                    $newTag->nombre = $tag;
+                    $newTag->usado = 1;
+                    $newTag->save();
 
-                $newRecTag = new Recursotag();
-                $newRecTag->idTag = $ptag[0]->id;
-                $newRecTag->idRecursos = $recurso->id;
-                $newRecTag->activo = 1;
-                $newRecTag->save();
+                    $newRecTag = new Recursotag();
+                    $newRecTag->idTag = $newTag->id;
+                    $newRecTag->idRecursos = $recurso->id;
+                    $newRecTag->activo = 1;
+                    $newRecTag->save();
+                } else {
+                    $tag = Tag::findOrfail($ptag[0]->id);
+                    $tag->usado = $tag->usado + 1;
+                    $tag->save();
 
-            }
+                    $newRecTag = new Recursotag();
+                    $newRecTag->idTag = $ptag[0]->id;
+                    $newRecTag->idRecursos = $recurso->id;
+                    $newRecTag->activo = 1;
+                    $newRecTag->save();
+                }
+        }
+        
         }
         return redirect('recurso');
     }

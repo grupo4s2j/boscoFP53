@@ -24,7 +24,7 @@ class Redsocial extends Model
     /**
      * @var array
      */
-    protected $fillable = ['redSocial', 'link'];
+    protected $fillable = ['redSocial', 'link', 'logo'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
