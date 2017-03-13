@@ -25,10 +25,10 @@ $events = $req->fetchAll();
     <title>Bare - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="calendar/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/calendar/css/bootstrap.min.css" rel="stylesheet">
 	
 	<!-- FullCalendar -->
-	<link href='calendar/css/fullcalendar.css' rel='stylesheet' />
+	<link href='/calendar/css/fullcalendar.css' rel='stylesheet' />
 
 
     <!-- Custom CSS -->
@@ -56,7 +56,9 @@ $events = $req->fetchAll();
 </head>
 
 <body>
+<div id="messages" >
 
+</div>
 
                 <div id="calendar" class="col-centered">
                 </div>
@@ -66,7 +68,7 @@ $events = $req->fetchAll();
 		<div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="addEvent.php">
+			<form class="form-horizontal" method="POST" action="/calendar/addEvent.php">
 			
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -125,7 +127,7 @@ $events = $req->fetchAll();
 		<div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="editEventTitle.php">
+			<form class="form-horizontal" method="POST" action="/calendar/editEventTitle.php">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Edit Event</h4>
@@ -179,14 +181,14 @@ $events = $req->fetchAll();
     <!-- /.container -->
 
     <!-- jQuery Version 1.11.1 -->
-    <script src="calendar/js/jquery.js"></script>
+    <script src="/calendar/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="calendar/js/bootstrap.min.js"></script>
+    <script src="/calendar/js/bootstrap.min.js"></script>
 	
 	<!-- FullCalendar -->
-	<script src='calendar/js/moment.min.js'></script>
-	<script src='calendar/js/fullcalendar.min.js'></script>
+	<script src='/calendar/js/moment.min.js'></script>
+	<script src='/calendar/js/fullcalendar.min.js'></script>
 	
 	<script>
 
@@ -270,19 +272,46 @@ $events = $req->fetchAll();
 			Event[2] = end;
 			
 			$.ajax({
-			 url: 'editEventDate.php',
+			 url: '/calendar/editEventDate.php',
 			 type: "POST",
 			 data: {Event:Event},
 			 success: function(rep) {
 					if(rep == 'OK'){
-						alert('Saved');
+						$('#messages').append('' +
+							'<div id="alertdiv" class="alert alert-success">' +
+							'<a class="close" data-dismiss="alert">×</a>' +
+							'<span>Guardado</span>' +
+							'</div>');
+							setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+
+
+							$("#alertdiv").remove();
+
+						}, 3000);
+
 					}else{
-						alert('Could not be saved. try again.'+rep);
+						$('#messages').append('' +
+							'<div id="alertdiv" class="alert alert-danger">' +
+							'<a class="close" data-dismiss="alert">×</a>' +
+							'<span>Could not be saved. try again.'+rep+'</span>' +
+							'</div>');
+						setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+
+
+							$("#alertdiv").remove();
+
+						}, 3000);
+
+
+
 					}
 				}
 			});
 		}
-		
+
+
+
+
 	});
 
 </script>

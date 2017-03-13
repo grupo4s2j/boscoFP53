@@ -29,17 +29,17 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="colorear negro">
 
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <img src="/img/octagon/logo.png" alt="Bosco FP" style="height:200px">
+            <img src="/img/octagon/logo.png"  style="height:200px">
 			<h3 style="color:white;"><b>Este portal te cambiar&aacute; la vida. A mejor.</b></h3>
             <br>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-2" style="height:146px; padding-top:50px;"><a href="{{ url('/home') }}"><button type="button" class="btn btn-secundary btn-lg" style="color:black;">Student</button></a></div>
+                    <div class="col-md-4 col-md-offset-2" style="height:146px; padding-top:50px;"><a href="{{ url('/home') }}"><button type="button" class="btn btn-secundary btn-lg" style="color:black;">Alumne</button></a></div>
                     <div class="col-md-4" style="height:146px; padding-top:50px;"><a href="{{ url('/home') }}"><button type="button" class="btn btn-secondary btn-lg" style="color:black;">Professor</button></a></div>
                 </div>
             </div>

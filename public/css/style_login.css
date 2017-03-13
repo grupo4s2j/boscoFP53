@@ -10,8 +10,8 @@ body {
     background-size: cover;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
     font: 600 16px/18px 'Open Sans', sans-serif;
-    background-color: #dd4b39;
-
+    /*background-color: #dd4b39;*/
+	background-color: #000;
 }
 html, body {
     height:100%;
@@ -97,7 +97,7 @@ body:before {
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab {
     color: #fff;
-    border-color: #d73925;
+    border-color: #666;
 }
 
 .login-form {
@@ -107,6 +107,7 @@ body:before {
     perspective: 1000px;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+	
 }
 
 .login-form .group {
@@ -119,6 +120,8 @@ body:before {
     width: 100%;
     color: #fff;
     display: block;
+	outline:0px;
+
 }
 
 .login-form .group .input,
@@ -126,7 +129,7 @@ body:before {
     border: none;
     padding: 15px 20px;
     border-radius: 25px;
-    background: rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, .4);
 }
 
 .login-form .group input[data-type="password"] {
@@ -140,7 +143,7 @@ body:before {
 }
 
 .login-form .group .button {
-    background: #d73925;
+    background: #b2a5a3;
 }
 
 .login-form .group label .icon {
@@ -256,6 +259,10 @@ body:before {
 
 .cyan:before {
     background: rgba(0, 255, 255, 0.5);
+}
+
+.negro:before {
+    background: rgba(2, 0, 0, 0.5);
 }
 
 .amarillo:before {
