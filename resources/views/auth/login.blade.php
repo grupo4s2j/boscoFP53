@@ -29,7 +29,7 @@
 
 </head>
 
-<body class ="colorear rojo">
+<body class ="colorear negro">
 <!--<img style="   min-height:100%;
     min-width:100%;
     height:auto;
@@ -40,7 +40,7 @@
     margin:auto; " src="http://i.imgur.com/5NK0H1e.jpg" alt="">-->
 <div class="login-wrap">
     <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"><a href="index"><img src="{{ asset('/img/octagon/logo.png') }}" style="height: 80px;"/></a></label>
         <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">  <!-- Sign Up --> </label>
 
         <div class="login-form">
@@ -49,7 +49,7 @@
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
                     <div class="group">
-                        <label for="email" class="label">E-Mail Address</label>
+                        <label for="email" class="label">Direccio e-mail</label>
                         <input id="email" type="email" class="input" name="email" value="{{ old('email') }}" required
                                autofocus>
 
@@ -60,7 +60,7 @@
                         @endif
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Password</label>
+                        <label for="pass" class="label">Contrasenya</label>
 
                         <input id="password" type="password" class="input" name="password" required>
 
@@ -73,11 +73,11 @@
 
                     <div class="group">
                         <label>
-                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recordar contrasenya
                         </label>
                     </div>
                     <div class="group">
-                        <input type="submit" class="button" value="Sign In">
+                        <input type="submit" class="button" value="Acceptar">
                     </div>
                     <div class="hr"></div>
                     <div class="foot-lnk">

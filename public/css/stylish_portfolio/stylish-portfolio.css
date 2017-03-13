@@ -11,6 +11,7 @@ html,
 body {
 	width: 100%;
 	height: 100%;
+	background: url(http://www.fondox.net/descargar.php?id=1670&resolucion=1366x768) no-repeat center;
 	background-color: black;
 }
 
@@ -51,6 +52,8 @@ p {
 	border-radius: 0;
 	color: #fff;
 	background-color: rgba(0, 0, 0, 0.4);
+	outline:0px;
+
 }
 
 .btn-dark:hover,
@@ -58,12 +61,16 @@ p {
 .btn-dark:active {
 	color: #fff;
 	background-color: rgba(0, 0, 0, 0.7);
+	outline:0px;
+
 }
 
 .btn-light {
 	border-radius: 0;
 	color: #333;
 	background-color: rgb(255, 255, 255);
+	outline:0px;
+
 }
 
 .btn-light:hover,
@@ -71,6 +78,8 @@ p {
 .btn-light:active {
 	color: #333;
 	background-color: rgba(255, 255, 255, 0.8);
+	outline:0px;
+
 }
 
 
@@ -159,11 +168,11 @@ p {
     position: relative;
     width: 100%;
     height: 100%;
-    background: url(../../img/stylish_portfolio/bg2.jpg) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+	
 }
 
 /* About */
@@ -182,19 +191,6 @@ p {
     margin-bottom: 30px;
 }
 
-/* Callout */
-
-.callout {
-    display: table;
-    width: 100%;
-    height: 400px;
-    color: #fff;
-    background: url(../../img/stylish_portfolio/callout.jpg) no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
 
 /* Portfolio */
 
@@ -251,4 +247,24 @@ footer {
   position: fixed;
   bottom: 5px;
   right: 5px;
+}
+.colorear a {
+    margin: 0 !important;
+}
+
+.colorear:before,
+.separator:before {
+    content: "";
+    display: block;
+    position: absolute;
+    /* Todas las posiciones a cero */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 102, 0, 0.5); /*Sepia*/
+}
+
+.negro:before {
+    background: rgba(2, 0, 0, 0.5);
 }
