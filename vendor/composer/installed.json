@@ -1917,54 +1917,6 @@
         "homepage": "http://www.github.com/sebastianbergmann/recursion-context"
     },
     {
-        "name": "sebastian/object-enumerator",
-        "version": "2.0.0",
-        "version_normalized": "2.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sebastianbergmann/object-enumerator.git",
-            "reference": "96f8a3f257b69e8128ad74d3a7fd464bcbaa3b35"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/96f8a3f257b69e8128ad74d3a7fd464bcbaa3b35",
-            "reference": "96f8a3f257b69e8128ad74d3a7fd464bcbaa3b35",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.6",
-            "sebastian/recursion-context": "~2.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~5"
-        },
-        "time": "2016-11-19T07:35:10+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Sebastian Bergmann",
-                "email": "sebastian@phpunit.de"
-            }
-        ],
-        "description": "Traverses array structures and object graphs to enumerate all referenced objects",
-        "homepage": "https://github.com/sebastianbergmann/object-enumerator/"
-    },
-    {
         "name": "sebastian/global-state",
         "version": "1.1.1",
         "version_normalized": "1.1.1.0",
@@ -3257,72 +3209,6 @@
         ]
     },
     {
-        "name": "amranidev/ajaxis",
-        "version": "v3.0.5",
-        "version_normalized": "3.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/amranidev/ajaxis.git",
-            "reference": "5dd95b708c81f9272fca6f974fa823bc6a979107"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/amranidev/ajaxis/zipball/5dd95b708c81f9272fca6f974fa823bc6a979107",
-            "reference": "5dd95b708c81f9272fca6f974fa823bc6a979107",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.0"
-        },
-        "require-dev": {
-            "orchestra/testbench": "~3.0",
-            "phpunit/phpunit": "~4.0|~5.0"
-        },
-        "time": "2016-08-27T13:05:06+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.1.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Amranidev\\Ajaxis\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Amrani Houssain",
-                "email": "amranidev@gmail.com"
-            }
-        ],
-        "description": "To manage your crud in laravel 5.1",
-        "homepage": "http://github.com/amranidev/ajaxis",
-        "keywords": [
-            "Ajaxis",
-            "Amrani Houssain",
-            "Laravel ajax get",
-            "ajax",
-            "amranidev",
-            "amrnaihoussain",
-            "files",
-            "framework",
-            "laravel",
-            "laravel ajax modal",
-            "laravel ajax post",
-            "laravel ajax reqeust",
-            "laravel ajax token",
-            "laravel bootstrap",
-            "laravel materialize",
-            "laravel modals"
-        ]
-    },
-    {
         "name": "amranidev/scaffold-interface",
         "version": "v1.6.35",
         "version_normalized": "1.6.35.0",
@@ -3396,97 +3282,205 @@
         ]
     },
     {
-        "name": "mockery/mockery",
-        "version": "0.9.8",
-        "version_normalized": "0.9.8.0",
+        "name": "laravelcollective/html",
+        "version": "v5.3.1",
+        "version_normalized": "5.3.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/padraic/mockery.git",
-            "reference": "1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855"
+            "url": "https://github.com/LaravelCollective/html.git",
+            "reference": "2f7f2e127c6fed47f269ea29ab5efeb8f65e9d35"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/padraic/mockery/zipball/1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855",
-            "reference": "1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855",
+            "url": "https://api.github.com/repos/LaravelCollective/html/zipball/2f7f2e127c6fed47f269ea29ab5efeb8f65e9d35",
+            "reference": "2f7f2e127c6fed47f269ea29ab5efeb8f65e9d35",
             "shasum": ""
         },
         "require": {
-            "hamcrest/hamcrest-php": "~1.1",
-            "lib-pcre": ">=7.0",
-            "php": ">=5.3.2"
+            "illuminate/http": "5.3.*",
+            "illuminate/routing": "5.3.*",
+            "illuminate/session": "5.3.*",
+            "illuminate/support": "5.3.*",
+            "illuminate/view": "5.3.*",
+            "php": ">=5.6.4"
         },
         "require-dev": {
-            "phpunit/phpunit": "~4.0"
+            "illuminate/database": "5.3.*",
+            "mockery/mockery": "~0.9.4",
+            "phpunit/phpunit": "~5.4"
         },
-        "time": "2017-02-09T13:29:38+00:00",
+        "time": "2016-12-13T14:23:36+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Collective\\Html\\": "src/"
+            },
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            },
+            {
+                "name": "Adam Engebretson",
+                "email": "adam@laravelcollective.com"
+            }
+        ],
+        "description": "HTML and Form Builders for the Laravel Framework",
+        "homepage": "http://laravelcollective.com"
+    },
+    {
+        "name": "illuminate/html",
+        "version": "v5.0.0",
+        "version_normalized": "5.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/html.git",
+            "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+            "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/http": "~5.0",
+            "illuminate/session": "~5.0",
+            "illuminate/support": "~5.0",
+            "php": ">=5.4.0"
+        },
+        "time": "2015-01-01T16:31:18+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "0.9.x-dev"
+                "dev-master": "5.0-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
-            "psr-0": {
-                "Mockery": "library/"
+            "psr-4": {
+                "Illuminate\\Html\\": ""
+            },
+            "files": [
+                "helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            }
+        ],
+        "abandoned": "laravelcollective/html"
+    },
+    {
+        "name": "vinkla/pusher",
+        "version": "2.5.0",
+        "version_normalized": "2.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/vinkla/laravel-pusher.git",
+            "reference": "6c431cad0a0b44599aeddf77bceda8035de0607b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/vinkla/laravel-pusher/zipball/6c431cad0a0b44599aeddf77bceda8035de0607b",
+            "reference": "6c431cad0a0b44599aeddf77bceda8035de0607b",
+            "shasum": ""
+        },
+        "require": {
+            "graham-campbell/manager": "^2.5",
+            "illuminate/contracts": "5.3.* || 5.4.*",
+            "illuminate/support": "5.3.* || 5.4.*",
+            "php": "^7.0",
+            "pusher/pusher-php-server": "^2.6"
+        },
+        "require-dev": {
+            "graham-campbell/testbench": "^3.3",
+            "mockery/mockery": "^0.9.5",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2017-01-01T13:46:34+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Vinkla\\Pusher\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "BSD-3-Clause"
+            "MIT"
         ],
         "authors": [
             {
-                "name": "Pádraic Brady",
-                "email": "padraic.brady@gmail.com",
-                "homepage": "http://blog.astrumfutura.com"
-            },
-            {
-                "name": "Dave Marshall",
-                "email": "dave.marshall@atstsolutions.co.uk",
-                "homepage": "http://davedevelopment.co.uk"
+                "name": "Vincent Klaiber",
+                "email": "hello@vinkla.com",
+                "homepage": "https://vinkla.com"
             }
         ],
-        "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succinct API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
-        "homepage": "http://github.com/padraic/mockery",
+        "description": "A Pusher bridge for Laravel",
         "keywords": [
-            "BDD",
-            "TDD",
-            "library",
-            "mock",
-            "mock objects",
-            "mockery",
-            "stub",
-            "test",
-            "test double",
-            "testing"
+            "api",
+            "events",
+            "http",
+            "laravel",
+            "php-pusher-server",
+            "publish",
+            "pusher",
+            "realtime",
+            "rest",
+            "trigger"
         ]
     },
     {
-        "name": "symfony/yaml",
+        "name": "symfony/event-dispatcher",
         "version": "v3.2.4",
         "version_normalized": "3.2.4.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/yaml.git",
-            "reference": "9724c684646fcb5387d579b4bfaa63ee0b0c64c8"
+            "url": "https://github.com/symfony/event-dispatcher.git",
+            "reference": "9137eb3a3328e413212826d63eeeb0217836e2b6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/yaml/zipball/9724c684646fcb5387d579b4bfaa63ee0b0c64c8",
-            "reference": "9724c684646fcb5387d579b4bfaa63ee0b0c64c8",
+            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9137eb3a3328e413212826d63eeeb0217836e2b6",
+            "reference": "9137eb3a3328e413212826d63eeeb0217836e2b6",
             "shasum": ""
         },
         "require": {
             "php": ">=5.5.9"
         },
         "require-dev": {
-            "symfony/console": "~2.8|~3.0"
+            "psr/log": "~1.0",
+            "symfony/config": "~2.8|~3.0",
+            "symfony/dependency-injection": "~2.8|~3.0",
+            "symfony/expression-language": "~2.8|~3.0",
+            "symfony/stopwatch": "~2.8|~3.0"
         },
         "suggest": {
-            "symfony/console": "For validating YAML files using the lint command"
+            "symfony/dependency-injection": "",
+            "symfony/http-kernel": ""
         },
-        "time": "2017-02-16T22:46:52+00:00",
+        "time": "2017-01-02T20:32:22+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3496,7 +3490,7 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Symfony\\Component\\Yaml\\": ""
+                "Symfony\\Component\\EventDispatcher\\": ""
             },
             "exclude-from-classmap": [
                 "/Tests/"
@@ -3516,73 +3510,102 @@
                 "homepage": "https://symfony.com/contributors"
             }
         ],
-        "description": "Symfony Yaml Component",
+        "description": "Symfony EventDispatcher Component",
         "homepage": "https://symfony.com"
     },
     {
-        "name": "phpunit/phpunit",
-        "version": "5.7.13",
-        "version_normalized": "5.7.13.0",
+        "name": "swiftmailer/swiftmailer",
+        "version": "v5.4.6",
+        "version_normalized": "5.4.6.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/sebastianbergmann/phpunit.git",
-            "reference": "60ebeed87a35ea46fd7f7d8029df2d6f013ebb34"
+            "url": "https://github.com/swiftmailer/swiftmailer.git",
+            "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/60ebeed87a35ea46fd7f7d8029df2d6f013ebb34",
-            "reference": "60ebeed87a35ea46fd7f7d8029df2d6f013ebb34",
+            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
+            "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
             "shasum": ""
         },
         "require": {
-            "ext-dom": "*",
-            "ext-json": "*",
-            "ext-libxml": "*",
-            "ext-mbstring": "*",
-            "ext-xml": "*",
-            "myclabs/deep-copy": "~1.3",
-            "php": "^5.6 || ^7.0",
-            "phpspec/prophecy": "^1.6.2",
-            "phpunit/php-code-coverage": "^4.0.4",
-            "phpunit/php-file-iterator": "~1.4",
-            "phpunit/php-text-template": "~1.2",
-            "phpunit/php-timer": "^1.0.6",
-            "phpunit/phpunit-mock-objects": "^3.2",
-            "sebastian/comparator": "^1.2.4",
-            "sebastian/diff": "~1.2",
-            "sebastian/environment": "^1.3.4 || ^2.0",
-            "sebastian/exporter": "~2.0",
-            "sebastian/global-state": "^1.1",
-            "sebastian/object-enumerator": "~2.0",
-            "sebastian/resource-operations": "~1.0",
-            "sebastian/version": "~1.0|~2.0",
-            "symfony/yaml": "~2.1|~3.0"
-        },
-        "conflict": {
-            "phpdocumentor/reflection-docblock": "3.0.2"
+            "php": ">=5.3.3"
         },
         "require-dev": {
-            "ext-pdo": "*"
+            "mockery/mockery": "~0.9.1",
+            "symfony/phpunit-bridge": "~3.2"
         },
-        "suggest": {
-            "ext-xdebug": "*",
-            "phpunit/php-invoker": "~1.1"
-        },
-        "time": "2017-02-10T09:05:10+00:00",
-        "bin": [
-            "phpunit"
-        ],
+        "time": "2017-02-13T07:52:53+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "5.7.x-dev"
+                "dev-master": "5.4-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
-            "classmap": [
-                "src/"
+            "files": [
+                "lib/swift_required.php"
             ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Chris Corbyn"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Swiftmailer, free feature-rich PHP mailer",
+        "homepage": "http://swiftmailer.org",
+        "keywords": [
+            "email",
+            "mail",
+            "mailer"
+        ]
+    },
+    {
+        "name": "nikic/php-parser",
+        "version": "v3.0.4",
+        "version_normalized": "3.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nikic/PHP-Parser.git",
+            "reference": "0bf561dfe75ba80441c22adecc0529056671a7d2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/0bf561dfe75ba80441c22adecc0529056671a7d2",
+            "reference": "0bf561dfe75ba80441c22adecc0529056671a7d2",
+            "shasum": ""
+        },
+        "require": {
+            "ext-tokenizer": "*",
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0|~5.0"
+        },
+        "time": "2017-02-10T20:20:03+00:00",
+        "bin": [
+            "bin/php-parse"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PhpParser\\": "lib/PhpParser"
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -3590,17 +3613,13 @@
         ],
         "authors": [
             {
-                "name": "Sebastian Bergmann",
-                "email": "sebastian@phpunit.de",
-                "role": "lead"
+                "name": "Nikita Popov"
             }
         ],
-        "description": "The PHP Unit Testing framework.",
-        "homepage": "https://phpunit.de/",
+        "description": "A PHP parser written in PHP",
         "keywords": [
-            "phpunit",
-            "testing",
-            "xunit"
+            "parser",
+            "php"
         ]
     },
     {
@@ -3686,299 +3705,6 @@
             "s3",
             "sftp",
             "storage"
-        ]
-    },
-    {
-        "name": "swiftmailer/swiftmailer",
-        "version": "v5.4.6",
-        "version_normalized": "5.4.6.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swiftmailer/swiftmailer.git",
-            "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
-            "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "mockery/mockery": "~0.9.1",
-            "symfony/phpunit-bridge": "~3.2"
-        },
-        "time": "2017-02-13T07:52:53+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.4-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "lib/swift_required.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Chris Corbyn"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Swiftmailer, free feature-rich PHP mailer",
-        "homepage": "http://swiftmailer.org",
-        "keywords": [
-            "email",
-            "mail",
-            "mailer"
-        ]
-    },
-    {
-        "name": "symfony/event-dispatcher",
-        "version": "v3.2.4",
-        "version_normalized": "3.2.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/event-dispatcher.git",
-            "reference": "9137eb3a3328e413212826d63eeeb0217836e2b6"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9137eb3a3328e413212826d63eeeb0217836e2b6",
-            "reference": "9137eb3a3328e413212826d63eeeb0217836e2b6",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "require-dev": {
-            "psr/log": "~1.0",
-            "symfony/config": "~2.8|~3.0",
-            "symfony/dependency-injection": "~2.8|~3.0",
-            "symfony/expression-language": "~2.8|~3.0",
-            "symfony/stopwatch": "~2.8|~3.0"
-        },
-        "suggest": {
-            "symfony/dependency-injection": "",
-            "symfony/http-kernel": ""
-        },
-        "time": "2017-01-02T20:32:22+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\EventDispatcher\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony EventDispatcher Component",
-        "homepage": "https://symfony.com"
-    },
-    {
-        "name": "nikic/php-parser",
-        "version": "v3.0.4",
-        "version_normalized": "3.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nikic/PHP-Parser.git",
-            "reference": "0bf561dfe75ba80441c22adecc0529056671a7d2"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/0bf561dfe75ba80441c22adecc0529056671a7d2",
-            "reference": "0bf561dfe75ba80441c22adecc0529056671a7d2",
-            "shasum": ""
-        },
-        "require": {
-            "ext-tokenizer": "*",
-            "php": ">=5.5"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0|~5.0"
-        },
-        "time": "2017-02-10T20:20:03+00:00",
-        "bin": [
-            "bin/php-parse"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "PhpParser\\": "lib/PhpParser"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Nikita Popov"
-            }
-        ],
-        "description": "A PHP parser written in PHP",
-        "keywords": [
-            "parser",
-            "php"
-        ]
-    },
-    {
-        "name": "spatie/laravel-permission",
-        "version": "1.8.0",
-        "version_normalized": "1.8.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/spatie/laravel-permission.git",
-            "reference": "ac3c11ca26c61b1634f36451acf4cf404e8c6e11"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/ac3c11ca26c61b1634f36451acf4cf404e8c6e11",
-            "reference": "ac3c11ca26c61b1634f36451acf4cf404e8c6e11",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/contracts": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
-            "laravel/framework": "~5.1.11|~5.2.0|~5.3.0|~5.4.0",
-            "php": ">=5.6.0"
-        },
-        "require-dev": {
-            "orchestra/testbench": "~3.3.0|~3.4.0",
-            "phpunit/phpunit": "^5.7.5"
-        },
-        "time": "2017-02-09T20:14:23+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Spatie\\Permission\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Freek Van der Herten",
-                "email": "freek@spatie.be",
-                "homepage": "https://spatie.be",
-                "role": "Developer"
-            }
-        ],
-        "description": "Permission handling for Laravel 5.1",
-        "homepage": "https://github.com/spatie/laravel-permission",
-        "keywords": [
-            "acl",
-            "laravel",
-            "permission",
-            "security",
-            "spatie"
-        ]
-    },
-    {
-        "name": "vinkla/pusher",
-        "version": "2.5.0",
-        "version_normalized": "2.5.0.0",
-        "name": "amranidev/ajaxis",
-        "version": "v3.0.5",
-        "version_normalized": "3.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/vinkla/laravel-pusher.git",
-            "reference": "6c431cad0a0b44599aeddf77bceda8035de0607b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/vinkla/laravel-pusher/zipball/6c431cad0a0b44599aeddf77bceda8035de0607b",
-            "reference": "6c431cad0a0b44599aeddf77bceda8035de0607b",
-            "shasum": ""
-        },
-        "require": {
-            "graham-campbell/manager": "^2.5",
-            "illuminate/contracts": "5.3.* || 5.4.*",
-            "illuminate/support": "5.3.* || 5.4.*",
-            "php": "^7.0",
-            "pusher/pusher-php-server": "^2.6"
-        },
-        "require-dev": {
-            "graham-campbell/testbench": "^3.3",
-            "mockery/mockery": "^0.9.5",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2017-01-01T13:46:34+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.5-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Vinkla\\Pusher\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Vincent Klaiber",
-                "email": "hello@vinkla.com",
-                "homepage": "https://vinkla.com"
-            }
-        ],
-        "description": "A Pusher bridge for Laravel",
-        "keywords": [
-            "api",
-            "events",
-            "http",
-            "laravel",
-            "php-pusher-server",
-            "publish",
-            "pusher",
-            "realtime",
-            "rest",
-            "trigger"
         ]
     },
     {
@@ -4110,7 +3836,7 @@
         "require-dev": {
             "phpunit/phpunit": "~4.0"
         },
-        "time": "2017-02-09 13:29:38",
+        "time": "2017-02-09T13:29:38+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -4178,7 +3904,7 @@
         "suggest": {
             "symfony/console": "For validating YAML files using the lint command"
         },
-        "time": "2017-02-16 22:46:52",
+        "time": "2017-02-16T22:46:52+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -4212,368 +3938,6 @@
         "homepage": "https://symfony.com"
     },
     {
-        "name": "league/flysystem",
-        "version": "1.0.35",
-        "version_normalized": "1.0.35.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/thephpleague/flysystem.git",
-            "reference": "dda7f3ab94158a002d9846a97dc18ebfb7acc062"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/dda7f3ab94158a002d9846a97dc18ebfb7acc062",
-            "reference": "dda7f3ab94158a002d9846a97dc18ebfb7acc062",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "conflict": {
-            "league/flysystem-sftp": "<1.0.6"
-        },
-        "require-dev": {
-            "ext-fileinfo": "*",
-            "mockery/mockery": "~0.9",
-            "phpspec/phpspec": "^2.2",
-            "phpunit/phpunit": "~4.8"
-        },
-        "suggest": {
-            "ext-fileinfo": "Required for MimeType",
-            "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
-            "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
-            "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
-            "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
-            "league/flysystem-copy": "Allows you to use Copy.com storage",
-            "league/flysystem-dropbox": "Allows you to use Dropbox storage",
-            "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
-            "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
-            "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
-            "league/flysystem-webdav": "Allows you to use WebDAV storage",
-            "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter"
-        },
-        "time": "2017-02-09 11:33:58",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.1-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "League\\Flysystem\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Frank de Jonge",
-                "email": "info@frenky.net"
-            }
-        ],
-        "description": "Filesystem abstraction: Many filesystems, one API.",
-        "keywords": [
-            "Cloud Files",
-            "WebDAV",
-            "abstraction",
-            "aws",
-            "cloud",
-            "copy.com",
-            "dropbox",
-            "file systems",
-            "files",
-            "filesystem",
-            "filesystems",
-            "ftp",
-            "rackspace",
-            "remote",
-            "s3",
-            "sftp",
-            "storage"
-        ]
-    },
-    {
-        "name": "swiftmailer/swiftmailer",
-        "version": "v5.4.6",
-        "version_normalized": "5.4.6.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swiftmailer/swiftmailer.git",
-            "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
-            "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "mockery/mockery": "~0.9.1",
-            "symfony/phpunit-bridge": "~3.2"
-        },
-        "time": "2017-02-13 07:52:53",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.4-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "lib/swift_required.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Chris Corbyn"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Swiftmailer, free feature-rich PHP mailer",
-        "homepage": "http://swiftmailer.org",
-        "keywords": [
-            "email",
-            "mail",
-            "mailer"
-        ]
-    },
-    {
-        "name": "symfony/event-dispatcher",
-        "version": "v3.2.4",
-        "version_normalized": "3.2.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/event-dispatcher.git",
-            "reference": "9137eb3a3328e413212826d63eeeb0217836e2b6"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9137eb3a3328e413212826d63eeeb0217836e2b6",
-            "reference": "9137eb3a3328e413212826d63eeeb0217836e2b6",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "require-dev": {
-            "psr/log": "~1.0",
-            "symfony/config": "~2.8|~3.0",
-            "symfony/dependency-injection": "~2.8|~3.0",
-            "symfony/expression-language": "~2.8|~3.0",
-            "symfony/stopwatch": "~2.8|~3.0"
-        },
-        "suggest": {
-            "symfony/dependency-injection": "",
-            "symfony/http-kernel": ""
-        },
-        "time": "2017-01-02 20:32:22",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\EventDispatcher\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony EventDispatcher Component",
-        "homepage": "https://symfony.com"
-    },
-    {
-        "name": "nikic/php-parser",
-        "version": "v3.0.4",
-        "version_normalized": "3.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nikic/PHP-Parser.git",
-            "reference": "0bf561dfe75ba80441c22adecc0529056671a7d2"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/0bf561dfe75ba80441c22adecc0529056671a7d2",
-            "reference": "0bf561dfe75ba80441c22adecc0529056671a7d2",
-            "shasum": ""
-        },
-        "require": {
-            "ext-tokenizer": "*",
-            "php": ">=5.5"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0|~5.0"
-        },
-        "time": "2017-02-10 20:20:03",
-        "bin": [
-            "bin/php-parse"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "PhpParser\\": "lib/PhpParser"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Nikita Popov"
-            }
-        ],
-        "description": "A PHP parser written in PHP",
-        "keywords": [
-            "parser",
-            "php"
-        ]
-    },
-    {
-        "name": "sofa/hookable",
-        "version": "V5.3.1",
-        "version_normalized": "5.3.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jarektkaczyk/hookable.git",
-            "reference": "a6f0753f3e404287700c8418c30adf0f4f226c65"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jarektkaczyk/hookable/zipball/a6f0753f3e404287700c8418c30adf0f4f226c65",
-            "reference": "a6f0753f3e404287700c8418c30adf0f4f226c65",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/database": "5.3.*",
-            "php": ">=5.6.4"
-        },
-        "require-dev": {
-            "crysalead/kahlan": "~1.1"
-        },
-        "time": "2016-08-26 13:37:29",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Sofa\\Hookable\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jarek Tkaczyk",
-                "email": "jarek@softonsofa.com",
-                "homepage": "http://softonsofa.com/",
-                "role": "Developer"
-            }
-        ],
-        "description": "Laravel Eloquent hooks system.",
-        "keywords": [
-            "eloquent",
-            "laravel"
-        ]
-    },
-    {
-        "name": "sofa/eloquence",
-        "version": "v5.3.2",
-        "version_normalized": "5.3.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jarektkaczyk/eloquence.git",
-            "reference": "b19ee7a40a66d9d6655af9869060456b508ed5e5"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jarektkaczyk/eloquence/zipball/b19ee7a40a66d9d6655af9869060456b508ed5e5",
-            "reference": "b19ee7a40a66d9d6655af9869060456b508ed5e5",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/database": "5.3.*",
-            "php": ">=5.6.4",
-            "sofa/hookable": "5.3.*"
-        },
-        "require-dev": {
-            "mockery/mockery": "0.9.4",
-            "phpunit/phpunit": "4.5.0",
-            "squizlabs/php_codesniffer": "2.3.3"
-        },
-        "time": "2016-09-01 15:44:48",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Sofa\\Eloquence\\": "src"
-            },
-            "files": [
-                "src/helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jarek Tkaczyk",
-                "email": "jarek@softonsofa.com",
-                "homepage": "http://softonsofa.com/",
-                "role": "Developer"
-            }
-        ],
-        "description": "Flexible Searchable, Mappable, Metable, Validation and more extensions for Laravel Eloquent ORM.",
-        "keywords": [
-            "eloquent",
-            "laravel",
-            "mappable",
-            "metable",
-            "mutable",
-            "searchable"
-        ]
-    },
-    {
         "name": "sebastian/object-enumerator",
         "version": "2.0.1",
         "version_normalized": "2.0.1.0",
@@ -4595,7 +3959,7 @@
         "require-dev": {
             "phpunit/phpunit": "~5"
         },
-        "time": "2017-02-18 15:18:39",
+        "time": "2017-02-18T15:18:39+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -4670,7 +4034,7 @@
             "ext-xdebug": "*",
             "phpunit/php-invoker": "~1.1"
         },
-        "time": "2017-02-19 07:22:16",
+        "time": "2017-02-19T07:22:16+00:00",
         "bin": [
             "phpunit"
         ],
@@ -4706,6 +4070,72 @@
         ]
     },
     {
+        "name": "amranidev/ajaxis",
+        "version": "v3.0.5",
+        "version_normalized": "3.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/amranidev/ajaxis.git",
+            "reference": "5dd95b708c81f9272fca6f974fa823bc6a979107"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/amranidev/ajaxis/zipball/5dd95b708c81f9272fca6f974fa823bc6a979107",
+            "reference": "5dd95b708c81f9272fca6f974fa823bc6a979107",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "orchestra/testbench": "~3.0",
+            "phpunit/phpunit": "~4.0|~5.0"
+        },
+        "time": "2016-08-27T13:05:06+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Amranidev\\Ajaxis\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Amrani Houssain",
+                "email": "amranidev@gmail.com"
+            }
+        ],
+        "description": "To manage your crud in laravel 5.1",
+        "homepage": "http://github.com/amranidev/ajaxis",
+        "keywords": [
+            "Ajaxis",
+            "Amrani Houssain",
+            "Laravel ajax get",
+            "ajax",
+            "amranidev",
+            "amrnaihoussain",
+            "files",
+            "framework",
+            "laravel",
+            "laravel ajax modal",
+            "laravel ajax post",
+            "laravel ajax reqeust",
+            "laravel ajax token",
+            "laravel bootstrap",
+            "laravel materialize",
+            "laravel modals"
+        ]
+    },
+    {
         "name": "spatie/laravel-permission",
         "version": "1.10.0",
         "version_normalized": "1.10.0.0",
@@ -4729,7 +4159,7 @@
             "orchestra/testbench": "~3.3.0|~3.4.0",
             "phpunit/phpunit": "^5.7.8"
         },
-        "time": "2017-02-21 23:26:55",
+        "time": "2017-02-21T23:26:55+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -4758,110 +4188,5 @@
             "security",
             "spatie"
         ]
-    },
-    {
-        "name": "laravelcollective/html",
-        "version": "v5.3.1",
-        "version_normalized": "5.3.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/LaravelCollective/html.git",
-            "reference": "2f7f2e127c6fed47f269ea29ab5efeb8f65e9d35"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/LaravelCollective/html/zipball/2f7f2e127c6fed47f269ea29ab5efeb8f65e9d35",
-            "reference": "2f7f2e127c6fed47f269ea29ab5efeb8f65e9d35",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/http": "5.3.*",
-            "illuminate/routing": "5.3.*",
-            "illuminate/session": "5.3.*",
-            "illuminate/support": "5.3.*",
-            "illuminate/view": "5.3.*",
-            "php": ">=5.6.4"
-        },
-        "require-dev": {
-            "illuminate/database": "5.3.*",
-            "mockery/mockery": "~0.9.4",
-            "phpunit/phpunit": "~5.4"
-        },
-        "time": "2016-12-13 14:23:36",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Collective\\Html\\": "src/"
-            },
-            "files": [
-                "src/helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Taylor Otwell",
-                "email": "taylorotwell@gmail.com"
-            },
-            {
-                "name": "Adam Engebretson",
-                "email": "adam@laravelcollective.com"
-            }
-        ],
-        "description": "HTML and Form Builders for the Laravel Framework",
-        "homepage": "http://laravelcollective.com"
-    },
-    {
-        "name": "illuminate/html",
-        "version": "v5.0.0",
-        "version_normalized": "5.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/illuminate/html.git",
-            "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
-            "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/http": "~5.0",
-            "illuminate/session": "~5.0",
-            "illuminate/support": "~5.0",
-            "php": ">=5.4.0"
-        },
-        "time": "2015-01-01 16:31:18",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Illuminate\\Html\\": ""
-            },
-            "files": [
-                "helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Taylor Otwell",
-                "email": "taylorotwell@gmail.com"
-            }
-        ],
-        "abandoned": "laravelcollective/html"
     }
 ]

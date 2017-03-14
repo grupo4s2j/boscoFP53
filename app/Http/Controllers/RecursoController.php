@@ -17,6 +17,8 @@ use Amranidev\Ajaxis\Ajaxis;
 use Illuminate\Support\Facades\DB;
 use URL;
 
+use Carbon\Carbon;
+
 /**
  * Class RecursoController.
  *
@@ -67,8 +69,17 @@ class RecursoController extends Controller
      */
     public function indexFront()
     {
-        //return \View::make('fo.categorias');
-        $recursos = Recurso::all();
+        //$recursos = Recurso::all();
+        /*$recursos = Recurso::where('activo', 1)
+                    ->where('fechaInicio', '<', Carbon::now()->format('Y-m-d'))
+                    ->where('fechaFin', '>', Carbon::now()->format('Y-m-d'))
+                    ->orderBy('fechaPost', 'desc')
+                    ->get();*/
+        $recursos = Recurso::where('activo', 1)
+                    ->where('fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+                    ->orderBy('fechaPost', 'desc')
+                    ->get();
+        
         foreach($recursos as $recurso){
             $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
         }
