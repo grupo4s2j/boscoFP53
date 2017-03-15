@@ -277,4 +277,37 @@ trait HasRoles
 
         return $role;
     }
+
+    /**
+     * Return all  permissions the directory coupled to the user.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function getDirectPermissions()
+    {
+        return $this->permissions;
+    }
+
+    /**
+     * Return all the permissions the user has via roles.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function getPermissionsViaRoles()
+    {
+        return $this->load('roles', 'roles.permissions')
+            ->roles->flatMap(function ($role) {
+                return $role->permissions;
+            })->sort()->values();
+    }
+
+    /**
+     * Return all the permissions the user has, both directly and via roles.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function getAllPermissions()
+    {
+        return $this->permissions->merge($this->getPermissionsViaRoles())->sort()->values();
+    }
 }

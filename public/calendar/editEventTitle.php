@@ -6,7 +6,7 @@ if (isset($_POST['delete']) && isset($_POST['id'])){
 	
 	$id = $_POST['id'];
 	
-	$sql = "DELETE FROM eventos WHERE id = $id";
+	$sql = "UPDATE eventos SET activo = 0 WHERE id = $id";
 	$query = $bdd->prepare( $sql );
 	if ($query == false) {
 	 print_r($bdd->errorInfo());

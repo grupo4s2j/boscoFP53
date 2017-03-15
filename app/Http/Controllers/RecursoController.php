@@ -16,9 +16,10 @@ use App\Recursotag;
 use Amranidev\Ajaxis\Ajaxis;
 use Illuminate\Support\Facades\DB;
 use URL;
-
 use Carbon\Carbon;
-
+use App\Notifications;
+use Thujohn\Twitter\Facades;
+use Collective\Html;
 /**
  * Class RecursoController.
  *
@@ -133,7 +134,7 @@ class RecursoController extends Controller
         $recurso->contenido = $request->contenido;
 
 
-        if ($request->hasFile('imgen')) {
+        if ($request->hasFile('img')) {
            
             $directorio=  '/img/recursos/';
             if( !file_exists($directorio) ){
@@ -142,7 +143,6 @@ class RecursoController extends Controller
             $file = $request->file('img');
             $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
-
 
             $recurso->img = $file->getClientOriginalName();
         }
@@ -165,7 +165,7 @@ class RecursoController extends Controller
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
 
-
+        
 
         $recurso->save();
 
@@ -208,7 +208,11 @@ class RecursoController extends Controller
         $pusher->trigger('test-channel',
             'test-event',
             ['message' => 'A new recurso has been created !!']);
-
+        $Recurso= Recurso::orderBy('id', 'desc')->first();
+        $link = URL::to('/recurso/' . $Recurso->id);
+        $Tweet = $request->titulo . "\n" . $link;
+        $Imagen = \Twitter::uploadMedia(['media' => \File::get(public_path($nombreimagen))]);
+        \Twitter::postTweet(['status' => $Tweet, 'media_ids' => $Imagen->media_id_string, 'format' => 'json']);
         return redirect('recurso');
     }
 
