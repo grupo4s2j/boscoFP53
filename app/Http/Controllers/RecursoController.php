@@ -16,6 +16,7 @@ use App\Recursotag;
 use Amranidev\Ajaxis\Ajaxis;
 use Illuminate\Support\Facades\DB;
 use URL;
+use Carbon\Carbon;
 use App\Notifications;
 use Thujohn\Twitter\Facades;
 use Collective\Html;
@@ -69,38 +70,23 @@ class RecursoController extends Controller
      */
     public function indexFront()
     {
-        //return \View::make('fo.categorias');
-        $recursos = Recurso::all();
+        //$recursos = Recurso::all();
+        /*$recursos = Recurso::where('activo', 1)
+                    ->where('fechaInicio', '<', Carbon::now()->format('Y-m-d'))
+                    ->where('fechaFin', '>', Carbon::now()->format('Y-m-d'))
+                    ->orderBy('fechaPost', 'desc')
+                    ->get();*/
+        $recursos = Recurso::where('activo', 1)
+                    ->where('fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+                    ->orderBy('fechaPost', 'desc')
+                    ->get();
+        
         foreach($recursos as $recurso){
-            $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
+            $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
         }
 
         return view('fo.tablon_recursos', compact('recursos'));
-    }
-    
-    /**
-     * Formatea la fecha para que se muestre como queremos
-     *
-     * @return  $recurso->fecha
-     */
-    public function formatFecha($fechaPosteo)
-    {
-        $fecha = explode('-', $fechaPosteo);
-        switch($fecha[1]){
-            case '01' : $fecha[1] = 'January';break;
-            case '02' : $fecha[1] = 'February';break;
-            case '03' : $fecha[1] = 'March';break;
-            case '04' : $fecha[1] = 'April';break;
-            case '05' : $fecha[1] = 'May';break;
-            case '06' : $fecha[1] = 'June';break;
-            case '07' : $fecha[1] = 'July';break;
-            case '08' : $fecha[1] = 'August';break;
-                case '09' : $fecha[1] = 'September';break;
-            case '10' : $fecha[1] = 'October';break;
-            case '11' : $fecha[1] = 'November';break;
-            case '12' : $fecha[1] = 'December';break;
-        }
-        return $fechaFormat = $fecha[1] . ' ' . $fecha[2] . ', ' . $fecha[0];
+        //return $recursos;
     }
     
     /**
@@ -111,7 +97,7 @@ class RecursoController extends Controller
     public function showRecurso($id)
     {
         $recurso = Recurso::find($id);
-        $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
+        $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
 
         return view('fo.recurso_post', compact('recurso'));
     }

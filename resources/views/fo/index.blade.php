@@ -34,7 +34,7 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <img src="/img/octagon/logo.png"  style="height:200px">
+            <img src="{{ asset('./img/octagon/logo.png') }}"  style="height:200px">
 			<h3 style="color:white;"><b>Este portal te cambiar&aacute; la vida. A mejor.</b></h3>
             <br>
             <div class="container">
