@@ -8,6 +8,7 @@
         "php": ">=5.6.4",
         "amranidev/scaffold-interface": "1.6.*",
         "illuminate/html": "5.0.*",
+        "intervention/image": "^2.3",
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "~5.0",
         "nesbot/carbon": "^1.22",

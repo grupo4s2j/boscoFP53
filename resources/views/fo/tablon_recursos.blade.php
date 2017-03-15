@@ -1,7 +1,7 @@
 @extends('fo.octagon_layout.octagon_master')
 
 @section('content')
-    @if(isset($recursos) && !empty($recursos))
+    @if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
     <div class="col-md-12 w-100">
     <!--<div class="col-md-9 w-100">-->
             @php

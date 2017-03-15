@@ -17,6 +17,7 @@
         <div class="search-body targetDiv" id="div1">
             <p>What are you looking for?</p>
             <form id="buscador" name="test-form" method="POST" action="{{ url('/search') }}">
+                {{csrf_field()}}
                 <!--<input id="tags" type="text" class="form-control no-radius" placeholder="Search here |">-->
                 <select name="tags[]" class="form-control no-radius" multiple="multiple" id="tags" style="width:100%;"></select>
                 <button type="submit" value="Submit" class="btn btn-secondary btn-md">Submit</button>

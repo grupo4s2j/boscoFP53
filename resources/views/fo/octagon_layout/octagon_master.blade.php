@@ -51,7 +51,6 @@
                     
                     <!-- ___Start Column___ -->
                     <div class="main-content">
-                        {{--@include('fo.octagon_layout.octagon_content')--}}
                         @yield('content')
                     </div>
                     <!-- End Column -->
