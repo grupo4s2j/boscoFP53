@@ -195,6 +195,8 @@ return [
         Sofa\Eloquence\ServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Thujohn\Twitter\TwitterServiceProvider::class,
+        NotificationChannels\Twitter\TwitterServiceProvider::class,
 
     ],
 
@@ -245,6 +247,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
 
     ],
 

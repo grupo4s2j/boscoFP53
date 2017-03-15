@@ -16,7 +16,9 @@ use App\Recursotag;
 use Amranidev\Ajaxis\Ajaxis;
 use Illuminate\Support\Facades\DB;
 use URL;
-
+use App\Notifications;
+use Thujohn\Twitter\Facades;
+use Collective\Html;
 /**
  * Class RecursoController.
  *
@@ -93,7 +95,7 @@ class RecursoController extends Controller
             case '06' : $fecha[1] = 'June';break;
             case '07' : $fecha[1] = 'July';break;
             case '08' : $fecha[1] = 'August';break;
-            case '09' : $fecha[1] = 'September';break;
+                case '09' : $fecha[1] = 'September';break;
             case '10' : $fecha[1] = 'October';break;
             case '11' : $fecha[1] = 'November';break;
             case '12' : $fecha[1] = 'December';break;
@@ -146,7 +148,7 @@ class RecursoController extends Controller
         $recurso->contenido = $request->contenido;
 
 
-        if ($request->hasFile('imgen')) {
+        if ($request->hasFile('img')) {
            
             $directorio=  '/img/recursos/';
             if( !file_exists($directorio) ){
@@ -155,7 +157,6 @@ class RecursoController extends Controller
             $file = $request->file('img');
             $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
-
 
             $recurso->img = $file->getClientOriginalName();
         }
@@ -178,7 +179,7 @@ class RecursoController extends Controller
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
 
-
+        
 
         $recurso->save();
 
@@ -221,7 +222,11 @@ class RecursoController extends Controller
         $pusher->trigger('test-channel',
             'test-event',
             ['message' => 'A new recurso has been created !!']);
-
+        $Recurso= Recurso::orderBy('id', 'desc')->first();
+        $link = URL::to('/recurso/' . $Recurso->id);
+        $Tweet = $request->titulo . "\n" . $link;
+        $Imagen = \Twitter::uploadMedia(['media' => \File::get(public_path($nombreimagen))]);
+        \Twitter::postTweet(['status' => $Tweet, 'media_ids' => $Imagen->media_id_string, 'format' => 'json']);
         return redirect('recurso');
     }
 

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Notifiable;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -9,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class Recurso.
  *
  * @property integer $Id
- * @property string $Titulo
+ * @property string $TituloS
  * @property string $Descripcion
  * @property string $Contenido
  * @property string $Img
