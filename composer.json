@@ -13,8 +13,8 @@
         "laravel-notification-channels/twitter": "^1.0",
         "laravelcollective/html": "~5.0",
         "nesbot/carbon": "^1.22",
-        "thujohn/twitter": "^2.2"
-        "sofa/eloquence": "~5.3",
+        "thujohn/twitter": "^2.2",
+        "sofa/eloquence": "~5.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
