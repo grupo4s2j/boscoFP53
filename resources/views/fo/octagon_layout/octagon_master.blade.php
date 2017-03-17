@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title> Octagon : Trendy News Magazine </title>
+        <title> TSFI - Taula Sectorial </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,6 +25,7 @@
         
         <link rel="stylesheet" href="{{ asset('/css/select2/select2.min.css') }}">
         <script src="{{ asset('/js/select2/select2.min.js') }}"></script>
+		 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </head>
     <body>
 
