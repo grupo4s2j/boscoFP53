@@ -16,7 +16,7 @@
         <div class="form-group">
             <label for="nombre">nombre</label>
             <input id="nombre" name = "nombre" type="text" class="form-control" value="{!!$entidadorganizativa->
-            nombre!!}"> 
+            nombre!!}" required>
         </div>
         <div class="form-group">
             <label for="direccion">direccion</label>
@@ -26,7 +26,7 @@
         <div class="form-group">
             <label for="geolocalizacion">geolocalizacion</label>
             <input id="geolocalizacion" name = "geolocalizacion" type="text" class="form-control" value="{!!$entidadorganizativa->
-            geolocalizacion!!}"> 
+            geolocalizacion!!}" required>
         </div>
         {{--<div class="form-group">
             <label for="activo">activo</label>

@@ -181,14 +181,14 @@ $events = $req->fetchAll();
     <!-- /.container -->
 
     <!-- jQuery Version 1.11.1 -->
-    <script src="/calendar/js/jquery.js"></script>
+    <script src="../calendar/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/calendar/js/bootstrap.min.js"></script>
+    <script src="../calendar/js/bootstrap.min.js"></script>
 	
 	<!-- FullCalendar -->
-	<script src='/calendar/js/moment.min.js'></script>
-	<script src='/calendar/js/fullcalendar.min.js'></script>
+	<script src='../calendar/js/moment.min.js'></script>
+	<script src='../calendar/js/fullcalendar.min.js'></script>
 	
 	<script>
 
