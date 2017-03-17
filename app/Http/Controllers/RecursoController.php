@@ -35,27 +35,6 @@ class RecursoController extends Controller
      */
     public function index()
     {
-  //      $search = \Request::get('search');
-
-//        $paginate = \Request::get('rows');
-//        if ($paginate=="") {
-//            $paginate = 6;
-//        }
-//        if ($search=="") {
-//
-//            $recursos = Recurso::where('recursos.activo', '=', '1')
-//                -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
-//                ->select('recursos.*','entidadorganizativas.nombre')
-//                ->paginate($paginate);
-//        }else {
-//            $recursos = Recurso::where('activo', '=', '1')
-//                -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
-//                ->select('recursos.*','entidadorganizativas.nombre')
-//                ->where( function ($query ) use ($search){
-//                    $query->where('titulo', 'like', '%' . $search . '%')
-//                        ->orWhere('descripcion', 'like', '%' . $search . '%');
-//                })->paginate(1000);
-//        }
         $recursos = Recurso::where('recursos.activo', '=', '1')->orderBy('titulo','asc')
             -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
             ->select('recursos.*','entidadorganizativas.nombre')->get();
@@ -80,6 +59,9 @@ class RecursoController extends Controller
                     ->where('fechaPost', '<=', Carbon::now()->format('Y-m-d'))
                     ->orderBy('fechaPost', 'desc')
                     ->get();
+
+        //To get recursostop
+        $recursosTOP = \App\Recurso::getTopPosts();
         
         foreach($recursos as $recurso){
             $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
@@ -92,7 +74,7 @@ class RecursoController extends Controller
     /**
      * Nos muestra un post/recurso
      *
-     * @return  recursos/id
+     * @return  recursos\id
      */
     public function showRecurso($id)
     {

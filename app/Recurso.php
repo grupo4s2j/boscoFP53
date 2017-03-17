@@ -115,4 +115,27 @@ class Recurso extends Model
         }
         return $fechaFormat = $fecha[1] . ' ' . $fecha[2] . ', ' . $fecha[0];
     }
+
+    public static function getTopPosts(){
+        $completed = false;
+        $recursosTOP = array();
+        $datetimenow = (new \DateTime());
+        $datetimethen = (new \DateTime());
+        $intervalo = new \DateInterval('P1M');
+        while (!$completed) {
+            $recursos = Recurso::where('activo', 1)
+                        ->whereDate('fechaPost','<=',$datetimenow)
+                        ->whereDate('fechaPost','>',$datetimethen->sub($intervalo))
+                        ->orderBy('relevancia','desc')
+                        ->orderBy('fechaPost','desc')
+                        ->get();
+            foreach($recursos as $recurso){
+                array_push($recursosTOP, $recurso);
+                if(count($recursosTOP) == 10){
+                    $completed = true;
+                    break;
+                } 
+            }
+        }
+    }
 }
