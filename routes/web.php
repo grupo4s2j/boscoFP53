@@ -140,7 +140,9 @@ Route::group(['middleware'=> 'web'],function(){
 ///////////////////////////////////
 
 ////////FRONTOFFICE////////////////
-Route::get('/', function() { return view('fo.index'); });
+//Route::get('/', function() { return view('fo.index'); });
+Route::get('/', 'IndexController@index');
+Route::post('/rol', 'IndexController@setCookie');
 Route::get('/home', 'MainPageController@indexFront');
 Route::post('/search', 'TagController@search');
 Route::get('/categorias', 'CategoriaController@indexFront');

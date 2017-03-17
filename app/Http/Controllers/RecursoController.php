@@ -20,6 +20,8 @@ use Carbon\Carbon;
 use App\Notifications;
 use Thujohn\Twitter\Facades;
 use Collective\Html;
+// import the Intervention Image Manager Class
+use Intervention\Image\ImageManagerStatic as Image;
 /**
  * Class RecursoController.
  *

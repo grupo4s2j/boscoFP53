@@ -13,6 +13,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class MainPageController extends Controller
 {
+    //public function index($view)
     public function index($view)
     {
         $categorias = \App\Categoria::where('activo', 1)->get();
@@ -24,7 +25,7 @@ class MainPageController extends Controller
         
         /*foreach($recursos as $recurso)
         {
-            $recurso->imgresize = Image::make('./img/recursos/'. $recurso->img)->fit(600, 360);
+            $recurso->imgresize = Image::make('./img/recursos/'. $recurso->img)->fit(600, 360)->save();
         }*/
 
         foreach ($categorias as $categoria){
@@ -33,14 +34,22 @@ class MainPageController extends Controller
 
         //return \View::make('fo.home', compact('categorias', 'tags'));
         //$view->with(['categorias', 'tags']);
-        $view->with(compact('categorias', 'tags', 'recursos'));
+        return $view->with(compact('categorias', 'tags', 'recursos'));
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
     
-    public function indexFront()
+    public function indexFront(Request $request)
     {
         //return \View::make('fo.home', compact('categorias', 'tags'));
         return view('fo.home');
+        //return $request->cookie('rol');
+        //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
+    }
+    
+    public function sessionUser()
+    {
+        //return \View::make('fo.home', compact('categorias', 'tags'));
+        return redirect('/');
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
 }

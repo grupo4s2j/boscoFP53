@@ -30,6 +30,7 @@
                 <p>
                 Would you like to change your role?
                 <button type="button" class="btn btn-primary btn-lg" style="margin-left:30px;">Professor</button>
+                <label>{{ $rol }}</label>
             </div>
         </div>
         <!-- End Top Bar Login Body -->

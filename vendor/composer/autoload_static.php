@@ -441,6 +441,7 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'App\\Http\\Controllers\\EventoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventoController.php',
         'App\\Http\\Controllers\\FicheroController' => __DIR__ . '/../..' . '/app/Http/Controllers/FicheroController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',
         'App\\Http\\Controllers\\MainPageController' => __DIR__ . '/../..' . '/app/Http/Controllers/MainPageController.php',
         'App\\Http\\Controllers\\RecursoController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecursoController.php',
         'App\\Http\\Controllers\\RecursossubcategoriaController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecursossubcategoriaController.php',
