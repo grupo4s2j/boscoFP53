@@ -29,6 +29,9 @@ class CookieVerification
             return redirect('/');
         }*/
         if($request->hasCookie('tsfi_role')) {
+            //$request->attributes->add(['tsfi_role' => 'cacatua']);
+            //$tsfi_role = 'cacatua';
+            //$request->merge(compact('tsfi_role'));
             return $next($request);    
         }
         else{

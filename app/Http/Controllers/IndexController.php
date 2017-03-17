@@ -26,6 +26,9 @@ class IndexController extends Controller
     
     public function setCookie(Request $request)
     {
+        if (Cookie::get('tsfi_role') !== null){
+            Cookie::forget('tsfi_role');
+        }
         if($request->input('rol') == 'alumno')
         {
             //Cookie::make('rol', 'alumno', 60);

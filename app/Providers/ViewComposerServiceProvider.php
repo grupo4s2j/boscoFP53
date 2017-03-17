@@ -40,6 +40,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         else{
             $rol = 'peme';
         }
+        //$rol = $request->tsfi_role;
 
         //view()->composer('fo.octagon_layout.octagon_master', 'App\Http\Controllers\MainPageController@index');
         
