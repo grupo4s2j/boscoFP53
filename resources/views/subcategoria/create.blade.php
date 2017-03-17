@@ -16,11 +16,11 @@
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input id="nombre" name = "nombre" type="text" class="form-control">
+            <input id="nombre" name = "nombre" type="text" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="">Categoría</label>
-            <select name="idCategoria" id="idCategoria" class = "form-control">
+            <select name="idCategoria" id="idCategoria" class = "form-control" required>
                 @foreach($categorias as $categoria)
 
                         <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
@@ -33,8 +33,8 @@
         <div class="form-group">
             <label for="img">img</label><br>
             <input id="botonimg" type="button" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
-            <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px; display:none" src=" "></img>
-            <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
+            <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px; display:none" src=" ">
+            <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none" required>
         </div>
         {{--<div class="form-group">
             <label for="orden">orden</label>
