@@ -29,7 +29,19 @@
             <div class="row">
                 <p>
                 Would you like to change your role?
-                <button type="button" class="btn btn-primary btn-lg" style="margin-left:30px;">Professor</button>
+                @if($rol == 'alumno')
+                    <form method="post" action="{{ url('/rol')}}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="rol" value="alumno">
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:30px;">Alumne</button>
+                    </form>
+                @elseif($rol == 'profesor')
+                   <form method="post" action="{{ url('/rol')}}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="rol" value="profesor">
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:30px;">Professor</button>
+                    </form>
+                @endif
             </div>
         </div>
         <!-- End Top Bar Login Body -->
