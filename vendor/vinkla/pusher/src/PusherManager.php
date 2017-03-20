@@ -9,13 +9,10 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace Vinkla\Pusher;
 
 use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
-use Pusher;
 
 /**
  * This is the Pusher manager class.
@@ -51,9 +48,9 @@ class PusherManager extends AbstractManager
      *
      * @param array $config
      *
-     * @return \Pusher
+     * @return mixed
      */
-    protected function createConnection(array $config)//: Pusher
+    protected function createConnection(array $config)
     {
         return $this->factory->make($config);
     }
@@ -63,7 +60,7 @@ class PusherManager extends AbstractManager
      *
      * @return string
      */
-    protected function getConfigName()//: string
+    protected function getConfigName()
     {
         return 'pusher';
     }
@@ -73,7 +70,7 @@ class PusherManager extends AbstractManager
      *
      * @return \Vinkla\Pusher\PusherFactory
      */
-    public function getFactory()//: PusherFactory
+    public function getFactory()
     {
         return $this->factory;
     }

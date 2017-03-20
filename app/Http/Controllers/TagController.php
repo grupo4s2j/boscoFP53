@@ -10,6 +10,9 @@ use Amranidev\Ajaxis\Ajaxis;
 use URL;
 use DB;
 
+use App\Recurso;
+use App\Recursotag;
+
 
 /**
  * Class TagController.
@@ -54,9 +57,21 @@ class TagController extends Controller
         }
 
         return view('fo.search',compact('search'));*/
-        $input = Request::all();
+        $tags = $request->tags;
+
+        $recursos = DB::table('recursos')
+                    ->join('recursotags', 'recursos.id', '=', 'recursotags.idRecursos')
+                    ->join('tags', 'tags.id', '=', 'recursotags.idTag')
+                    ->whereIn('tags.nombre', $tags)
+                    ->select('recursos.*')
+                    ->get();
         
-        return $input;
+        foreach($recursos as $recurso){
+            $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
+        }
+
+        return view('fo.tablon_recursos', compact('recursos'));
+        //return $recursos;
     }    
     
     /**

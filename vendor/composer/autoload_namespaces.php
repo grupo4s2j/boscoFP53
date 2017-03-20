@@ -6,8 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'tmhOAuth' => array($vendorDir . '/themattharris/tmhoauth'),
+    'Thujohn\\Twitter' => array($vendorDir . '/thujohn/twitter/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+    'Kylewm\\Brevity' => array($vendorDir . '/kylewm/brevity/src'),
     'JakubOnderka\\PhpConsoleHighlighter' => array($vendorDir . '/jakub-onderka/php-console-highlighter/src'),
     'JakubOnderka\\PhpConsoleColor' => array($vendorDir . '/jakub-onderka/php-console-color/src'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),

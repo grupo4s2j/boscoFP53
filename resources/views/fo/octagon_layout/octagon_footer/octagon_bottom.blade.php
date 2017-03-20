@@ -5,7 +5,7 @@
             <div class="useful-links widget">
                 <h3>Useful Links</h3>
                 <ul class="pull-left">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="elements.html">Features</a></li>
                 </ul>

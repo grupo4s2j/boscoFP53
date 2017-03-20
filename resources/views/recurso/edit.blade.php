@@ -24,17 +24,17 @@
                     <div class="form-group">
                         <label for="titulo">Titulo</label>
                         <input id="titulo" name="titulo" type="text" class="form-control" value="{!!$recurso->
-            titulo!!}">
+            titulo!!}" required>
                     </div>
                     <div class="form-group">
                         <label for="descripcion">Descripcion</label>
                         <input id="descripcion" name="descripcion" type="text" class="form-control" value="{!!$recurso->
-            descripcion!!}">
+            descripcion!!}" required >
                     </div>
                     <div class="form-group">
                         <label for="contenido">Contenido</label>
 
-            <textarea id="contenido" name="contenido" type="text" class="ckeditor">
+            <textarea id="contenido" name="contenido" type="text" class="ckeditor" required>
                 {!!$recurso->contenido!!}
             </textarea>
             </div>
@@ -42,41 +42,41 @@
                 
                     <label for="img">img</label><br>
                     <input id="botonimg" type="button" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
-                    <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px" src="/img/recursos/{{$recurso->img}}"></img>
+                    <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px" src="/img/recursos/{{$recurso->img}}">
                     
                    
-                <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
+                <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none" required>
             </div>
             <div class="form-group">
                 <label for="fechaPost">fechaPost</label>
                 <input id="fechaPost" name="fechaPost" type="text" class="form-control datepicker" value="{!!$recurso->
-            fechaPost!!}">
+            fechaPost!!}" required>
                     </div>
                     <div class="form-group">
                         <label for="fechaInicio">fechaInicio</label>
                         <input id="fechaInicio" name="fechaInicio" type="text" class="form-control datepicker" value="{!!$recurso->
-            fechaInicio!!}">
+            fechaInicio!!}" required>
                     </div>
                     <div class="form-group">
                         <label for="fechaFin">fechaFin</label>
                         <input id="fechaFin" name="fechaFin" type="text" class="form-control datepicker" value="{!!$recurso->
-            fechaFin!!}">
+            fechaFin!!}" required>
                     </div>
                     <div class="form-group">
                         <label for="rangoEdad">Rango de edad</label>
                         <input id="rangoEdad" name="rangoEdad" type="text" class="form-control" value="{!!$recurso->
-            rangoEdad!!}">
+            rangoEdad!!}" required>
                     </div>
                     <div class="form-group">
                         <label for="relevancia">Relevancia</label>
                         <input id="relevancia" name="relevancia" type="text" class="form-control" value="{!!$recurso->
-            relevancia!!}">
+            relevancia!!}" required>
                     </div>
                     <div class="form-group">
                         <label for="idEntidadOrganizativa">Entidad organizativa</label>
                         <!-- <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
             idEntidadOrganizativa!!}">-->
-                        <SELECT id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control"
+                        <SELECT required id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control"
                                 value="{!!$recurso->
             idEntidadOrganizativa!!}">>
                             @foreach($entidades as $entidad)
@@ -95,7 +95,7 @@
                      </div>--}}
                     <div class="form-group">
                         <label for="tag_list">Tags:</label>
-                        <select id="tag_list" name="tag_list[]" class="form-control" multiple></select>
+                        <select id="tag_list" name="tag_list[]" class="form-control" multiple required></select>
                     </div>
                     <script> var data ={!!$tags!!}</script>
                     <div class="form-group">
@@ -123,7 +123,7 @@
                             {!! csrf_field() !!}
                             <input type="hidden" name="idRecursos" value="{{$recurso->id}}">
                             <div class="form-group">
-                                <select name="subcategoria_id" id="" class="form-control">
+                                <select name="subcategoria_id" id="" class="form-control" required>
                                     @foreach($subcategorias as $role)
                                         <option value="{{$role->id}}">{{$role->nombre}}</option>
                                     @endforeach

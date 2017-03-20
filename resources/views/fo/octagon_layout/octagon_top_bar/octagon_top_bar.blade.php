@@ -17,6 +17,7 @@
         <div class="search-body targetDiv" id="div1">
             <p>What are you looking for?</p>
             <form id="buscador" name="test-form" method="POST" action="{{ url('/search') }}">
+                {{csrf_field()}}
                 <!--<input id="tags" type="text" class="form-control no-radius" placeholder="Search here |">-->
                 <select name="tags[]" class="form-control no-radius" multiple="multiple" id="tags" style="width:100%;"></select>
                 <button type="submit" value="Submit" class="btn btn-secondary btn-md">Submit</button>
@@ -28,7 +29,19 @@
             <div class="row">
                 <p>
                 Would you like to change your role?
-                <button type="button" class="btn btn-primary btn-lg" style="margin-left:30px;">Professor</button>
+                @if($rol == 'alumno')
+                    <form method="post" action="{{ url('/rol')}}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="rol" value="alumno">
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:30px;">Alumne</button>
+                    </form>
+                @elseif($rol == 'profesor')
+                   <form method="post" action="{{ url('/rol')}}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="rol" value="profesor">
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:30px;">Professor</button>
+                    </form>
+                @endif
             </div>
         </div>
         <!-- End Top Bar Login Body -->

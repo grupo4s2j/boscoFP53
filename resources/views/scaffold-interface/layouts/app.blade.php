@@ -231,7 +231,7 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
         minimumInputLength: 2,
 
         ajax: {
-            url: '/tag/find',
+            url: '{{ url("find") }}',
             dataType: 'json',
             data: function (params) {
 

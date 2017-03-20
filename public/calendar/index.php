@@ -2,7 +2,7 @@
 require_once('bdd.php');
 
 
-$sql = "SELECT id, titulo, fechaInicio, fechaFin, color FROM eventos ";
+$sql = "SELECT id, titulo, fechaInicio, fechaFin, color FROM eventos Where activo = 1";
 
 $req = $bdd->prepare($sql);
 $req->execute();
@@ -181,26 +181,27 @@ $events = $req->fetchAll();
     <!-- /.container -->
 
     <!-- jQuery Version 1.11.1 -->
-    <script src="/calendar/js/jquery.js"></script>
+    <script src="../calendar/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/calendar/js/bootstrap.min.js"></script>
+    <script src="../calendar/js/bootstrap.min.js"></script>
 	
 	<!-- FullCalendar -->
-	<script src='/calendar/js/moment.min.js'></script>
-	<script src='/calendar/js/fullcalendar.min.js'></script>
+	<script src='../calendar/js/moment.min.js'></script>
+	<script src='../calendar/js/fullcalendar.min.js'></script>
 	
 	<script>
 
 	$(document).ready(function() {
-		
+		var date = new Date();
+		var currentDate = date.getFullYear() + " " + (date.getMonth() + 1); 
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
 				center: 'title',
 				right: 'month,basicWeek,basicDay'
 			},
-			defaultDate: '2016-01-12',
+			defaultDate: currentDate,
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			selectable: true,

@@ -10,15 +10,15 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
-        'c3506a526c5ff171720322fdf42d15c3' => __DIR__ . '/..' . '/sofa/eloquence/src/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '752af1c2bdb339e8474c3c31b22b7d54' => __DIR__ . '/..' . '/illuminate/html/helpers.php',
+        'c3506a526c5ff171720322fdf42d15c3' => __DIR__ . '/..' . '/sofa/eloquence/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -69,7 +69,12 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         array (
             'Psy\\' => 4,
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
             'PhpParser\\' => 10,
+        ),
+        'N' => 
+        array (
+            'NotificationChannels\\Twitter\\' => 29,
         ),
         'M' => 
         array (
@@ -81,6 +86,7 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         ),
         'I' => 
         array (
+            'Intervention\\Image\\' => 19,
             'Illuminate\\Html\\' => 16,
             'Illuminate\\' => 11,
         ),
@@ -111,6 +117,7 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
             'App\\' => 4,
             'Amranidev\\ScaffoldInterface\\' => 28,
             'Amranidev\\Ajaxis\\' => 17,
+            'Abraham\\TwitterOAuth\\' => 21,
         ),
     );
 
@@ -225,9 +232,18 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/abraham/twitteroauth/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
+        'NotificationChannels\\Twitter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel-notification-channels/twitter/src',
         ),
         'Monolog\\' => 
         array (
@@ -236,6 +252,10 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
+        ),
+        'Intervention\\Image\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
         ),
         'Illuminate\\Html\\' => 
         array (
@@ -297,9 +317,27 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         array (
             0 => __DIR__ . '/..' . '/amranidev/ajaxis/src',
         ),
+        'Abraham\\TwitterOAuth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
+        't' => 
+        array (
+            'tmhOAuth' => 
+            array (
+                0 => __DIR__ . '/..' . '/themattharris/tmhoauth',
+            ),
+        ),
+        'T' => 
+        array (
+            'Thujohn\\Twitter' => 
+            array (
+                0 => __DIR__ . '/..' . '/thujohn/twitter/src',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -312,6 +350,13 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
             'Mockery' => 
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
+            ),
+        ),
+        'K' => 
+        array (
+            'Kylewm\\Brevity' => 
+            array (
+                0 => __DIR__ . '/..' . '/kylewm/brevity/src',
             ),
         ),
         'J' => 
@@ -396,6 +441,7 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'App\\Http\\Controllers\\EventoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventoController.php',
         'App\\Http\\Controllers\\FicheroController' => __DIR__ . '/../..' . '/app/Http/Controllers/FicheroController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',
         'App\\Http\\Controllers\\MainPageController' => __DIR__ . '/../..' . '/app/Http/Controllers/MainPageController.php',
         'App\\Http\\Controllers\\RecursoController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecursoController.php',
         'App\\Http\\Controllers\\RecursossubcategoriaController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecursossubcategoriaController.php',
@@ -406,6 +452,7 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'App\\Http\\Controllers\\ScaffoldInterface\\PermissionController' => __DIR__ . '/../..' . '/app/Http/Controllers/ScaffoldInterface/PermissionController.php',
         'App\\Http\\Controllers\\ScaffoldInterface\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/ScaffoldInterface/RoleController.php',
         'App\\Http\\Controllers\\ScaffoldInterface\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/ScaffoldInterface/UserController.php',
+        'App\\Http\\Controllers\\Select2AutocompleteController' => __DIR__ . '/../..' . '/app/Http/Controllers/Select2AutocompleteController.php',
         'App\\Http\\Controllers\\SubcategoriaController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubcategoriaController.php',
         'App\\Http\\Controllers\\TagController' => __DIR__ . '/../..' . '/app/Http/Controllers/TagController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -413,6 +460,7 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\RolMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/RolMiddleware.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Notifications\\RecursoTwitter' => __DIR__ . '/../..' . '/app/Notifications/RecursoTwitter.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -1607,9 +1655,137 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'Illuminate\\View\\View' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/View.php',
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Intervention\\Image\\AbstractColor' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractColor.php',
+        'Intervention\\Image\\AbstractDecoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDecoder.php',
+        'Intervention\\Image\\AbstractDriver' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDriver.php',
+        'Intervention\\Image\\AbstractEncoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractEncoder.php',
+        'Intervention\\Image\\AbstractFont' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractFont.php',
+        'Intervention\\Image\\AbstractShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractShape.php',
+        'Intervention\\Image\\Commands\\AbstractCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/AbstractCommand.php',
+        'Intervention\\Image\\Commands\\Argument' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/Argument.php',
+        'Intervention\\Image\\Commands\\ChecksumCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/ChecksumCommand.php',
+        'Intervention\\Image\\Commands\\CircleCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/CircleCommand.php',
+        'Intervention\\Image\\Commands\\EllipseCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/EllipseCommand.php',
+        'Intervention\\Image\\Commands\\ExifCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/ExifCommand.php',
+        'Intervention\\Image\\Commands\\IptcCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/IptcCommand.php',
+        'Intervention\\Image\\Commands\\LineCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/LineCommand.php',
+        'Intervention\\Image\\Commands\\OrientateCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/OrientateCommand.php',
+        'Intervention\\Image\\Commands\\PolygonCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/PolygonCommand.php',
+        'Intervention\\Image\\Commands\\PsrResponseCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/PsrResponseCommand.php',
+        'Intervention\\Image\\Commands\\RectangleCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/RectangleCommand.php',
+        'Intervention\\Image\\Commands\\ResponseCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/ResponseCommand.php',
+        'Intervention\\Image\\Commands\\StreamCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/StreamCommand.php',
+        'Intervention\\Image\\Commands\\TextCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Commands/TextCommand.php',
+        'Intervention\\Image\\Constraint' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Constraint.php',
+        'Intervention\\Image\\Exception\\ImageException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/ImageException.php',
+        'Intervention\\Image\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/InvalidArgumentException.php',
+        'Intervention\\Image\\Exception\\MissingDependencyException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/MissingDependencyException.php',
+        'Intervention\\Image\\Exception\\NotFoundException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/NotFoundException.php',
+        'Intervention\\Image\\Exception\\NotReadableException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/NotReadableException.php',
+        'Intervention\\Image\\Exception\\NotSupportedException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/NotSupportedException.php',
+        'Intervention\\Image\\Exception\\NotWritableException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/NotWritableException.php',
+        'Intervention\\Image\\Exception\\RuntimeException' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Exception/RuntimeException.php',
+        'Intervention\\Image\\Facades\\Image' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Facades/Image.php',
+        'Intervention\\Image\\File' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/File.php',
+        'Intervention\\Image\\Filters\\DemoFilter' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Filters/DemoFilter.php',
+        'Intervention\\Image\\Filters\\FilterInterface' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Filters/FilterInterface.php',
+        'Intervention\\Image\\Gd\\Color' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Color.php',
+        'Intervention\\Image\\Gd\\Commands\\BackupCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/BackupCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\BlurCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/BlurCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\BrightnessCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/BrightnessCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\ColorizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/ColorizeCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\ContrastCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/ContrastCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\CropCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/CropCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\DestroyCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/DestroyCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\FillCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/FillCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\FitCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/FitCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\FlipCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/FlipCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\GammaCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/GammaCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\GetSizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/GetSizeCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\GreyscaleCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/GreyscaleCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\HeightenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/HeightenCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\InsertCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/InsertCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\InterlaceCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/InterlaceCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\InvertCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/InvertCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\LimitColorsCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/LimitColorsCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\MaskCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/MaskCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\OpacityCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/OpacityCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\PickColorCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/PickColorCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\PixelCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/PixelCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\PixelateCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/PixelateCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\ResetCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/ResetCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\ResizeCanvasCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/ResizeCanvasCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\ResizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/ResizeCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\RotateCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/RotateCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\SharpenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/SharpenCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\TrimCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/TrimCommand.php',
+        'Intervention\\Image\\Gd\\Commands\\WidenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Commands/WidenCommand.php',
+        'Intervention\\Image\\Gd\\Decoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Decoder.php',
+        'Intervention\\Image\\Gd\\Driver' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Driver.php',
+        'Intervention\\Image\\Gd\\Encoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Encoder.php',
+        'Intervention\\Image\\Gd\\Font' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Font.php',
+        'Intervention\\Image\\Gd\\Shapes\\CircleShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Shapes/CircleShape.php',
+        'Intervention\\Image\\Gd\\Shapes\\EllipseShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Shapes/EllipseShape.php',
+        'Intervention\\Image\\Gd\\Shapes\\LineShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Shapes/LineShape.php',
+        'Intervention\\Image\\Gd\\Shapes\\PolygonShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Shapes/PolygonShape.php',
+        'Intervention\\Image\\Gd\\Shapes\\RectangleShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Gd/Shapes/RectangleShape.php',
+        'Intervention\\Image\\Image' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Image.php',
+        'Intervention\\Image\\ImageManager' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageManager.php',
+        'Intervention\\Image\\ImageManagerStatic' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageManagerStatic.php',
+        'Intervention\\Image\\ImageServiceProvider' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageServiceProvider.php',
+        'Intervention\\Image\\ImageServiceProviderLaravel4' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageServiceProviderLaravel4.php',
+        'Intervention\\Image\\ImageServiceProviderLaravel5' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageServiceProviderLaravel5.php',
+        'Intervention\\Image\\ImageServiceProviderLeague' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageServiceProviderLeague.php',
+        'Intervention\\Image\\ImageServiceProviderLumen' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/ImageServiceProviderLumen.php',
+        'Intervention\\Image\\Imagick\\Color' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Color.php',
+        'Intervention\\Image\\Imagick\\Commands\\BackupCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/BackupCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\BlurCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/BlurCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\BrightnessCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/BrightnessCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ColorizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ColorizeCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ContrastCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ContrastCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\CropCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/CropCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\DestroyCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/DestroyCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ExifCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ExifCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\FillCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/FillCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\FitCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/FitCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\FlipCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/FlipCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\GammaCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/GammaCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\GetSizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/GetSizeCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\GreyscaleCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/GreyscaleCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\HeightenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/HeightenCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\InsertCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/InsertCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\InterlaceCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/InterlaceCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\InvertCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/InvertCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\LimitColorsCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/LimitColorsCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\MaskCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/MaskCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\OpacityCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/OpacityCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\PickColorCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/PickColorCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\PixelCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/PixelCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\PixelateCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/PixelateCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ResetCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ResetCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ResizeCanvasCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ResizeCanvasCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\ResizeCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/ResizeCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\RotateCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/RotateCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\SharpenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/SharpenCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\TrimCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/TrimCommand.php',
+        'Intervention\\Image\\Imagick\\Commands\\WidenCommand' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Commands/WidenCommand.php',
+        'Intervention\\Image\\Imagick\\Decoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Decoder.php',
+        'Intervention\\Image\\Imagick\\Driver' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Driver.php',
+        'Intervention\\Image\\Imagick\\Encoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Encoder.php',
+        'Intervention\\Image\\Imagick\\Font' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Font.php',
+        'Intervention\\Image\\Imagick\\Shapes\\CircleShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Shapes/CircleShape.php',
+        'Intervention\\Image\\Imagick\\Shapes\\EllipseShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Shapes/EllipseShape.php',
+        'Intervention\\Image\\Imagick\\Shapes\\LineShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Shapes/LineShape.php',
+        'Intervention\\Image\\Imagick\\Shapes\\PolygonShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Shapes/PolygonShape.php',
+        'Intervention\\Image\\Imagick\\Shapes\\RectangleShape' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Imagick/Shapes/RectangleShape.php',
+        'Intervention\\Image\\Point' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Point.php',
+        'Intervention\\Image\\Response' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Response.php',
+        'Intervention\\Image\\Size' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Size.php',
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',
+        'Kylewm\\Brevity\\Brevity' => __DIR__ . '/..' . '/kylewm/brevity/src/Kylewm/Brevity/Brevity.php',
+        'Kylewm\\Brevity\\Token' => __DIR__ . '/..' . '/kylewm/brevity/src/Kylewm/Brevity/Token.php',
         'League\\Flysystem\\AdapterInterface' => __DIR__ . '/..' . '/league/flysystem/src/AdapterInterface.php',
         'League\\Flysystem\\Adapter\\AbstractAdapter' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/AbstractAdapter.php',
         'League\\Flysystem\\Adapter\\AbstractFtpAdapter' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/AbstractFtpAdapter.php',
@@ -1808,6 +1984,12 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'Monolog\\Processor\\UidProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
         'Monolog\\Processor\\WebProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
         'Monolog\\Registry' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Registry.php',
+        'NotificationChannels\\Twitter\\Exceptions\\CouldNotSendNotification' => __DIR__ . '/..' . '/laravel-notification-channels/twitter/src/Exceptions/CouldNotSendNotification.php',
+        'NotificationChannels\\Twitter\\TwitterChannel' => __DIR__ . '/..' . '/laravel-notification-channels/twitter/src/TwitterChannel.php',
+        'NotificationChannels\\Twitter\\TwitterDirectMessage' => __DIR__ . '/..' . '/laravel-notification-channels/twitter/src/TwitterDirectMessage.php',
+        'NotificationChannels\\Twitter\\TwitterImage' => __DIR__ . '/..' . '/laravel-notification-channels/twitter/src/TwitterImage.php',
+        'NotificationChannels\\Twitter\\TwitterServiceProvider' => __DIR__ . '/..' . '/laravel-notification-channels/twitter/src/TwitterServiceProvider.php',
+        'NotificationChannels\\Twitter\\TwitterStatusUpdate' => __DIR__ . '/..' . '/laravel-notification-channels/twitter/src/TwitterStatusUpdate.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
         'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
@@ -2116,6 +2298,7 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'PHP_Token_NEW' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_NS_C' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_NS_SEPARATOR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'PHP_Token_NULLSAFE_OBJECT_OPERATOR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_NUM_STRING' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_OBJECT_CAST' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_OBJECT_OPERATOR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
@@ -2476,6 +2659,13 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'Prophecy\\Prophet' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Prophet.php',
         'Prophecy\\Util\\ExportUtil' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Util/ExportUtil.php',
         'Prophecy\\Util\\StringUtil' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Util/StringUtil.php',
+        'Psr\\Http\\Message\\MessageInterface' => __DIR__ . '/..' . '/psr/http-message/src/MessageInterface.php',
+        'Psr\\Http\\Message\\RequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/RequestInterface.php',
+        'Psr\\Http\\Message\\ResponseInterface' => __DIR__ . '/..' . '/psr/http-message/src/ResponseInterface.php',
+        'Psr\\Http\\Message\\ServerRequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/ServerRequestInterface.php',
+        'Psr\\Http\\Message\\StreamInterface' => __DIR__ . '/..' . '/psr/http-message/src/StreamInterface.php',
+        'Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
+        'Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
         'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
         'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
         'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
@@ -2494,6 +2684,7 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'Psy\\CodeCleaner\\CalledClassPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/CalledClassPass.php',
         'Psy\\CodeCleaner\\CodeCleanerPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/CodeCleanerPass.php',
         'Psy\\CodeCleaner\\ExitPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/ExitPass.php',
+        'Psy\\CodeCleaner\\FinalClassPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/FinalClassPass.php',
         'Psy\\CodeCleaner\\FunctionReturnInWriteContextPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/FunctionReturnInWriteContextPass.php',
         'Psy\\CodeCleaner\\ImplicitReturnPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/ImplicitReturnPass.php',
         'Psy\\CodeCleaner\\InstanceOfPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/InstanceOfPass.php',
@@ -3329,6 +3520,22 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'Tags' => __DIR__ . '/../..' . '/database/migrations/2017_02_09_035002_tags.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'Thujohn\\Twitter\\Facades\\Twitter' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Facades/Twitter.php',
+        'Thujohn\\Twitter\\Traits\\AccountTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/AccountTrait.php',
+        'Thujohn\\Twitter\\Traits\\BlockTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/BlockTrait.php',
+        'Thujohn\\Twitter\\Traits\\DirectMessageTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/DirectMessageTrait.php',
+        'Thujohn\\Twitter\\Traits\\FavoriteTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/FavoriteTrait.php',
+        'Thujohn\\Twitter\\Traits\\FriendshipTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/FriendshipTrait.php',
+        'Thujohn\\Twitter\\Traits\\GeoTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/GeoTrait.php',
+        'Thujohn\\Twitter\\Traits\\HelpTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/HelpTrait.php',
+        'Thujohn\\Twitter\\Traits\\ListTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/ListTrait.php',
+        'Thujohn\\Twitter\\Traits\\MediaTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/MediaTrait.php',
+        'Thujohn\\Twitter\\Traits\\SearchTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/SearchTrait.php',
+        'Thujohn\\Twitter\\Traits\\StatusTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/StatusTrait.php',
+        'Thujohn\\Twitter\\Traits\\TrendTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/TrendTrait.php',
+        'Thujohn\\Twitter\\Traits\\UserTrait' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Traits/UserTrait.php',
+        'Thujohn\\Twitter\\Twitter' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/Twitter.php',
+        'Thujohn\\Twitter\\TwitterServiceProvider' => __DIR__ . '/..' . '/thujohn/twitter/src/Thujohn/Twitter/TwitterServiceProvider.php',
         'Vinkla\\Pusher\\Facades\\Pusher' => __DIR__ . '/..' . '/vinkla/pusher/src/Facades/Pusher.php',
         'Vinkla\\Pusher\\PusherFactory' => __DIR__ . '/..' . '/vinkla/pusher/src/PusherFactory.php',
         'Vinkla\\Pusher\\PusherManager' => __DIR__ . '/..' . '/vinkla/pusher/src/PusherManager.php',
@@ -3396,6 +3603,7 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'tmhOAuth' => __DIR__ . '/..' . '/themattharris/tmhoauth/tmhOAuth.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -16,7 +16,12 @@ use App\Recursotag;
 use Amranidev\Ajaxis\Ajaxis;
 use Illuminate\Support\Facades\DB;
 use URL;
-
+use Carbon\Carbon;
+use App\Notifications;
+use Thujohn\Twitter\Facades;
+use Collective\Html;
+// import the Intervention Image Manager Class
+use Intervention\Image\ImageManagerStatic as Image;
 /**
  * Class RecursoController.
  *
@@ -32,27 +37,6 @@ class RecursoController extends Controller
      */
     public function index()
     {
-  //      $search = \Request::get('search');
-
-//        $paginate = \Request::get('rows');
-//        if ($paginate=="") {
-//            $paginate = 6;
-//        }
-//        if ($search=="") {
-//
-//            $recursos = Recurso::where('recursos.activo', '=', '1')
-//                -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
-//                ->select('recursos.*','entidadorganizativas.nombre')
-//                ->paginate($paginate);
-//        }else {
-//            $recursos = Recurso::where('activo', '=', '1')
-//                -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
-//                ->select('recursos.*','entidadorganizativas.nombre')
-//                ->where( function ($query ) use ($search){
-//                    $query->where('titulo', 'like', '%' . $search . '%')
-//                        ->orWhere('descripcion', 'like', '%' . $search . '%');
-//                })->paginate(1000);
-//        }
         $recursos = Recurso::where('recursos.activo', '=', '1')->orderBy('titulo','asc')
             -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
             ->select('recursos.*','entidadorganizativas.nombre')->get();
@@ -67,49 +51,37 @@ class RecursoController extends Controller
      */
     public function indexFront()
     {
-        //return \View::make('fo.categorias');
-        $recursos = Recurso::all();
+        //$recursos = Recurso::all();
+        /*$recursos = Recurso::where('activo', 1)
+                    ->where('fechaInicio', '<', Carbon::now()->format('Y-m-d'))
+                    ->where('fechaFin', '>', Carbon::now()->format('Y-m-d'))
+                    ->orderBy('fechaPost', 'desc')
+                    ->get();*/
+        $recursos = Recurso::where('activo', 1)
+                    ->where('fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+                    ->orderBy('fechaPost', 'desc')
+                    ->get();
+
+        //To get recursostop
+        $recursosTOP = \App\Recurso::getTopPosts();
+        
         foreach($recursos as $recurso){
-            $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
+            $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
         }
 
         return view('fo.tablon_recursos', compact('recursos'));
-    }
-    
-    /**
-     * Formatea la fecha para que se muestre como queremos
-     *
-     * @return  $recurso->fecha
-     */
-    public function formatFecha($fechaPosteo)
-    {
-        $fecha = explode('-', $fechaPosteo);
-        switch($fecha[1]){
-            case '01' : $fecha[1] = 'January';break;
-            case '02' : $fecha[1] = 'February';break;
-            case '03' : $fecha[1] = 'March';break;
-            case '04' : $fecha[1] = 'April';break;
-            case '05' : $fecha[1] = 'May';break;
-            case '06' : $fecha[1] = 'June';break;
-            case '07' : $fecha[1] = 'July';break;
-            case '08' : $fecha[1] = 'August';break;
-            case '09' : $fecha[1] = 'September';break;
-            case '10' : $fecha[1] = 'October';break;
-            case '11' : $fecha[1] = 'November';break;
-            case '12' : $fecha[1] = 'December';break;
-        }
-        return $fechaFormat = $fecha[1] . ' ' . $fecha[2] . ', ' . $fecha[0];
+        //return $recursos;
     }
     
     /**
      * Nos muestra un post/recurso
      *
-     * @return  recursos/id
+     * @return  recursos\id
      */
     public function showRecurso($id)
     {
         $recurso = Recurso::find($id);
-        $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
+        $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
 
         return view('fo.recurso_post', compact('recurso'));
     }
@@ -146,16 +118,16 @@ class RecursoController extends Controller
         $recurso->contenido = $request->contenido;
 
 
-        if ($request->hasFile('imgen')) {
+        if ($request->hasFile('img')) {
            
             $directorio=  '/img/recursos/';
             if( !file_exists($directorio) ){
-                mkdir($directorio, 077, true);
+                //mkdir($directorio, 077, true);
+                //Controlar excepcion
             }
             $file = $request->file('img');
             $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
-
 
             $recurso->img = $file->getClientOriginalName();
         }
@@ -178,7 +150,7 @@ class RecursoController extends Controller
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
 
-
+        
 
         $recurso->save();
 
@@ -221,7 +193,11 @@ class RecursoController extends Controller
         $pusher->trigger('test-channel',
             'test-event',
             ['message' => 'A new recurso has been created !!']);
-
+        $Recurso= Recurso::orderBy('id', 'desc')->first();
+        $link = URL::to('/recursos/' . $Recurso->id);
+        $Tweet = $request->titulo . "\n" . $link;
+        $Imagen = \Twitter::uploadMedia(['media' => \File::get(public_path($nombreimagen))]);
+        \Twitter::postTweet(['status' => $Tweet, 'media_ids' => $Imagen->media_id_string, 'format' => 'json']);
         return redirect('recurso');
     }
 

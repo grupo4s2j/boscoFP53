@@ -16,21 +16,21 @@
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="nombre">nombre</label>
-            <input id="nombre" name = "nombre" type="text" class="form-control">
+            <input id="nombre" name = "nombre" type="text" class="form-control" required >
         </div>
         <div class="form-group">
             <label for="color">color</label>
-            <input id="color" name = "color" type="text" class="form-control">
+            <input id="color" name = "color" type="text" class="form-control" required >
         </div>
         <div class="form-group">
             <label for="img">img</label><br>
             <input id="botonimg" type="button" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
             <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px; display:none" src=" "></img>
-            <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
+            <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none" required></input>
         </div>
         <div class="form-group">
             <label for="logo">logo</label>
-            <select id="logo" name="logo" type="text" class="form-control" style="font-family: 'FontAwesome', 'sans-serif'">
+            <select id="logo" name="logo" type="text" class="form-control" style="font-family: 'FontAwesome', 'sans-serif'" required >
                 <option value="fa-align-left">&#xf036; fa-align-left</option>
                 <option value="fa-align-right">&#xf038; fa-align-right</option>
                 <option value="fa-amazon">&#xf270; fa-amazon</option>
