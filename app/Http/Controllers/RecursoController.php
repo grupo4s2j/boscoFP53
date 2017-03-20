@@ -153,6 +153,16 @@ class RecursoController extends Controller
 
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
+        
+        $recurso->alumno = $request->alumno;
+
+        $recurso->profesor = $request->profesor;
+        
+        if($request->alumno == 1 && $request->profesor == 1) $rol = 0;
+        if($request->alumno == 1 && $request->profesor == 0) $rol = 1;
+        if($request->alumno == 0 && $request->profesor == 1) $rol = 2;
+        
+        $recurso->rol = $rol;
 
         
 
@@ -245,8 +255,12 @@ class RecursoController extends Controller
         $subcategorias = Subcategoria::orderBy('nombre', 'asc')->get();
         $recursoSubcategorias = $recurso->subcategorias;
         $ficheros = Fichero::all();
-
-        return view('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias'));
+        
+        $profesor = 0;
+        $alumno = 0;
+        //if($request->rol == 2 || $request->rol == 0) $profesor = 1;
+        //if($request->rol == 1 || $request->rol == 0) $alumno = 1;
+        return view('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
     }
 
 
@@ -321,6 +335,12 @@ class RecursoController extends Controller
         $recurso->alumno = $request->alumno;
 
         $recurso->profesor = $request->profesor;
+        
+        /*if($request->alumno == 1 && $request->profesor == 1) $rol = 0;
+        if($request->alumno == 1 && $request->profesor == 0) $rol = 1;
+        if($request->alumno == 0 && $request->profesor == 1) $rol = 2;
+        
+        $recurso->rol = $rol;*/
 
         /* $img=$request->file('img');
          $name_img=$request->img;

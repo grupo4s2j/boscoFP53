@@ -98,15 +98,15 @@
                         <select id="tag_list" name="tag_list[]" class="form-control" multiple required></select>
                     </div>
                     <script> var data ={!!$tags!!}</script>
-                    <label for="Genero">Género:</label>
+                    <!--<label for="Genero">Género:</label>-->
                     <div class="form-group">
                         <label class="checkbox-inline">
                             <input type="hidden" name="alumno" value="0" />
-                            <input id="alumno" name="alumno" type="checkbox" checked value = "1">Alumnos
+                            <input id="alumno" name="alumno" type="checkbox" checked value = "{{$alumno}}">Alumnos
                         </label>
                         <label class="checkbox-inline">
                             <input type="hidden" name="profesor" value="0" />
-                            <input id="profesor" name="profesor" type="checkbox" checked value = "1">Profesores
+                            <input id="profesor" name="profesor" type="checkbox" checked value = "{{$profesor}}">Profesores
                         </label>
                     </div>
                     <button class='btn btn-primary' type='submit'>Update</button>
