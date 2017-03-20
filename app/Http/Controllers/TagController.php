@@ -47,32 +47,51 @@ class TagController extends Controller
     /**
      * Buscador de Tags
      *
-     * @return  los tags
+     * @return  los Recursos del TAG
      */
     public function search(Request $request)
     {
-
-        /*if($request->has('tags')){
-            $search = $request->tags;
-        }
-
-        return view('fo.search',compact('search'));*/
         $tags = $request->tags;
 
+        $recursos = $this->queryRecursos($tags);
+
+        return view('fo.tablon_recursos', compact('recursos'));
+    }    
+    
+    /**
+     * HREF de Tags
+     *
+     * @return  los Recursos del TAG
+     */
+    public function searchByTag($tag)
+    {
+        $tags = array($tag);
+        $recursos = $this->queryRecursos($tags);
+
+        return view('fo.tablon_recursos', compact('recursos'));
+    }   
+    
+    /**
+     * Query Recursos por TAGS
+     *
+     * @return  los Recursos del TAG
+     */
+    public function queryRecursos($tags)
+    {
         $recursos = DB::table('recursos')
                     ->join('recursotags', 'recursos.id', '=', 'recursotags.idRecursos')
                     ->join('tags', 'tags.id', '=', 'recursotags.idTag')
                     ->whereIn('tags.nombre', $tags)
                     ->select('recursos.*')
                     ->get();
-        
-        foreach($recursos as $recurso){
-            $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
+        if(count($recursos) > 0){
+            foreach($recursos as $recurso){
+                $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
+            }
         }
 
-        return view('fo.tablon_recursos', compact('recursos'));
-        //return $recursos;
-    }    
+        return $recursos;
+    }
     
     /**
      * Display a listing of the resource.

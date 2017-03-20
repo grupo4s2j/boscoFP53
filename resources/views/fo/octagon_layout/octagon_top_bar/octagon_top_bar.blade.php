@@ -29,6 +29,7 @@
             <div class="row">
                 <p>
                 Would you like to change your role?
+                </p>
                 @if($rol == 'profesor')
                     <form method="post" action="{{ url('/rol')}}">
                         {{ csrf_field() }}
