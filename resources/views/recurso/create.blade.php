@@ -76,6 +76,7 @@
                         <!--data-data='[{"id": "1", "text": "One"}, {"id": "2", "text": "Two"}] data-tags="true"'-->
                         <select   id="tag_list"  name="tag_list[]" class="form-control"  multiple required ></select>
                     </div>
+                    <label for="Genero">Género:</label>
                     <div class="form-group">
                         <label class="checkbox-inline">
                             <input type="hidden" name="alumno" value="0" />
@@ -90,7 +91,5 @@
                 </form>
             </div>
         </div>
-
-
     </section>
 @endsection
