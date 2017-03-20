@@ -145,6 +145,7 @@ Route::get('/', 'IndexController@index');
 Route::post('/rol', 'IndexController@setCookie');
 Route::group(['prefix' => '/', 'middleware'=> 'checkcookie'], function(){
     Route::get('home', 'MainPageController@indexFront');
+    Route::post('rolchange', 'IndexController@changeCookie');
     Route::post('search', 'TagController@search');
     Route::get('search/{tag}', 'TagController@searchByTag');
     Route::get('find', 'TagController@find');

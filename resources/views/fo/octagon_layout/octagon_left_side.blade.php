@@ -4,7 +4,7 @@
        <!-- Start Sidebar Menu -->
         <div class="sidebar-menu">
             <div class="logo">
-                <a href="home"><img src="{{ asset('/img/octagon/logo.png') }}"/></a>
+                <a href="{{ url('home') }}"><img src="{{ asset('/img/octagon/logo.png') }}"/></a>
 
                 <!--a href="index"><img src="/img/octagon/logo.png" alt="Bosco FP"></a-->
 
