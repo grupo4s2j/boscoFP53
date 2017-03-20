@@ -14,11 +14,11 @@
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="redSocial">redSocial</label>
-            <input id="redSocial" name = "redSocial" type="text" class="form-control">
+            <input id="redSocial" name = "redSocial" type="text" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="link">link</label>
-            <input id="link" name = "link" type="text" class="form-control">
+            <input id="link" name = "link" type="text" class="form-control" required>
         </div>
         <button class = 'btn btn-primary' type ='submit'>Create</button>
     </form>

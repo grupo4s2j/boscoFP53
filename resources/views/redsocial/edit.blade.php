@@ -16,12 +16,12 @@
         <div class="form-group">
             <label for="redSocial">redSocial</label>
             <input id="redSocial" name = "redSocial" type="text" class="form-control" value="{!!$redsocial->
-            redSocial!!}"> 
+            redSocial!!}" required>
         </div>
         <div class="form-group">
             <label for="link">link</label>
             <input id="link" name = "link" type="text" class="form-control" value="{!!$redsocial->
-            link!!}"> 
+            link!!}" required>
         </div>
         <button class = 'btn btn-primary' type ='submit'>Update</button>
     </form>

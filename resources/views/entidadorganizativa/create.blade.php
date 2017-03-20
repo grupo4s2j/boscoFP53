@@ -14,15 +14,15 @@
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="nombre">nombre</label>
-            <input id="nombre" name = "nombre" type="text" class="form-control">
+            <input id="nombre" name = "nombre" type="text" class="form-control" required >
         </div>
         <div class="form-group">
             <label for="direccion">direccion</label>
-            <input id="direccion" name = "direccion" type="text" class="form-control">
+            <input id="direccion" name = "direccion" type="text" class="form-control" required >
         </div>
         <div class="form-group">
             <label for="geolocalizacion">geolocalizacion</label>
-            <input id="geolocalizacion" name = "geolocalizacion" type="text" class="form-control">
+            <input id="geolocalizacion" name = "geolocalizacion" type="text" class="form-control" required>
         </div>
        {{-- <div class="form-group">
             <label for="activo">activo</label>
