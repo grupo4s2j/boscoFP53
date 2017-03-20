@@ -27,21 +27,44 @@ class IndexController extends Controller
     public function setCookie(Request $request)
     {
         if (Cookie::get('tsfi_role') !== null){
+        //if($request->hasCookie('tsfi_role')) {
             Cookie::forget('tsfi_role');
         }
         if($request->input('rol') == 'alumno')
         {
-            //Cookie::make('rol', 'alumno', 60);
+            //Cookie::make('rol', 'alumno', 45000);
             //setcookie('rol', 'alumno', 120);
             Cookie::queue(Cookie::make('tsfi_role', 'alumno', 45000));
             return redirect('/home');
         }
         elseif($request->input('rol') == 'profesor')
         {
-            //Cookie::make('rol', 'professor', 60);
-            //setcookie('rol', 'professor', 120);
             Cookie::queue(Cookie::make('tsfi_role', 'profesor', 45000));
             return redirect('/home');
+        }
+        else{
+            return redirect('/');
+        }
+        //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
+    }
+    
+    public function changeCookie(Request $request)
+    {
+        if (Cookie::get('tsfi_role') !== null){
+        //if($request->hasCookie('tsfi_role')) {
+            Cookie::forget('tsfi_role');
+        }
+        if($request->input('rol') == 'alumno')
+        {
+            //Cookie::make('rol', 'alumno', 45000);
+            //setcookie('rol', 'alumno', 120);
+            Cookie::queue(Cookie::make('tsfi_role', 'alumno', 45000));
+            return redirect(url()->previous());
+        }
+        elseif($request->input('rol') == 'profesor')
+        {
+            Cookie::queue(Cookie::make('tsfi_role', 'profesor', 45000));
+            return redirect(url()->previous());
         }
         else{
             return redirect('/');

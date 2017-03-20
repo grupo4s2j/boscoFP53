@@ -39,7 +39,7 @@ class Recurso extends Model
     /**
      * @var array
      */
-    protected $fillable = ['titulo', 'descripcion', 'contenido', 'img', 'fechaPost', 'fechaInicio', 'fechaFin', 'rangoEdad', 'relevancia', 'idEntidadOrganizativa', 'activo', 'alumno', 'profesor'];
+    protected $fillable = ['titulo', 'descripcion', 'contenido', 'img', 'fechaPost', 'fechaInicio', 'fechaFin', 'rangoEdad', 'relevancia', 'idEntidadOrganizativa', 'activo', 'alumno', 'profesor', 'rol'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -116,7 +116,7 @@ class Recurso extends Model
         return $fechaFormat = $fecha[1] . ' ' . $fecha[2] . ', ' . $fecha[0];
     }
 
-    public static function getTopPosts(){
+    public static function getTopPosts($rol){
         $completed = false;
         $recursosTOP = array();
         $datetimenow = (new \DateTime());
@@ -126,6 +126,10 @@ class Recurso extends Model
             $recursos = Recurso::where('activo', 1)
                         ->whereDate('fechaPost','<=',$datetimenow)
                         ->whereDate('fechaPost','>',$datetimethen->sub($intervalo))
+                        ->where(function ($query) use ($rol) {
+                            $query->where('rol', '=', 0)
+                                  ->orWhere('rol', '=', $rol);
+                        })
                         ->orderBy('relevancia','desc')
                         ->orderBy('fechaPost','desc')
                         ->get();
@@ -136,6 +140,7 @@ class Recurso extends Model
                     break;
                 } 
             }
+            $datetimenow->sub($intervalo);
         }
     }
 }

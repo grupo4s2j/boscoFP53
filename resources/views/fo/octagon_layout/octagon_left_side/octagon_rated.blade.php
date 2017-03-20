@@ -7,7 +7,7 @@
             <!-- ___Start Top Rated Body___ -->
             <div class="top-rated-body">
                 @foreach($tags as $tag)
-                    <a href="#0" class="top-rated-item {{$tag->color}}">
+                    <a href="{{ url('search/'. $tag->nombre) }}" class="top-rated-item {{$tag->color}}">
                         <div class="progress" style="width:60%">
                             <div class="progress-bar" role="progressbar" aria-valuenow="{{$tag->porcentaje}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$tag->porcentaje}}%;">
                             </div>

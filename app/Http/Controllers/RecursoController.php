@@ -50,27 +50,31 @@ class RecursoController extends Controller
      * @return  \Illuminate\Http\Response
      */
     public function indexFront()
-    {
-        //$recursos = Recurso::all();
-        /*$recursos = Recurso::where('activo', 1)
-                    ->where('fechaInicio', '<', Carbon::now()->format('Y-m-d'))
-                    ->where('fechaFin', '>', Carbon::now()->format('Y-m-d'))
-                    ->orderBy('fechaPost', 'desc')
-                    ->get();*/
+    {        
+        if (\Cookie::get('tsfi_role') !== null){
+            $tsfi_role = \Cookie::get('tsfi_role');
+            if($tsfi_role == 'profesor'){
+                $rol = 2;
+            }
+            elseif($tsfi_role == 'alumno'){
+                $rol = 1;
+            }
+        }
+        
         $recursos = Recurso::where('activo', 1)
                     ->where('fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+                    ->where(function ($query) use ($rol) {
+                        $query->where('rol', '=', 0)
+                              ->orWhere('rol', '=', $rol);
+                    })
                     ->orderBy('fechaPost', 'desc')
                     ->get();
-
-        //To get recursostop
-        $recursosTOP = \App\Recurso::getTopPosts();
         
         foreach($recursos as $recurso){
             $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
         }
 
         return view('fo.tablon_recursos', compact('recursos'));
-        //return $recursos;
     }
     
     /**
