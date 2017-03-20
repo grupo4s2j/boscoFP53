@@ -34,7 +34,7 @@
                 <label for="direccion">Buscar direccion</label>
                 <div class="row-lg-12">
                     <div class="col-lg-10">
-                        <input id="input-address" name="direccion" type="text" class="form-control" required>
+                        <input id="input-address" name="direccion" type="text" class="form-control" >
                     </div>
                     <div class="col-lg-2">
                         <button id="search-address" type="button" class="btn btn-primary ">Buscar</button>

@@ -106,9 +106,9 @@ document.getElementById('search-address').addEventListener('click', function ()
 
 // Make the fields readonly
 
-document.getElementById('geolocalizacion').readOnly = true;
+//document.getElementById('geolocalizacion').readOnly = true;
 
-document.getElementById('address').readOnly = true;
+//document.getElementById('address').readOnly = true;
 
 // Initialize the previous window
 

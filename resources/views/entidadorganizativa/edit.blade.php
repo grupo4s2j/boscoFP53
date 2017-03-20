@@ -21,9 +21,9 @@
         <div class="form-group">
             <label for="geolocalizacion">Direccion</label>
             <input id="address" name="direccion" type="text" class="form-control" placeholder="Direccion"  value="{!!$entidadorganizativa->
-            direccion!!}"required>
+            direccion!!}" required>
             <input id="geolocalizacion" name="geolocalizacion" type="text" class="form-control" placeholder="Geoposicion"  value="{!!$entidadorganizativa->
-            geolocalizacion!!}"required>
+            geolocalizacion!!}" required>
 
         </div>
         {{-- <div class="form-group">
@@ -35,7 +35,7 @@
             <label for="direccion">Buscar direccion</label>
             <div class="row-lg-12">
                 <div class="col-lg-10">
-                    <input id="input-address" name="direccion" type="text" class="form-control" >
+                    <input id="input-address" name="direccion" type="text" class="form-control"  >
                 </div>
                 <div class="col-lg-2">
                     <button id="search-address" type="button" class="btn btn-primary ">Buscar</button>
