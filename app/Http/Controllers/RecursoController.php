@@ -122,7 +122,8 @@ class RecursoController extends Controller
            
             $directorio=  '/img/recursos/';
             if( !file_exists($directorio) ){
-                mkdir($directorio, 077, true);
+                //mkdir($directorio, 077, true);
+                //Controlar excepcion
             }
             $file = $request->file('img');
             $nombreimagen = $directorio . $file->getClientOriginalName();
@@ -193,7 +194,7 @@ class RecursoController extends Controller
             'test-event',
             ['message' => 'A new recurso has been created !!']);
         $Recurso= Recurso::orderBy('id', 'desc')->first();
-        $link = URL::to('/recurso/' . $Recurso->id);
+        $link = URL::to('/recursos/' . $Recurso->id);
         $Tweet = $request->titulo . "\n" . $link;
         $Imagen = \Twitter::uploadMedia(['media' => \File::get(public_path($nombreimagen))]);
         \Twitter::postTweet(['status' => $Tweet, 'media_ids' => $Imagen->media_id_string, 'format' => 'json']);
