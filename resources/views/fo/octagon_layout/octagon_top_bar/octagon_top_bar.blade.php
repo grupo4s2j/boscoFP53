@@ -29,13 +29,13 @@
             <div class="row">
                 <p>
                 Would you like to change your role?
-                @if($rol == 'alumno')
+                @if($rol == 'profesor')
                     <form method="post" action="{{ url('/rol')}}">
                         {{ csrf_field() }}
                         <input type="hidden" name="rol" value="alumno">
                         <button type="submit" class="btn btn-primary btn-lg" style="margin-left:30px;">Alumne</button>
                     </form>
-                @elseif($rol == 'profesor')
+                @elseif($rol == 'alumno')
                    <form method="post" action="{{ url('/rol')}}">
                         {{ csrf_field() }}
                         <input type="hidden" name="rol" value="profesor">
