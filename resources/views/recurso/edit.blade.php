@@ -102,11 +102,22 @@
                     <div class="form-group">
                         <label class="checkbox-inline">
                             <input type="hidden" name="alumno" value="0" />
-                            <input id="alumno" name="alumno" type="checkbox" checked value = "{{$alumno}}">Alumnos
+                            <?php if($alumno == 1){ ?>
+                                <input id="alumno" name="alumno" type="checkbox" checked value = "1">Alumnos
+                            <?php }
+                            else{ ?>
+                                <input id="alumno" name="alumno" type="checkbox" value = "1">Alumnos
+                            <?php } ?>
                         </label>
                         <label class="checkbox-inline">
                             <input type="hidden" name="profesor" value="0" />
-                            <input id="profesor" name="profesor" type="checkbox" checked value = "{{$profesor}}">Profesores
+                            <?php if($profesor == 1){ ?>
+                                <input id="profesor" name="profesor" type="checkbox" checked value = "1">Profesores
+                            <?php }
+                            else{ ?>
+                                <input id="profesor" name="profesor" type="checkbox"  value = "1">Profesores
+                            <?php } ?>
+                            
                         </label>
                     </div>
                     <button class='btn btn-primary' type='submit'>Update</button>

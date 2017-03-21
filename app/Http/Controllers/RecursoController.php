@@ -258,8 +258,8 @@ class RecursoController extends Controller
         
         $profesor = 0;
         $alumno = 0;
-        //if($request->rol == 2 || $request->rol == 0) $profesor = 1;
-        //if($request->rol == 1 || $request->rol == 0) $alumno = 1;
+        if($recurso->rol == 2 || $recurso->rol == 0){ $profesor = 1; }
+        if($recurso->rol == 1 || $recurso->rol == 0){ $alumno = 1; }
         return view('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
     }
 
@@ -336,11 +336,11 @@ class RecursoController extends Controller
 
         $recurso->profesor = $request->profesor;
         
-        /*if($request->alumno == 1 && $request->profesor == 1) $rol = 0;
+        if($request->alumno == 1 && $request->profesor == 1) $rol = 0;
         if($request->alumno == 1 && $request->profesor == 0) $rol = 1;
         if($request->alumno == 0 && $request->profesor == 1) $rol = 2;
         
-        $recurso->rol = $rol;*/
+        $recurso->rol = $rol;
 
         /* $img=$request->file('img');
          $name_img=$request->img;
