@@ -19,6 +19,8 @@
                     $i == 1 ? $i = 0 : $i++
                 @endphp
             @endforeach
+            
+            {{ $recursos->links() }}
     </div>
     @else
         No hay recusos disponibles

@@ -9,7 +9,7 @@
             @foreach ($categoria->subcategorias as $subcategoria)
                 <div class="col-md-3 col-sm-4" id="main-menu-button">
                     <div class="content-blocks-button">
-                        <a href="#"><img src="{{ asset('./img/subcategorias/'. $subcategoria->img) }}" class="image-fade">
+                        <a href="{{ url('recursos/subcategoria/' . $subcategoria->id) }}"><img src="{{ asset('./img/subcategorias/'. $subcategoria->img) }}" class="image-fade">
                             <h2 class="zoomIt" style="margin-top:15%;">{{$subcategoria->nombre}}</h2>
                         </a>  
                     </div> 

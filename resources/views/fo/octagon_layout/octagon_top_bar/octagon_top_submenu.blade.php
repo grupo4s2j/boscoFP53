@@ -7,9 +7,9 @@
                     <div class="submenu-lists">
                         <h4>{{$categoria->nombre}} News <i class="fa {{$categoria->logo}}"></i></h4>
                         <!-- ___Nav Tabs___ -->
-                        <div class="nav nav-tabs" role="tablist">
+                        <div class="nav nav-tabs">
                             @foreach($categoria->subcategorias as $subcategoria)
-                                <div class="list" role="presentation"><a href="#beauty-care" aria-controls="beauty-care" role="tab" data-toggle="tab">{{$subcategoria->nombre}}</a></div>
+                                <div class="list" role="presentation"><a href="{{ url('recursos/subcategoria/' . $subcategoria->id) }}" aria-controls="beauty-care">{{$subcategoria->nombre}}</a></div>
                             @endforeach
                         </div><!-- End Nav Tab -->
                     </div><!-- End Sub Menu List -->

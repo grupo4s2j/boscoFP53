@@ -44,6 +44,7 @@ class RecursoController extends Controller
 
         return view('recurso.index', compact('recursos', 'title'));
     }
+    
     /**
      * Mustra un tablón con todos los posts/recursos
      *
@@ -68,8 +69,97 @@ class RecursoController extends Controller
                               ->orWhere('rol', '=', $rol);
                     })
                     ->orderBy('fechaPost', 'desc')
-                    ->get();
+                    ->paginate(4);
+                    //->get();
         
+        foreach($recursos as $recurso){
+            $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
+        }
+
+        return view('fo.tablon_recursos', compact('recursos'));
+    }
+    
+    /**
+     * Mustra un tablón con todos los posts/recursos
+     *
+     * @return  \Illuminate\Http\Response
+     */
+    public function getRecursoByCategoria(Request $request, $id)
+    {        
+        if (\Cookie::get('tsfi_role') !== null){
+            $tsfi_role = \Cookie::get('tsfi_role');
+            if($tsfi_role == 'profesor'){
+                $rol = 2;
+            }
+            elseif($tsfi_role == 'alumno'){
+                $rol = 1;
+            }
+        }
+        
+        $recursos = DB::table('recursos')
+                    ->join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
+                    ->join('subcategorias', 'recursossubcategorias.idSubcategorias', '=', 'subcategorias.id')
+                    ->join('categorias', function ($join) use ($id) {
+                        $join->on('subcategorias.idCategoria', '=', 'categorias.id')
+                             ->where('categorias.id', $id);
+                    })
+                    ->where('recursos.activo', 1)
+                    ->where('recursos.fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+                    ->where(function ($query) use ($rol) {
+                        $query->where('rol', '=', 0)
+                              ->orWhere('rol', '=', $rol);
+                    })
+                    ->orderBy('recursos.fechaPost', 'desc')
+                    ->distinct()
+                    ->select('recursos.*')
+                    ->paginate(4);
+
+        foreach($recursos as $recurso){
+            $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
+        }
+
+        return view('fo.tablon_recursos', compact('recursos'));
+        
+        /* TESTING
+        ->toSql();
+        dd($recursos);
+        */
+    }
+    
+    /**
+     * Mustra un tablón con todos los posts/recursos
+     *
+     * @return  \Illuminate\Http\Response
+     */
+    public function getRecursoBySubcategoria(Request $request, $id)
+    {        
+        if (\Cookie::get('tsfi_role') !== null){
+            $tsfi_role = \Cookie::get('tsfi_role');
+            if($tsfi_role == 'profesor'){
+                $rol = 2;
+            }
+            elseif($tsfi_role == 'alumno'){
+                $rol = 1;
+            }
+        }
+        
+        $recursos = DB::table('recursos')
+                    ->join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
+                    ->join('subcategorias', function ($join) use ($id) {
+                        $join->on('recursossubcategorias.idSubcategorias', '=', 'subcategorias.id')
+                             ->where('subcategorias.id', $id);
+                    })
+                    ->where('recursos.activo', 1)
+                    ->where('recursos.fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+                    ->where(function ($query) use ($rol) {
+                        $query->where('rol', '=', 0)
+                              ->orWhere('rol', '=', $rol);
+                    })
+                    ->orderBy('recursos.fechaPost', 'desc')
+                    ->distinct()
+                    ->select('recursos.*')
+                    ->paginate(4);
+
         foreach($recursos as $recurso){
             $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
         }

@@ -151,7 +151,10 @@ Route::group(['prefix' => '/', 'middleware'=> 'checkcookie'], function(){
     Route::get('find', 'TagController@find');
     Route::get('categorias', 'CategoriaController@indexFront');
     Route::get('categorias/{id}', 'SubcategoriaController@indexFront');
-    Route::get('recursos/{id}', 'RecursoController@showRecurso');
+    //RECURSOS
     Route::get('recursos', 'RecursoController@indexFront');
+    Route::get('recursos/{id}', 'RecursoController@showRecurso');
+    Route::get('recursos/categoria/{id}', 'RecursoController@getRecursoByCategoria');
+    Route::get('recursos/subcategoria/{id}', 'RecursoController@getRecursoBySubcategoria');
 });
 ////////////////////////////////////
