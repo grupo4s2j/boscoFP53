@@ -31,7 +31,7 @@
                 <ul class="tag-mobile">
                     <li><a>Tags :</a></li>
                     @foreach($recurso->tags as $tag)
-                    <li><a href="#0">{{$tag->nombre}}</a></li>
+                    <li><a href="{{ url('search/'. $tag->nombre) }}">{{$tag->nombre}}</a></li>
                     @endforeach
                 </ul>
             </div><!-- End Tags -->

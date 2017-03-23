@@ -83,7 +83,8 @@ class TagController extends Controller
                     ->join('tags', 'tags.id', '=', 'recursotags.idTag')
                     ->whereIn('tags.nombre', $tags)
                     ->select('recursos.*')
-                    ->get();
+                    ->paginate(4);
+                    //->get();
         if(count($recursos) > 0){
             foreach($recursos as $recurso){
                 $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
