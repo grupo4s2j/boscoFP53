@@ -50,27 +50,31 @@ class RecursoController extends Controller
      * @return  \Illuminate\Http\Response
      */
     public function indexFront()
-    {
-        //$recursos = Recurso::all();
-        /*$recursos = Recurso::where('activo', 1)
-                    ->where('fechaInicio', '<', Carbon::now()->format('Y-m-d'))
-                    ->where('fechaFin', '>', Carbon::now()->format('Y-m-d'))
-                    ->orderBy('fechaPost', 'desc')
-                    ->get();*/
+    {        
+        if (\Cookie::get('tsfi_role') !== null){
+            $tsfi_role = \Cookie::get('tsfi_role');
+            if($tsfi_role == 'profesor'){
+                $rol = 2;
+            }
+            elseif($tsfi_role == 'alumno'){
+                $rol = 1;
+            }
+        }
+        
         $recursos = Recurso::where('activo', 1)
                     ->where('fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+                    ->where(function ($query) use ($rol) {
+                        $query->where('rol', '=', 0)
+                              ->orWhere('rol', '=', $rol);
+                    })
                     ->orderBy('fechaPost', 'desc')
                     ->get();
-
-        //To get recursostop
-        $recursosTOP = \App\Recurso::getTopPosts();
         
         foreach($recursos as $recurso){
             $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
         }
 
         return view('fo.tablon_recursos', compact('recursos'));
-        //return $recursos;
     }
     
     /**
@@ -108,15 +112,11 @@ class RecursoController extends Controller
     {
         $recurso = new Recurso();
 
-
         $recurso->titulo = $request->titulo;
-
 
         $recurso->descripcion = $request->descripcion;
 
-
         $recurso->contenido = $request->contenido;
-
 
         if ($request->hasFile('img')) {
            
@@ -135,20 +135,25 @@ class RecursoController extends Controller
 
         $recurso->fechaPost = $request->fechaPost;
 
-
         $recurso->fechaInicio = $request->fechaInicio;
-
 
         $recurso->fechaFin = $request->fechaFin;
 
-
         $recurso->rangoEdad = $request->rangoEdad;
-
 
         $recurso->relevancia = $request->relevancia;
 
-
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
+        
+        $recurso->alumno = $request->alumno;
+
+        $recurso->profesor = $request->profesor;
+        
+        if($request->alumno == 1 && $request->profesor == 1) $rol = 0;
+        if($request->alumno == 1 && $request->profesor == 0) $rol = 1;
+        if($request->alumno == 0 && $request->profesor == 1) $rol = 2;
+        
+        $recurso->rol = $rol;
 
         
 
@@ -198,7 +203,19 @@ class RecursoController extends Controller
         $Tweet = $request->titulo . "\n" . $link;
         $Imagen = \Twitter::uploadMedia(['media' => \File::get(public_path($nombreimagen))]);
         \Twitter::postTweet(['status' => $Tweet, 'media_ids' => $Imagen->media_id_string, 'format' => 'json']);
-        return redirect('recurso');
+
+        $title = 'Edit - Recurso';
+        $entidades = Entidadorganizativa::where('activo', '=', '1')->orderBy('nombre', 'asc')->get();
+        $tags =  Recursotag::findTagsInRecurs($recurso->id);
+        $subcategorias = Subcategoria::orderBy('nombre', 'asc')->get();
+        $ficheros = $recurso->ficheros;
+
+        $profesor = 0;
+        $alumno = 0;
+        if($recurso->rol == 2 || $recurso->rol == 0){ $profesor = 1; }
+        if($recurso->rol == 1 || $recurso->rol == 0){ $alumno = 1; }
+        $recursoSubcategorias = $recurso->subcategorias;
+        return view ('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
     }
 
     /**
@@ -241,8 +258,12 @@ class RecursoController extends Controller
         $subcategorias = Subcategoria::orderBy('nombre', 'asc')->get();
         $recursoSubcategorias = $recurso->subcategorias;
         $ficheros = Fichero::all();
-
-        return view('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias'));
+        
+        $profesor = 0;
+        $alumno = 0;
+        if($recurso->rol == 2 || $recurso->rol == 0){ $profesor = 1; }
+        if($recurso->rol == 1 || $recurso->rol == 0){ $alumno = 1; }
+        return view('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
     }
 
 
@@ -314,6 +335,16 @@ class RecursoController extends Controller
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
 
+        $recurso->alumno = $request->alumno;
+
+        $recurso->profesor = $request->profesor;
+        
+        if($request->alumno == 1 && $request->profesor == 1) $rol = 0;
+        if($request->alumno == 1 && $request->profesor == 0) $rol = 1;
+        if($request->alumno == 0 && $request->profesor == 1) $rol = 2;
+        
+        $recurso->rol = $rol;
+
         /* $img=$request->file('img');
          $name_img=$request->img;
          $img->move('/img/recur/',$name_img);
@@ -329,33 +360,36 @@ class RecursoController extends Controller
             Recursotag::destroy($pid);
 
         }
-        //TODO: Delete this to count tags on TagController with count(*)
-        foreach ($request->tag_list as $tag) {
-            $ptag = Tag::searchTag($tag, 1);
-            $p = $ptag . hasItems();
-            if ($p == "[]()") {
-                $newTag = new Tag();
-                $newTag->nombre = $tag;
-                $newTag->usado = 1;
-                $newTag->save();
 
-                $newRecTag = new Recursotag();
-                $newRecTag->idTag = $newTag->id;
-                $newRecTag->idRecursos = $recurso->id;
-                $newRecTag->activo = 1;
-                $newRecTag->save();
-            } else {
-                $tag = Tag::findOrfail($ptag[0]->id);
-                $tag->usado = $tag->usado + 1;
-                $tag->save();
+        if(isset($request->tag_list)){
+            //TODO: Delete this to count tags on TagController with count(*)
+            foreach ($request->tag_list as $tag) {
+                $ptag = Tag::searchTag($tag, 1);
+                $p = $ptag . hasItems();
+                if ($p == "[]()") {
+                    $newTag = new Tag();
+                    $newTag->nombre = $tag;
+                    $newTag->usado = 1;
+                    $newTag->save();
 
-                $newRecTag = new Recursotag();
-                $newRecTag->idTag = $ptag[0]->id;
-                $newRecTag->idRecursos = $recurso->id;
-                $newRecTag->activo = 1;
-                $newRecTag->save();
+                    $newRecTag = new Recursotag();
+                    $newRecTag->idTag = $newTag->id;
+                    $newRecTag->idRecursos = $recurso->id;
+                    $newRecTag->activo = 1;
+                    $newRecTag->save();
+                } else {
+                    $tag = Tag::findOrfail($ptag[0]->id);
+                    $tag->usado = $tag->usado + 1;
+                    $tag->save();
 
-            }
+                    $newRecTag = new Recursotag();
+                    $newRecTag->idTag = $ptag[0]->id;
+                    $newRecTag->idRecursos = $recurso->id;
+                    $newRecTag->activo = 1;
+                    $newRecTag->save();
+                }
+        }
+        
         }
         return redirect('recurso');
     }
