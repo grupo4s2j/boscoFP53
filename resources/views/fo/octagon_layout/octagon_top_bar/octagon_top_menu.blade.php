@@ -27,6 +27,7 @@
     </div>
 </div>
 <!-- End Category Nav -->
+
 @section('script')
 <script>
 $(document).ready(function () {
