@@ -212,7 +212,19 @@ class RecursoController extends Controller
         $Tweet = $request->titulo . "\n" . $link;
         $Imagen = \Twitter::uploadMedia(['media' => \File::get(public_path($nombreimagen))]);
         \Twitter::postTweet(['status' => $Tweet, 'media_ids' => $Imagen->media_id_string, 'format' => 'json']);
-        return redirect('recurso');
+
+        $title = 'Edit - Recurso';
+        $entidades = Entidadorganizativa::where('activo', '=', '1')->orderBy('nombre', 'asc')->get();
+        $tags =  Recursotag::findTagsInRecurs($recurso->id);
+        $subcategorias = Subcategoria::orderBy('nombre', 'asc')->get();
+        $ficheros = $recurso->ficheros;
+
+        $profesor = 0;
+        $alumno = 0;
+        if($recurso->rol == 2 || $recurso->rol == 0){ $profesor = 1; }
+        if($recurso->rol == 1 || $recurso->rol == 0){ $alumno = 1; }
+        $recursoSubcategorias = $recurso->subcategorias;
+        return view ('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
     }
 
     /**
