@@ -48,13 +48,13 @@
                         <label for="fechaFin">fechaFin</label>
                         <input id="fechaFin" name="fechaFin" type="text" class="form-control datepicker" required>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label for="rangoEdad">Rango de edad</label>
                         <input id="rangoEdad" name="rangoEdad" type="text" class="form-control" required>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <label for="relevancia">Relevancia</label>
-                        <input id="relevancia" name="relevancia" type="text" class="form-control" required>
+                        <input id="relevancia" name="relevancia" type="number" class="form-control" min="1" max="5" required>
                     </div>
                     <div class="form-group">
                         <label for="idEntidadOrganizativa">Entidad Organizativa</label>

@@ -112,15 +112,11 @@ class RecursoController extends Controller
     {
         $recurso = new Recurso();
 
-
         $recurso->titulo = $request->titulo;
-
 
         $recurso->descripcion = $request->descripcion;
 
-
         $recurso->contenido = $request->contenido;
-
 
         if ($request->hasFile('img')) {
            
@@ -139,18 +135,13 @@ class RecursoController extends Controller
 
         $recurso->fechaPost = $request->fechaPost;
 
-
         $recurso->fechaInicio = $request->fechaInicio;
-
 
         $recurso->fechaFin = $request->fechaFin;
 
-
         $recurso->rangoEdad = $request->rangoEdad;
 
-
         $recurso->relevancia = $request->relevancia;
-
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
         
