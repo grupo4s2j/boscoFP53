@@ -26,7 +26,6 @@ class MainPageController extends Controller
             }
         }
         
-        //return \View::make('fo.home', compact('categorias', 'tags'));
         $recursos = Recurso::where('activo', 1)->get();
         
         //To get recursostop
