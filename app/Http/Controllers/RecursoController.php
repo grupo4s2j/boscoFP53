@@ -86,7 +86,7 @@ class RecursoController extends Controller
      */
     public function getRecursoByCategoria(Request $request, $id)
     {        
-        if (\Cookie::get('tsfi_role') !== null){
+        /*if (\Cookie::get('tsfi_role') !== null){
             $tsfi_role = \Cookie::get('tsfi_role');
             if($tsfi_role == 'profesor'){
                 $rol = 2;
@@ -94,7 +94,9 @@ class RecursoController extends Controller
             elseif($tsfi_role == 'alumno'){
                 $rol = 1;
             }
-        }
+        }*/
+        
+        $rol = \Cookie::get('tsfi_role');
         
         $recursos = DB::table('recursos')
                     ->join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
@@ -128,7 +130,7 @@ class RecursoController extends Controller
      */
     public function getRecursoBySubcategoria(Request $request, $id)
     {        
-        if (\Cookie::get('tsfi_role') !== null){
+        /*if (\Cookie::get('tsfi_role') !== null){
             $tsfi_role = \Cookie::get('tsfi_role');
             if($tsfi_role == 'profesor'){
                 $rol = 2;
@@ -136,7 +138,9 @@ class RecursoController extends Controller
             elseif($tsfi_role == 'alumno'){
                 $rol = 1;
             }
-        }
+        }*/
+        
+        $rol = \Cookie::get('tsfi_role');
         
         $recursos = DB::table('recursos')
                     ->join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
@@ -155,9 +159,9 @@ class RecursoController extends Controller
                     ->select('recursos.*')
                     ->paginate(4);
 
-        foreach($recursos as $recurso){
+        /*foreach($recursos as $recurso){
             $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
-        }
+        }*/
 
         return view('fo.tablon_recursos', compact('recursos'));
     }

@@ -45,7 +45,6 @@ class CategoriaController extends Controller
 
     public function indexFront()
     {
-        //$categorias = Categoria::all();
         $categorias = Categoria::where('activo', 1)->get();
 
         return view('fo.categorias', compact('categorias'));

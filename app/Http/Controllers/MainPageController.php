@@ -30,7 +30,7 @@ class MainPageController extends Controller
         $recursos = Recurso::where('activo', 1)->get();
         
         //To get recursostop
-        $recursosTOP = \App\Recurso::getTopPosts($rol);
+        //$recursosTOP = \App\Recurso::getTopPosts($rol);
 
         return view('fo.home', compact('recursos', 'recursosTOP'));
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
