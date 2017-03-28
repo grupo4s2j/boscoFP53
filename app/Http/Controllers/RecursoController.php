@@ -64,7 +64,7 @@ class RecursoController extends Controller
                     ->orderBy('fechaPost', 'desc')
                     ->paginate(4);
         
-        $recursos = recursosFechaHora($recursos); //Trait
+        $recursos = $this->recursosFechaHora($recursos); //Trait
 
         return view('fo.tablon_recursos', compact('recursos'));
     }
@@ -96,7 +96,7 @@ class RecursoController extends Controller
                     ->select('recursos.*')
                     ->paginate(4);
         
-        $recursos = recursosFechaHora($recursos);
+        $recursos = $this->recursosFechaHora($recursos);
 
         return view('fo.tablon_recursos', compact('recursos'));
     }
@@ -127,7 +127,7 @@ class RecursoController extends Controller
                     ->select('recursos.*')
                     ->paginate(4);
         
-        $recursos = recursosFechaHora($recursos);
+        $recursos = $this->recursosFechaHora($recursos);
                     
         
         /*
@@ -147,7 +147,8 @@ class RecursoController extends Controller
     public function showRecurso($id)
     {
         $recurso = Recurso::find($id);
-        $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
+        $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost); 
+        $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
 
         return view('fo.recurso_post', compact('recurso'));
     }
