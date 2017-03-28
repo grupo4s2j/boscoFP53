@@ -20,6 +20,8 @@ use App\Recursotag;
  */
 class TagController extends Controller
 {
+    use \Traits\FuncionesExtra; //Trait
+    
     /**
      * Buscador de Tags
      *
@@ -78,18 +80,16 @@ class TagController extends Controller
      */
     public function queryRecursos($tags)
     {
+        $rol = $this->getAndSetCookieValue();
+        
         $recursos = DB::table('recursos')
                     ->join('recursotags', 'recursos.id', '=', 'recursotags.idRecursos')
                     ->join('tags', 'tags.id', '=', 'recursotags.idTag')
                     ->whereIn('tags.nombre', $tags)
                     ->select('recursos.*')
                     ->paginate(4);
-                    //->get();
-        if(count($recursos) > 0){
-            foreach($recursos as $recurso){
-                $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
-            }
-        }
+        
+        $recursos = $this->recursosFechaHora($recursos);
 
         return $recursos;
     }

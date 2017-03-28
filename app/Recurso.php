@@ -90,56 +90,6 @@ class Recurso extends Model
     {
         return $this->belongsToMany('App\Tag', 'recursotags', 'idRecursos', 'idTag');
     }
-    
-    /**
-     * Formatea la fecha para que se muestre como queremos
-     *
-     * @return  $recurso->fecha
-     */
-    public static function formatFecha($fechaPosteo)
-    {
-        $fecha = explode('-', $fechaPosteo);
-        switch($fecha[1]){
-            case '01' : $fecha[1] = 'January';break;
-            case '02' : $fecha[1] = 'February';break;
-            case '03' : $fecha[1] = 'March';break;
-            case '04' : $fecha[1] = 'April';break;
-            case '05' : $fecha[1] = 'May';break;
-            case '06' : $fecha[1] = 'June';break;
-            case '07' : $fecha[1] = 'July';break;
-            case '08' : $fecha[1] = 'August';break;
-            case '09' : $fecha[1] = 'September';break;
-            case '10' : $fecha[1] = 'October';break;
-            case '11' : $fecha[1] = 'November';break;
-            case '12' : $fecha[1] = 'December';break;
-        }
-        return $fechaFormat = $fecha[1] . ' ' . $fecha[2] . ', ' . $fecha[0];
-    }
-    
-    /**
-     * Formatea la fecha para que se muestre como queremos
-     *
-     * @return  $recurso->fecha
-     */
-    public function fechaPosteo()
-    {
-        $fecha = explode('-', $this->fechaPost);
-        switch($fecha[1]){
-            case '01' : $fecha[1] = 'January';break;
-            case '02' : $fecha[1] = 'February';break;
-            case '03' : $fecha[1] = 'March';break;
-            case '04' : $fecha[1] = 'April';break;
-            case '05' : $fecha[1] = 'May';break;
-            case '06' : $fecha[1] = 'June';break;
-            case '07' : $fecha[1] = 'July';break;
-            case '08' : $fecha[1] = 'August';break;
-            case '09' : $fecha[1] = 'September';break;
-            case '10' : $fecha[1] = 'October';break;
-            case '11' : $fecha[1] = 'November';break;
-            case '12' : $fecha[1] = 'December';break;
-        }
-        return $this->fechaPosteo = $fecha[1] . ' ' . $fecha[2] . ', ' . $fecha[0];
-    }
 
     public static function getTopPosts($rol){
         $completed = false;

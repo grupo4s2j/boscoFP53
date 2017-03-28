@@ -30,6 +30,7 @@ use Intervention\Image\ImageManagerStatic as Image;
  */
 class RecursoController extends Controller
 {
+    use \Traits\FuncionesExtra; //Trait
     /**
      * Display a listing of the resource.
      *
@@ -52,29 +53,18 @@ class RecursoController extends Controller
      */
     public function indexFront()
     {        
-        if (\Cookie::get('tsfi_role') !== null){
-            $tsfi_role = \Cookie::get('tsfi_role');
-            if($tsfi_role == 'profesor'){
-                $rol = 2;
-            }
-            elseif($tsfi_role == 'alumno'){
-                $rol = 1;
-            }
-        }
+        $rol = $this->getAndSetCookieValue();
         
         $recursos = Recurso::where('activo', 1)
-                    ->where('fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+                    ->where('fechaPost', '<=', Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
                     ->where(function ($query) use ($rol) {
                         $query->where('rol', '=', 0)
                               ->orWhere('rol', '=', $rol);
                     })
                     ->orderBy('fechaPost', 'desc')
                     ->paginate(4);
-                    //->get();
         
-        foreach($recursos as $recurso){
-            $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
-        }
+        $recursos = recursosFechaHora($recursos); //Trait
 
         return view('fo.tablon_recursos', compact('recursos'));
     }
@@ -85,18 +75,8 @@ class RecursoController extends Controller
      * @return  \Illuminate\Http\Response
      */
     public function getRecursoByCategoria(Request $request, $id)
-    {        
-        /*if (\Cookie::get('tsfi_role') !== null){
-            $tsfi_role = \Cookie::get('tsfi_role');
-            if($tsfi_role == 'profesor'){
-                $rol = 2;
-            }
-            elseif($tsfi_role == 'alumno'){
-                $rol = 1;
-            }
-        }*/
-        
-        $rol = \Cookie::get('tsfi_role');
+    {                
+        $rol = $this->getAndSetCookieValue();
         
         $recursos = DB::table('recursos')
                     ->join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
@@ -115,10 +95,8 @@ class RecursoController extends Controller
                     ->distinct()
                     ->select('recursos.*')
                     ->paginate(4);
-
-        foreach($recursos as $recurso){
-            $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
-        }
+        
+        $recursos = recursosFechaHora($recursos);
 
         return view('fo.tablon_recursos', compact('recursos'));
     }
@@ -130,17 +108,7 @@ class RecursoController extends Controller
      */
     public function getRecursoBySubcategoria(Request $request, $id)
     {        
-        /*if (\Cookie::get('tsfi_role') !== null){
-            $tsfi_role = \Cookie::get('tsfi_role');
-            if($tsfi_role == 'profesor'){
-                $rol = 2;
-            }
-            elseif($tsfi_role == 'alumno'){
-                $rol = 1;
-            }
-        }*/
-        
-        $rol = \Cookie::get('tsfi_role');
+        $rol = $this->getAndSetCookieValue();
         
         $recursos = DB::table('recursos')
                     ->join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
@@ -149,7 +117,7 @@ class RecursoController extends Controller
                              ->where('subcategorias.id', $id);
                     })
                     ->where('recursos.activo', 1)
-                    ->where('recursos.fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+                    ->where('recursos.fechaPost', '<=', Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
                     ->where(function ($query) use ($rol) {
                         $query->where('rol', '=', 0)
                               ->orWhere('rol', '=', $rol);
@@ -158,10 +126,15 @@ class RecursoController extends Controller
                     ->distinct()
                     ->select('recursos.*')
                     ->paginate(4);
-
-        /*foreach($recursos as $recurso){
-            $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost);
-        }*/
+        
+        $recursos = recursosFechaHora($recursos);
+                    
+        
+        /*
+        foreach($recursos as $recurso){
+            $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost); 
+        }
+        */
 
         return view('fo.tablon_recursos', compact('recursos'));
     }
