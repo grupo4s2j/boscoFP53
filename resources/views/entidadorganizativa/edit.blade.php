@@ -51,6 +51,6 @@
         </div>
     </form>
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyAv0cR_5TFppsd9IH6GBPhmXl6jL-R2KwQ"></script>
-    <script src="/js/updateLocations.js"></script>
+    <script src='{{asset("/js/updateLocations.js")}}'></script>
 </section>
 @endsection

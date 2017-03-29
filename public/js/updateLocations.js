@@ -185,7 +185,7 @@ function geocodeAddress(geocoder, resultsMap, address)
 function bindLocationData() {
     document.getElementById('geolocalizacion').setAttribute('value', document.getElementById('lat').value+','+document.getElementById('lng').value);
     document.getElementById('address').setAttribute('value', document.getElementById('googleAddress').value);
-    
+    alert( document.getElementById('googleAddress').value);
 }
 /**
  * Created by Enric Borrallo on 04/01/17.
@@ -219,7 +219,8 @@ function geocodeLatLng(geocoder, map, infowindow) {
                 //document.getElementById('latitude').setAttribute('value', latlngStr[0]);
                 //document.getElementById('longitude').setAttribute('value', latlngStr[1]);
                 document.getElementById('geolocalizacion').setAttribute('value',input);
-                    document.getElementById('address').setAttribute('value', results[1].formatted_address);
+                document.getElementById('address').setAttribute('value', results[1].formatted_address);
+
             } else {
                 window.alert('No results found');
             }
