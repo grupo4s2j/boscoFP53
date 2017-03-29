@@ -39,7 +39,7 @@ class Recurso extends Model
     /**
      * @var array
      */
-    protected $fillable = ['titulo', 'descripcion', 'contenido', 'img', 'fechaPost', 'fechaInicio', 'fechaFin', 'rangoEdad', 'relevancia', 'idEntidadOrganizativa', 'activo', 'alumno', 'profesor', 'rol'];
+    protected $fillable = ['titulo', 'descripcion', 'contenido', 'img', 'fechaPost', 'fechaInicio', 'fechaFin', 'rangoEdad', 'relevancia', 'idEntidadOrganizativa', 'activo', 'rol'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
