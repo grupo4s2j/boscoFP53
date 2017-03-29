@@ -160,5 +160,9 @@ Route::group(['prefix' => '/', 'middleware'=> 'checkcookie'], function(){
     Route::get('search/tag/{tag}', 'TagController@searchByTag');
     //BUSCADOR
     Route::get('find', 'TagController@find');
+    //CONTACTO
+    Route::get('contacto', function(){
+        return view('fo.contact');
+    });
 });
 ////////////////////////////////////
