@@ -24,7 +24,7 @@
                     </li>
                     <li><a href="{{ url('/recursos') }}">Recursos</a></li>
                     <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{{ url('/contacto') }}">Contact</a></li>
                 </ul>
             </div><!-- End Menu Body -->
         </div><!-- End According Content -->

@@ -4,8 +4,7 @@
     <section id="content-blocks">
         <div class="row" id="content-blocks-row">
 
-<!---------------------------------->	
-
+<!-------------------------------->	
             @if(isset($categorias) && !empty($categorias) && count($categorias) >= 1)
                 @foreach ($categorias as $categoria)
                     <div class="col-md-3 col-sm-4" id="main-menu-button">
@@ -25,14 +24,15 @@
 
         </div> <!-- row-->			    					                                     	 
     </section>
-    @section('scripts')
-    <!--<script>
-        $("a h2").hover(function(){
-            $(this).animate({fontSize: "26px"}, 400)
-        }, function() {
-            $(this).animate({fontSize: "24px"}, 400)  
-        })
-    </script>-->
-    @endsection
-
 @endsection
+
+@section('script')
+<!--<script type="application/javascript">
+    $("a h2").hover(function(){
+       $(this).animate({fontSize: "26px"}, 400)
+   }, function() {
+      $(this).animate({fontSize: "24px"}, 400)  
+    })
+</script>-->
+@endsection
+
