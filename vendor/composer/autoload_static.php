@@ -932,7 +932,7 @@ class ComposerStaticInitbb20f31b89af17383226c4b1976f0ca4
         'Tags' => __DIR__ . '/../..' . '/database/migrations/2017_02_09_035002_tags.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
-        'Traits\\FuncionesExtra' => __DIR__ . '/../..' . '/app/traits/FuncionesExtra.php',
+        'Traits\\FuncionesExtra' => __DIR__ . '/../..' . '/app/Traits/FuncionesExtra.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -558,5 +558,5 @@ return array(
     'Tags' => $baseDir . '/database/migrations/2017_02_09_035002_tags.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
-    'Traits\\FuncionesExtra' => $baseDir . '/app/traits/FuncionesExtra.php',
+    'Traits\\FuncionesExtra' => $baseDir . '/app/Traits/FuncionesExtra.php',
 );
