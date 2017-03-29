@@ -8,9 +8,11 @@ if (isset($_POST['title']) && isset($_POST['start']) && isset($_POST['end']) && 
 	$title = $_POST['title'];
 	$start = $_POST['start'];
 	$end = $_POST['end'];
+	$descripcion = $_POST['descripcion'];
+	$relevancia = $_POST['relevancia'];
 	$color = $_POST['color'];
 
-	$sql = "INSERT INTO eventos(titulo, fechaInicio, fechaFin, color) values ('$title', '$start', '$end', '$color')";
+	$sql = "INSERT INTO recursos(titulo, fechaInicio, fechaFin, color, descripcion, relevancia) values ('$title', '$start', '$end', '$color', '$descripcion', '$relevancia')";
 	//$req = $bdd->prepare($sql);
 	//$req->execute();
 	

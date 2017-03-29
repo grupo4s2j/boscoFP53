@@ -14,8 +14,8 @@ return [
 	'REQUEST_TOKEN_URL'   => 'https://api.twitter.com/oauth/request_token',
 	'USE_SSL'             => true,
 
-	'CONSUMER_KEY'        => 'lvxRcYIDeISdtCwuFdoAirORm',
-	'CONSUMER_SECRET'     => 'qnb5HnB3XwU6cjaf6Qp4LyGMlehFWcLWLPSiiyC6Q3ICwQnbT6',
-	'ACCESS_TOKEN'        => '839873928227008513-Vcr9BxYBX1HvVParGmY5come6azN30W',
-	'ACCESS_TOKEN_SECRET' => 'JaFpKNSFnCAr2u00F7yp7hV4dhgDiES9ZLBVZ6dzeEbOT',
+	'CONSUMER_KEY'        => '3epC3qxye1g9DYJ5hKFYo4o5C',
+	'CONSUMER_SECRET'     => 'rW6q7AcuUTfzTaIUFPH3M2i7bsrvJxtKhbRfgTMSi4QRcCdEyY',
+	'ACCESS_TOKEN'        => '845301470249582596-CXJQs0jTLABBdfkwFt8vN1evmmKpD6A',
+	'ACCESS_TOKEN_SECRET' => 'Fs05B82Y6FnOc45YwaPApgVZA6yDAaGjcqTYB51FanVTL',
 ];

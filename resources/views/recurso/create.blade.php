@@ -1,6 +1,12 @@
 @extends('scaffold-interface.layouts.app')
 <script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="{{ url('js/ImgMuestra.js') }}"></script>
+<link rel="stylesheet" href="{{ url('css/iziToast.min.css') }}">
+<script type="text/javascript" src="{{ url('js/ComprobarImagen.js') }}"></script>
+<script type="text/javascript" src="{{ url('js/iziToast.min.js') }}"></script>
 <script type="text/javascript" src="/js/ImgMuestra.js"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @section('title','Create')
 @section('content')
 
@@ -19,7 +25,7 @@
                     <input type='hidden' name='_token' value='{{Session::token()}}'>
                     <div class="form-group">
                         <label for="titulo">Titulo</label>
-                        <input id="titulo" name="titulo" type="text" class="form-control" required>
+                        <input id="titulo" name="titulo" pattern=".{1,100}" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="descripcion">Descripcion</label>
@@ -32,21 +38,38 @@
                     </div>
                     <div class="form-group">
                         <label for="img">img</label><br>
-                        <input id="botonimg" type="button" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
-                        <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px; display:none" src=" ">
-                        <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none" required>
+                        <input id="botonimg" style="position: absolute; left: 250px; " type="button"  class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+                        <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px">
+                            <img id="imgmuestra" style="width: 200px; height: 200px; margin: 5 5 5 5;" src=" "></img>
+                        </div>
+                    
+                        <input required id="img" accept="image/*" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
                     </div>
                     <div class="form-group">
                         <label for="fechaPost">fechaPost</label>
-                        <input id="fechaPost" name="fechaPost" type="text" class="form-control datepicker" required>
+                        <input id="fechaPost" name="fechaPost" type="datetime-local" class="form-control" required>
                     </div>
+                    <script>
+                    <?php 
+                    date_default_timezone_set('Europe/Madrid');
+                    $date = date('Y-m-d', time());
+                    $time = date('H:i', time());
+                    $datetime = $date . "T" . $time;
+                    ?>
+                    document.getElementById("fechaPost").value ="<?php echo $datetime?>";
+                    </script>
+                    <div class="form-group">
+                    <input type="checkbox" id="eventocb" data-toggle="toggle">
+                    </div>
+                    <div id = "divEventos">
                     <div class="form-group">
                         <label for="fechaInicio">fechaInicio</label>
-                        <input id="fechaInicio" name="fechaInicio" type="text" class="form-control datepicker" required>
+                        <input id="fechaInicio" name="fechaInicio" type="datetime-local" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="fechaFin">fechaFin</label>
-                        <input id="fechaFin" name="fechaFin" type="text" class="form-control datepicker" required>
+                        <input id="fechaFin" name="fechaFin" type="datetime-local" class="form-control" required>
+                    </div>
                     </div>
                     <!--<div class="form-group">
                         <label for="rangoEdad">Rango de edad</label>
@@ -80,16 +103,37 @@
                     <div class="form-group">
                         <label class="checkbox-inline">
                             <input type="hidden" name="alumno" value="0" />
-                            <input id="alumno" name="alumno" type="checkbox" checked value = "1">Alumnos
                         </label>
+                            <input id="alumno" name="alumno" type="checkbox" checked value = "1">Alumnos
                         <label class="checkbox-inline">
                             <input type="hidden" name="profesor" value="0" />
                             <input id="profesor" name="profesor" type="checkbox" checked value = "1">Profesores
                         </label>
                     </div>
-                    <button class='btn btn-primary' type='submit'>Create</button>
+                    <button class='btn btn-primary' onclick="ComprobarImagen()" type='submit'>Create</button>
                 </form>
             </div>
         </div>
     </section>
+    <script>
+        $('#eventocb').bootstrapToggle({
+            on: 'Evento',
+            off: 'Recurso'
+        });
+        $('#divEventos').hide();
+        $("#fechaInicio").prop('disabled', true);
+        $("#fechaFin").prop('disabled', true);
+        $( "#eventocb" ).change(function() {
+        if($("#eventocb").is(':checked')){
+            $('#divEventos').show();
+            $("#fechaInicio").prop('disabled', false);
+            $("#fechaFin").prop('disabled', false);
+        }
+        else{
+            $('#divEventos').hide();
+            $("#fechaInicio").prop('disabled', true);
+            $("#fechaFin").prop('disabled', true);
+        }
+        });
+    </script>
 @endsection

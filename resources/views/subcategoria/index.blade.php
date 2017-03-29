@@ -44,7 +44,7 @@
             <tr role="row" class="odd">
                 <td class="sorting_1" >{!!$subcategoria->nombre!!}</td>
                 <td>{!!$subcategoria->categoria->nombre!!}</td>
-                <td><a href="{!!$subcategoria->img!!}">Imagen</a></td>
+                <td><a href="{{asset('img/subcategorias/')}}/{!!$subcategoria->img!!}">Imagen</a></td>
 
                 <td>
                     <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/subcategoria/{!!$subcategoria->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>

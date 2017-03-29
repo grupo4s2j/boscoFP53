@@ -1,6 +1,9 @@
 @extends('scaffold-interface.layouts.app')
 <script src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="/js/ImgMuestra.js"></script>
+<link rel="stylesheet" href="{{ url('css/iziToast.min.css') }}">
+<script type="text/javascript" src="{{ url('js/iziToast.min.js') }}"></script>
+<script type="text/javascript" src="{{ url('js/ImgMuestra.js') }}"></script>
+<script type="text/javascript" src="{{ url('js/ComprobarImagenEdit.js') }}"></script>
 @section('title','Edit')
 @section('content')
 
@@ -14,26 +17,28 @@
     <br>
     <form method = 'POST' action = '{!! url("categoria")!!}/{!!$categoria->
         id!!}/update' enctype="multipart/form-data"> 
-        <input type = 'hidden' name = '_token' value = '{{Session::token()}}' >
+        <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="nombre">nombre</label>
             <input id="nombre" name = "nombre" type="text" class="form-control" value="{!!$categoria->
-            nombre!!}" required >
+            nombre!!}"> 
         </div>
         <div class="form-group">
             <label for="color">color</label>
             <input id="color" name = "color" type="text" class="form-control" value="{!!$categoria->
-            color!!}" required >
+            color!!}">
         </div>
         <div class="form-group">
             <label for="img">img</label><br>
-            <input id="botonimg" type="button" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
-            <img id="imgmuestra" class="form-control" style="width: 200px; height: 200px" src="/img/categorias/{{ $categoria->img }}">
-            <input id="img" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none" required >
+            <input id="botonimg" type="button" style="position: absolute; left: 490px;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+            <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px; border: 3px solid black">
+                <img id="imgmuestra"  style="width: 200px; height: 200px; margin: 5 5 5 5;" src="{{asset('img/categorias/')}}/{!!$categoria->img!!}"></img>
+            </div>
+            <input  id="img" name="img" type="file" accept="image/*" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
         </div>
         <div class="form-group">
             <label for="logo">logo</label>
-            <select id="logo" name="logo" type="text" class="form-control" style="font-family: 'FontAwesome', 'sans-serif'" required>
+            <select id="logo" name="logo" type="text" class="form-control" style="font-family: 'FontAwesome', 'sans-serif'">
                 <option value="{!!$categoria-> logo!!}" selected="selected"  >{!!$categoria-> logo!!}</option>
                 <option value="fa-align-left">&#xf036; fa-align-left</option>
                 <option value="fa-align-right">&#xf038; fa-align-right</option>
@@ -474,7 +479,9 @@
             <input id="orden" name = "orden" type="text" class="form-control" value="{!!$categoria->
             orden!!}">
         </div>
-        <button class = 'btn btn-primary' type ='submit'>Update</button>
+        <button class = 'btn btn-primary' onclick="ComprobarImagen()" type ='submit'>Update</button>
     </form>
 </section>
 @endsection
+
+            

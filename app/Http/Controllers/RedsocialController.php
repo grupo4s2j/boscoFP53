@@ -77,7 +77,16 @@ class RedsocialController extends Controller
         
         $redsocial->link = $request->link;
 
-        
+        if ($request->hasFile('img')) {
+           
+            $directorio=  '/img/redsocial/';
+          
+            $file = $request->file('img');
+            $nombreimagen = $directorio . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+
+            $recurso->img = $file->getClientOriginalName();
+        }
         
         $redsocial->save();
 
@@ -148,6 +157,16 @@ class RedsocialController extends Controller
         
         $redsocial->link = $request->link;
         
+        if ($request->hasFile('img')) {
+           
+            $directorio=  '/img/redsocial/';
+          
+            $file = $request->file('img');
+            $nombreimagen = $directorio . $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+
+            $redsocial->logo = $file->getClientOriginalName();
+        }
         
         $redsocial->save();
 

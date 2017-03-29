@@ -25,7 +25,7 @@
         <tbody>
             @foreach($banners as $banner) 
             <tr>
-                <td><img src="/img/banners/{!!$banner->img!!}" style="height: 100px; width: 100px;"></img></td>
+                <td><img src="{{asset('img/banners/')}}/{!!$banner->img!!}" style="height: 100px; width: 100px;"></img></td>
                 <td>{!!$banner->url!!}</td>
                 {{--<td>{!!$banner->activo!!}</td>--}}
                 <td>

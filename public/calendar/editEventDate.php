@@ -10,7 +10,7 @@ if (isset($_POST['Event'][0]) && isset($_POST['Event'][1]) && isset($_POST['Even
 	$start = $_POST['Event'][1];
 	$end = $_POST['Event'][2];
 
-	$sql = "UPDATE eventos SET  fechaInicio = '$start', fechaFin = '$end' WHERE id = $id ";
+	$sql = "UPDATE recursos SET  fechaInicio = '$start', fechaFin = '$end' WHERE id = $id ";
 
 	
 	$query = $bdd->prepare( $sql );

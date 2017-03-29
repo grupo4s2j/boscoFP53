@@ -79,10 +79,8 @@ class CategoriaController extends Controller
            
             $file = $request->file('img');
 
-            $directorio=  '/img/categorias/';
-            if( !file_exists($directorio) ){
-                mkdir($directorio, 077, true);
-            }
+            $directorio= '/img/categorias/';
+           
             $nombreimagen =  $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
@@ -165,9 +163,7 @@ class CategoriaController extends Controller
         if ($request->hasFile('img')) {
             
             $directorio=  '/img/categorias/';
-            if( !file_exists($directorio) ){
-                mkdir($directorio, 077, true);
-            }
+          
             $file = $request->file('img');
             $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));

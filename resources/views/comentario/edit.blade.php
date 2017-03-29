@@ -48,7 +48,7 @@
             <input id="idRecurso" name = "idRecurso" type="text" class="form-control" value="{!!$comentario->
             idRecurso!!}"> 
         </div>
-        <button class = 'btn btn-primary' type ='submit'>Update</button>
+        <button class = 'btn btn-primary' onclick="ComprobarImagen()" type ='submit'>Update</button>
     </form>
 </section>
 @endsection
