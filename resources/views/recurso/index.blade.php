@@ -10,6 +10,13 @@
         <h1>
             Recurso Index
         </h1>
+        <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Lista</a></li>
+            <li class="pull-right"><a href="#tab_2" data-toggle="tab" aria-expanded="false">Calendario</a></li>
+        </ul>
+                <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
         <form class='col s3' method='get' action='{!!url("recurso")!!}/create'>
             <button class='btn btn-primary' type='submit'>Create New recurso</button>
         </form>
@@ -51,7 +58,7 @@
                     <td class="sorting_1">{!!$recurso->titulo!!}</td>
                     <td>{!!$recurso->descripcion!!}</td>
                     <!--<td>{/*!!$recurso->contenido!!*/}</td>-->
-                    <td><a href="{!!$recurso->img!!}">Imagen</a></td>
+                    <td><a href="{{asset('img/recursos/')}}/{!!$recurso->img!!}">Imagen</a></td>
                     {{--<td><img src="{!!$recurso->img!!}" style="width: 100px; height: 100px;"></img></td>--}}
                     <td>{!!$recurso->fechaPost!!}</td>
                     {{--<td>{!!$recurso->fechaInicio!!}</td>--}}
@@ -71,18 +78,19 @@
                 </tr>
             @endforeach
             </tbody>
-            <tfoot>
-            <tr>
-                <th rowspan="1" colspan="1">titulo</th>
-                <th rowspan="1" colspan="1">descripcion</th>
-                <th rowspan="1" colspan="1">img</th>
-                <th rowspan="1" colspan="1">fechaPost</th>
-                <th rowspan="1" colspan="1">EntidadOrganizativa</th>
-                <th rowspan="1" colspan="1">actions</th>
-            </tr>
-            </tfoot>
         </table>
         {{--{!! $recursos->render() !!}--}}
+            </div>
+            <!-- /.tab-pane -->
+            <div class="tab-pane" id="tab_2">
+                <iframe src="./calendar" width="100%" height="750px" frameBorder="0">
 
+                </iframe>
+            </div>
+
+            <!-- /.tab-pane -->
+        </div>
+        <!-- /.tab-content -->
+    </div>
     </section>
 @endsection

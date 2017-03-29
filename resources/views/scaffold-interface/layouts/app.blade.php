@@ -140,8 +140,8 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
                                 class='fa fa-hashtag'></i> <span>Tags</span></a></li>
                 <li {{{ (Request::is('banner') ? 'class=active' : '') }}}><a href="{{ url('banner') }}"><i
                                 class='fa fa-bullhorn'></i> <span>Banners</span></a></li>
-                <li {{{ (Request::is('evento') ? 'class=active' : '') }}}><a href="{{ url('evento') }}"><i
-                                class='fa fa-calendar'></i> <span>Eventos</span></a></li>
+                <!--<li {{{ (Request::is('evento') ? 'class=active' : '') }}}><a href="{{ url('evento') }}"><i
+                                class='fa fa-calendar'></i> <span>Eventos</span></a></li>-->
                 <li {{{ (Request::is('redsocial') ? 'class=active' : '') }}}><a href="{{ url('redsocial') }}"><i
                                 class='fa fa-twitter'></i> <span>Redes Sociales</span></a></li>
                 <li class="header">ADMINISTRATOR</li>

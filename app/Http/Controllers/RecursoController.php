@@ -22,6 +22,7 @@ use Thujohn\Twitter\Facades;
 use Collective\Html;
 // import the Intervention Image Manager Class
 use Intervention\Image\ImageManagerStatic as Image;
+
 /**
  * Class RecursoController.
  *
@@ -38,9 +39,9 @@ class RecursoController extends Controller
      */
     public function index()
     {
-        $recursos = Recurso::where('recursos.activo', '=', '1')->orderBy('titulo','asc')
+        $recursos = Recurso::where('recursos.activo', '=', '1')->orderBy('titulo', 'asc')
             -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
-            ->select('recursos.*','entidadorganizativas.nombre')->get();
+            ->select('recursos.*', 'entidadorganizativas.nombre')->get();
         $title = 'Index - Recurso';
 
         return view('recurso.index', compact('recursos', 'title'));
@@ -182,9 +183,8 @@ class RecursoController extends Controller
         $recurso->contenido = $request->contenido;
 
         if ($request->hasFile('img')) {
-           
             $directorio=  '/img/recursos/';
-            if( !file_exists($directorio) ){
+            if (!file_exists($directorio)) {
                 //mkdir($directorio, 077, true);
                 //Controlar excepcion
             }
@@ -212,9 +212,15 @@ class RecursoController extends Controller
 
         $recurso->profesor = $request->profesor;
         
-        if($request->alumno == 1 && $request->profesor == 1) $rol = 0;
-        if($request->alumno == 1 && $request->profesor == 0) $rol = 1;
-        if($request->alumno == 0 && $request->profesor == 1) $rol = 2;
+        if ($request->alumno == 1 && $request->profesor == 1) {
+            $rol = 0;
+        }
+        if ($request->alumno == 1 && $request->profesor == 0) {
+            $rol = 1;
+        }
+        if ($request->alumno == 0 && $request->profesor == 1) {
+            $rol = 2;
+        }
         
         $recurso->rol = $rol;
 
@@ -247,7 +253,6 @@ class RecursoController extends Controller
                 $newRecTag->idRecursos = $recurso->id;
                 $newRecTag->activo = 1;
                 $newRecTag->save();
-
             }
         }
 
@@ -262,8 +267,9 @@ class RecursoController extends Controller
             'test-event',
             ['message' => 'A new recurso has been created !!']);
         $Recurso= Recurso::orderBy('id', 'desc')->first();
-        $link = URL::to('/recursos/' . $Recurso->id);
-        $Tweet = $request->titulo . "\n" . $link;
+        $link = URL::to('recursos/' . $Recurso->id);
+        $titulo = substr($request->titulo, 0, 40);
+        $Tweet = $titulo . "\n" . $link;
         $Imagen = \Twitter::uploadMedia(['media' => \File::get(public_path($nombreimagen))]);
         \Twitter::postTweet(['status' => $Tweet, 'media_ids' => $Imagen->media_id_string, 'format' => 'json']);
 
@@ -275,8 +281,12 @@ class RecursoController extends Controller
 
         $profesor = 0;
         $alumno = 0;
-        if($recurso->rol == 2 || $recurso->rol == 0){ $profesor = 1; }
-        if($recurso->rol == 1 || $recurso->rol == 0){ $alumno = 1; }
+        if ($recurso->rol == 2 || $recurso->rol == 0) {
+            $profesor = 1;
+        }
+        if ($recurso->rol == 1 || $recurso->rol == 0) {
+            $alumno = 1;
+        }
         $recursoSubcategorias = $recurso->subcategorias;
         return view ('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
     }
@@ -324,8 +334,12 @@ class RecursoController extends Controller
         
         $profesor = 0;
         $alumno = 0;
-        if($recurso->rol == 2 || $recurso->rol == 0){ $profesor = 1; }
-        if($recurso->rol == 1 || $recurso->rol == 0){ $alumno = 1; }
+        if ($recurso->rol == 2 || $recurso->rol == 0) {
+            $profesor = 1;
+        }
+        if ($recurso->rol == 1 || $recurso->rol == 0) {
+            $alumno = 1;
+        }
         return view('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
     }
 
@@ -374,11 +388,8 @@ class RecursoController extends Controller
 
         $recurso->contenido = $request->contenido;
         if ($request->hasFile('img')) {
-             
             $directorio= '/img/recursos/';
-            if( !file_exists($directorio) ){
-                mkdir($directorio, 077, true);
-            }
+            
             $file = $request->file('img');
             $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
@@ -402,9 +413,15 @@ class RecursoController extends Controller
 
         $recurso->profesor = $request->profesor;
         
-        if($request->alumno == 1 && $request->profesor == 1) $rol = 0;
-        if($request->alumno == 1 && $request->profesor == 0) $rol = 1;
-        if($request->alumno == 0 && $request->profesor == 1) $rol = 2;
+        if ($request->alumno == 1 && $request->profesor == 1) {
+            $rol = 0;
+        }
+        if ($request->alumno == 1 && $request->profesor == 0) {
+            $rol = 1;
+        }
+        if ($request->alumno == 0 && $request->profesor == 1) {
+            $rol = 2;
+        }
         
         $recurso->rol = $rol;
 
@@ -421,10 +438,9 @@ class RecursoController extends Controller
             $pid = $ptag->idrs;
 
             Recursotag::destroy($pid);
-
         }
 
-        if(isset($request->tag_list)){
+        if (isset($request->tag_list)) {
             //TODO: Delete this to count tags on TagController with count(*)
             foreach ($request->tag_list as $tag) {
                 $ptag = Tag::searchTag($tag, 1);
@@ -451,8 +467,7 @@ class RecursoController extends Controller
                     $newRecTag->activo = 1;
                     $newRecTag->save();
                 }
-        }
-        
+            }
         }
         return redirect('recurso');
     }
@@ -485,7 +500,7 @@ class RecursoController extends Controller
         $recurso->activo = 0;
         $recursossubcategorias = $recurso->recursosubcategorias;
       
-        foreach ($recursossubcategorias as $rec){
+        foreach ($recursossubcategorias as $rec) {
             $rec->delete();
         }
 

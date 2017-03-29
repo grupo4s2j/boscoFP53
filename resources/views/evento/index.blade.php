@@ -57,7 +57,7 @@
                         <tr role="row" class="odd">
                             <td class="sorting_1">{!!$evento->titulo!!}</td>
                             <td>{!!$evento->descripcion!!}</td>
-                            <td><a href="{!!$evento->img!!}">Imagen</a></td>
+                            <td><a href="{{asset('img/eventos/')}}/{!!$evento->img!!}">Imagen</a></td>
                             <td>{!!$evento->fechaInicio!!}</td>
                             <td>{!!$evento->fechaFin!!}</td>
 
@@ -81,8 +81,5 @@
         </div>
         <!-- /.tab-content -->
     </div>
-
-
-
 </section>
 @endsection

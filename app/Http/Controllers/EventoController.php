@@ -82,10 +82,8 @@ class EventoController extends Controller
         if ($request->hasFile('img')) {
            
              
-            $directorio=  '/img/banner/';
-            if( !file_exists($directorio) ){
-                mkdir($directorio, 077, true);
-            }
+            $directorio= '/img/eventos/';
+            
             $file = $request->file('img');
             $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
@@ -175,10 +173,8 @@ class EventoController extends Controller
         if ($request->hasFile('img')) {
            
             
-            $directorio=  '/img/banner/';
-            if( !file_exists($directorio) ){
-                mkdir($directorio, 077, true);
-            }
+            $directorio=  '/img/eventos/';
+          
             $file = $request->file('img');
             $nombreimagen = $directorio . $file->getClientOriginalName();
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
