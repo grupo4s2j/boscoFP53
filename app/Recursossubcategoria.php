@@ -24,14 +24,14 @@ class Recursossubcategoria extends Model
     /**
      * @var array
      */
-    protected $fillable = ['idRecurso', 'idSubcategoria'];
+    protected $fillable = ['idRecursos', 'idSubcategorias'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function recurso()
     {
-        return $this->belongsTo('App\Recurso', 'idRecurso', 'id');
+        return $this->belongsTo('App\Recurso', 'idRecursos', 'id');
     }
 
     /**
@@ -39,7 +39,7 @@ class Recursossubcategoria extends Model
      */
     public function subcategoria()
     {
-        return $this->belongsTo('App\Subcategoria', 'idSubcategoria', 'id');
+        return $this->belongsTo('App\Subcategoria', 'idSubcategorias', 'id');
     }
 	
 }

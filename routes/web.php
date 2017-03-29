@@ -146,12 +146,19 @@ Route::post('/rol', 'IndexController@setCookie');
 Route::group(['prefix' => '/', 'middleware'=> 'checkcookie'], function(){
     Route::get('home', 'MainPageController@indexFront');
     Route::post('rolchange', 'IndexController@changeCookie');
-    Route::post('search', 'TagController@search');
-    Route::get('search/{tag}', 'TagController@searchByTag');
-    Route::get('find', 'TagController@find');
+    //CATEGORIAS
     Route::get('categorias', 'CategoriaController@indexFront');
+    //SUBCATEGORIAS
     Route::get('categorias/{id}', 'SubcategoriaController@indexFront');
-    Route::get('recursos/{id}', 'RecursoController@showRecurso');
+    //RECURSOS
     Route::get('recursos', 'RecursoController@indexFront');
+    Route::get('recursos/{id}', 'RecursoController@showRecurso');
+    Route::get('recursos/categoria/{id}', 'RecursoController@getRecursoByCategoria');
+    Route::get('recursos/subcategoria/{id}', 'RecursoController@getRecursoBySubcategoria');
+    //SEARCH
+    Route::post('search', 'TagController@search');
+    Route::get('search/tag/{tag}', 'TagController@searchByTag');
+    //BUSCADOR
+    Route::get('find', 'TagController@find');
 });
 ////////////////////////////////////

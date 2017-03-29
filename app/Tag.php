@@ -68,11 +68,6 @@ class Tag extends Model
     
     public function recursos()
     {
-        /*$tags = array();
-        foreach ($this->recursotags as $recursotag){
-            $tags[]=$recursotag->tag;
-        }
-        return $tags;*/
         return $this->belongsToMany('App\Recurso', 'recursotags', 'idTag', 'idRecursos');
     }
     

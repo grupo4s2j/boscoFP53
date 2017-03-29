@@ -30,6 +30,10 @@ class CookieVerification
             return redirect('/');
         }*/
         //if($request->hasCookie('tsfi_role')) {
+        /*          ROLES
+        /*          0 -> Todo
+        /*          1 -> Alumno
+        /************************************/
         if (\Cookie::get('tsfi_role') !== null){
             $tsfi_role = \Cookie::get('tsfi_role');
             if ($tsfi_role == 'alumno' || $tsfi_role == 'profesor'){

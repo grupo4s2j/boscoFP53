@@ -14,6 +14,8 @@ use URL;
  */
 class CategoriaController extends Controller
 {
+    use \Traits\FuncionesExtra; //Trait
+    
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +47,8 @@ class CategoriaController extends Controller
 
     public function indexFront()
     {
-        //$categorias = Categoria::all();
+        $rol = $this->getAndSetCookieValue();
+        
         $categorias = Categoria::where('activo', 1)->get();
 
         return view('fo.categorias', compact('categorias'));

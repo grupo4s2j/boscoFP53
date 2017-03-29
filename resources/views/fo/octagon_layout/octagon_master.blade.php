@@ -90,6 +90,7 @@
 			});
 		</script>
     
+        @yield('script')
         @yield('scripts')
 
     </body>
