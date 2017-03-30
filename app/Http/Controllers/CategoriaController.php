@@ -78,20 +78,7 @@ class CategoriaController extends Controller
 
         $categoria->nombre = $request->nombre;
 
-        if ($request->hasFile('img')) {
-           
-            $file = $request->file('img');
-
-            $directorio= '/img/categorias/';
-           
-            $nombreimagen =  $directorio . $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombreimagen, \File::get($file));
-
-           
-            
-
-        $categoria->img = $file->getClientOriginalName();
-        }
+        
 
         $categoria->color = $request->color;
         
@@ -109,6 +96,24 @@ class CategoriaController extends Controller
 //        $pusher->trigger('test-channel',
 //            'test-event',
 //            ['message' => 'A new categoria has been created !!']);
+        if ($request->hasFile('img')) {
+           $Categoria= Categoria::orderBy('id', 'desc')->first();
+            $file = $request->file('img');
+
+            $directorio= '/img/categorias/';
+  			$extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $imgname = 'img_' . $Categoria->id . $extension;
+            $nombreimagen = $directorio . $imgname;    
+            
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+
+           
+            
+
+        	$Categoria->img = $imgname;
+
+        	$Categoria->save();
+        }
 
         return redirect('categoria');
     }
@@ -166,13 +171,14 @@ class CategoriaController extends Controller
         if ($request->hasFile('img')) {
             
             $directorio=  '/img/categorias/';
-          
-            $file = $request->file('img');
-            $nombreimagen = $directorio . $file->getClientOriginalName();
+          	$file = $request->file('img');
+            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $imgname = 'img_' . $categoria->id . $extension;
+            $nombreimagen = $directorio . $imgname;
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-        $categoria->img = $file->getClientOriginalName();
+        $categoria->img = $imgname;
         }
 
         $categoria->color = $request->color;
@@ -224,6 +230,12 @@ class CategoriaController extends Controller
 
             $subcategoria->save(); 
         } 
+        $directorio= '/img/categorias/';
+        $Imagen = $directorio . $categoria->img;
+
+        if(\Storage::disk('local')->has($Imagen)){
+            \Storage::disk('local')->delete($Imagen);
+        }
         $categoria->save();
         return URL::to('categoria');
     }

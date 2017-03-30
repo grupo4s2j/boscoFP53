@@ -77,16 +77,7 @@ class RedsocialController extends Controller
         
         $redsocial->link = $request->link;
 
-        if ($request->hasFile('img')) {
-           
-            $directorio=  '/img/redsocial/';
-          
-            $file = $request->file('img');
-            $nombreimagen = $directorio . $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombreimagen, \File::get($file));
-
-            $recurso->img = $file->getClientOriginalName();
-        }
+        
         
         $redsocial->save();
 
@@ -99,7 +90,19 @@ class RedsocialController extends Controller
         $pusher->trigger('test-channel',
                          'test-event',
                         ['message' => 'A new redsocial has been created !!']);
+        if ($request->hasFile('img')) {
+           $RedSocial= Redsocial::orderBy('id', 'desc')->first();
+            $directorio=  '/img/redsocial/';
+          
+            $file = $request->file('img');
+            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $imgname = 'img_' . $RedSocial->id . $extension;
+            $nombreimagen = $directorio . $imgname ;
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
+            $RedSocial->logo = $imgname;
+            $RedSocial->save();
+        }
         return redirect('redsocial');
     }
 
@@ -157,15 +160,17 @@ class RedsocialController extends Controller
         
         $redsocial->link = $request->link;
         
-        if ($request->hasFile('img')) {
-           
+       if ($request->hasFile('img')) {
             $directorio=  '/img/redsocial/';
           
             $file = $request->file('img');
-            $nombreimagen = $directorio . $file->getClientOriginalName();
+            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $imgname = 'img_' . $redsocial->id . $extension;
+            $nombreimagen = $directorio . $imgname ;
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
-            $redsocial->logo = $file->getClientOriginalName();
+            $redsocial->logo = $imgname;
+            $redsocial->save();
         }
         
         $redsocial->save();
@@ -199,6 +204,12 @@ class RedsocialController extends Controller
     public function destroy($id)
     {
      	$redsocial = Redsocial::findOrfail($id);
+        $directorio= '/img/redsocial/';
+        $Imagen = $directorio . $redsocial->logo;
+
+        if(\Storage::disk('local')->has($Imagen)){
+            \Storage::disk('local')->delete($Imagen);
+        }
      	$redsocial->delete();
         return URL::to('redsocial');
     }

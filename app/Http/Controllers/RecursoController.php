@@ -180,20 +180,6 @@ class RecursoController extends Controller
 
         $recurso->contenido = $request->contenido;
 
-        if ($request->hasFile('img')) {
-            $directorio=  '/img/recursos/';
-            if (!file_exists($directorio)) {
-                //mkdir($directorio, 077, true);
-                //Controlar excepcion
-            }
-            $file = $request->file('img');
-            $nombreimagen = $directorio . $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombreimagen, \File::get($file));
-
-            $recurso->img = $file->getClientOriginalName();
-        }
-
-
         $recurso->fechaPost = $request->fechaPost;
 
         $recurso->fechaInicio = $request->fechaInicio;
@@ -206,9 +192,6 @@ class RecursoController extends Controller
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
         
-        $recurso->alumno = $request->alumno;
-
-        $recurso->profesor = $request->profesor;
         
         if ($request->alumno == 1 && $request->profesor == 1) {
             $rol = 0;
@@ -266,6 +249,25 @@ class RecursoController extends Controller
             ['message' => 'A new recurso has been created !!']);
         $Recurso= Recurso::orderBy('id', 'desc')->first();
         $link = URL::to('recursos/' . $Recurso->id);
+
+        if ($request->hasFile('img')) {
+            $directorio=  '/img/recursos/';
+            if (!file_exists($directorio)) {
+                //mkdir($directorio, 077, true);
+                //Controlar excepcion
+            }
+            $file = $request->file('img');
+            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $imgname = 'img_' . $Recurso->id . $extension;
+            $nombreimagen = $directorio . $imgname ;
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
+
+            $Recurso->img = $imgname;
+            $Recurso->save();
+        }
+
+
+
         $titulo = substr($request->titulo, 0, 40);
         $Tweet = $titulo . "\n" . $link;
         $Imagen = \Twitter::uploadMedia(['media' => \File::get(public_path($nombreimagen))]);
@@ -286,7 +288,7 @@ class RecursoController extends Controller
             $alumno = 1;
         }
         $recursoSubcategorias = $recurso->subcategorias;
-        return view ('recurso.edit', compact('title', 'recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
+        return view ('recurso.edit', compact('title', 'recurso', 'Recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
     }
 
     /**
@@ -388,12 +390,15 @@ class RecursoController extends Controller
         if ($request->hasFile('img')) {
             $directorio= '/img/recursos/';
             
+
             $file = $request->file('img');
-            $nombreimagen = $directorio . $file->getClientOriginalName();
+            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $imgname = 'img_' . $recurso->id . $extension;
+            $nombreimagen = $directorio . $imgname ;
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
 
-            $recurso->img = $file->getClientOriginalName();
+            $recurso->img = $imgname;
         }
         $recurso->fechaPost = $request->fechaPost;
 
@@ -407,9 +412,6 @@ class RecursoController extends Controller
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
 
-        $recurso->alumno = $request->alumno;
-
-        $recurso->profesor = $request->profesor;
         
         if ($request->alumno == 1 && $request->profesor == 1) {
             $rol = 0;
@@ -424,7 +426,7 @@ class RecursoController extends Controller
         $recurso->rol = $rol;
 
         /* $img=$request->file('img');
-         $name_img=$request->img;
+         $name_img=$request->img; 
          $img->move('/img/recur/',$name_img);
  */
         //\Storage::disk('recurs')->put($name_img,\File::get($img));
@@ -501,7 +503,12 @@ class RecursoController extends Controller
         foreach ($recursossubcategorias as $rec) {
             $rec->delete();
         }
+        $directorio= '/img/recursos/';
+        $Imagen = $directorio . $recurso->img;
 
+        if(\Storage::disk('local')->has($Imagen)){
+            \Storage::disk('local')->delete($Imagen);
+        }
         $recurso->save();
         return URL::to('recurso');
     }
