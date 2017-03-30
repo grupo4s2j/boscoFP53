@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/stylish_portfolio/stylish-portfolio.css') }}" rel="stylesheet">
 
+    <!-- CSS del Aviso de cookies -->
+    <link href="{{ asset('css/avisocookies.css') }}" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="{{ asset('fonts/stylish_portfolio/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -57,9 +60,15 @@
             </div>
         </div>
     </header>
-
+    <aside id="avisocookies">
+        Esta pagina utiliza cookies propias con el fin de mejorar el servicio. Si continuas navegando, aceptas su uso. Para mas informacion <a href="http://politicadecookies.com" rel="nofollow">clicka aqui</a>.
+        <button class="btn btn-secundary" id="aceptarcookies">Aceptar</button>
+    </aside>
     <!-- jQuery -->
     <script src="{{ asset('js/stylish_portfolio/jquery.js') }}"></script>
+
+    <!-- JS aviso cookies -->
+    <script src="{{ asset('js/avisocookies.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/stylish_portfolio/bootstrap.min.js') }}"></script>

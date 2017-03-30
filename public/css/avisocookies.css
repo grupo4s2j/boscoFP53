@@ -1,0 +1,9 @@
+#avisocookies {
+	position: absolute;
+	top: 795px;
+	z-index: 999;
+	width: 100%;
+	padding: 15px;
+	box-sizing: border-box;
+	background: rgba( 220, 220, 220, 0.8);
+}
