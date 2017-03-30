@@ -2,8 +2,10 @@
     <div class="post-bottom-content">
         <a href="{{ url('recursos/' . $recurso->id) }}"><img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}" alt=""></a>
         <a href="{{ url('recursos/'. $recurso->id) }}"><h3>{{$recurso->titulo}}</h3></a>
-        <h3><span class="travel-bg">P<a class="travel-bg" href="{{ url('recursos/'. $recurso->id) }}">Post</a></span></h3>
+        <h3><span class="mobile-bg">E<a class="mobile-bg" href="{{ url('recursos/'. $recurso->id) }}">Event</a></span></h3>
         <span class="date">{{$recurso->fechaPosteo}}</span>
+        <span class="date">{{$recurso->fechaInicio}}</span>
+        <span class="date">{{$recurso->fechaFin}}</span>
 
         <!-- ___Post Meta___ -->
         <div class="post-meta">
@@ -15,7 +17,7 @@
                 <span>Travel</span>
                 <i class="fa fa-plane"></i>
             </a>
-            <!--<div class="tags text-right">-->
+            <!--<div class="tags text-right">
                 <ul class="tag-mobile">
                     @if(count($recurso->tags) > 0)
                         @foreach($recurso->tags as $tag)
@@ -23,7 +25,7 @@
                         @endforeach
                     @endif
                 </ul>
-            <!--</div><!-- End Tags -->
+            </div>--><!-- End Tags -->
         </div>
     </div><!-- End Post Bottom Content -->
 </div>

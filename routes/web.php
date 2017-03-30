@@ -165,4 +165,6 @@ Route::group(['prefix' => '/', 'middleware'=> 'checkcookie'], function(){
         return view('fo.contact');
     });
 });
+//TESTIIIIIMG
+Route::get('testing/{id}', 'TestingController@queries');
 ////////////////////////////////////

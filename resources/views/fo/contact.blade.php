@@ -6,7 +6,7 @@
     <div class="contact bg-box-shadow">
         <div class="contact-logo text-center">
             <i class="pe-7s-mail"></i>
-            <p>Send Your Message</p>
+            <p>Envia'ns el teu Missatge</p>
         </div>
         <!-- End Contact Logo -->
 
@@ -14,38 +14,53 @@
         <div class="contact-form">
             <div class="row">
                 <form>
-
+                   <row>
                     <!-- ___Input .Name .Email. Website___ -->
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <label for="name">Nom (*)</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="surname">Cognoms (*)</label>
+                            <input type="text" class="form-control" id="surname" name="surname" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email" name="email">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="web">Website</label>
-                            <input type="text" class="form-control" id="web" name="web">
+                            <label for="email">Email (*)</label>
+                            <input type="text" class="form-control" id="email" name="email" required>
                         </div>
                     </div>
                     <!-- End Column 6 -->
 
                     <!-- ___Message & Send It___ -->
                     <div class="col-md-6">
-
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea class="form-control" rows="7" id="message" name="message"></textarea>
+                            <label for="empresa">Empresa</label>
+                            <input type="text" class="form-control" id="empresa" name="empresa">
                         </div>
+                        
                         <div class="form-group">
-                            <button type="submit" class="button btn btn-default">Send Message</button>
+                            <label for="direccion">Adreça</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion">
                         </div>
                     </div>
                     <!-- End Column 6 -->
+                    </row>
+                    <row>
+                        <!-- ___Message & Send It___ -->
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="message">Missatge</label>
+                            <textarea class="form-control" rows="7" id="message" name="message"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="button btn btn-default">Enviar</button>
+                        </div>
+                    </div>
+                    <!-- End Column 6 -->
+                    </row>
                 </form>
                 <!-- End Form -->
             </div>

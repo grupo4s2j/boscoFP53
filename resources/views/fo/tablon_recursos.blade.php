@@ -11,7 +11,12 @@
                 @if($i == 0)
                     <div class="row">
                 @endif
-                    @include('fo.octagon_layout.octagon_content.octagon_recurso')
+                    @if(empty($recurso->fechaInicio) && empty($recurso->fechaFin))
+                        @include('fo.octagon_layout.octagon_content.octagon_recurso')
+                    @else
+                        @include('fo.octagon_layout.octagon_content.octagon_evento')
+                    @endif
+                    
                 @if($i == 1)
                     </div>
                 @endif
