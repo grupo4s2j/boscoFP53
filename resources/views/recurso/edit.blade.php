@@ -48,7 +48,11 @@
                     <label for="img">img</label><br>
                     <input id="botonimg" type="button" style="position: absolute; left: 230px; border: 1px solid black;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
                     <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px">
+                         @if(!is_null($recurso->img))  
                             <img id="imgmuestra"  style="width: 200px; height: 200px; margin: 5 5 5 5" src="{{asset('img/recursos/')}}/{!!$recurso->img!!}"></img>
+                         @else
+                            <img id="imgmuestra"  style="width: 200px; height: 200px; margin: 5 5 5 5" src="{{asset('img/recursos/')}}/{!!$Recurso->img!!}"></img>
+                         @endif
                     </div>
                    
                 <input  id="img" name="img" accept="image/*" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none" ></input>

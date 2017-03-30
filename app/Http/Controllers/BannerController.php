@@ -77,11 +77,13 @@ class BannerController extends Controller
             $directorio=  '/img/banners/';
             
             $file = $request->file('img');
-            $nombreimagen = $directorio . $file->getClientOriginalName();
+            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $imgname = 'img_' . $banner->id . $extension;
+            $nombreimagen = $directorio . $imgname;
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $banner->img = $file->getClientOriginalName();
+            $banner->img = $imgname;
         }
 
 
@@ -157,11 +159,13 @@ class BannerController extends Controller
             $directorio=  '/img/banners/';
             
             $file = $request->file('img');
-            $nombreimagen = $directorio . $file->getClientOriginalName();
+            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $imgname = 'img_' . $banner->id . $extension;
+            $nombreimagen = $directorio . $imgname;
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-            $banner->img = $file->getClientOriginalName();
+            $banner->img = $imgname;
         }
 
         $banner->url = $request->url;

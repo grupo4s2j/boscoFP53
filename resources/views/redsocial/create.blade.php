@@ -15,7 +15,7 @@
         <button class = 'btn btn-danger'>redsocial Index</button>
     </form>
     <br>
-    <form method = 'POST' action = '{!!url("redsocial")!!}'>
+    <form method = 'POST' action = '{!!url("redsocial")!!}' enctype="multipart/form-data">
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="redSocial">redSocial</label>

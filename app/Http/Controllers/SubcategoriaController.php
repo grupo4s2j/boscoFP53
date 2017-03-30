@@ -97,16 +97,7 @@ class SubcategoriaController extends Controller
         
         $subcategoria->nombre = $request->nombre;
 
-        if ($request->hasFile('img')) {
-            
-            $directorio=  '/img/subcategorias/';
-           
-            $file = $request->file('img');
-            $nombreimagen = $directorio . $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombreimagen, \File::get($file));
-
-            $subcategoria->img = $file->getClientOriginalName();
-        }
+        
 
 
         
@@ -121,7 +112,19 @@ class SubcategoriaController extends Controller
         $pusher->trigger('test-channel',
                          'test-event',
                         ['message' => 'A new subcategoria has been created !!']);
+        if ($request->hasFile('img')) {
+            $Subcategoria= Subcategoria::orderBy('id', 'desc')->first();
+            $directorio=  '/img/subcategorias/';
+           
+            $file = $request->file('img');
+            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $imgname = 'img_' . $Subcategoria->id . $extension;
+            $nombreimagen = $directorio . $imgname;              
+            \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
+            $Subcategoria->img = $imgname;
+            $Subcategoria->save();
+        }
         return redirect('subcategoria');
     }
 
@@ -181,11 +184,13 @@ class SubcategoriaController extends Controller
             $directorio=  '/img/subcategorias/';
         
             $file = $request->file('img');
-            $nombreimagen = $directorio . $file->getClientOriginalName();
+            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $imgname = 'img_' . $subcategoria->id . $extension;
+            $nombreimagen = $directorio . $imgname; 
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
             
 
-        $subcategoria->img = $file->getClientOriginalName();
+        $subcategoria->img = $imgname;
         }
 
         $subcategoria->idCategoria = $request->idCategoria;
@@ -230,7 +235,12 @@ class SubcategoriaController extends Controller
         foreach ($recursossubcategorias as $rec){
             $rec->delete();
         }
+        $directorio= '/img/subcategorias/';
+        $Imagen = $directorio . $subcategoria->img;
 
+        if(\Storage::disk('local')->has($Imagen)){
+            \Storage::disk('local')->delete($Imagen);
+        }
         $subcategoria->save();
         return URL::to('subcategoria');
     }
