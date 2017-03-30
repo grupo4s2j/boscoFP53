@@ -4,7 +4,7 @@
         <ul id="myList">
             <!-- ___Start Category Nav Life Style___ -->
             @foreach ($categorias as $categoria) 
-                <li id="life-style" class="mega-menu-li {{$categoria->color}}" style="display:none;">
+                <li id="{{$categoria->nombre}}" class="mega-menu-li {{$categoria->color}}" style="display:none;">
                     <a href="{{ url('recursos/categoria/' . $categoria->id) }}" aria-controls="beauty-care" role="tab" data-toggle="tab">{{$categoria->nombre}}</a>
                     <ul>
                         <li>
@@ -47,7 +47,13 @@ $(document).ready(function () {
             $('#myList > li').not(':lt('+x+')').hide();
             $('#loadMore').text('Load More');
         }
-        
+    });
+});
+</script>
+<script>
+$(document).ready(function () {
+    $('.mega-menu-li > a').click(function () {
+       document.location.href = $(this).attr('href'); 
     });
 });
 </script>

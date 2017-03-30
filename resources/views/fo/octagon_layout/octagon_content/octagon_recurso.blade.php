@@ -15,6 +15,15 @@
                 <span>Travel</span>
                 <i class="fa fa-plane"></i>
             </a>
+            <!--<div class="tags text-right">
+                <ul class="tag-mobile">
+                    @if(count($recurso->tags) > 0)
+                        @foreach($recurso->tags as $tag)
+                        <li><a href="{{ url('search/tag/'. $tag->nombre) }}">{{$tag->nombre}}</a></li>
+                        @endforeach
+                    @endif
+                </ul>
+            </div>--><!-- End Tags -->
         </div>
     </div><!-- End Post Bottom Content -->
 </div>

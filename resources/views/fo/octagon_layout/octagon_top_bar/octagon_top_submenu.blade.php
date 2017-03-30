@@ -21,30 +21,7 @@
                         <!-- ___Tab Pane___ -->
                         <div role="tabpanel" class="tab-pane fade in active" id="beauty-care">
                             <div class="row">
-                                <div class="col-md-4 col-sm-4  no-padding">
-                                    <div class="menu-post">
-                                        <div class="post">
-                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-2.jpg') }}" alt="" />
-                                            <h3><a href="#0">Roam roads covered by leafs</a></h3>
-                                        </div>
-                                    </div><!-- End Menu Post -->
-                                </div>
-                                <div class="col-md-4 col-sm-4  no-padding">
-                                    <div class="menu-post">
-                                        <div class="post">
-                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-3.jpg') }}" alt="" />
-                                            <h3><a href="#0">Wayne Rooney still troubled by groin injury</a></h3>
-                                        </div>
-                                    </div><!-- End Menu Post -->
-                                </div>
-                                <div class="col-md-4 col-sm-4  no-padding">
-                                    <div class="menu-post">
-                                        <div class="post">
-                                            <img class="img-responsive" src="{{ asset('img/octagon/mm/mm-post-4.jpg') }}" alt="" />
-                                            <h3><a href="#0">The world cup football match starts on march</a></h3>
-                                        </div>
-                                    </div><!-- End Menu Post -->
-                                </div>
+                                <!-- AQUI DEBE IR EL BUCLE DE LOS 3 MAX TOP RATED POSTS DE CADA CATEGORIA-->
                             </div>
                         </div><!-- End Tab Panels -->
                     </div>
