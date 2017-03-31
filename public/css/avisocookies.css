@@ -6,4 +6,6 @@
 	padding: 15px;
 	box-sizing: border-box;
 	background: rgba( 220, 220, 220, 0.8);
+	 -webkit-transition: top 0.8s ease-in-out;
+  transition: top 0.8s ease-in-out;
 }

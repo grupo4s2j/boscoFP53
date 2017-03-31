@@ -25,6 +25,7 @@
         
         <link rel="stylesheet" href="{{ asset('/css/select2/select2.min.css') }}">
         <script src="{{ asset('/js/select2/select2.min.js') }}"></script>
+        <link href="{{ asset('css/avisocookies.css') }}" rel="stylesheet">
 		 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     </head>
@@ -76,6 +77,10 @@
                     
                 </div><!-- ___End Column___ -->
 			</div><!-- End Row -->
+            <aside id="avisocookies">
+                Esta pagina utiliza cookies propias con el fin de mejorar el servicio. Si continuas navegando, aceptas su uso. Para mas informacion <a href="http://politicadecookies.com" rel="nofollow">clicka aqui</a>.
+                <button class="btn btn-secundary" id="aceptarcookies">Aceptar</button>
+            </aside>
 		</div><!-- End Container -->
         </div>
 
@@ -89,7 +94,7 @@
         <script src="{{ asset('/js/octagon/jquery.meanmenu.min.js') }}"></script>		<!-- ===This Script for Main Menu=== -->
 		<script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
         <script src="{{ url('js/splashscreen.js') }}"></script> 
-
+         <script src="{{ asset('js/avisocookies.js') }}"></script>
 		<script>
 			jQuery(document).ready(function($) {
 				jQuery('.category-nav ').meanmenu();
