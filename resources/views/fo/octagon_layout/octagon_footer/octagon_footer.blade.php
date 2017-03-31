@@ -1,3 +1,3 @@
 <div class="footer text-center">
-    <p>copyrights © 2014 octagon. All Rights Reserved.</p>
+    <p>Copyrights © 2017 <a href="http://g5s2aw.sdslab.cat/" style="">Dev Solutions</a>. All Rights Reserved.</p>
 </div>
