@@ -1,6 +1,7 @@
 @extends('fo.octagon_layout.octagon_master')
 
 @section('content')
+    
     <section id="content-blocks">
         <div class="row" id="content-blocks-row">
 
@@ -36,4 +37,6 @@
         $(this).animate({fontSize: "24px"}, 400)  
     })
 </script>-->
+<!-- Script de google Traductor -->
+
 @endsection

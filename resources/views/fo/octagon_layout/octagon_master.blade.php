@@ -26,11 +26,17 @@
         <link rel="stylesheet" href="{{ asset('/css/select2/select2.min.css') }}">
         <script src="{{ asset('/js/select2/select2.min.js') }}"></script>
 		 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
     </head>
     <body>
+        
+        <div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
+            <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 30%; left: 40%;"/>
+        </div>
+        <div id="contenido" style="display: none;">		
+        <!-- ___Start Home Three Page___ -->
 
-		<!-- ___Start Home Three Page___ -->
-		<div class="container-fluid home-3" id="container-full">
+        <div class="container-fluid home-3" id="container-full">
 			<div class="row	">
 
 				<!-- ___Start Left Menu___ -->
@@ -71,7 +77,7 @@
                 </div><!-- ___End Column___ -->
 			</div><!-- End Row -->
 		</div><!-- End Container -->
-
+        </div>
 
 
 
@@ -82,7 +88,7 @@
         <script src="{{ asset('/js/octagon/wow.min.js') }}"></script>				<!-- ===This Script for Wow JS=== -->
         <script src="{{ asset('/js/octagon/jquery.meanmenu.min.js') }}"></script>		<!-- ===This Script for Main Menu=== -->
 		<script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
-
+        <script src="{{ url('js/splashscreen.js') }}"></script> 
 
 		<script>
 			jQuery(document).ready(function($) {
