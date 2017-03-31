@@ -57,10 +57,7 @@
                 <ul class="nav navbar-nav">
                     <!-- Notification Navbar List-->
                     <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label notification-label">new</span>
-                        </a>
+                       
                         <ul class="dropdown-menu">
                             <li class="header">Your notifications</li>
                             <li>
