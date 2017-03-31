@@ -5,7 +5,7 @@ body {
     width: 100%;
     margin: 0;
     color: #aaa;
-    background: url(http://www.fondox.net/descargar.php?id=1670&resolucion=1366x768) no-repeat center;
+    background: url('../img/fondo.jpg') no-repeat center;
     /*https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg*/
     background-size: cover;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
