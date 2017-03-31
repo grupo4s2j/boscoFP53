@@ -6,12 +6,22 @@
         <span class="date">{{$recurso->fechaPosteo}}</span>
 
         <!-- ___Post Meta___ -->
-        <div class="article-and-feature post-meta">
+        <div class="post-meta">
+            <a href="#0" class="share-icon">
+                <i class="fa fa-share-alt"></i>
+                <span>25 Share</span>
+            </a>
+            <a href="#0" class="category-icon pull-right">
+                <span>Travel</span>
+                <i class="fa fa-plane"></i>
+            </a>
             <div class="tags text-right">
                 <ul class="tag-mobile">
-                    @foreach($recurso->tags as $tag)
-                    <li><a href="{{ url('search/tag/'. $tag->nombre) }}">{{$tag->nombre}}</a></li>
-                    @endforeach
+                    @if(count($recurso->tags) > 0)
+                        @foreach($recurso->tags as $tag)
+                        <li><a href="{{ url('search/tag/'. $tag->nombre) }}">{{$tag->nombre}}</a></li>
+                        @endforeach
+                    @endif
                 </ul>
             </div><!-- End Tags -->
         </div>

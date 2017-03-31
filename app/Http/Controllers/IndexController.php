@@ -59,16 +59,17 @@ class IndexController extends Controller
             //Cookie::make('rol', 'alumno', 45000);
             //setcookie('rol', 'alumno', 120);
             Cookie::queue(Cookie::make('tsfi_role', 'alumno', 45000));
-            return redirect(url()->previous());
+            //return redirect(url()->previous());
         }
         elseif($request->input('rol') == 'profesor')
         {
             Cookie::queue(Cookie::make('tsfi_role', 'profesor', 45000));
-            return redirect(url()->previous());
+            //return redirect(url()->previous());
         }
         else{
             return redirect('/');
         }
+        return redirect('/');
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
 }

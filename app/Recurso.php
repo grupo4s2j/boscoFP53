@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $FechaFin
  * @property string $RangoEdad
  * @property integer $Relevancia
+ * @property integer $show
  * @property integer $IdEntidadOrganizativa
  * @property integer $Activo
  * @property Entidadorganizativa $entidadorganizativa
@@ -39,7 +40,7 @@ class Recurso extends Model
     /**
      * @var array
      */
-    protected $fillable = ['titulo', 'descripcion', 'contenido', 'img', 'fechaPost', 'fechaInicio', 'fechaFin', 'rangoEdad', 'relevancia', 'idEntidadOrganizativa', 'activo', 'rol'];
+    protected $fillable = ['titulo', 'descripcion', 'contenido', 'img', 'fechaPost', 'fechaInicio', 'fechaFin', 'rangoEdad', 'relevancia', 'idEntidadOrganizativa', 'activo', 'rol','show'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

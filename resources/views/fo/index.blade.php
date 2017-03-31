@@ -46,14 +46,14 @@
                         <form method="post" action="{{ url('/rol')}}">
                             {{ csrf_field() }}
                             <input type="hidden" name="rol" value="alumno">
-                            <button type="submit" class="btn btn-secundary btn-lg" style="color:black;">Alumne</button>
+                            <button type="submit" class="btn btn-secundary btn-lg" style="color:black;">Pares/Alumnes</button>
                         </form>
                     </div>
                     <div class="col-md-4" style="height:146px; padding-top:50px;">
                         <form method="post" action="{{ url('/rol')}}">
                             {{ csrf_field() }}
                             <input type="hidden" name="rol" value="profesor">
-                            <button type="submit" class="btn btn-secundary btn-lg" style="color:black;">Professor</button>
+                            <button type="submit" class="btn btn-secundary btn-lg" style="color:black;">Professors/Orientadors</button>
                         </form>
                     </div>
                 </div>
