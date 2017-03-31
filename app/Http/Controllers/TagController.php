@@ -21,7 +21,7 @@ use App\Recursotag;
 class TagController extends Controller
 {
     use \Traits\FuncionesExtra; //Trait
-    
+
     /**
      * Buscador de Tags
      *
@@ -31,21 +31,21 @@ class TagController extends Controller
     {
         $data = [];
 
-        if($request->has('q')){
+        if ($request->has('q')) {
             $search = $request->q;
             /*$data = DB::table("tags")
             		->select("id","nombre")
             		->where('nombre','LIKE',"%$search%")
             		->get();
             */
-            $data = Tag::select("id","nombre")
-            		->where('nombre','LIKE',"%$search%")
-            		->get();
+            $data = Tag::select("id", "nombre")
+                ->where('nombre', 'LIKE', "%$search%")
+                ->get();
         }
 
         return response()->json($data);
     }
-    
+
     /**
      * Buscador de Tags
      *
@@ -58,8 +58,8 @@ class TagController extends Controller
         $recursos = $this->queryRecursos($tags);
 
         return view('fo.tablon_recursos', compact('recursos'));
-    }    
-    
+    }
+
     /**
      * HREF de Tags
      *
@@ -71,8 +71,8 @@ class TagController extends Controller
         $recursos = $this->queryRecursos($tags);
 
         return view('fo.tablon_recursos', compact('recursos'));
-    }   
-    
+    }
+
     /**
      * Query Recursos por TAGS
      *
@@ -81,18 +81,20 @@ class TagController extends Controller
     public function queryRecursos($tags)
     {
         $rol = $this->getAndSetCookieValue();
-        
+
         $recursos = Recurso::join('recursotags', 'recursos.id', '=', 'recursotags.idRecursos')
-                    ->join('tags', 'tags.id', '=', 'recursotags.idTag')
-                    ->whereIn('tags.nombre', $tags)
-                    ->select('recursos.*')
-                    ->paginate(4);
-        
+            ->join('tags', 'tags.id', '=', 'recursotags.idTag')
+            ->whereIn('tags.nombre', $tags)
+            ->where('recursos.activo', 1)
+            ->where('recursos.show', 1)
+            ->select('recursos.*')
+            ->paginate(4);
+
         $recursos = $this->recursosFechaHora($recursos);
 
         return $recursos;
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -125,7 +127,7 @@ class TagController extends Controller
 
         return view('fo.tag', compact('tags'));
     }
-   
+
 
     /**
      * @param Request $request
@@ -140,9 +142,9 @@ class TagController extends Controller
             return \Response::json([]);
         }
 
-        $tags = Tag::searchTag("%".$term."%",5);
-            //Tag::searchTag("%".$term."%",5);
-            //Tag::search($term)->limit(5)->get();
+        $tags = Tag::searchTag("%" . $term . "%", 5);
+        //Tag::searchTag("%".$term."%",5);
+        //Tag::search($term)->limit(5)->get();
 
         $formatted_tags = [];
 
@@ -152,6 +154,7 @@ class TagController extends Controller
 
         return \Response::json($formatted_tags);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -160,28 +163,27 @@ class TagController extends Controller
     public function create()
     {
         $title = 'Create - tag';
-        
+
         return view('tag.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param    \Illuminate\Http\Request  $request
+     * @param    \Illuminate\Http\Request $request
      * @return  \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $tag = new Tag();
 
-        
+
         $tag->nombre = $request->nombre;
 
-        
+
         $tag->usado = $request->usado;
 
-        
-        
+
         $tag->save();
 
         $pusher = App::make('pusher');
@@ -191,8 +193,8 @@ class TagController extends Controller
         //Here is a pusher notification example when you create a new resource in storage.
         //you can modify anything you want or use it wherever.
         $pusher->trigger('test-channel',
-                         'test-event',
-                        ['message' => 'A new tag has been created !!']);
+            'test-event',
+            ['message' => 'A new tag has been created !!']);
 
         return redirect('tag');
     }
@@ -200,58 +202,56 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param    \Illuminate\Http\Request  $request
-     * @param    int  $id
+     * @param    \Illuminate\Http\Request $request
+     * @param    int $id
      * @return  \Illuminate\Http\Response
      */
-    public function show($id,Request $request)
+    public function show($id, Request $request)
     {
         $title = 'Show - tag';
 
-        if($request->ajax())
-        {
-            return URL::to('tag/'.$id);
+        if ($request->ajax()) {
+            return URL::to('tag/' . $id);
         }
 
         $tag = Tag::findOrfail($id);
-        return view('tag.show',compact('title','tag'));
+        return view('tag.show', compact('title', 'tag'));
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param    \Illuminate\Http\Request  $request
-     * @param    int  $id
+     * @param    \Illuminate\Http\Request $request
+     * @param    int $id
      * @return  \Illuminate\Http\Response
      */
-    public function edit($id,Request $request)
+    public function edit($id, Request $request)
     {
         $title = 'Edit - tag';
-        if($request->ajax())
-        {
-            return URL::to('tag/'. $id . '/edit');
+        if ($request->ajax()) {
+            return URL::to('tag/' . $id . '/edit');
         }
 
-        
+
         $tag = Tag::findOrfail($id);
-        return view('tag.edit',compact('title','tag'  ));
+        return view('tag.edit', compact('title', 'tag'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param    \Illuminate\Http\Request  $request
-     * @param    int  $id
+     * @param    \Illuminate\Http\Request $request
+     * @param    int $id
      * @return  \Illuminate\Http\Response
      */
-    public function update($id,Request $request)
+    public function update($id, Request $request)
     {
         $tag = Tag::findOrfail($id);
-    	
+
         $tag->nombre = $request->nombre;
-        
+
         $tag->usado = $request->usado;
-        
-        
+
+
         $tag->save();
 
         return redirect('tag');
@@ -260,16 +260,15 @@ class TagController extends Controller
     /**
      * Delete confirmation message by Ajaxis.
      *
-     * 
-     * @param    \Illuminate\Http\Request  $request
+     *
+     * @param    \Illuminate\Http\Request $request
      * @return  String
      */
-    public function DeleteMsg($id,Request $request)
+    public function DeleteMsg($id, Request $request)
     {
-        $msg = Ajaxis::BtDeleting('Warning!!','Would you like to remove This?','/tag/'. $id . '/delete');
+        $msg = Ajaxis::BtDeleting('Warning!!', 'Would you like to remove This?', '/tag/' . $id . '/delete');
 
-        if($request->ajax())
-        {
+        if ($request->ajax()) {
             return $msg;
         }
     }
@@ -284,8 +283,8 @@ class TagController extends Controller
     //TODO: NEVER DELETE TAGS
     public function destroy($id)
     {
-     	$tag = Tag::findOrfail($id);
-     	$tag->delete();
+        $tag = Tag::findOrfail($id);
+        $tag->delete();
         return URL::to('tag');
     }
 }

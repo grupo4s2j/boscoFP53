@@ -32,6 +32,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 class RecursoController extends Controller
 {
     use \Traits\FuncionesExtra; //Trait
+
     /**
      * Display a listing of the resource.
      *
@@ -40,95 +41,98 @@ class RecursoController extends Controller
     public function index()
     {
         $recursos = Recurso::where('recursos.activo', '=', '1')->orderBy('titulo', 'asc')
-            -> join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
+            ->join('entidadorganizativas', 'recursos.idEntidadOrganizativa', '=', 'entidadorganizativas.id')
             ->select('recursos.*', 'entidadorganizativas.nombre')->get();
         $title = 'Index - Recurso';
 
         return view('recurso.index', compact('recursos', 'title'));
     }
-    
+
     /**
      * Mustra un tablón con todos los posts/recursos
      *
      * @return  \Illuminate\Http\Response
      */
     public function indexFront()
-    {        
+    {
         $rol = $this->getAndSetCookieValue();
-        
+
         $recursos = Recurso::where('activo', 1)
-                    ->where('fechaPost', '<=', Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
-                    ->where(function ($query) use ($rol) {
-                        $query->where('rol', '=', 0)
-                              ->orWhere('rol', '=', $rol);
-                    })
-                    ->orderBy('fechaPost', 'desc')
-                    ->paginate(4);
-        
+            ->where('show', 1)
+            ->where('fechaPost', '<=', Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
+            ->where(function ($query) use ($rol) {
+                $query->where('rol', '=', 0)
+                    ->orWhere('rol', '=', $rol);
+            })
+            ->orderBy('fechaPost', 'desc')
+            ->paginate(4);
+
         $recursos = $this->recursosFechaHora($recursos); //Trait
 
         return view('fo.tablon_recursos', compact('recursos'));
     }
-    
+
     /**
      * Mustra un tablón con todos los posts/recursos
      *
      * @return  \Illuminate\Http\Response
      */
     public function getRecursoByCategoria(Request $request, $id)
-    {                
+    {
         $rol = $this->getAndSetCookieValue();
-        
+
         $recursos = Recurso::join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
-                    ->join('subcategorias', 'recursossubcategorias.idSubcategorias', '=', 'subcategorias.id')
-                    ->join('categorias', function ($join) use ($id) {
-                        $join->on('subcategorias.idCategoria', '=', 'categorias.id')
-                             ->where('categorias.id', $id);
-                    })
-                    ->where('recursos.activo', 1)
-                    ->where('recursos.fechaPost', '<=', Carbon::now()->format('Y-m-d'))
-                    ->where(function ($query) use ($rol) {
-                        $query->where('rol', '=', 0)
-                              ->orWhere('rol', '=', $rol);
-                    })
-                    ->orderBy('recursos.fechaPost', 'desc')
-                    ->distinct()
-                    ->select('recursos.*')
-                    ->paginate(4);
-        
+            ->join('subcategorias', 'recursossubcategorias.idSubcategorias', '=', 'subcategorias.id')
+            ->join('categorias', function ($join) use ($id) {
+                $join->on('subcategorias.idCategoria', '=', 'categorias.id')
+                    ->where('categorias.id', $id);
+            })
+            ->where('recursos.activo', 1)
+            ->where('recursos.show', 1)
+            ->where('recursos.fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+            ->where(function ($query) use ($rol) {
+                $query->where('rol', '=', 0)
+                    ->orWhere('rol', '=', $rol);
+            })
+            ->orderBy('recursos.fechaPost', 'desc')
+            ->distinct()
+            ->select('recursos.*')
+            ->paginate(4);
+
         $recursos = $this->recursosFechaHora($recursos);
 
         return view('fo.tablon_recursos', compact('recursos'));
     }
-    
+
     /**
      * Mustra un tablón con todos los posts/recursos
      *
      * @return  \Illuminate\Http\Response
      */
     public function getRecursoBySubcategoria(Request $request, $id)
-    {        
+    {
         $rol = $this->getAndSetCookieValue();
-        
+
         $recursos = Recurso::join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
-                    ->join('subcategorias', function ($join) use ($id) {
-                        $join->on('recursossubcategorias.idSubcategorias', '=', 'subcategorias.id')
-                             ->where('subcategorias.id', $id);
-                    })
-                    ->where('recursos.activo', 1)
-                    ->where('recursos.fechaPost', '<=', Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
-                    ->where(function ($query) use ($rol) {
-                        $query->where('rol', '=', 0)
-                              ->orWhere('rol', '=', $rol);
-                    })
-                    ->orderBy('recursos.fechaPost', 'desc')
-                    ->distinct()
-                    ->select('recursos.*')
-                    ->paginate(4);
-        
+            ->join('subcategorias', function ($join) use ($id) {
+                $join->on('recursossubcategorias.idSubcategorias', '=', 'subcategorias.id')
+                    ->where('subcategorias.id', $id);
+            })
+            ->where('recursos.activo', 1)
+            ->where('recursos.show', 1)
+            ->where('recursos.fechaPost', '<=', Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
+            ->where(function ($query) use ($rol) {
+                $query->where('rol', '=', 0)
+                    ->orWhere('rol', '=', $rol);
+            })
+            ->orderBy('recursos.fechaPost', 'desc')
+            ->distinct()
+            ->select('recursos.*')
+            ->paginate(4);
+
         $recursos = $this->recursosFechaHora($recursos);
-                    
-        
+
+
         /*
         foreach($recursos as $recurso){
             $recurso->fechaPosteo = Recurso::formatFecha($recurso->fechaPost); 
@@ -137,22 +141,21 @@ class RecursoController extends Controller
 
         return view('fo.tablon_recursos', compact('recursos'));
     }
-    
+
     /**
-     * Nos muestra un post/recurso
-     *
-     * @return  recursos\id
+     * @param $id
+     * @return mixed
      */
     public function showRecurso($id)
-    {        
+    {
         $recurso = Recurso::find($id);
-            
-        $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost); 
+
+        $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
         $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
 
         return view('fo.recurso_post', compact('recurso'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -192,8 +195,8 @@ class RecursoController extends Controller
         $recurso->relevancia = $request->relevancia;
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
-        
-        
+
+
         if ($request->alumno == 1 && $request->profesor == 1) {
             $rol = 0;
         }
@@ -203,10 +206,9 @@ class RecursoController extends Controller
         if ($request->alumno == 0 && $request->profesor == 1) {
             $rol = 2;
         }
-        
+
         $recurso->rol = $rol;
 
-        
 
         $recurso->save();
 
@@ -248,25 +250,24 @@ class RecursoController extends Controller
         $pusher->trigger('test-channel',
             'test-event',
             ['message' => 'A new recurso has been created !!']);
-        $Recurso= Recurso::orderBy('id', 'desc')->first();
+        $Recurso = Recurso::orderBy('id', 'desc')->first();
         $link = URL::to('recursos/' . $Recurso->id);
 
         if ($request->hasFile('img')) {
-            $directorio=  '/img/recursos/';
+            $directorio = '/img/recursos/';
             if (!file_exists($directorio)) {
                 //mkdir($directorio, 077, true);
                 //Controlar excepcion
             }
             $file = $request->file('img');
-            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $extension = '.' . substr(strchr($file->getClientOriginalName(), '.'), 1);
             $imgname = 'img_' . $Recurso->id . $extension;
-            $nombreimagen = $directorio . $imgname ;
+            $nombreimagen = $directorio . $imgname;
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
             $Recurso->img = $imgname;
             $Recurso->save();
         }
-
 
 
         $titulo = substr($request->titulo, 0, 40);
@@ -276,7 +277,7 @@ class RecursoController extends Controller
 
         $title = 'Edit - Recurso';
         $entidades = Entidadorganizativa::where('activo', '=', '1')->orderBy('nombre', 'asc')->get();
-        $tags =  Recursotag::findTagsInRecurs($recurso->id);
+        $tags = Recursotag::findTagsInRecurs($recurso->id);
         $subcategorias = Subcategoria::orderBy('nombre', 'asc')->get();
         $ficheros = $recurso->ficheros;
 
@@ -289,7 +290,7 @@ class RecursoController extends Controller
             $alumno = 1;
         }
         $recursoSubcategorias = $recurso->subcategorias;
-        return view ('recurso.edit', compact('title', 'recurso', 'Recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
+        return view('recurso.edit', compact('title', 'recurso', 'Recurso', 'entidades', 'tags', 'subcategorias', 'ficheros', 'recursoSubcategorias', 'profesor', 'alumno'));
     }
 
     /**
@@ -332,7 +333,7 @@ class RecursoController extends Controller
         $subcategorias = Subcategoria::orderBy('nombre', 'asc')->get();
         $recursoSubcategorias = $recurso->subcategorias;
         $ficheros = Fichero::all();
-        
+
         $profesor = 0;
         $alumno = 0;
         if ($recurso->rol == 2 || $recurso->rol == 0) {
@@ -367,7 +368,7 @@ class RecursoController extends Controller
             ->where('recursossubcategorias.idSubcategorias', '=', $idsub)
             ->where('recursossubcategorias.idRecursos', '=', $idrec)
             ->get();
-        $subcategoria = Recursossubcategoria::findOrf.ail($subcat[0]->id);
+        $subcategoria = Recursossubcategoria::findOrf . ail($subcat[0]->id);
         $subcategoria->delete();
         return redirect('recurso/' . $idrec . '/edit/');
     }
@@ -389,13 +390,13 @@ class RecursoController extends Controller
 
         $recurso->contenido = $request->contenido;
         if ($request->hasFile('img')) {
-            $directorio= '/img/recursos/';
-            
+            $directorio = '/img/recursos/';
+
 
             $file = $request->file('img');
-            $extension = '.' . substr(strchr($file->getClientOriginalName(),'.'),1);
+            $extension = '.' . substr(strchr($file->getClientOriginalName(), '.'), 1);
             $imgname = 'img_' . $recurso->id . $extension;
-            $nombreimagen = $directorio . $imgname ;
+            $nombreimagen = $directorio . $imgname;
             \Storage::disk('local')->put($nombreimagen, \File::get($file));
 
 
@@ -413,7 +414,7 @@ class RecursoController extends Controller
 
         $recurso->idEntidadOrganizativa = $request->idEntidadOrganizativa;
 
-        
+
         if ($request->alumno == 1 && $request->profesor == 1) {
             $rol = 0;
         }
@@ -423,7 +424,7 @@ class RecursoController extends Controller
         if ($request->alumno == 0 && $request->profesor == 1) {
             $rol = 2;
         }
-        
+
         $recurso->rol = $rol;
 
         /* $img=$request->file('img');
@@ -500,14 +501,14 @@ class RecursoController extends Controller
         $recurso = Recurso::findOrfail($id);
         $recurso->activo = 0;
         $recursossubcategorias = $recurso->recursosubcategorias;
-      
+
         foreach ($recursossubcategorias as $rec) {
             $rec->delete();
         }
-        $directorio= '/img/recursos/';
+        $directorio = '/img/recursos/';
         $Imagen = $directorio . $recurso->img;
 
-        if(\Storage::disk('local')->has($Imagen)){
+        if (\Storage::disk('local')->has($Imagen)) {
             \Storage::disk('local')->delete($Imagen);
         }
         $recurso->save();
@@ -521,5 +522,29 @@ class RecursoController extends Controller
     {
         $entdades = Entidadorganizativa::all();
         return $entdades;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function enable($id)
+    {
+        $recurso = Recurso::findOrfail($id);
+        $recurso->show = 1;
+        $recurso->save();
+        return URL::to('recurso');
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function disable($id)
+    {
+        $recurso = Recurso::findOrfail($id);
+        $recurso->show = 0;
+        $recurso->save();
+        return URL::to('recurso');
     }
 }
