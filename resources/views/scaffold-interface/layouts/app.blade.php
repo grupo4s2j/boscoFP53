@@ -57,7 +57,7 @@
                 <ul class="nav navbar-nav">
                     <!-- Notification Navbar List-->
                     <li class="dropdown notifications-menu">
-                       
+
                         <ul class="dropdown-menu">
                             <li class="header">Your notifications</li>
                             <li>
