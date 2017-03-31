@@ -4,10 +4,10 @@
     <div id="trend-post" class="trend-post">
 
        @foreach($recursos as $recurso)
-        <div class="post item">
+        <div class="post item" style="width:225px; height:127px;">
             <img class="img-responsive" style="max-width:100%; max-height:100%;" src="{{ asset('img/recursos/'. $recurso->img) }}" alt="" />
             <div class="overlay">
-                <h3>easy way to get fitness</h3>
+                <h3>{{$recurso->titulo}}</h3>
             </div>
         </div>
         <!-- End Post -->

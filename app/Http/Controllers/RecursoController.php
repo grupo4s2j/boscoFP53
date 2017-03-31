@@ -79,8 +79,7 @@ class RecursoController extends Controller
     {                
         $rol = $this->getAndSetCookieValue();
         
-        $recursos = DB::table('recursos')
-                    ->join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
+        $recursos = Recurso::join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
                     ->join('subcategorias', 'recursossubcategorias.idSubcategorias', '=', 'subcategorias.id')
                     ->join('categorias', function ($join) use ($id) {
                         $join->on('subcategorias.idCategoria', '=', 'categorias.id')
@@ -111,8 +110,7 @@ class RecursoController extends Controller
     {        
         $rol = $this->getAndSetCookieValue();
         
-        $recursos = DB::table('recursos')
-                    ->join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
+        $recursos = Recurso::join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
                     ->join('subcategorias', function ($join) use ($id) {
                         $join->on('recursossubcategorias.idSubcategorias', '=', 'subcategorias.id')
                              ->where('subcategorias.id', $id);
@@ -146,8 +144,9 @@ class RecursoController extends Controller
      * @return  recursos\id
      */
     public function showRecurso($id)
-    {
+    {        
         $recurso = Recurso::find($id);
+            
         $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost); 
         $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
 

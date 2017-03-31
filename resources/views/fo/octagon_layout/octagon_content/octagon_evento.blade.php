@@ -2,8 +2,10 @@
     <div class="post-bottom-content">
         <a href="{{ url('recursos/' . $recurso->id) }}"><img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}" alt=""></a>
         <a href="{{ url('recursos/'. $recurso->id) }}"><h3>{{$recurso->titulo}}</h3></a>
-        <h3><span class="travel-bg">P<a class="travel-bg" href="{{ url('recursos/'. $recurso->id) }}">Post</a></span></h3>
+        <h3><span class="mobile-bg">E<a class="mobile-bg" href="{{ url('recursos/'. $recurso->id) }}">Event</a></span></h3>
         <span class="date">{{$recurso->fechaPosteo}}</span>
+        <span class="date">{{$recurso->fechaI}}</span>
+        <span class="date">{{$recurso->fechaF}}</span>
 
         <!-- ___Post Meta___ -->
         <div class="article-and-feature post-meta">

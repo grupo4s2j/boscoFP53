@@ -164,5 +164,11 @@ Route::group(['prefix' => '/', 'middleware'=> 'checkcookie'], function(){
     Route::get('contacto', function(){
         return view('fo.contact');
     });
+    //NOSOTROS
+    Route::get('nosotros', function(){
+        return view('fo.about');
+    });
 });
+//TESTIIIIIMG
+Route::get('testing/{id}', 'TestingController@queries');
 ////////////////////////////////////

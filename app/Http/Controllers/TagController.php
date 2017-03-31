@@ -82,8 +82,7 @@ class TagController extends Controller
     {
         $rol = $this->getAndSetCookieValue();
         
-        $recursos = DB::table('recursos')
-                    ->join('recursotags', 'recursos.id', '=', 'recursotags.idRecursos')
+        $recursos = Recurso::join('recursotags', 'recursos.id', '=', 'recursotags.idRecursos')
                     ->join('tags', 'tags.id', '=', 'recursotags.idTag')
                     ->whereIn('tags.nombre', $tags)
                     ->select('recursos.*')
