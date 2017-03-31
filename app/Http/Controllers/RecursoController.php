@@ -144,8 +144,9 @@ class RecursoController extends Controller
      * @return  recursos\id
      */
     public function showRecurso($id)
-    {
+    {        
         $recurso = Recurso::find($id);
+            
         $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost); 
         $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
 

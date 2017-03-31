@@ -8,7 +8,7 @@ trait FuncionesExtra
      *
      * @return  $recurso->fecha
      */
-    public function formatFecha($fechaPosteo)
+    public function formatFechaEnglish($fechaPosteo)
     {
         $fecha = explode('-', $fechaPosteo);
         switch($fecha[1]){
@@ -24,6 +24,34 @@ trait FuncionesExtra
             case '10' : $fecha[1] = 'October';break;
             case '11' : $fecha[1] = 'November';break;
             case '12' : $fecha[1] = 'December';break;
+        }
+
+        $fechahora = explode(' ', $fecha[2]);
+        
+        return $fecha[1] . ' ' . $fechahora[0] . ', ' . $fecha[0];
+    }
+    
+    /**
+     * Formatea la fecha para que se muestre como queremos
+     *
+     * @return  $recurso->fecha
+     */
+    public function formatFecha($fechaPosteo)
+    {
+        $fecha = explode('-', $fechaPosteo);
+        switch($fecha[1]){
+            case '01' : $fecha[1] = 'Gener';break;
+            case '02' : $fecha[1] = 'Febrer';break;
+            case '03' : $fecha[1] = 'Març';break;
+            case '04' : $fecha[1] = 'Abril';break;
+            case '05' : $fecha[1] = 'Maig';break;
+            case '06' : $fecha[1] = 'Juny';break;
+            case '07' : $fecha[1] = 'Juliol';break;
+            case '08' : $fecha[1] = 'Agost';break;
+            case '09' : $fecha[1] = 'Setembre';break;
+            case '10' : $fecha[1] = 'Octubre';break;
+            case '11' : $fecha[1] = 'Novembre';break;
+            case '12' : $fecha[1] = 'Decembre';break;
         }
 
         $fechahora = explode(' ', $fecha[2]);
@@ -52,8 +80,18 @@ trait FuncionesExtra
     {
         if(count($recursos) > 0){
             foreach($recursos as $recurso){
-                $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost); 
-                $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
+                if(!empty($recurso->fechaPost)){
+                    $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost); 
+                    $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
+                }
+                if(!empty($recurso->fechaInicio)){
+                    $recurso->fechaI = $this->formatFecha($recurso->fechaInicio); 
+                    $recurso->horaI = $this->horaPosteo($recurso->fechaInicio);
+                }
+                if(!empty($recurso->fechaFin)){
+                    $recurso->fechaF = $this->formatFecha($recurso->fechaFin); 
+                    $recurso->horaF = $this->horaPosteo($recurso->fechaFin);
+                }
             }
         }
         return $recursos;

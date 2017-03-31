@@ -14,53 +14,53 @@
         <div class="contact-form">
             <div class="row">
                 <form>
-                   <row>
-                    <!-- ___Input .Name .Email. Website___ -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">Nom (*)</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="surname">Cognoms (*)</label>
-                            <input type="text" class="form-control" id="surname" name="surname" required>
-                        </div>
+                   <div class="row">
+                        <!-- ___Input .Name .Email. Website___ -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">Nom (*)</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="email">Email (*)</label>
-                            <input type="text" class="form-control" id="email" name="email" required>
-                        </div>
-                    </div>
-                    <!-- End Column 6 -->
+                            <div class="form-group">
+                                <label for="surname">Cognoms (*)</label>
+                                <input type="text" class="form-control" id="surname" name="surname" required>
+                            </div>
 
-                    <!-- ___Message & Send It___ -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="empresa">Empresa</label>
-                            <input type="text" class="form-control" id="empresa" name="empresa">
+                            <div class="form-group">
+                                <label for="email">Email (*)</label>
+                                <input type="text" class="form-control" id="email" name="email" required>
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="direccion">Adreça</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion">
-                        </div>
-                    </div>
-                    <!-- End Column 6 -->
-                    </row>
-                    <row>
+                        <!-- End Column 6 -->
+
                         <!-- ___Message & Send It___ -->
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="message">Missatge</label>
-                            <textarea class="form-control" rows="7" id="message" name="message"></textarea>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="empresa">Empresa</label>
+                                <input type="text" class="form-control" id="empresa" name="empresa">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="direccion">Adreça</label>
+                                <input type="text" class="form-control" id="direccion" name="direccion">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="button btn btn-default">Enviar</button>
-                        </div>
+                        <!-- End Column 6 -->
                     </div>
+                    <div class="row">
+                        <!-- ___Message & Send It___ -->
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="message">Missatge</label>
+                                <textarea class="form-control" rows="7" id="message" name="message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="button btn btn-default">Enviar</button>
+                            </div>
+                        </div>
                     <!-- End Column 6 -->
-                    </row>
+                    </div>
                 </form>
                 <!-- End Form -->
             </div>

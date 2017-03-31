@@ -34,13 +34,13 @@
                     <form method="post" action="{{ url('rolchange')}}">
                         {{ csrf_field() }}
                         <input type="hidden" name="rol" value="alumno">
-                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:30px;">Alumne</button>
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:30px;">Pares/Alumnes</button>
                     </form>
                 @elseif($rol == 'alumno')
                    <form method="post" action="{{ url('rolchange')}}">
                         {{ csrf_field() }}
                         <input type="hidden" name="rol" value="profesor">
-                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:30px;">Professor</button>
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:30px;">Professors/Orientadors</button>
                     </form>
                 @endif
             </div>
