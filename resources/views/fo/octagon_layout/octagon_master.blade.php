@@ -42,50 +42,58 @@
 </head>
 
 <body>
+    <div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
+        <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 30%; left: 40%;"/>
+    </div>
+    <div id="contenido" style="display: none;"> 
+        <!-- ___Start Home Three Page___ -->
+        <div class="container-fluid home-3" id="container-full">
+            <div class="row	">
 
-    <!-- ___Start Home Three Page___ -->
-    <div class="container-fluid home-3" id="container-full">
-        <div class="row	">
-
-            <!-- ___Start Left Menu___ -->
-            @include('fo.octagon_layout.octagon_left_side')
-            <!-- End Left Menu -->
-
-            <!-- ___Start Column___ -->
-            <div class="col-md-10 no-padding">
-
-                <!-- ___Start Top Bar___ -->
-                @include('fo.octagon_layout.octagon_top_bar.octagon_top_bar')
-                <!-- End Top Bar -->
-
-                <!-- ___Start Top Menu___ -->
-                @if(isset($categorias)) @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu') @endif
-                <!-- End Top Menu -->
+                <!-- ___Start Left Menu___ -->
+                @include('fo.octagon_layout.octagon_left_side')
+                <!-- End Left Menu -->
 
                 <!-- ___Start Column___ -->
-                <div class="main-content">
-                    @yield('content')
+                <div class="col-md-10 no-padding">
+
+                    <!-- ___Start Top Bar___ -->
+                    @include('fo.octagon_layout.octagon_top_bar.octagon_top_bar')
+                    <!-- End Top Bar -->
+
+                    <!-- ___Start Top Menu___ -->
+                    @if(isset($categorias)) @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu') @endif
+                    <!-- End Top Menu -->
+
+                    <!-- ___Start Column___ -->
+                    <div class="main-content">
+                        @yield('content')
+                    </div>
+                    <!-- End Column -->
+
+                    <!-- ___Start Top Bar___ -->
+                    @include('fo.octagon_layout.octagon_footer.octagon_trend_post')
+                    <!-- End Top Bar -->
+
+                    <!-- ___Start Top Menu___ -->
+                    @include('fo.octagon_layout.octagon_footer.octagon_bottom')
+                    <!-- End Top Menu -->
+
+                    <!-- ___Start Top Menu___ -->
+                    @include('fo.octagon_layout.octagon_footer.octagon_footer')
+                    <!-- End Top Menu -->
+
                 </div>
-                <!-- End Column -->
-
-                <!-- ___Start Top Bar___ -->
-                @include('fo.octagon_layout.octagon_footer.octagon_trend_post')
-                <!-- End Top Bar -->
-
-                <!-- ___Start Top Menu___ -->
-                @include('fo.octagon_layout.octagon_footer.octagon_bottom')
-                <!-- End Top Menu -->
-
-                <!-- ___Start Top Menu___ -->
-                @include('fo.octagon_layout.octagon_footer.octagon_footer')
-                <!-- End Top Menu -->
-
+                <!-- ___End Column___ -->
+                </div>
+                <!-- End Row -->
+                <aside id="avisocookies">
+                    Esta pagina utiliza cookies propias con el fin de mejorar el servicio. Si continuas navegando, aceptas su uso. Para mas informacion <a href="http://politicadecookies.com" rel="nofollow">clicka aqui</a>.
+                    <button class="btn btn-secundary" id="aceptarcookies">Aceptar</button>
+                </aside>
             </div>
-            <!-- ___End Column___ -->
-        </div>
-        <!-- End Row -->
+        <!-- End Container -->
     </div>
-    <!-- End Container -->
 
 
 
@@ -102,6 +110,9 @@
     <script src="{{ asset('/js/octagon/jquery.meanmenu.min.js') }}"></script>
     <!-- ===This Script for Main Menu=== -->
     <script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
+
+    <script src="{{ url('js/splashscreen.js') }}"></script> 
+    <script src="{{ asset('js/avisocookies.js') }}"></script>
 
 
     <script>
