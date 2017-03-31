@@ -40,9 +40,12 @@
         <!-- Logo -->
         <a href="{{url('dashboard')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>B</b>FP</span>
+            <span class="logo-mini"><b>TSFI</b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>BoscoFP</b></span>
+            <span class="logo-lg">
+                <img src="{{ asset('/img/octagon/logo.png') }}" style="height:60px;"/>
+                {{--<b>Taula Sectorial </br> de Formació Inustrial</b>--}}
+            </span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
