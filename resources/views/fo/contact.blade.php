@@ -13,7 +13,8 @@
         <!-- ___Start Contact Form___ -->
         <div class="contact-form">
             <div class="row">
-                <form>
+                <form method="POST" action="{{ url('/contacto') }}">
+                  {{ csrf_field() }}
                    <div class="row">
                         <!-- ___Input .Name .Email. Website___ -->
                         <div class="col-md-6">

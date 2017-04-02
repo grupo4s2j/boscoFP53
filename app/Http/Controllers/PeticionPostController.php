@@ -15,10 +15,24 @@ class PeticionPostController extends Controller
      */
     public function sendPost(Request $request)
     {
-        Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
-            $m->from('hello@app.com', 'Your Application');
+        $title = $request->input('name');
+        $content = $request->input('message');
+        //Grab uploaded file
+        //$attach = $request->file('file');
 
-            $m->to($user->email, $user->name)->subject('Your Reminder!');
+        Mail::send('fo.octagon_layout.octagon_mailing.mail', ['title' => $title, 'content' => $content], function ($message) //use ($attach)
+        {
+
+            $message->from('me@gmail.com', 'Christian Nwamba');
+
+            $message->to('danirocar@hotmail.com');
+
+            //Attach file
+            //$message->attach($attach);
+
+            //Add a subject
+            $message->subject("Hello from Scotch");
+
         });
     }
 }
