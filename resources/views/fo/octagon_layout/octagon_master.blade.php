@@ -43,7 +43,7 @@
 
 <body>
     <div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
-        <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 30%; left: 40%;"/>
+        <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;"/>
     </div>
     <div id="contenido" style="display: none;"> 
         <!-- ___Start Home Three Page___ -->
@@ -87,10 +87,7 @@
                 <!-- ___End Column___ -->
                 </div>
                 <!-- End Row -->
-                <aside id="avisocookies">
-                    Esta pagina utiliza cookies propias con el fin de mejorar el servicio. Si continuas navegando, aceptas su uso. Para mas informacion <a href="http://politicadecookies.com" rel="nofollow">clicka aqui</a>.
-                    <button class="btn btn-secundary" id="aceptarcookies">Aceptar</button>
-                </aside>
+                
             </div>
         <!-- End Container -->
     </div>
@@ -112,7 +109,7 @@
     <script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
 
     <script src="{{ url('js/splashscreen.js') }}"></script> 
-    <script src="{{ asset('js/avisocookies.js') }}"></script>
+   
 
 
     <script>

@@ -58,14 +58,19 @@
                     </div>
                 </div>
             </div>
+            <aside id="avisocookies">
+                    Esta pagina utiliza cookies propias con el fin de mejorar el servicio. Si continuas navegando, aceptas su uso. Para mas informacion <a href="http://politicadecookies.com" rel="nofollow">clicka aqui</a>. 
+                    <button class="btn btn-primary" id="aceptarcookies" style="margin-left: 15px;">Aceptar</button>
+        </aside>
         </div>
+        
     </header>
     
     <!-- jQuery -->
     <script src="{{ asset('js/stylish_portfolio/jquery.js') }}"></script>
 
     <!-- JS aviso cookies -->
-   
+    <script src="{{ asset('js/avisocookies.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/stylish_portfolio/bootstrap.min.js') }}"></script>
