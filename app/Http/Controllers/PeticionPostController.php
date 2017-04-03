@@ -15,12 +15,12 @@ class PeticionPostController extends Controller
      */
     public function sendPost(Request $request)
     {
-        $title = $request->input('name');
-        $content = $request->input('message');
+        //$title = $request->input('name');
+        //$content = $request->input('message');
         //Grab uploaded file
         //$attach = $request->file('file');
 
-        Mail::send('fo.octagon_layout.octagon_mailing.mail', ['title' => $title, 'content' => $content], function ($message) //use ($attach)
+        /*Mail::send('fo.octagon_layout.octagon_mailing.mail', ['title' => $title, 'content' => $content], function ($message) //use ($attach)
         {
 
             $message->from('me@gmail.com', 'Christian Nwamba');
@@ -33,6 +33,14 @@ class PeticionPostController extends Controller
             //Add a subject
             $message->subject("Hello from Scotch");
 
-        });
+        });*/
+        $to = 'danirocar@hotmail.com';
+        $subject = 'Petición de POST';
+        $message = $request->input('message');
+        $headers = 'From: '. $request->input('email') . "\r\n" .
+            'Reply-To: tsfi@example.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        mail($to, $subject, $message, $headers);
     }
 }
