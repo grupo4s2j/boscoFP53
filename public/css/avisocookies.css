@@ -10,3 +10,17 @@
 	 -webkit-transition: top 0.8s ease-in-out;
   transition: top 0.8s ease-in-out;
 }
+@media screen and (max-height: 850px){
+	#avisocookies {
+	position: absolute;
+	top: 795px;
+	z-index: 999;
+	width: 100%;
+	padding: 15px;
+	color: white;
+	box-sizing: border-box;
+	background: rgba( 220, 220, 220, 0.8);
+	 -webkit-transition: top 0.8s ease-in-out;
+  transition: top 0.8s ease-in-out;
+}
+}
