@@ -1,6 +1,6 @@
 #avisocookies {
 	position: absolute;
-	top: 805px;
+	top: 925px;
 	z-index: 999;
 	width: 100%;
 	padding: 15px;
@@ -10,10 +10,10 @@
 	 -webkit-transition: top 0.8s ease-in-out;
   transition: top 0.8s ease-in-out;
 }
-@media screen and (max-height: 850px){
+@media screen and (max-height: 910px){
 	#avisocookies {
 	position: absolute;
-	top: 795px;
+	top: 835px;
 	z-index: 999;
 	width: 100%;
 	padding: 15px;
