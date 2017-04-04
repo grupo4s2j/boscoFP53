@@ -123,10 +123,10 @@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
-                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="header">NAVEGACIÓ PRINCIPAL</li>
                     <li {{{ (Request::is('dashboard') ? 'class=active' : '') }}}>
                         <a href="{{url('dashboard')}}">
-                            <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
+                            <i class="fa fa-dashboard"></i> <span>Panell de control</span></i>
                         </a>
                     </li>
                     <li {{{ (Request::is('categoria') ? 'class=active' : '') }}}><a href="{{url('/categoria')}}"><i
