@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en">
 <!--<![endif]-->
@@ -42,92 +45,88 @@
 </head>
 
 <body>
-<div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
-    <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;"/>
-</div>
-    <!-- ___Start Home Three Page___ -->
-    <div class="container-fluid home-3" id="container-full">
-        <div class="row	">
 
-            <!-- ___Start Left Menu___ -->
-            @include('fo.octagon_layout.octagon_left_side')
-            <!-- End Left Menu -->
+<!-- ___Start Home Three Page___ -->
+<div class="container-fluid home-3" id="container-full">
+    <div class="row	">
+
+        <!-- ___Start Left Menu___ -->
+        @include('fo.octagon_layout.octagon_left_side')
+                <!-- End Left Menu -->
+
+        <!-- ___Start Column___ -->
+        <div class="col-md-10 no-padding">
+
+            <!-- ___Start Top Bar___ -->
+            @include('fo.octagon_layout.octagon_top_bar.octagon_top_bar')
+                    <!-- End Top Bar -->
+
+            <!-- ___Start Top Menu___ -->
+            @if(isset($categorias)) @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu') @endif
+                    <!-- End Top Menu -->
 
             <!-- ___Start Column___ -->
-            <div class="col-md-10 no-padding">
-
-                <!-- ___Start Top Bar___ -->
-                @include('fo.octagon_layout.octagon_top_bar.octagon_top_bar')
-                <!-- End Top Bar -->
-
-                <!-- ___Start Top Menu___ -->
-                @if(isset($categorias)) @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu') @endif
-                <!-- End Top Menu -->
-
-                <!-- ___Start Column___ -->
-                <div class="main-content">
-                    @yield('content')
-                </div>
-                <!-- End Column -->
-
-                <!-- ___Start Top Bar___ -->
-                @include('fo.octagon_layout.octagon_footer.octagon_trend_post')
-                <!-- End Top Bar -->
-
-                <!-- ___Start Top Menu___ -->
-                @include('fo.octagon_layout.octagon_footer.octagon_bottom')
-                <!-- End Top Menu -->
-
-                <!-- ___Start Top Menu___ -->
-                @include('fo.octagon_layout.octagon_footer.octagon_footer')
-                <!-- End Top Menu -->
-
+            <div class="main-content">
+                @yield('content')
             </div>
-            <!-- ___End Column___ -->
+            <!-- End Column -->
+
+            <!-- ___Start Top Bar___ -->
+            @include('fo.octagon_layout.octagon_footer.octagon_trend_post')
+                    <!-- End Top Bar -->
+
+            <!-- ___Start Top Menu___ -->
+            @include('fo.octagon_layout.octagon_footer.octagon_bottom')
+                    <!-- End Top Menu -->
+
+            <!-- ___Start Top Menu___ -->
+            @include('fo.octagon_layout.octagon_footer.octagon_footer')
+                    <!-- End Top Menu -->
+
         </div>
-        <!-- End Row -->
+        <!-- ___End Column___ -->
     </div>
-    <!-- End Container -->
+    <!-- End Row -->
+</div>
+<!-- End Container -->
 
 
+<script src="{{ asset('/js/octagon/vendor/jquery.min.js') }}"></script>
+<script src="{{ asset('/js/octagon/scripts.js') }}"></script>
+<!-- ===This Script for Custom Script=== -->
+<script src="{{ asset('/js/octagon/owl.carousel.min.js') }}"></script>
+<!-- ===This Script for Owl Carousel=== -->
+<script src="{{ asset('/js/octagon/bootstrap.min.js') }}"></script>
+<!-- ===This Script for Bootstrap=== -->
+<script src="{{ asset('/js/octagon/wow.min.js') }}"></script>
+<!-- ===This Script for Wow JS=== -->
+<script src="{{ asset('/js/octagon/jquery.meanmenu.min.js') }}"></script>
+<!-- ===This Script for Main Menu=== -->
+<script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
 
 
-    <script src="{{ asset('/js/octagon/vendor/jquery.min.js') }}"></script>
-    <script src="{{ asset('/js/octagon/scripts.js') }}"></script>
-    <!-- ===This Script for Custom Script=== -->
-    <script src="{{ asset('/js/octagon/owl.carousel.min.js') }}"></script>
-    <!-- ===This Script for Owl Carousel=== -->
-    <script src="{{ asset('/js/octagon/bootstrap.min.js') }}"></script>
-    <!-- ===This Script for Bootstrap=== -->
-    <script src="{{ asset('/js/octagon/wow.min.js') }}"></script>
-    <!-- ===This Script for Wow JS=== -->
-    <script src="{{ asset('/js/octagon/jquery.meanmenu.min.js') }}"></script>
-    <!-- ===This Script for Main Menu=== -->
-    <script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
-
-<script src="{{ url('js/splashscreen.js') }}"></script>
 <script>
-        jQuery(document).ready(function($) {
-            jQuery('.category-nav ').meanmenu();
-        });
+    jQuery(document).ready(function ($) {
+        jQuery('.category-nav ').meanmenu();
+    });
 
-    </script>
+</script>
 
-    <!-- View de Categorias y Subcategorias -->
-    <!--<script>
-        $("a h2").hover(function() {
-            $(this).animate({
-                fontSize: "26px"
-            }, 400)
-        }, function() {
-            $(this).animate({
-                fontSize: "24px"
-            }, 400)
-        })
-    </script>-->
+<!-- View de Categorias y Subcategorias -->
+<!--<script>
+    $("a h2").hover(function() {
+        $(this).animate({
+            fontSize: "26px"
+        }, 400)
+    }, function() {
+        $(this).animate({
+            fontSize: "24px"
+        }, 400)
+    })
+</script>-->
 
-    @yield('script')
-    @yield('scripts')
+@yield('script')
+@yield('scripts')
 
 </body>
 

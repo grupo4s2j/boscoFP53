@@ -1,4 +1,6 @@
+
 window.onload = function(){
 	$('#splashscreen').fadeOut();
-	$('#contenido').fadeIn();
+	$('#contenidos').fadeIn();
+	$("body").css("background-color","#fff");
 }
