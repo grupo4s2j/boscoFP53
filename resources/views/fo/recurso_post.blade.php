@@ -11,7 +11,7 @@
             <p class="category"><i class="fa fa-bookmark"></i> <a href="#0">mobile</a> </p>
             <p class="author"><i class="fa fa-user"></i> <a href="#0">by jenny doe</a></p>
         </div>
-        <img class="img-responsive" src="{{ asset('img/recursos/'. $recurso->img) }}" alt="">
+        <img class="img-responsive center-block" src="{{ asset('img/recursos/'. $recurso->img) }}" alt="">
 
         <!-- ___Start Post___ -->
         <div class="article-content">
@@ -40,6 +40,7 @@
     </div>
     <!-- End Article & Feature -->
 
+    @if(!empty($recurso->entidadorganizativa))
     <div class="each-section single-post-author common-border">
         <div class="row">
             <div class="col-lg-2 post-author-left">
@@ -75,6 +76,7 @@
         </div>
         <!-- End Row -->
     </div>
+    @endif
 </div>
 
 @endsection
