@@ -25,9 +25,12 @@ class MainPageController extends Controller
         $recursos = $this->recursosFechaHora($recursos);
 
         //To get recursostop
-        //$recursosTOP = \App\Recurso::getTopPosts($rol);
-
-        return view('fo.home', compact('recursos', 'recursosTOP'));
+        $recursosTOP = \App\Recurso::getTopPosts($rol);
+        $lastestRecurso = \App\Recurso::getLastestRecursos($rol);
+		$banners = \App\Banner::getBanner();
+		$eventos = \App\Evento::getEvento();
+	
+        return view('fo.home', compact('recursos', 'recursosTOP', 'lastestRecurso','banners', 'eventos'));
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
 }

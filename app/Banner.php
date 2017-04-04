@@ -22,5 +22,10 @@ class Banner extends Model
     protected $table = 'banners';
 
     protected $fillable = ['Img', 'Url', 'Activo'];
-
+	
+	public static function getBanner(){
+	 	$banners = Banner::where('activo', 1)
+					->get();
+	 	return $banners;
+	 }
 }
