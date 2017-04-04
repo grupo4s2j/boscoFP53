@@ -8,27 +8,26 @@
     }?>
 <section class="content">
     <h1>
-        Redsocial Index
+        Llistat xarxes socials
     </h1>
     <form class = 'col s3' method = 'get' action = '{!!url("redsocial")!!}/create'>
-        <button class = 'btn btn-primary' type = 'submit'>Create New redsocial</button>
+        <button class = 'btn btn-primary' type = 'submit'>Crear nova xarxa social</button>
     </form>
     <br>
     <table  id="example1" class = "table table-striped table-bordered table-hover"      aria-describedby="example1_info" role="grid" style = 'background:#fff'>
         <thead style="background-color:#ffccbc ">
-
             <tr role="row">
                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
                     colspan="1" aria-label="Rendering engine: activate to sort column descending"
-                    style="width: 86px;" aria-sort="ascending">redSocial
+                    style="width: 86px;" aria-sort="ascending">Xarxa social
                 </th>
                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                     aria-label="Browser: activate to sort column ascending" style="width: 110px;">
-                    link
+                    Url
                 </th>
                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                     aria-label="CSS grade: activate to sort column ascending" style="width: 48px;">
-                    actions
+                    Acció
                 </th>
             </tr>
 
@@ -39,8 +38,8 @@
                 <td class="sorting_1">{!!$redsocial->redSocial!!}</td>
                 <td>{!!$redsocial->link!!}</td>
                 <td>
-                    <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/redsocial/{!!$redsocial->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
-                    <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/redsocial/{!!$redsocial->id!!}/edit'><i class = 'material-icons'>edit</i></a>
+                    <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/redsocial/{!!$redsocial->id!!}/deleteMsg" ><i class = 'material-icons'>Eliminar</i></a>
+                    <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/redsocial/{!!$redsocial->id!!}/edit'><i class = 'material-icons'>Editar</i></a>
                 </td>
             </tr>
             @endforeach 

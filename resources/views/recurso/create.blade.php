@@ -16,36 +16,35 @@
                 <h3>Crear nou recurs</h3>
             </div>
             <form method='get' action='{!!url("recurso")!!}'>
-                <button class='btn btn-danger'>recurso Index</button>
+                <button class='btn btn-danger'>Tornar al llistat</button>
             </form>
             <br>
             <div class="box-body">
                 <form method='POST' action='{!!url("recurso")!!}' enctype="multipart/form-data">
                     <input type='hidden' name='_token' value='{{Session::token()}}'>
                     <div class="form-group">
-                        <label for="titulo">Titulo</label>
+                        <label for="titulo">Títol</label>
                         <input id="titulo" name="titulo" pattern=".{1,100}" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="descripcion">Descripcion</label>
+                        <label for="descripcion">Descripció</label>
                         <input id="descripcion" name="descripcion" type="text" class="form-control"  required>
                     </div>
                     <div class="form-group">
-                        <label for="contenido">Contenido</label>
+                        <label for="contenido">Contingut</label>
                         <textarea id="contenido" name="contenido" type="text" class="ckeditor"  required>
                             </textarea>
                     </div>
                     <div class="form-group">
-                        <label for="img">img</label><br>
-                        <input id="botonimg" style="position: absolute; left: 250px; " type="button"  class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+                        <label for="img">Imatge</label><br>
+                        <input id="botonimg" style="position: absolute; left: 250px; " type="button"  class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar imatge"></input>
                         <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px">
                             <img id="imgmuestra" style="width: 200px; height: 200px; margin: 5 5 5 5;" src=" "></img>
                         </div>
-                    
                         <input required id="img" accept="image/*" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
                     </div>
                     <div class="form-group">
-                        <label for="fechaPost">fechaPost</label>
+                        <label for="fechaPost">Data publicació</label>
                         <input id="fechaPost" name="fechaPost" type="datetime-local" class="form-control" required>
                     </div>
                     <script>
@@ -62,11 +61,11 @@
                     </div>
                     <div id = "divEventos">
                     <div class="form-group">
-                        <label for="fechaInicio">fechaInicio</label>
+                        <label for="fechaInicio">Data inici</label>
                         <input id="fechaInicio" name="fechaInicio" type="datetime-local" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="fechaFin">fechaFin</label>
+                        <label for="fechaFin">Data fi</label>
                         <input id="fechaFin" name="fechaFin" type="datetime-local" class="form-control" required>
                     </div>
                     </div>
@@ -75,14 +74,13 @@
                         <input id="rangoEdad" name="rangoEdad" type="text" class="form-control" required>
                     </div>-->
                     <div class="form-group">
-                        <label for="relevancia">Relevancia</label>
+                        <label for="relevancia">Rellevància</label>
                         <input id="relevancia" name="relevancia" type="number" class="form-control" min="1" max="5" required>
                     </div>
                     <div class="form-group">
-                        <label for="idEntidadOrganizativa">Entidad Organizativa</label>
+                        <label for="idEntidadOrganizativa">Entitat organitzativa</label>
                        <!-- <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control">-->
                         <SELECT id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" required>
-
                             @foreach($entidades as $entidad)
                                 <option value="{{$entidad->id}}">{{$entidad->nombre}}</option>
                             @endforeach
@@ -98,18 +96,18 @@
                         <!--data-data='[{"id": "1", "text": "One"}, {"id": "2", "text": "Two"}] data-tags="true"'-->
                         <select   id="tag_list"  name="tag_list[]" class="form-control"  multiple required ></select>
                     </div>
-                    <label for="Genero">Género:</label>
+                    <label for="Genero">Gènere:</label>
                     <div class="form-group">
                         <label class="checkbox-inline">
                             <input type="hidden" name="alumno" value="0" />
                         </label>
-                            <input id="alumno" name="alumno" type="checkbox" checked value = "1">Alumnos
+                            <input id="alumno" name="alumno" type="checkbox" checked value = "1">Alumnes
                         <label class="checkbox-inline">
                             <input type="hidden" name="profesor" value="0" />
-                            <input id="profesor" name="profesor" type="checkbox" checked value = "1">Profesores
+                            <input id="profesor" name="profesor" type="checkbox" checked value = "1">Profesors
                         </label>
                     </div>
-                    <button class='btn btn-primary' onclick="ComprobarImagen()" type='submit'>Create</button>
+                    <button class='btn btn-primary' onclick="ComprobarImagen()" type='submit'>Desar canvis</button>
                 </form>
             </div>
         </div>

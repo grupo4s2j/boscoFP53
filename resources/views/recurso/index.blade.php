@@ -79,12 +79,10 @@
                                     @if($recurso->show== 0)
                                         <a href='#' class='viewShow btn btn-success btn-xs'
                                            data-link='/recurso/{!!$recurso->id!!}/enable'><i
-
                                                     class='material-icons'>Mostrar</i></a>
                                     @else
                                         <a href='#' class='viewShow btn btn-success btn-xs'
                                            data-link='/recurso/{!!$recurso->id!!}/disable'><i
-
                                                     class='material-icons'>Ocultar</i></a>
                                     @endif
                                 </td>

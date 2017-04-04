@@ -3,9 +3,9 @@
 @section('content')
 
     <section class="content">
-        <h1>
+        <h2>
             Crear entitat organitzativa
-        </h1>
+        </h2>
         <form method='get' action='{!!url("entidadorganizativa")!!}'>
             <button class='btn btn-danger'>Tornar al llistat</button>
         </form>

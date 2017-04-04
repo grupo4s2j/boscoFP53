@@ -12,32 +12,32 @@
 
     <section class="content">
         <h1 id="titl">
-            Edit recurso
+            Editar recurs
         </h1>
         <form method='get' action='{!!url("recurso")!!}'>
-            <button class='btn btn-danger'>recurso Index</button>
+            <button class='btn btn-danger'>Tornar al llistat</button>
         </form>
         <br>
         <div class="box box-primary">
             <div class="box-header">
-                <h3>Subcategorias </h3>
+                <h3>Recurs</h3>
             </div>
             <div class="box-body">
                 <form method='POST' action='{!! url("recurso")!!}/{!!$recurso->
         id!!}/update' enctype="multipart/form-data" >
                     <input type='hidden' name='_token' value='{{Session::token()}}'>
                     <div class="form-group">
-                        <label for="titulo">Titulo</label>
+                        <label for="titulo">Títol</label>
                         <input id="titulo" name="titulo" type="text" class="form-control" value="{!!$recurso->
             titulo!!}" required>
                     </div>
                     <div class="form-group">
-                        <label for="descripcion">Descripcion</label>
+                        <label for="descripcion">Descripció</label>
                         <input id="descripcion" name="descripcion" type="text" class="form-control" value="{!!$recurso->
             descripcion!!}" required >
                     </div>
                     <div class="form-group">
-                        <label for="contenido">Contenido</label>
+                        <label for="contenido">Contingut</label>
 
             <textarea id="contenido" name="contenido" type="text" class="ckeditor" required>
                 {!!$recurso->contenido!!}
@@ -45,8 +45,8 @@
             </div>
             <div class="form-group">
                 
-                    <label for="img">img</label><br>
-                    <input id="botonimg" type="button" style="position: absolute; left: 230px; border: 1px solid black;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+                    <label for="img">Imatge</label><br>
+                    <input id="botonimg" type="button" style="position: absolute; left: 230px; border: 1px solid black;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar imatge"></input>
                     <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px">
                          @if(!is_null($recurso->img))  
                             <img id="imgmuestra"  style="width: 200px; height: 200px; margin: 5 5 5 5" src="{{asset('img/recursos/')}}/{!!$recurso->img!!}"></img>
@@ -54,11 +54,10 @@
                             <img id="imgmuestra"  style="width: 200px; height: 200px; margin: 5 5 5 5" src="{{asset('img/recursos/')}}/{!!$Recurso->img!!}"></img>
                          @endif
                     </div>
-                   
                 <input  id="img" name="img" accept="image/*" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none" ></input>
             </div>
             <div class="form-group">
-                <label for="fechaPost">fechaPost</label>
+                <label for="fechaPost">Data publicació</label>
                 <input id="fechaPost" name="fechaPost" type="datetime-local" class="form-control" required>
                     </div>
                 <script>
@@ -74,12 +73,12 @@
                     </div>
                     <div id="divEventos">
                     <div class="form-group">
-                        <label for="fechaInicio">fechaInicio</label>
+                        <label for="fechaInicio">Data inici</label>
                         <input id="fechaInicio" name="fechaInicio" type="datetime-local" class="form-control" value="{!!$recurso->
             fechaInicio!!}" required>
                     </div>
                     <div class="form-group">
-                        <label for="fechaFin">fechaFin</label>
+                        <label for="fechaFin">Data fi</label>
                         <input id="fechaFin" name="fechaFin" type="datetime-local" class="form-control" value="{!!$recurso->
             fechaFin!!}" required>
                     </div>
@@ -90,12 +89,12 @@
             rangoEdad!!}" required>
                     </div>-->
                     <div class="form-group">
-                        <label for="relevancia">Relevancia</label>
+                        <label for="relevancia">Rellevància</label>
                         <input id="relevancia" name="relevancia" type="number" class="form-control" min="1" max="5" value="{!!$recurso->
             relevancia!!}" required>
                     </div>
                     <div class="form-group">
-                        <label for="idEntidadOrganizativa">Entidad organizativa</label>
+                        <label for="idEntidadOrganizativa">Entitat organitzativa</label>
                         <!-- <input id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control" value="{!!$recurso->
             idEntidadOrganizativa!!}">-->
                         <SELECT required id="idEntidadOrganizativa" name="idEntidadOrganizativa" type="text" class="form-control"
@@ -120,29 +119,29 @@
                         <select id="tag_list" name="tag_list[]" class="form-control" multiple required></select>
                     </div>
                     <script> var data ={!!$tags!!}</script>
-                    <label for="Genero">Género:</label>
+                    <label for="Genero">Gènere:</label>
                     <div class="form-group">
                         <label class="checkbox-inline">
                             <input type="hidden" name="alumno" value="0" />
                             <?php if($alumno == 1){ ?>
-                                <input id="alumno" name="alumno" type="checkbox" checked value = "1">Alumnos
+                                <input id="alumno" name="alumno" type="checkbox" checked value = "1">Alumnes
                             <?php }
                             else{ ?>
-                                <input id="alumno" name="alumno" type="checkbox" value = "1">Alumnos
+                                <input id="alumno" name="alumno" type="checkbox" value = "1">Alumnes
                             <?php } ?>
                         </label>
                         <label class="checkbox-inline">
                             <input type="hidden" name="profesor" value="0" />
                             <?php if($profesor == 1){ ?>
-                                <input id="profesor" name="profesor" type="checkbox" checked value = "1">Profesores
+                                <input id="profesor" name="profesor" type="checkbox" checked value = "1">Profesors
                             <?php }
                             else{ ?>
-                                <input id="profesor" name="profesor" type="checkbox"  value = "1">Profesores
+                                <input id="profesor" name="profesor" type="checkbox"  value = "1">Profesors
                             <?php } ?>
                             
                         </label>
                     </div>
-                    <button class='btn btn-primary' onclick="ComprobarImagen()" type='submit'>Update</button>
+                    <button class='btn btn-primary' onclick="ComprobarImagen()" type='submit'>Desar canvis</button>
                 </form>
             </div>
         </div>
@@ -164,13 +163,13 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button class='btn btn-primary'>Add Subcategoria</button>
+                                <button class='btn btn-primary'>Afegir subcategoria</button>
                             </div>
                         </form>
                         <table class='table'>
                             <thead>
                             <th>Subcategoria</th>
-                            <th>Action</th>
+                            <th>Acció</th>
                             </thead>
                             <tbody>
                             @foreach($recursoSubcategorias as $role)
