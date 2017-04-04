@@ -48,7 +48,7 @@
     <div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
         <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;"/>
     </div>
-    <div id="contenido" style="display: none;"> 
+    <div id="contenidos" style="display: none;"> 
         <!-- ___Start Home Three Page___ -->
         <div class="container-fluid home-3" id="container-full">
             <div class="row	">
@@ -109,14 +109,14 @@
 <!-- ===This Script for Main Menu=== -->
 <script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
 
-
 <script>
+    window.onload = function() {
+        $('#splashscreen').fadeOut();
+        $('#contenidos').fadeIn();
+    }
     jQuery(document).ready(function ($) {
         jQuery('.category-nav ').meanmenu();
-    });
-
-    <script src="{{ url('js/splashscreen.js') }}"></script> 
-   
+    });   
 </script>
 
 <!-- View de Categorias y Subcategorias -->
