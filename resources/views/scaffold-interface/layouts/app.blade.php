@@ -183,7 +183,7 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
 <!-- Datepicker Files -->
 <script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
 <!-- Languaje -->
-<script src="{{asset('datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
+<script src=" 'datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
 <script>
     // pusher log to console.
     Pusher.logToConsole = true;
@@ -304,12 +304,12 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
 </script>
 <script>
     CKEDITOR.replace( 'contenido', {
-        filebrowserBrowseUrl: '/ckeditor/ckfinder/ckfinder.html',
-        filebrowserImageBrowseUrl: '/ckeditor/ckfinder/ckfinder.html?type=Images',
-        filebrowserFlashBrowseUrl: '/ckeditor/ckfinder/ckfinder.html?type=Flash',
-        filebrowserUploadUrl: '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-        filebrowserImageUploadUrl: '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-        filebrowserFlashUploadUrl: '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+        filebrowserBrowseUrl: "{{asset('/ckeditor/ckfinder/ckfinder.html')}}",
+        filebrowserImageBrowseUrl:"{{asset( '/ckeditor/ckfinder/ckfinder.html?type=Images')}}",
+        filebrowserFlashBrowseUrl:"{{asset( '/ckeditor/ckfinder/ckfinder.html?type=Flash')}}",
+        filebrowserUploadUrl:"{{asset( '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files')}}",
+        filebrowserImageUploadUrl:"{{asset( '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images')}}",
+        filebrowserFlashUploadUrl:"{{asset( '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash')}}"
     } );
 </script>
 <script src="{{URL::asset('js/admin-lte/datatables/jquery.dataTables.min.js') }}"></script>
