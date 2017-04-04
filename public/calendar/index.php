@@ -217,10 +217,10 @@ $events = $req->fetchAll();
                 right: 'month,basicWeek,basicDay'
             },
 						firstDay: 1,
-						monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-    				monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
-    				dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-    				dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+						monthNames: ['Gener','Febrer','Març','Abril','Maig','Juny','Juliol','Agost','Setembre','Octubre','Novembre','Desembre'],
+    				monthNamesShort: ['Gen','Feb','Mar','Abr','Mai','Jun','Jul','Ago','Set','Oct','Nov','Des'],
+    				dayNames: ['Diumenge','Dilluns','Dimarts','Dimecres','Dijous','Divendres','Disabte'],
+    				dayNamesShort: ['DI','DL','DM','DX','DJ','DV','DS'],
             defaultDate: currentDate,
             editable: true,
             eventLimit: true, // allow "more" link when too many events

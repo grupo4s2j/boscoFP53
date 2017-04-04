@@ -123,20 +123,20 @@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
-                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="header">NAVEGACIÓ PRINCIPAL</li>
                     <li {{{ (Request::is('dashboard') ? 'class=active' : '') }}}>
                         <a href="{{url('dashboard')}}">
-                            <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
+                            <i class="fa fa-dashboard"></i> <span>Panell de control</span></i>
                         </a>
                     </li>
                     <li {{{ (Request::is('categoria') ? 'class=active' : '') }}}><a href="{{url('/categoria')}}"><i
-                                    class='fa fa-square'></i> <span>Categorías</span></a></li>
+                                    class='fa fa-square'></i> <span>Categories</span></a></li>
                     <li {{{ (Request::is('subcategoria') ? 'class=active' : '') }}}><a
                                 href="{{ url('/subcategoria') }}"><i
-                                    class='fa fa-square-o'></i> <span>Subcategorías</span></a></li>
+                                    class='fa fa-square-o'></i> <span>Subcategories</span></a></li>
                     <li {{{ (Request::is('entidadorganizativa') ? 'class=active' : '') }}}><a
                                 href="{{ url('entidadorganizativa') }}"><i class='fa
-fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
+fa-briefcase'></i> <span>Entitats organitzatives</span></a></li>
                     <li {{{ (Request::is('recurso') ? 'class=active' : '') }}}><a href="{{ url('recurso') }}"><i
                                     class='fa fa-newspaper-o'></i> <span>Recursos</span></a></li>
                     {{--<li {{{ (Request::is('fichero') ? 'class=active' : '') }}}><a href="{{ url('fichero') }}"><i class='fa--}}
@@ -148,11 +148,11 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
                     <!--<li {{{ (Request::is('evento') ? 'class=active' : '') }}}><a href="{{ url('evento') }}"><i
                                 class='fa fa-calendar'></i> <span>Eventos</span></a></li>-->
                     <li {{{ (Request::is('redsocial') ? 'class=active' : '') }}}><a href="{{ url('redsocial') }}"><i
-                                    class='fa fa-twitter'></i> <span>Redes Sociales</span></a></li>
-                    <li class="header">ADMINISTRATOR</li>
-                    <li class="treeview"><a href="{{url('/users')}}"><i class="fa fa-users"></i> <span>Users</span></a>
+                                    class='fa fa-twitter'></i> <span>Xarxes socials</span></a></li>
+                    <li class="header">ADMINISTRADOR</li>
+                    <li class="treeview"><a href="{{url('/users')}}"><i class="fa fa-users"></i> <span>Usuaris</span></a>
                     </li>
-                    {{--<li class="treeview"><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> <span>Role</span></a>--}}
+                    {{--<li class="treeview"><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> <span>Rols</span></a>--}}
                     {{--</li>--}}
                     {{--<li class="treeview"><a href="{{url('/permissions')}}"><i class="fa fa-key"></i>--}}
                     {{--<span>Permissions</span></a></li>--}}
