@@ -30,7 +30,7 @@
              <input id="activo" name = "activo" type="text" class="form-control">
          </div>--}}
         <button class='btn btn-success ' type='submit'>Desar canvis</button>
-        <div class="form-group">
+        <div class="form-group" style="margin-top: 30px;">
             <label for="direccion">Buscar direcció</label>
             <div class="row-lg-12">
                 <div class="col-lg-10">

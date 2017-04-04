@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group">
                     <label for="img">Imatge</label><br>
-                    <input id="botonimg" type="button" style="position: absolute; left: 485px;" class="btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+                    <input id="botonimg" type="button" style="position: absolute; left: 485px;" class="btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar imatge"></input>
                     <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px">
                             <img id="imgmuestra" class="" style="width: 200px; height: 200px; margin: 5 5 5 5" src="{{asset('img/subcategorias/')}}/{!!$subcategoria->img!!}"></img>
                     </div>
