@@ -39,7 +39,7 @@
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                 aria-label="Engine version: activate to sort column ascending"
-                                style="width: 71px;">Fecha post
+                                style="width: 71px;">Data publicació
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                 aria-label="CSS grade: activate to sort column ascending" style="width: 48px;">
