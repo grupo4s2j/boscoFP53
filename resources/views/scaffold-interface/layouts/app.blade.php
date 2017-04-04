@@ -93,7 +93,7 @@
                                     <div class="pull-right">
                                         <a href="{{url('logout')}}" class="btn btn-default btn-flat"
                                            onclick="event.preventDefault();
-											document.getElementById('logout-form').submit();">Sign out</a>
+											document.getElementById('logout-form').submit();">Sortir</a>
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST"
                                               style="display: none;">
                                             {{ csrf_field() }}
@@ -112,7 +112,7 @@
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
                     <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
+                        <input type="text" name="q" class="form-control" placeholder="Cercar...">
 							<span class="input-group-btn">
 								<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
                                             class="fa fa-search"></i>
