@@ -6,7 +6,7 @@
 <script type="text/javascript" src="{{ url('js/ComprobarImagenEdit.js') }}"></script>
 @section('content')
 <section class="content">
-    <div class="box box-primary">
+    <div class="">
         <div class="box-header">
             <h3>Editar Subcategoria ({{$subcategoria->nombre}})</h3>
         </div>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group">
                     <label for="img">Imatge</label><br>
-                    <input id="botonimg" type="button" style="position: absolute; left: 250px;" class="btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar imatge"></input>
+                    <input id="botonimg" type="button" style="position: absolute; left: 485px;" class="btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
                     <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px">
                             <img id="imgmuestra" class="" style="width: 200px; height: 200px; margin: 5 5 5 5" src="{{asset('img/subcategorias/')}}/{!!$subcategoria->img!!}"></img>
                     </div>

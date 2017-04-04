@@ -73,8 +73,8 @@
                                     <a href='#' class='viewEdit btn btn-primary btn-xs'
                                        data-link='/recurso/{!!$recurso->id!!}/edit'><i
                                                 class='material-icons'>Editar</i></a>
-                                    <a href='#' class='viewShow btn btn-warning btn-xs'
-                                       data-link='/recurso/{!!$recurso->id!!}'><i
+                                    <a href='{!!url('/recursos/'.$recurso->id)!!}' class='viewShow btn btn-warning btn-xs'
+                                       ><i
                                                 class='material-icons'>Veure</i></a>
                                     @if($recurso->show== 0)
                                         <a href='#' class='viewShow btn btn-success btn-xs'
