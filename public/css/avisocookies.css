@@ -10,10 +10,10 @@
 	 -webkit-transition: top 0.8s ease-in-out;
   transition: top 0.8s ease-in-out;
 }
-@media screen and (max-height: 910px){
+@media screen and (max-height: 940px){
 	#avisocookies {
 	position: absolute;
-	top: 835px;
+	top: 855px;
 	z-index: 999;
 	width: 100%;
 	padding: 15px;
