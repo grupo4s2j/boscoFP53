@@ -21,7 +21,7 @@
     <!-- Datepicker Files -->
     <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.css')}}">
     <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.standalone.css')}}">
-    
+
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
@@ -34,132 +34,139 @@
 
     <![endif]-->
 </head>
-<body class="hold-transition skin-red sidebar-mini">
-<div class="wrapper">
-    <header class="main-header">
-        <!-- Logo -->
-        <a href="{{url('dashboard')}}" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>TSFI</b></span>
-            <!-- logo for regular state and mobile devices -->
+<body class="hold-transition skin-red sidebar-mini" style="background-color: #434343;">
+<div id="splashscreen" style=" width: 100%; height: 100%;">
+    <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;"/>
+</div>
+<div id="contenidos" style="display:none;">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="{{url('dashboard')}}" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>TSFI</b></span>
+                <!-- logo for regular state and mobile devices -->
             <span class="logo-lg">
                 <img src="{{ asset('/img/octagon/logo.png') }}" style="height:60px;"/>
                 {{--<b>Taula Sectorial </br> de Formació Inustrial</b>--}}
             </span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Toggle navigation</span>
             </a>
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <!-- Notification Navbar List-->
-                    <li class="dropdown notifications-menu">
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Notification Navbar List-->
+                        <li class="dropdown notifications-menu">
 
-                        <ul class="dropdown-menu">
-                            <li class="header">Your notifications</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu notification-menu">
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                    </li>
-                    <!-- END notification navbar list-->
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="http://ahloman.net/wp-content/uploads/2013/06/user.jpg" class="user-image"
-                                 alt="User Image">
-                            <span class="hidden-xs">{{Auth::user()->name}}</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
-                                <img src="http://ahloman.net/wp-content/uploads/2013/06/user.jpg" class="img-circle"
+                            <ul class="dropdown-menu">
+                                <li class="header">Your notifications</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu notification-menu">
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">View all</a></li>
+                            </ul>
+                        </li>
+                        <!-- END notification navbar list-->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="http://ahloman.net/wp-content/uploads/2013/06/user.jpg" class="user-image"
                                      alt="User Image">
-                                <p>
-                                    {{Auth::user()->name}}
-                                </p>
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-right">
-                                    <a href="{{url('logout')}}" class="btn btn-default btn-flat"
-                                       onclick="event.preventDefault();
+                                <span class="hidden-xs">{{Auth::user()->name}}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="http://ahloman.net/wp-content/uploads/2013/06/user.jpg" class="img-circle"
+                                         alt="User Image">
+                                    <p>
+                                        {{Auth::user()->name}}
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-right">
+                                        <a href="{{url('logout')}}" class="btn btn-default btn-flat"
+                                           onclick="event.preventDefault();
 											document.getElementById('logout-form').submit();">Sign out</a>
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-            <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                                              style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- search form -->
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search...">
 							<span class="input-group-btn">
 								<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
                                             class="fa fa-search"></i>
                                 </button>
 							</span>
-                </div>
-            </form>
-            <!-- /.search form -->
-            <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu">
-                <li class="header">MAIN NAVIGATION</li>
-                <li {{{ (Request::is('dashboard') ? 'class=active' : '') }}}>
-                    <a href="{{url('dashboard')}}">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
-                    </a>
-                </li>
-                <li {{{ (Request::is('categoria') ? 'class=active' : '') }}}><a href="{{url('/categoria')}}"><i
-                                class='fa fa-square'></i> <span>Categorías</span></a></li>
-                <li {{{ (Request::is('subcategoria') ? 'class=active' : '') }}}><a href="{{ url('/subcategoria') }}"><i
-                                class='fa fa-square-o'></i> <span>Subcategorías</span></a></li>
-                <li {{{ (Request::is('entidadorganizativa') ? 'class=active' : '') }}}><a
-                            href="{{ url('entidadorganizativa') }}"><i class='fa
+                    </div>
+                </form>
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li {{{ (Request::is('dashboard') ? 'class=active' : '') }}}>
+                        <a href="{{url('dashboard')}}">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
+                        </a>
+                    </li>
+                    <li {{{ (Request::is('categoria') ? 'class=active' : '') }}}><a href="{{url('/categoria')}}"><i
+                                    class='fa fa-square'></i> <span>Categorías</span></a></li>
+                    <li {{{ (Request::is('subcategoria') ? 'class=active' : '') }}}><a
+                                href="{{ url('/subcategoria') }}"><i
+                                    class='fa fa-square-o'></i> <span>Subcategorías</span></a></li>
+                    <li {{{ (Request::is('entidadorganizativa') ? 'class=active' : '') }}}><a
+                                href="{{ url('entidadorganizativa') }}"><i class='fa
 fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
-                <li {{{ (Request::is('recurso') ? 'class=active' : '') }}}><a href="{{ url('recurso') }}"><i
-                                class='fa fa-newspaper-o'></i> <span>Recursos</span></a></li>
-                {{--<li {{{ (Request::is('fichero') ? 'class=active' : '') }}}><a href="{{ url('fichero') }}"><i class='fa--}}
-{{--fa-file'></i> <span>Ficheros</span></a></li>--}}
-                <li {{{ (Request::is('tag') ? 'class=active' : '') }}}><a href="{{ url('tag') }}"><i
-                                class='fa fa-hashtag'></i> <span>Tags</span></a></li>
-                <li {{{ (Request::is('banner') ? 'class=active' : '') }}}><a href="{{ url('banner') }}"><i
-                                class='fa fa-bullhorn'></i> <span>Banners</span></a></li>
-                <!--<li {{{ (Request::is('evento') ? 'class=active' : '') }}}><a href="{{ url('evento') }}"><i
+                    <li {{{ (Request::is('recurso') ? 'class=active' : '') }}}><a href="{{ url('recurso') }}"><i
+                                    class='fa fa-newspaper-o'></i> <span>Recursos</span></a></li>
+                    {{--<li {{{ (Request::is('fichero') ? 'class=active' : '') }}}><a href="{{ url('fichero') }}"><i class='fa--}}
+                    {{--fa-file'></i> <span>Ficheros</span></a></li>--}}
+                    <li {{{ (Request::is('tag') ? 'class=active' : '') }}}><a href="{{ url('tag') }}"><i
+                                    class='fa fa-hashtag'></i> <span>Tags</span></a></li>
+                    <li {{{ (Request::is('banner') ? 'class=active' : '') }}}><a href="{{ url('banner') }}"><i
+                                    class='fa fa-bullhorn'></i> <span>Banners</span></a></li>
+                    <!--<li {{{ (Request::is('evento') ? 'class=active' : '') }}}><a href="{{ url('evento') }}"><i
                                 class='fa fa-calendar'></i> <span>Eventos</span></a></li>-->
-                <li {{{ (Request::is('redsocial') ? 'class=active' : '') }}}><a href="{{ url('redsocial') }}"><i
-                                class='fa fa-twitter'></i> <span>Redes Sociales</span></a></li>
-                <li class="header">ADMINISTRATOR</li>
-                <li class="treeview"><a href="{{url('/users')}}"><i class="fa fa-users"></i> <span>Users</span></a></li>
-                {{--<li class="treeview"><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> <span>Role</span></a>--}}
-                {{--</li>--}}
-                {{--<li class="treeview"><a href="{{url('/permissions')}}"><i class="fa fa-key"></i>--}}
-                        {{--<span>Permissions</span></a></li>--}}
-            </ul>
-        </section>
-        <!-- /.sidebar -->
-    </aside>
-    <div class="content-wrapper">
-        @yield('content')
+                    <li {{{ (Request::is('redsocial') ? 'class=active' : '') }}}><a href="{{ url('redsocial') }}"><i
+                                    class='fa fa-twitter'></i> <span>Redes Sociales</span></a></li>
+                    <li class="header">ADMINISTRATOR</li>
+                    <li class="treeview"><a href="{{url('/users')}}"><i class="fa fa-users"></i> <span>Users</span></a>
+                    </li>
+                    {{--<li class="treeview"><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> <span>Role</span></a>--}}
+                    {{--</li>--}}
+                    {{--<li class="treeview"><a href="{{url('/permissions')}}"><i class="fa fa-key"></i>--}}
+                    {{--<span>Permissions</span></a></li>--}}
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <div class="content-wrapper">
+            @yield('content')
+        </div>
     </div>
-</div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class='AjaxisModal'>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class='AjaxisModal'>
+        </div>
     </div>
 </div>
 <!-- Compiled and minified JavaScript -->
@@ -169,6 +176,7 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
 <!-- Before select2-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{ url('js/splashscreen.js') }}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <!-- /Before select2-->
@@ -180,10 +188,10 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
 <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
 <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
 {{--<script src="{{ asset('/kcfinder/ckfinder.js') }}"></script>--}}
-<!-- Datepicker Files -->
-<script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
+        <!-- Datepicker Files -->
+<script src="{{ asset("/datePicker/js/bootstrap-datepicker.js") }}"></script>
 <!-- Languaje -->
-<script src="{{asset('datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
+<script src=" {{ asset('datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
 <script>
     // pusher log to console.
     Pusher.logToConsole = true;
@@ -261,7 +269,7 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
     });
 </script>
 <script>
-   var fixHelperModified = function (e, tr) {
+    var fixHelperModified = function (e, tr) {
                 var $originals = tr.children();
                 var $helper = tr.clone();
                 $helper.children().each(function (index) {
@@ -282,8 +290,7 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
         helper: fixHelperModified,
         stop: updateIndex
     }).disableSelection();
-    function save_sortable(serial)
-    {
+    function save_sortable(serial) {
         $.ajax({
             url: "save.php",
             type: 'POST',
@@ -291,26 +298,25 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
             success: function (data) {
                 alert(data);
             },
-            error: function(){
+            error: function () {
                 alert("theres an error with AJAX");
             }
 
         });
     }
-   //$( "tbody" ).sortable();*/
-
+    //$( "tbody" ).sortable();*/
 
 
 </script>
 <script>
-    CKEDITOR.replace( 'contenido', {
-        filebrowserBrowseUrl: '/ckeditor/ckfinder/ckfinder.html',
-        filebrowserImageBrowseUrl: '/ckeditor/ckfinder/ckfinder.html?type=Images',
-        filebrowserFlashBrowseUrl: '/ckeditor/ckfinder/ckfinder.html?type=Flash',
-        filebrowserUploadUrl: '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-        filebrowserImageUploadUrl: '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-        filebrowserFlashUploadUrl: '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
-    } );
+    CKEDITOR.replace('contenido', {
+        filebrowserBrowseUrl: "{{asset('/ckeditor/ckfinder/ckfinder.html')}}",
+        filebrowserImageBrowseUrl: "{{asset( '/ckeditor/ckfinder/ckfinder.html?type=Images')}}",
+        filebrowserFlashBrowseUrl: "{{asset( '/ckeditor/ckfinder/ckfinder.html?type=Flash')}}",
+        filebrowserUploadUrl: "{{asset( '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files')}}",
+        filebrowserImageUploadUrl: "{{asset( '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images')}}",
+        filebrowserFlashUploadUrl: "{{asset( '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash')}}"
+    });
 </script>
 <script src="{{URL::asset('js/admin-lte/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{URL::asset('js/admin-lte/datatables/dataTables.bootstrap.min.js') }}"></script>
@@ -320,7 +326,7 @@ fa-briefcase'></i> <span>Entidades organizativas</span></a></li>
         $("#example1").DataTable({
             "aaSorting": []
         });
-        $("#example1_filter").css( "float", "right" );
+        $("#example1_filter").css("float", "right");
     });
 </script>
 </body>
