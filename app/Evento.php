@@ -28,5 +28,11 @@ class Evento extends Model
      * @var array
      */
     protected $fillable = ['titulo', 'descripcion', 'img', 'fechaInicio', 'fechaFin', 'activo'];
-
+	
+	public static function getEvento(){
+	 	$evento = Evento::where('activo', 1)
+					->get();
+	 	return $evento;
+	 }
+	
 }

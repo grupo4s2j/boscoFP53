@@ -135,12 +135,20 @@ class Recurso extends Model
                         ->get();
             foreach($recursos as $recurso){
                 array_push($recursosTOP, $recurso);
-                if(count($recursosTOP) == 10){
+                if(count($recursosTOP) == 7){
                     $completed = true;
                     break;
                 } 
             }
             $datetimenow->sub($intervalo);
         }
+		return $recursosTOP;
     }
+	 public static function getLastestRecursos($rol){
+	 	$recursos = Recurso::where('activo', 1)
+		 			->orderBy('fechaPost','desc')
+					->take(6)
+					->get();
+	 	return $recursos;
+	 }
 }

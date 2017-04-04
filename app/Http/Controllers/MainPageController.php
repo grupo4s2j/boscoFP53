@@ -28,11 +28,15 @@ class MainPageController extends Controller
         
         //return \View::make('fo.home', compact('categorias', 'tags'));
         $recursos = Recurso::where('activo', 1)->get();
+		
         
         //To get recursostop
         $recursosTOP = \App\Recurso::getTopPosts($rol);
-
-        return view('fo.home', compact('recursos', 'recursosTOP'));
+        $lastestRecurso = \App\Recurso::getLastestRecursos($rol);
+		$banners = \App\Banner::getBanner();
+		$eventos = \App\Evento::getEvento();
+	
+        return view('fo.home', compact('recursos', 'recursosTOP', 'lastestRecurso','banners', 'eventos'));
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
 }
