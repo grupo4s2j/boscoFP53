@@ -42,7 +42,9 @@
 </head>
 
 <body>
-
+<div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
+    <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;"/>
+</div>
     <!-- ___Start Home Three Page___ -->
     <div class="container-fluid home-3" id="container-full">
         <div class="row	">
@@ -103,8 +105,8 @@
     <!-- ===This Script for Main Menu=== -->
     <script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
 
-
-    <script>
+<script src="{{ url('js/splashscreen.js') }}"></script>
+<script>
         jQuery(document).ready(function($) {
             jQuery('.category-nav ').meanmenu();
         });
