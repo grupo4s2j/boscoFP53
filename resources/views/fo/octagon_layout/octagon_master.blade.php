@@ -46,34 +46,7 @@
 	<script src="{{ asset('/js/calendar/moment.min.js') }}"></script>
 	<script src="{{ asset('/js/calendar/jquery.min.js') }}"></script>
 	<script src="{{ asset('/js/calendar/fullcalendar.min.js') }}"></script>
-	<script>
-		$(document).ready(function () {
-			$('#calendar').fullCalendar({
-				header: {
-					//center: 'title', 
-				}, // customize the button names,
-				// otherwise they'd all just say "list"
-				/*views: {
-					listDay: { buttonText: 'list day' },
-					listWeek: { buttonText: 'list week' }
-				},*/
-				defaultView: 'listWeek', 
-				//defaultDate: '2017-03-12', 
-				navLinks: false, // can click day/week names to navigate views
-				editable: false, 
-				eventLimit: true, // allow "more" link when too many events
-				events: [
-					
-				{
-					title: 'Click for Google', 
-					url: 'http://google.com/', 
-					start: '2017-03-28', 
-					end: '2017-03-30',
-				}
-			]
-			});
-		});
-	</script>
+	
 	<style>
 		#calendar {
 			font-size: 10.8px;
@@ -88,39 +61,48 @@
 </head>
 
 <body>
-<div id="google_translate_element"></div>
-	<script type="text/javascript">
-		function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'ca', includedLanguages: 'en,es', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT, multilanguagePage: true}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        
-	<!-- ___Start Home Three Page___ -->
-	<div class="container-fluid home-3" id="container-full">
-		<div class="row	">
-			<!-- ___Start Left Menu___ -->@include('fo.octagon_layout.octagon_left_side')
-			<!-- End Left Menu -->
-			<!-- ___Start Column___ -->
-			<div class="col-md-10 no-padding">
-				<!-- ___Start Top Bar___ -->@include('fo.octagon_layout.octagon_top_bar.octagon_top_bar')
-				<!-- End Top Bar -->
-				<!-- ___Start Top Menu___ -->@if(isset($categorias)) @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu') @endif
-				<!-- End Top Menu -->
-				<!-- ___Start Column___ -->
-				<div class="main-content"> @yield('content') </div>
-				<!-- End Column -->
-				<!-- ___Start Top Bar___ -->@include('fo.octagon_layout.octagon_footer.octagon_trend_post')
-				<!-- End Top Bar -->
-				<!-- ___Start Top Menu___ -->@include('fo.octagon_layout.octagon_footer.octagon_bottom')
-				<!-- End Top Menu -->
-				<!-- ___Start Top Menu___ -->@include('fo.octagon_layout.octagon_footer.octagon_footer')
-				<!-- End Top Menu -->
-			</div>
-			<!-- ___End Column___ -->
-		</div>
-		<!-- End Row -->
-	</div>
-	<!-- End Container -->
+    <div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
+        <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;"/>
+    </div>
+    <div id="contenidos" style="display: none;">
+       <div id="google_translate_element"></div>  
+
+        <!-- ___Start Home Three Page___ -->
+        <div class="container-fluid home-3" id="container-full">
+            <div class="row	">
+                <!-- ___Start Left Menu___ -->@include('fo.octagon_layout.octagon_left_side')
+                <!-- End Left Menu -->
+                <!-- ___Start Column___ -->
+                <div class="col-md-10 no-padding">
+                    <!-- ___Start Top Bar___ -->
+                    @include('fo.octagon_layout.octagon_top_bar.octagon_top_bar')
+                    <!-- End Top Bar -->
+                    <!-- ___Start Top Menu___ -->
+                    @if(isset($categorias)) 
+                        @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu') 
+                    @endif
+                    <!-- End Top Menu -->
+                    <!-- ___Start Column___ -->
+                    <div class="main-content">
+                        @yield('content')
+                    </div>
+                    <!-- End Column -->
+                    <!-- ___Start Top Bar___ -->
+                    @include('fo.octagon_layout.octagon_footer.octagon_trend_post')
+                    <!-- End Top Bar -->
+                    <!-- ___Start Top Menu___ -->
+                    @include('fo.octagon_layout.octagon_footer.octagon_bottom')
+                    <!-- End Top Menu -->
+                    <!-- ___Start Top Menu___ -->
+                    @include('fo.octagon_layout.octagon_footer.octagon_footer')
+                    <!-- End Top Menu -->
+                </div>
+                <!-- ___End Column___ -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Container -->
+    </div>
 	<script src="{{ asset('/js/octagon/vendor/jquery.min.js') }}"></script>
 	<script src="{{ asset('/js/octagon/scripts.js') }}"></script>
 	<!-- ===This Script for Custom Script=== -->
@@ -133,21 +115,21 @@
 	<script src="{{ asset('/js/octagon/jquery.meanmenu.min.js') }}"></script>
 	<!-- ===This Script for Main Menu=== -->
 	<script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
-    <div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
-        <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;"/>
-    </div>
-    <div id="contenidos" style="display: none;"> 
-
-    </div>
-<script>
-    window.onload = function() {
-        $('#splashscreen').fadeOut();
-        $('#contenidos').fadeIn();
-    }
-    jQuery(document).ready(function ($) {
-        jQuery('.category-nav ').meanmenu();
-    });   
-</script>
+    <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'ca', includedLanguages: 'en,es', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT, multilanguagePage: true}, 'google_translate_element');
+            }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        window.onload = function() {
+            $('#splashscreen').fadeOut();
+            $('#contenidos').fadeIn();
+        }
+        jQuery(document).ready(function ($) {
+            jQuery('.category-nav ').meanmenu();
+        });   
+    </script>
 <!-- View de Categorias y Subcategorias -->
 <!--<script>
     $("a h2").hover(function() {

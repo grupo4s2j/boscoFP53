@@ -87,10 +87,12 @@ trait FuncionesExtra
                 if(!empty($recurso->fechaInicio)){
                     $recurso->fechaI = $this->formatFecha($recurso->fechaInicio); 
                     $recurso->horaI = $this->horaPosteo($recurso->fechaInicio);
+                    $recurso->nFechaInicio = $this->horaInicioyFin($recurso->fechaInicio);
                 }
                 if(!empty($recurso->fechaFin)){
                     $recurso->fechaF = $this->formatFecha($recurso->fechaFin); 
                     $recurso->horaF = $this->horaPosteo($recurso->fechaFin);
+                    $recurso->nFechaFin = $this->horaInicioyFin($recurso->fechaFin);
                 }
             }
         }
@@ -115,5 +117,17 @@ trait FuncionesExtra
         }
         
         return $idrol;
+    }
+    
+    /**
+     * Recoje la hora en la que se realiza el Post
+     *
+     * @return  $recurso->horaPosteo
+     */
+    public function horaInicioyFin($fecha)
+    {
+        $nFecha = explode(' ', $fecha);
+        
+        return $nFecha[0];
     }
 }

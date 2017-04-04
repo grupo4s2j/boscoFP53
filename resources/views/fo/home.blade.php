@@ -42,4 +42,45 @@
 			</div>
 		</div>
 	</div>
-</div> @endsection
+</div>
+
+@endsection
+
+
+@section('scripts')
+
+<script>
+		$(document).ready(function () {
+			$('#calendar').fullCalendar({
+				header: {
+					//center: 'title', 
+				}, // customize the button names,
+				// otherwise they'd all just say "list"
+				/*views: {
+					listDay: { buttonText: 'list day' },
+					listWeek: { buttonText: 'list week' }
+				},*/
+				defaultView: 'listWeek', 
+				//defaultDate: '2017-03-12', 
+				navLinks: false, // can click day/week names to navigate views
+				editable: false, 
+				eventLimit: true, // allow "more" link when too many events
+				events: [
+					@foreach($recursos as $recurso)
+                    @if(!empty($recurso->fechaInicio) && !empty($recurso->fechaFin))
+				{
+                    
+					title: '{{ $recurso->titulo }}', 
+					url: '{{ url('recursos/'. $recurso->id) }}', 
+					start: '{{ $recurso->nFechaInicio }}', 
+					end: '{{ $recurso->nFechaFin }}',
+                    
+				},
+                    @endif
+                    @endforeach
+			]
+			});
+		});
+	</script>
+
+@endsection
