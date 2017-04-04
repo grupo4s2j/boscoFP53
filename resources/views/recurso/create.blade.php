@@ -13,9 +13,8 @@
     <section class="content">
         <div class="box box-primary">
             <div class="box-header">
-                <h3>Create recurso</h3>
+                <h3>Crear nou recurs</h3>
             </div>
-
             <form method='get' action='{!!url("recurso")!!}'>
                 <button class='btn btn-danger'>recurso Index</button>
             </form>

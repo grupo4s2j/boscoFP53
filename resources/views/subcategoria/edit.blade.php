@@ -10,17 +10,20 @@
         <div class="box-header">
             <h3>Editar Subcategoria ({{$subcategoria->nombre}})</h3>
         </div>
+        <form method = 'get' action = '{!!url("subcategoria")!!}' enctype="multipart/form-data">
+            <button class = 'btn btn-danger'>Tornar al llistat</button>
+        </form>
         <div class="box-body">
             <form method = 'POST' action = '{!! url("subcategoria")!!}/{!!$subcategoria->
         id!!}/update' enctype="multipart/form-data"> 
                 {!! csrf_field() !!}
                 <input type="hidden" name = "user_id" value = "{{$subcategoria->id}}">
                 <div class="form-group">
-                    <label for="">Nombre</label>
+                    <label for="">Nom</label>
                     <input type="text" name = "nombre" value = "{{$subcategoria->nombre}}" class = "form-control" required>
                 </div>
                 {{--<div class="form-group">
-                    <label for="">Orden</label>
+                    <label for="">Ordre</label>
                     <input type="text" name = "orden" value = "{{$subcategoria->orden}}" class = "form-control" required>
                 </div>
                 <div class="form-group">
@@ -28,7 +31,7 @@
                     <input type="text" name = "activo" value = "{{$subcategoria->activo}}" class = "form-control" required>
                 </div>--}}
                 <div class="form-group">
-                    <label for="">Categoría</label>
+                    <label for="">Categoria</label>
                     <select name="idCategoria" id="" class = "form-control">
                         @foreach($categorias as $categoria)
                         @if ($categoria->id==$subcategoria->idCategoria)
@@ -36,19 +39,18 @@
                             @else
                                 <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
                         @endif
-                        
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="img">img</label><br>
-                    <input id="botonimg" type="button" style="position: absolute; left: 250px;" class="btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+                    <label for="img">Imatge</label><br>
+                    <input id="botonimg" type="button" style="position: absolute; left: 250px;" class="btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar imatge"></input>
                     <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px">
                             <img id="imgmuestra" class="" style="width: 200px; height: 200px; margin: 5 5 5 5" src="{{asset('img/subcategorias/')}}/{!!$subcategoria->img!!}"></img>
                     </div>
                     <input  id="img" name="img" type="file" accept="image/*" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
                 </div>
-                <button class = "btn btn-primary" onclick="ComprobarImagen()" type="submit">Guardar</button>
+                <button class = "btn btn-primary" onclick="ComprobarImagen()" type="submit">Desar canvis</button>
             </form>
         </div>
     </div>

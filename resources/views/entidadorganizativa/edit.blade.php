@@ -4,45 +4,42 @@
 
 <section class="content">
     <h1>
-        Edit entidadorganizativa
+        Editar entitat organitzativa
     </h1>
     <form method = 'get' action = '{!!url("entidadorganizativa")!!}'>
-        <button class = 'btn btn-danger'>entidadorganizativa Index</button>
+        <button class = 'btn btn-danger'>Tornar al llistat</button>
     </form>
     <br>
     <form method = 'POST' action = '{!! url("entidadorganizativa")!!}/{!!$entidadorganizativa->
         id!!}/update'> 
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
-            <label for="nombre">nombre</label>
+            <label for="nombre">Nom</label>
             <input id="nombre" name = "nombre" type="text" class="form-control" value="{!!$entidadorganizativa->
             nombre!!}" required>
         </div>
         <div class="form-group">
-            <label for="geolocalizacion">Direccion</label>
-            <input id="address" name="direccion" type="text" class="form-control" placeholder="Direccion"  value="{!!$entidadorganizativa->
+            <label for="geolocalizacion">Direcció</label>
+            <input id="address" name="direccion" type="text" class="form-control" placeholder="Direcció"  value="{!!$entidadorganizativa->
             direccion!!}" required>
-            <input id="geolocalizacion" name="geolocalizacion" type="text" class="form-control" placeholder="Geoposicion"  value="{!!$entidadorganizativa->
+            <input id="geolocalizacion" name="geolocalizacion" type="text" class="form-control" placeholder="Geoposició"  value="{!!$entidadorganizativa->
             geolocalizacion!!}" required>
-
         </div>
         {{-- <div class="form-group">
              <label for="activo">activo</label>
              <input id="activo" name = "activo" type="text" class="form-control">
          </div>--}}
-        <button class='btn btn-success ' type='submit'>Create</button>
+        <button class='btn btn-success ' type='submit'>Desar canvis</button>
         <div class="form-group">
-            <label for="direccion">Buscar direccion</label>
+            <label for="direccion">Buscar direcció</label>
             <div class="row-lg-12">
                 <div class="col-lg-10">
                     <input id="input-address" name="direccion" type="text" class="form-control"  >
                 </div>
                 <div class="col-lg-2">
                     <button id="search-address" type="button" class="btn btn-primary ">Buscar</button>
-
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-lg-12">
                     <div id="gmap" class="mapHelper__div" style="width: 100%; height: 400px"></div>

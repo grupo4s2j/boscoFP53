@@ -9,33 +9,30 @@
 
 <section class="content">
     <h1>
-        Create subcategoria
+        Crear subcategoria
     </h1>
     <form method = 'get' action = '{!!url("subcategoria")!!}' enctype="multipart/form-data">
-        <button class = 'btn btn-danger'>subcategoria Index</button>
+        <button class = 'btn btn-danger'>Tornar al llistat</button>
     </form>
     <br>
     <form method = 'POST' action = '{!!url("subcategoria")!!}' enctype="multipart/form-data">
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
-            <label for="nombre">Nombre</label>
+            <label for="nombre">Nom</label>
             <input id="nombre" name = "nombre" type="text" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="">Categoría</label>
+            <label for="">Categoria</label>
             <select name="idCategoria" id="idCategoria" class = "form-control" required>
                 @foreach($categorias as $categoria)
-
-                        <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
-
-
+                    <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
                 @endforeach
             </select>
         </div>
 
         <div class="form-group">
-            <label for="img">img</label><br>
-            <input id="botonimg" type="button" style="position: absolute; left: 485px;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+            <label for="img">Imatge</label><br>
+            <input id="botonimg" type="button" style="position: absolute; left: 485px;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar imatge"></input>
             <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px">
                     <img id="imgmuestra" class="" style="width: 200px; height: 200px; margin: 5 5 5 5" src=" "></img>
             </div>
@@ -48,7 +45,7 @@
             <label for="activo">activo</label>
             <input id="activo" name = "activo" type="text" class="form-control">
         </div>--}}
-        <button class = 'btn btn-primary' onclick="ComprobarImagen()" type ='submit'>Create</button>
+        <button class = 'btn btn-primary' onclick="ComprobarImagen()" type ='submit'>Desar canvis</button>
     </form>
 </section>
 @endsection

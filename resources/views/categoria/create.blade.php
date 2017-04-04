@@ -9,32 +9,32 @@
 
 <section class="content">
     <h1>
-        Create categoria
+        Crear nova categoria
     </h1>
     <form method = 'get' action = '{!!url("categoria")!!}' enctype="multipart/form-data">
-        <button class = 'btn btn-danger'>categoria Index</button>
+        <button class = 'btn btn-danger'>Tornar al llistat</button>
     </form>
     <br>
     <form method = 'POST' action = '{!!url("categoria")!!}' enctype="multipart/form-data">
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
-            <label for="nombre">nombre</label>
+            <label for="nombre">Nom</label>
             <input id="nombre" name = "nombre" type="text" class="form-control" required >
         </div>
         <div class="form-group">
-            <label for="color">color</label>
+            <label for="color">Color</label>
             <input id="color" name = "color" type="text" class="form-control" required >
         </div>
         <div class="form-group">
-            <label for="img">img</label><br>
-            <input id="botonimg" type="button" style="position: absolute; left: 500px;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+            <label for="img">Imatge</label><br>
+            <input id="botonimg" type="button" style="position: absolute; left: 500px;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar imatge"></input>
             <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px">
                     <img id="imgmuestra" class="" style="width: 200px; height: 200px; margin: 5 5 5 5;" src=" "></img>
             </div>
             <input required id="img" accept="image/*" name="img" type="file" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
         </div>
         <div class="form-group">
-            <label for="logo">logo</label>
+            <label for="logo">Logo</label>
             <select id="logo" name="logo" type="text" class="form-control" style="font-family: 'FontAwesome', 'sans-serif'" required >
                 <option value="fa-align-left">&#xf036; fa-align-left</option>
                 <option value="fa-align-right">&#xf038; fa-align-right</option>
@@ -473,7 +473,7 @@
                 <option value="fa-tags">&#xf02c; fa-tags</option>
             </select>
         </div>
-        <button class = 'btn btn-primary' onclick="ComprobarImagen()" type ='submit'>Create</button>
+        <button class = 'btn btn-primary' onclick="ComprobarImagen()" type ='submit'>Desar canvis</button>
     </form>
 </section>
 @endsection

@@ -9,35 +9,35 @@
 
 <section class="content">
     <h1>
-        Edit categoria
+        Editar categoría
     </h1>
     <form method = 'get' action = '{!!url("categoria")!!}' >
-        <button class = 'btn btn-danger'>categoria Index</button>
+        <button class = 'btn btn-danger'>Tornar al llistat</button>
     </form>
     <br>
     <form method = 'POST' action = '{!! url("categoria")!!}/{!!$categoria->
         id!!}/update' enctype="multipart/form-data"> 
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
-            <label for="nombre">nombre</label>
+            <label for="nombre">Nombre</label>
             <input id="nombre" name = "nombre" type="text" class="form-control" value="{!!$categoria->
             nombre!!}"> 
         </div>
         <div class="form-group">
-            <label for="color">color</label>
+            <label for="color">Color</label>
             <input id="color" name = "color" type="text" class="form-control" value="{!!$categoria->
             color!!}">
         </div>
         <div class="form-group">
-            <label for="img">img</label><br>
-            <input id="botonimg" type="button" style="position: absolute; left: 490px;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+            <label for="img">Imatge</label><br>
+            <input id="botonimg" type="button" style="position: absolute; left: 490px;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar imatge"></input>
             <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px; border: 3px solid black">
                 <img id="imgmuestra"  style="width: 200px; height: 200px; margin: 5 5 5 5;" src="{{asset('img/categorias/')}}/{!!$categoria->img!!}"></img>
             </div>
             <input  id="img" name="img" type="file" accept="image/*" onchange="CambiarFotoRecurso(this);" class="form-control" style="display: none"></input>
         </div>
         <div class="form-group">
-            <label for="logo">logo</label>
+            <label for="logo">Logo</label>
             <select id="logo" name="logo" type="text" class="form-control" style="font-family: 'FontAwesome', 'sans-serif'">
                 <option value="{!!$categoria-> logo!!}" selected="selected"  >{!!$categoria-> logo!!}</option>
                 <option value="fa-align-left">&#xf036; fa-align-left</option>
@@ -83,7 +83,7 @@
                 <option value="fa-bar-chart">&#xf080; fa-bar-chart</option>
                 <option value="fa-bar-chart-o">&#xf080; fa-bar-chart-o</option>
                 <option value="fa-battery-full">&#xf240; fa-battery-full</option>
-                <option> n value="fa-beer">&#xf0fc; fa-beer</option>
+                <option value="fa-beer">&#xf0fc; fa-beer</option>
                 <option value="fa-behance">&#xf1b4; fa-behance</option>
                 <option value="fa-behance-square">&#xf1b5; fa-behance-square</option>
                 <option value="fa-bell">&#xf0f3; fa-bell</option>
@@ -474,12 +474,7 @@
                 <option value="fa-tags">&#xf02c; fa-tags</option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="orden">orden</label>
-            <input id="orden" name = "orden" type="text" class="form-control" value="{!!$categoria->
-            orden!!}">
-        </div>
-        <button class = 'btn btn-primary' onclick="ComprobarImagen()" type ='submit'>Update</button>
+        <button class = 'btn btn-primary' onclick="ComprobarImagen()" type ='submit'>Desar canvis</button>
     </form>
 </section>
 @endsection
