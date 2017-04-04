@@ -1,5 +1,6 @@
 @extends('fo.octagon_layout.octagon_master') @section('content')
 <!-- ___Main Content___ -->
+
 <div class="main-slider">
 	<div class="row">
 		<div class="col-md-8 no-padding">

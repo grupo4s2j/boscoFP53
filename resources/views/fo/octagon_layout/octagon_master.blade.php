@@ -45,50 +45,55 @@
 </head>
 
 <body>
+    <div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
+        <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;"/>
+    </div>
+    <div id="contenido" style="display: none;"> 
+        <!-- ___Start Home Three Page___ -->
+        <div class="container-fluid home-3" id="container-full">
+            <div class="row	">
 
-<!-- ___Start Home Three Page___ -->
-<div class="container-fluid home-3" id="container-full">
-    <div class="row	">
-
-        <!-- ___Start Left Menu___ -->
-        @include('fo.octagon_layout.octagon_left_side')
+                <!-- ___Start Left Menu___ -->
+                @include('fo.octagon_layout.octagon_left_side')
                 <!-- End Left Menu -->
 
-        <!-- ___Start Column___ -->
-        <div class="col-md-10 no-padding">
+                <!-- ___Start Column___ -->
+                <div class="col-md-10 no-padding">
 
-            <!-- ___Start Top Bar___ -->
-            @include('fo.octagon_layout.octagon_top_bar.octagon_top_bar')
+                    <!-- ___Start Top Bar___ -->
+                    @include('fo.octagon_layout.octagon_top_bar.octagon_top_bar')
                     <!-- End Top Bar -->
 
-            <!-- ___Start Top Menu___ -->
-            @if(isset($categorias)) @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu') @endif
+                    <!-- ___Start Top Menu___ -->
+                    @if(isset($categorias)) @include('fo.octagon_layout.octagon_top_bar.octagon_top_menu') @endif
                     <!-- End Top Menu -->
 
-            <!-- ___Start Column___ -->
-            <div class="main-content">
-                @yield('content')
+                    <!-- ___Start Column___ -->
+                    <div class="main-content">
+                        @yield('content')
+                    </div>
+                    <!-- End Column -->
+
+                    <!-- ___Start Top Bar___ -->
+                    @include('fo.octagon_layout.octagon_footer.octagon_trend_post')
+                    <!-- End Top Bar -->
+
+                    <!-- ___Start Top Menu___ -->
+                    @include('fo.octagon_layout.octagon_footer.octagon_bottom')
+                    <!-- End Top Menu -->
+
+                    <!-- ___Start Top Menu___ -->
+                    @include('fo.octagon_layout.octagon_footer.octagon_footer')
+                    <!-- End Top Menu -->
+
+                </div>
+                <!-- ___End Column___ -->
+                </div>
+                <!-- End Row -->
+                
             </div>
-            <!-- End Column -->
-
-            <!-- ___Start Top Bar___ -->
-            @include('fo.octagon_layout.octagon_footer.octagon_trend_post')
-                    <!-- End Top Bar -->
-
-            <!-- ___Start Top Menu___ -->
-            @include('fo.octagon_layout.octagon_footer.octagon_bottom')
-                    <!-- End Top Menu -->
-
-            <!-- ___Start Top Menu___ -->
-            @include('fo.octagon_layout.octagon_footer.octagon_footer')
-                    <!-- End Top Menu -->
-
-        </div>
-        <!-- ___End Column___ -->
+        <!-- End Container -->
     </div>
-    <!-- End Row -->
-</div>
-<!-- End Container -->
 
 
 <script src="{{ asset('/js/octagon/vendor/jquery.min.js') }}"></script>
@@ -110,6 +115,8 @@
         jQuery('.category-nav ').meanmenu();
     });
 
+    <script src="{{ url('js/splashscreen.js') }}"></script> 
+   
 </script>
 
 <!-- View de Categorias y Subcategorias -->
