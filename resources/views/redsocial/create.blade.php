@@ -9,25 +9,25 @@
 
 <section class="content">
     <h1>
-        Create redsocial
+        Crear nova xarxa social
     </h1>
     <form method = 'get' action = '{!!url("redsocial")!!}'>
-        <button class = 'btn btn-danger'>redsocial Index</button>
+        <button class = 'btn btn-danger'>Tornar al llistat</button>
     </form>
     <br>
     <form method = 'POST' action = '{!!url("redsocial")!!}' enctype="multipart/form-data">
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
-            <label for="redSocial">redSocial</label>
+            <label for="redSocial">Xarxa social</label>
             <input id="redSocial" name = "redSocial" type="text" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="link">link</label>
+            <label for="link">Url</label>
             <input required id="link" name = "link" type="text" class="form-control">
         </div>
         <div class="form-group">
-            <label for="img">img</label><br>
-                    <input id="botonimg" type="button" style="position: absolute; left: 480px;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar Imagen"></input>
+            <label for="img">Imatge</label><br>
+                    <input id="botonimg" type="button" style="position: absolute; left: 480px;" class=" btn btn-primary" onclick="document.getElementById('img').click()" value="Insertar imatge"></input>
                     <div style=" border: 3px solid black; background-color: white; width: 215px; height: 215px">
                             <img id="imgmuestra"  style="width: 200px; height: 200px; margin: 5 5 5 5" src=" "></img>
                     </div>

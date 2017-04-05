@@ -168,6 +168,7 @@ Route::group(['prefix' => '/', 'middleware' => 'checkcookie'], function () {
     Route::get('contacto', function () {
         return view('fo.contact');
     });
+    Route::post('contacto', 'PeticionPostController@sendPost');
     //NOSOTROS
     Route::get('nosotros', function () {
         return view('fo.about');
