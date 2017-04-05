@@ -15,25 +15,31 @@ class PeticionPostController extends Controller
      */
     public function sendPost(Request $request)
     {
-        $to = 'user@example.com';
-        $subject = "Beautiful HTML Email using PHP by CodexWorld";
+        $to = 'grupo4s2j@gmail.com';
+        $subject = "Petició de TSFI";
 
         $htmlContent = '
             <html>
             <head>
-                <title>Welcome to CodexWorld</title>
+                <title>Petició de TSFI</title>
             </head>
             <body>
-                <h1>Thanks you for joining with us!</h1>
-                <table cellspacing="0" style="border: 2px dashed #FB4314; width: 300px; height: 200px;">
+                <h1>Nova Petició</h1>
+                <table cellspacing="0" style="border: 2px dashed #FB4314; width: 900px; height: 500px;">
                     <tr>
-                        <th>Name:</th><td>CodexWorld</td>
+                        <th>Nom i Cognoms:</th><td>'.$request->input('surname').', '.$request->input('name').'</td>
                     </tr>
                     <tr style="background-color: #e0e0e0;">
                         <th>Email:</th><td>'.$request->input('email').'</td>
                     </tr>
                     <tr>
-                        <th>Website:</th><td><a href="http://www.codexworld.com">www.codexworld.com</a></td>
+                        <th>Empresa:</th><td>'.$request->input('empresa').'</td>
+                    </tr>
+                    <tr>
+                        <th>Adreça Empresa:</th><td>'.$request->input('direccion').'</td>
+                    </tr>
+                    <tr>
+                        <th>Empresa:</th><td>'.$request->input('message').'</td>
                     </tr>
                 </table>
             </body>
@@ -44,9 +50,7 @@ class PeticionPostController extends Controller
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
         // Additional headers
-        $headers .= 'From: TSFI<sender@example.com>' . "\r\n";
-        $headers .= 'Cc: welcome@example.com' . "\r\n";
-        $headers .= 'Bcc: welcome2@example.com' . "\r\n";
+        $headers .= 'From: TSFI<info@tsfi.com>' . "\r\n";
 
         // Send email
         if(mail($to,$subject,$htmlContent,$headers)){
@@ -54,6 +58,8 @@ class PeticionPostController extends Controller
         }
         else
             $errorMsg = 'Email sending fail.';
+        
+        return redirect('contacto');
     }
     
     /**
