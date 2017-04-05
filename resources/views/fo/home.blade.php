@@ -1,17 +1,20 @@
 @extends('fo.octagon_layout.octagon_master') @section('content')
 <!-- ___Main Content___ -->
-
+@if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
 <div class="main-slider">
 	<div class="row">
 		<div class="col-md-8 no-padding">
-			<div id="slider"> @php $firstFiveRecursos = array_slice($recursosTOP, 0, 5);@endphp @foreach($firstFiveRecursos as $recurso)
+			<div id="slider"> 
+				@php $firstFiveRecursos = array_slice($recursosTOP, 0, 5);
+				@endphp @foreach($firstFiveRecursos as $recurso)
 				<div class="post item"><a href="{{ url('recursos/'. $recurso->id) }}"> <img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}" style="height: 303px; width: 965px;"/></a>
 					<div class="carousel-caption">
 						<h3>{{$recurso->titulo}}</h3> </div>
 				</div> @endforeach </div>
 		</div>
 		<div class="col-md-4 no-padding">
-			<div class="slider-side-post"> @php $lastSoRecursos = array_slice($recursosTOP, -2, 2);@endphp @foreach($lastSoRecursos as $recurso)
+			<div class="slider-side-post">
+				@php $lastSoRecursos = array_slice($recursosTOP, -2, 2);@endphp @foreach($lastSoRecursos as $recurso)
 				<div class="post"> <a href="{{ url('recursos/'. $recurso->id) }}"> <img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}"/> </a>
 					<div class="post-info">
 						<h3>{{$recurso->titulo}}</h3> </div>
@@ -19,6 +22,8 @@
 		</div>
 	</div>
 </div>
+@endif
+
 <div class="main-post-body">
 	
 		<div class="col-md-9 no-padding w-100"> 
@@ -68,12 +73,14 @@
 				</div>
 			</div>
 		</div>
+	@if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
+
 	<div class="row">
         <div class="col-md-6 col-md-offset-3">
         {{ $recursos->links() }}
         </div>
     </div>
-	
+	@endif
 </div>
 
 @endsection
@@ -96,6 +103,7 @@
 				editable: false, 
 				eventLimit: true, // allow "more" link when too many events
 				events: [
+					@if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
 					@foreach($recursos as $recurso)
                     @if(!empty($recurso->fechaInicio) && !empty($recurso->fechaFin))
 				{
@@ -108,6 +116,7 @@
 				},
                     @endif
                     @endforeach
+					@endif
 			]
 			});
 		});
