@@ -25,10 +25,10 @@ $events = $req->fetchAll();
     <title>Bare - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/calendar/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     
     <!-- FullCalendar -->
-    <link href='/calendar/css/fullcalendar.css' rel='stylesheet' />
+    <link href='css/fullcalendar.css' rel='stylesheet' />
 
 
     <!-- Custom CSS -->
@@ -65,7 +65,7 @@ $events = $req->fetchAll();
         <div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-            <form class="form-horizontal" method="POST" action="/calendar/addEvent.php">
+            <form class="form-horizontal" method="POST" action="addEvent.php">
             
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -134,7 +134,7 @@ $events = $req->fetchAll();
         <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-            <form class="form-horizontal" method="POST" action="/calendar/editEventTitle.php">
+            <form class="form-horizontal" method="POST" action="editEventTitle.php">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Editar evento</h4>
@@ -292,7 +292,7 @@ $events = $req->fetchAll();
             Event[2] = end;
             
             $.ajax({
-             url: '/calendar/editEventDate.php',
+             url: 'editEventDate.php',
              type: "POST",
              data: {Event:Event},
              success: function(rep) {
