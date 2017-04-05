@@ -20,7 +20,7 @@ class MainPageController extends Controller
     {
         $rol = $this->getAndSetCookieValue();
 
-        $recursos = Recurso::where('activo', 1)->where('show', 1)->get();
+        $recursos = Recurso::where('activo', 1)->where('show', 1)->paginate(6);
 
         $recursos = $this->recursosFechaHora($recursos);
 
@@ -28,9 +28,8 @@ class MainPageController extends Controller
         $recursosTOP = \App\Recurso::getTopPosts($rol);
         $lastestRecurso = \App\Recurso::getLastestRecursos($rol);
 		$banners = \App\Banner::getBanner();
-		$eventos = \App\Evento::getEvento();
-	
-        return view('fo.home', compact('recursos', 'recursosTOP', 'lastestRecurso','banners', 'eventos'));
+			
+        return view('fo.home', compact('recursos', 'recursosTOP', 'lastestRecurso','banners'));
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
 }

@@ -47,17 +47,6 @@
 	<script src="{{ asset('/js/calendar/jquery.min.js') }}"></script>
 	<script src="{{ asset('/js/calendar/fullcalendar.min.js') }}"></script>
 	
-	<style>
-		#calendar {
-			font-size: 10.8px;
-			background-color: #fff;
-			height: 20%;
-		}
-		#fc-widget-header{
-			background-color: red;
-			
-		}
-	</style>
 </head>
 
 <body>
