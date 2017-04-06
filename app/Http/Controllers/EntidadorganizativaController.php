@@ -70,30 +70,14 @@ class EntidadorganizativaController extends Controller
     {
         $entidadorganizativa = new Entidadorganizativa();
 
-        
         $entidadorganizativa->nombre = $request->nombre;
 
-        
         $entidadorganizativa->direccion = $request->direccion;
 
-        
         $entidadorganizativa->geolocalizacion = $request->geolocalizacion;
 
-        
 
-        
-        
         $entidadorganizativa->save();
-
-        $pusher = App::make('pusher');
-
-        //default pusher notification.
-        //by default channel=test-channel,event=test-event
-        //Here is a pusher notification example when you create a new resource in storage.
-        //you can modify anything you want or use it wherever.
-        $pusher->trigger('test-channel',
-                         'test-event',
-                        ['message' => 'A new entidadorganizativa has been created !!']);
 
         return redirect('entidadorganizativa');
     }
