@@ -34,6 +34,8 @@
 	<link rel="stylesheet" href="{{ asset('/css/octagon/style.css') }}">
 	<!-- ===This Style sheet for Styling the full template=== -->
 	<link rel="stylesheet" href="{{ asset('/css/octagon/responsive.css') }}">
+	<!-- Icono web -->
+	<link rel="shortcut icon" href="{{ asset('/img/octagon/tsfi_logo.ico') }}" /> 
 	<!-- ===This Style sheet for making the template responsive for all devices=== -->
 	<script src="{{ asset('/js/octagon/vendor/modernizr-2.6.2.min.js') }}"></script>
 	<script src="{{ asset('/js/octagon/jquery-3.1.1.js') }}"></script>
@@ -103,7 +105,7 @@
 	<!-- ===This Script for Main Menu=== -->
 	<script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
     <script type="text/javascript">
-function googleTranslateElementInit() {
+	function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'ca', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
 }
 </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 

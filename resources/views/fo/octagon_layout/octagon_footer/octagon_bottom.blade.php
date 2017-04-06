@@ -14,6 +14,7 @@
 					<li><a href="http://g5s2aw.sdslab.cat/">Nosaltres</a></li>
                     <!--li><a href="#0">Terms of Use</a></li>
                     <li><a href="#0">Privacy & Policy</a></li-->
+					
                 </ul>
             </div>
         </div>
@@ -27,6 +28,8 @@
                     <p><strong>Email:</strong> info@tsfi.com</p>
                     <p><strong>Tel:</strong> +66 (0) 123 456 7890</p>
                 </div>
+				<h3 style="font-weight: normal; font-size:16px; padding: 0px 0 10px 0px;">Vols traduir la pàgina?</h3>
+				<div id="google_translate_element" style="margin-bottom:6%"></div>
             </div>
         </div>
         <!-- End Column -->

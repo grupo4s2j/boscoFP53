@@ -59,8 +59,8 @@
                 </div>
             </div>
             <aside id="avisocookies">
-                    Esta pagina utiliza cookies propias con el fin de mejorar el servicio. Si continuas navegando, aceptas su uso. Para mas informacion <a href="http://politicadecookies.com" rel="nofollow">clicka aqui</a>. 
-                    <button class="btn btn-primary" id="aceptarcookies" style="margin-left: 15px;">Aceptar</button>
+                    Aquesta pàgina utilitza cookies pròpies per tal de millorar el servei. Si continues navegant, acceptes el seu ús. Per més informació <a href="http://politicadecookies.com" rel="nofollow">click aquí</a>. 
+                    <button class="btn btn-primary" id="aceptarcookies" style="margin-left: 15px;">Acceptar</button>
         	</aside>
         </div>
         

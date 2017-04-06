@@ -1,7 +1,7 @@
 <!-- ___Start Top Rated Area___ -->
 <div class="top-rated-area toogle-sidebar-sections">
     <div class="top-rated-head">
-        <a href="#0" class="accordion-toggle">Top Rated <span class="toggle-icon"><i class="fa fa-bars"></i></span></a>
+        <a href="#0" class="accordion-toggle">Top Tags <span class="toggle-icon"><i class="fa fa-bars"></i></span></a>
         <div class="accordion-content">
 
             <!-- ___Start Top Rated Body___ -->
@@ -26,4 +26,5 @@
         </div><!-- End Accordion Content -->
     </div><!-- End Top Rated Head -->
 </div>
+
 <!-- End Top Rated Area -->
