@@ -219,7 +219,6 @@ class RecursoController extends Controller
             if ($p == "[]()") {
                 $newTag = new Tag();
                 $newTag->nombre = $tag;
-                $newTag->usado = 0;
                 $newTag->save();
 
                 $newRecTag = new Recursotag();
