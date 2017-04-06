@@ -79,6 +79,8 @@ class EntidadorganizativaController extends Controller
         
         $entidadorganizativa->geolocalizacion = $request->geolocalizacion;
 
+        $entidadorganizativa->telefono = $request->telefono;
+        $entidadorganizativa->email = $request->email;
         
 
         
@@ -153,7 +155,8 @@ class EntidadorganizativaController extends Controller
         $entidadorganizativa->direccion = $request->direccion;
         
         $entidadorganizativa->geolocalizacion = $request->geolocalizacion;
-        
+        $entidadorganizativa->telefono = $request->telefono;
+        $entidadorganizativa->email = $request->email;
         
         $entidadorganizativa->save();
 
