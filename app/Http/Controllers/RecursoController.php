@@ -153,7 +153,11 @@ class RecursoController extends Controller
         $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
         $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
 
-        return view('fo.recurso_post', compact('recurso'));
+        if(empty($recurso->fechaInicio) && empty($recurso->fechaFin)){
+            return view('fo.octagon_layout.octagon_content.octagon_post_grande', compact('recurso'));
+        }else
+            return view('fo.octagon_layout.octagon_content.octagon_evento_grande', compact('recurso'));
+        
     }
 
     /**

@@ -7,10 +7,10 @@
     <div class="article-and-feature post-bottom-content bg-box-shadow each-section" data-scroll-index="0">
         <h3>{{$recurso->titulo}} <span class="mobile-bg">E<a class="mobile-bg" href="#0">Event</a></span></h3>
         <div class="meta-info">
-            <p class="date"><i class="fa fa-clock-o"></i><a href="#0">{{$recurso->fechaPosteo}}</a></p>
+            <p class="date"><i class="fa fa-clock-o"></i>{{$recurso->fechaPosteo}}</p>
             <p class="category"><i class="fa fa-bookmark"></i>
                 @foreach($recurso->subcategorias as $subcategoria)
-                <a href="#0">{{ $subcategoria->nombre }}</a> /
+                <a href="{{ url('/categorias/'.$subcategoria->id) }}">{{ $subcategoria->nombre }}</a> /
                 @endforeach
             </p>
         </div>

@@ -160,7 +160,8 @@ Route::group(['prefix' => '/', 'middleware' => 'checkcookie'], function () {
     Route::get('recursos/categoria/{id}', 'RecursoController@getRecursoByCategoria');
     Route::get('recursos/subcategoria/{id}', 'RecursoController@getRecursoBySubcategoria');
     //SEARCH
-    Route::post('search', 'TagController@search');
+    Route::post('search', 'TagController@searchTags');
+    Route::get('search', 'TagController@search');
     Route::get('search/tag/{tag}', 'TagController@searchByTag');
     //BUSCADOR
     Route::get('find', 'TagController@find');

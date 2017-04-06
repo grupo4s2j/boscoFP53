@@ -44,7 +44,7 @@
 	<link rel="stylesheet" href="{{ asset('/css/calendar/fullcalendar.min.css') }}">
 	<link rel="stylesheet" media="print" href="{{ asset('/css/calendar/fullcalendar.print.min.css') }}">
 	<script src="{{ asset('/js/calendar/moment.min.js') }}"></script>
-	<script src="{{ asset('/js/calendar/jquery.min.js') }}"></script>
+	<!--<script src="{{-- asset('/js/calendar/jquery.min.js') --}}"></script>-->
 	<script src="{{ asset('/js/calendar/fullcalendar.min.js') }}"></script>
 	
 	<style>

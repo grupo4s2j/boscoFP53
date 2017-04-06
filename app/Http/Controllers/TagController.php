@@ -13,6 +13,8 @@ use DB;
 use App\Recurso;
 use App\Recursotag;
 
+use Carbon\Carbon;
+
 
 /**
  * Class TagController.
@@ -47,11 +49,54 @@ class TagController extends Controller
     }
 
     /**
+     * Buscador de Recursos
+     *
+     * @return  los Recursos de la búsqueda
+     */
+    public function search(Request $request)
+    {
+        $rol = $this->getAndSetCookieValue();
+        $search = $request->input('search');
+        //$searcher = explode(' ', $search);
+        
+        $recursos = Recurso::join('recursotags', 'recursos.id', '=', 'recursotags.idRecursos')
+            ->join('tags', 'tags.id', '=', 'recursotags.idTag')
+            ->where('recursos.activo', 1)
+            ->where('recursos.show', 1)
+            ->where('recursos.fechaPost', '<=', Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
+            ->where(function ($query) use ($rol) {
+                $query->where('recursos.rol', '=', 0)
+                    ->orWhere('recursos.rol', '=', $rol);
+            })
+            ->where(function ($query) use ($search) {
+                $query->where('tags.nombre', 'like', '%'.$search.'%')
+                ->orWhere('recursos.titulo', 'like', '%'.$search.'%')
+                ->orWhere('recursos.descripcion', 'like', '%'.$search.'%');
+            })
+            ->distinct()
+            ->select('recursos.*')
+            ->paginate(4);
+
+        $recursos = $this->recursosFechaHora($recursos);
+        
+        //dd($search, $recursosN, $request);
+        
+        /*foreach($searcher as $word){
+            $recursos->where('LOWER(title)', 'LIKE', '%'.$word.'%');
+            $recursos->where('LOWER(name)', 'LIKE', '%'.$word.'%');
+        }*/
+        
+        //dd($search, $recursos, $request);
+
+        return view('fo.tablon_recursos', compact('recursos'));
+    }
+    
+    /**
      * Buscador de Tags
      *
      * @return  los Recursos del TAG
      */
-    public function search(Request $request)
+    public function searchTags(Request $request)
     {
         $tags = $request->tags;
 
@@ -87,6 +132,11 @@ class TagController extends Controller
             ->whereIn('tags.nombre', $tags)
             ->where('recursos.activo', 1)
             ->where('recursos.show', 1)
+            ->where('recursos.fechaPost', '<=', Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
+            ->where(function ($query) use ($rol) {
+                $query->where('recursos.rol', '=', 0)
+                    ->orWhere('recursos.rol', '=', $rol);
+            })
             ->select('recursos.*')
             ->paginate(4);
 
