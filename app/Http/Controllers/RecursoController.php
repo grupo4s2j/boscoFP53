@@ -219,7 +219,7 @@ class RecursoController extends Controller
             if ($p == "[]()") {
                 $newTag = new Tag();
                 $newTag->nombre = $tag;
-                $newTag->usado = 1;
+                $newTag->usado = 0;
                 $newTag->save();
 
                 $newRecTag = new Recursotag();
@@ -228,10 +228,6 @@ class RecursoController extends Controller
                 $newRecTag->activo = 1;
                 $newRecTag->save();
             } else {
-                $tag = Tag::findOrfail($ptag[0]->id);
-                $tag->usado = $tag->usado + 1;
-                $tag->save();
-
                 $newRecTag = new Recursotag();
                 $newRecTag->idTag = $ptag[0]->id;
                 $newRecTag->idRecursos = $recurso->id;
