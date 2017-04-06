@@ -6,10 +6,10 @@
             <div class="menu-body">
                 <ul>
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{ url('/categorias') }}">Categorias</a></li>
+                    <li><a href="{{ url('/categorias') }}">Categories</a></li>
                     <li><a href="{{ url('/recursos') }}">Recursos</a></li>
-                    <li><a href="{{ url('/nosotros') }}">Nosotros</a></li>
-                    <li><a href="{{ url('/contacto') }}">Contact</a></li>
+                    <li><a href="{{ url('/nosotros') }}">Nosaltres</a></li>
+                    <li><a href="{{ url('/contacto') }}">Contacte</a></li>
                 </ul>
             </div><!-- End Menu Body -->
         </div><!-- End According Content -->
