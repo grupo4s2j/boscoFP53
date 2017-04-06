@@ -17,6 +17,21 @@
                 <label for="nombre">Nom</label>
                 <input id="nombre" name="nombre" type="text" class="form-control" required>
             </div>
+            <div class="form-group">
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+
+                <label for="telefono">Telefono</label>
+                <input id="telefono" name="telefono" type="number" class="form-control" max="999999999" required>
+            </div>
+            <div class="form-group">
+
+                <label for="nombre">Nom</label>
+                <input id="nombre" name="nombre" type="text" class="form-control" required>
+            </div>
 
             <div class="form-group">
                 <label for="geolocalizacion">Direcció</label>
@@ -33,7 +48,7 @@
                 <label for="direccion">Buscar direcció</label>
                 <div class="row-lg-12">
                     <div class="col-lg-10">
-                        <input id="input-address" name="direccion" type="text" class="form-control" >
+                        <input id="input-address" name="dir" type="text" class="form-control" >
                     </div>
                     <div class="col-lg-2">
                         <button id="search-address" type="button" class="btn btn-primary ">Buscar</button>
