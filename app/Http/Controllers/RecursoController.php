@@ -150,8 +150,20 @@ class RecursoController extends Controller
     {
         $recurso = Recurso::find($id);
 
-        $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
-        $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
+        if(!empty($recurso->fechaPost)){
+            $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost); 
+            $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
+        }
+        if(!empty($recurso->fechaInicio)){
+            $recurso->fechaI = $this->formatFecha($recurso->fechaInicio); 
+            $recurso->horaI = $this->horaPosteo($recurso->fechaInicio);
+            $recurso->nFechaInicio = $this->fechaInicioyFin($recurso->fechaInicio);
+        }
+        if(!empty($recurso->fechaFin)){
+            $recurso->fechaF = $this->formatFecha($recurso->fechaFin); 
+            $recurso->horaF = $this->horaPosteo($recurso->fechaFin);
+            $recurso->nFechaFin = $this->fechaInicioyFin($recurso->fechaFin);
+        }
 
         if(empty($recurso->fechaInicio) && empty($recurso->fechaFin)){
             return view('fo.octagon_layout.octagon_content.octagon_post_grande', compact('recurso'));

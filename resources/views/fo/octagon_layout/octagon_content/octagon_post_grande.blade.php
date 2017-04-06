@@ -14,7 +14,11 @@
                 @endforeach
             </p>
         </div>
-        <img class="img-responsive center-block" src="{{ asset('img/recursos/'. $recurso->img) }}" alt="">
+        @if(file_exists(asset('img/recursos/'. $recurso->img)))
+            <img class="img-responsive center-block" src="{{ asset('img/recursos/'. $recurso->img) }}" alt="">
+        @else
+            <img class="img-responsive center-block" src="{{ asset('img/recursos/'. $recurso->img) }}" alt="">
+        @endif
 
         <!-- ___Start Post___ -->
         <div class="article-content">
@@ -43,43 +47,71 @@
     </div>
     <!-- End Article & Feature -->
 
+    
+    
+    
     @if(!empty($recurso->entidadorganizativa))
-    <div class="each-section single-post-author common-border">
-        <div class="row">
-            <div class="col-lg-2 post-author-left">
-                <img src="images/article-sm.jpg" alt="">
-            </div>
-            <div class="col-lg-10 post-author-right">
-                <h4>{{$recurso->entidadorganizativa->nombre}}</h4>
-                <p class="author-bio">Phasellus dapibus ac quam placerat tincidunt. Praesent laoreet mattis odio ut hendrerit. Maecenas venenatis tristique vehicula. Sed faucibus ipsum.</p>
-                <a href="#0" class="view-my-articles"><i class="fa fa-heart"></i>view my article</a>
-            </div>
+    <div class="single-post-tab">
+        <div role="tabpanel">
+            <!-- ___Nav Tabs___ -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#responsive" aria-controls="responsive" role="tab" data-toggle="tab" aria-expanded="true">Entidad Organizativa</a></li>
+                <li role="presentation" class=""><a href="#user-friendly" aria-controls="user-friendly" role="tab" data-toggle="tab" aria-expanded="false">Mapa</a></li>
+            </ul>
 
-        </div>
-        <!-- End Row -->
-        <!-- ___Start Address___ -->
-        <div class="row">
-            <div class="contact-address text-center">
-                <div class="col-md-4 col-sm-4 address-width">
-                    <i class="pe-7s-map-2"></i>
-                    <p>123 Web Street, Melbourne, <br>Australia.</p>
-                </div>
+            <!-- ___Tab Content___ -->
+            <div class="tab-content">
+                <!-- ___Tab Pane___ -->
+                <div role="tabpanel" class="tab-pane fade active in" id="responsive">
+                    <div class="row">
+                        <div class="each-section single-post-author">
+                            <div class="row">
+                                <div class="col-lg-2 post-author-left">
+                                    <img src="images/article-sm.jpg" alt="">
+                                </div>
+                                <div class="col-lg-10 post-author-right">
+                                    <h4>{{$recurso->entidadorganizativa->nombre}}</h4>
+                                    <p class="author-bio">Phasellus dapibus ac quam placerat tincidunt. Praesent laoreet mattis odio ut hendrerit. Maecenas venenatis tristique vehicula. Sed faucibus ipsum.</p>
+                                </div>
 
-                <div class="col-md-4 col-sm-4 address-width">
-                    <i class="pe-7s-mail-open-file"></i>
-                    <p>info@octagon.com</p>
-                </div>
+                            </div>
+                            <!-- End Row -->
+                            <!-- ___Start Address___ -->
+                            <div class="row">
+                                <div class="contact-address text-center">
+                                    <div class="col-md-4 col-sm-4 address-width">
+                                        <i class="pe-7s-map-2"></i>
+                                        <p>123 Web Street, Melbourne, <br>Australia.</p>
+                                    </div>
 
-                <div class="col-md-4 col-sm-4 address-width">
-                    <i class="pe-7s-phone"></i>
-                    <p>+66 (0) 123 456 7890 <br> +66 (0) 123 456 8097</p>
-                </div>
+                                    <div class="col-md-4 col-sm-4 address-width">
+                                        <i class="pe-7s-mail-open-file"></i>
+                                        <p>info@octagon.com</p>
+                                    </div>
 
-            </div>
-        </div>
-        <!-- End Row -->
+                                    <div class="col-md-4 col-sm-4 address-width">
+                                        <i class="pe-7s-phone"></i>
+                                        <p>+66 (0) 123 456 7890 <br> +66 (0) 123 456 8097</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End Row -->
+                        </div>
+                    </div><!-- End Row -->
+                </div><!-- End Tab Pane -->
+
+                <!-- ___Tab Pane___ -->
+                <div role="tabpanel" class="tab-pane fade" id="user-friendly">
+                    <div class="row">
+                        
+                    </div><!-- End Row -->
+                </div><!-- End Tab Pane -->
+            </div><!-- End Tab Content -->
+        </div><!-- End Tab Panel -->
     </div>
     @endif
+    <!-- End Single Post Tab -->
 </div>
 
 @endsection
