@@ -56,7 +56,7 @@ return [
             'driver' => 'mysql',
             'host' => 'g5s2aw.sdslab.cat',
             'port' => env('DB_PORT', '3306'),
-            'database' => 'g5s2aw_boscofp',
+            'database' => 'g5s2aw_TSFI',
             'username' => 'g5s2aw_root',
             'password' =>  '12345aA',
             'charset' => 'utf8',
