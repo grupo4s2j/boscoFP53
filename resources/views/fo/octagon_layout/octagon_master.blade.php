@@ -46,18 +46,6 @@
 	<script src="{{ asset('/js/calendar/moment.min.js') }}"></script>
 	<!--<script src="{{-- asset('/js/calendar/jquery.min.js') --}}"></script>-->
 	<script src="{{ asset('/js/calendar/fullcalendar.min.js') }}"></script>
-	
-	<style>
-		#calendar {
-			font-size: 10.8px;
-			background-color: #fff;
-			height: 20%;
-		}
-		#fc-widget-header{
-			background-color: red;
-			
-		}
-	</style>
 </head>
 
 <body>
@@ -65,7 +53,6 @@
         <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;"/>
     </div>
     <div id="contenidos" style="display: none;">
-       <div id="google_translate_element"></div>  
 
         <!-- ___Start Home Three Page___ -->
         <div class="container-fluid home-3" id="container-full">
@@ -116,11 +103,10 @@
 	<!-- ===This Script for Main Menu=== -->
 	<script src="{{ asset('/js/octagon/jquery.jscroll.js') }}"></script>
     <script type="text/javascript">
-            function googleTranslateElementInit() {
-              new google.translate.TranslateElement({pageLanguage: 'ca', includedLanguages: 'en,es', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT, multilanguagePage: true}, 'google_translate_element');
-            }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'ca', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
     <script>
         window.onload = function() {
             $('#splashscreen').fadeOut();

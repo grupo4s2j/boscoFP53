@@ -1,17 +1,20 @@
 @extends('fo.octagon_layout.octagon_master') @section('content')
 <!-- ___Main Content___ -->
-
+@if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
 <div class="main-slider">
 	<div class="row">
 		<div class="col-md-8 no-padding">
-			<div id="slider"> @php $firstFiveRecursos = array_slice($recursosTOP, 0, 5);@endphp @foreach($firstFiveRecursos as $recurso)
-				<div class="post item"><a href="{{ url('recursos/'. $recurso->id) }}"> <img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}"/></a>
+			<div id="slider"> 
+				@php $firstFiveRecursos = array_slice($recursosTOP, 0, 5);
+				@endphp @foreach($firstFiveRecursos as $recurso)
+				<div class="post item"><a href="{{ url('recursos/'. $recurso->id) }}"> <img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}" style="height: 303px; width: 965px;"/></a>
 					<div class="carousel-caption">
 						<h3>{{$recurso->titulo}}</h3> </div>
 				</div> @endforeach </div>
 		</div>
 		<div class="col-md-4 no-padding">
-			<div class="slider-side-post"> @php $lastSoRecursos = array_slice($recursosTOP, -2, 2);@endphp @foreach($lastSoRecursos as $recurso)
+			<div class="slider-side-post">
+				@php $lastSoRecursos = array_slice($recursosTOP, -2, 2);@endphp @foreach($lastSoRecursos as $recurso)
 				<div class="post"> <a href="{{ url('recursos/'. $recurso->id) }}"> <img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}"/> </a>
 					<div class="post-info">
 						<h3>{{$recurso->titulo}}</h3> </div>
@@ -19,11 +22,40 @@
 		</div>
 	</div>
 </div>
+@endif
+
 <div class="main-post-body">
-	<div class="row">
-		<div class="col-md-9 no-padding w-100"> @if(isset($lastestRecurso) && !empty($lastestRecurso) && count($lastestRecurso) >= 1)
-			<div class="col-md-12 w-100"> @php $i = 0 @endphp @foreach($lastestRecurso as $recurso) @if($i == 0)
-				<div class="row"> @endif @include('fo.octagon_layout.octagon_content.octagon_recurso') @if($i == 1) </div> @endif @php $i == 1 ? $i = 0 : $i++ @endphp @endforeach </div> @else No hay recusos disponibles @endif </div>
+	
+		<div class="col-md-9 no-padding w-100"> 
+		 @if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
+        <div class="col-md-12 w-100">
+        <!--<div class="col-md-9 w-100">-->
+                @php
+                    $i = 0
+                @endphp
+                @foreach($recursos as $recurso)
+                    @if($i == 0)
+                        <div class="row">
+                    @endif
+                        @if(empty($recurso->fechaInicio) && empty($recurso->fechaFin))
+                            @include('fo.octagon_layout.octagon_content.octagon_recurso')
+                        @else
+                            @include('fo.octagon_layout.octagon_content.octagon_evento')
+                        @endif
+
+                    @if($i == 1)
+                        </div>
+                    @endif
+                    @php
+                        $i == 1 ? $i = 0 : $i++
+                    @endphp
+                @endforeach
+			
+        </div>
+        @else
+            No hay recusos disponibles
+        @endif	
+		</div>
 		<div class="text-center">
 			<div class="col-md-3 w-50">
 				<!-- ___Start Sidebar___ -->
@@ -41,7 +73,14 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	@if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
+
+	<div class="row">
+        <div class="col-md-6 col-md-offset-3">
+        {{ $recursos->links() }}
+        </div>
+    </div>
+	@endif
 </div>
 
 @endsection
@@ -52,20 +91,19 @@
 <script>
 		$(document).ready(function () {
 			$('#calendar').fullCalendar({
-				header: {
-					//center: 'title', 
-				}, // customize the button names,
-				// otherwise they'd all just say "list"
-				/*views: {
-					listDay: { buttonText: 'list day' },
-					listWeek: { buttonText: 'list week' }
-				},*/
+		    	
+				height: 500,
 				defaultView: 'listWeek', 
-				//defaultDate: '2017-03-12', 
+				//defaultDate: '2017-03-12',
+				monthNames: ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'],
+                monthNamesShort: ['Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Des'],
+                dayNames: ['Diumenge', 'Dillluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte'],
+                dayNamesShort: ['Diu', 'Dill', 'Dima', 'Dime', 'Dij', 'Div', 'Dis'],
 				navLinks: false, // can click day/week names to navigate views
 				editable: false, 
 				eventLimit: true, // allow "more" link when too many events
 				events: [
+					@if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
 					@foreach($recursos as $recurso)
                     @if(!empty($recurso->fechaInicio) && !empty($recurso->fechaFin))
 				{
@@ -78,9 +116,25 @@
 				},
                     @endif
                     @endforeach
+					@endif
 			]
 			});
 		});
 	</script>
+
+
+	<style>
+		#calendar {
+			font-size: 10.8px;
+			background-color: #fff;
+		}
+        
+        .fc-left {
+            font-size: 12px;
+        }
+		.fc-toolbar .fc-header-toolbar{
+			 font-size: 17px;
+		}
+	</style>
 
 @endsection
