@@ -6,14 +6,14 @@
                 <h3>Pàgines d'interés</h3>
                 <ul class="pull-left">
                     <li><a href="{{ url('/home')}}">Home</a></li>
-                    <li><a href="{{ url('/categorias')}}">Categories</a></li>
-					<li><a href="{{ url('/home')}}">About</a></li>
-
+					<li><a href="{{ url('/categorias')}}">Categories</a></li>
+					<li><a href="{{ url('/recursos')}}">Recursos</a></li>
                 </ul>
                 <ul class="pull-right">
                     <li><a href="{{ url('/contacto')}}">Contacte</a></li>
-                    <li><a href="#0">Terms of Use</a></li>
-                    <li><a href="#0">Privacy & Policy</a></li>
+					<li><a href="http://g5s2aw.sdslab.cat/">Nosaltres</a></li>
+                    <!--li><a href="#0">Terms of Use</a></li>
+                    <li><a href="#0">Privacy & Policy</a></li-->
                 </ul>
             </div>
         </div>
@@ -66,7 +66,7 @@
                         </li>
 
                         <li>
-                            <a href="#0" class="connect-with-us youtube">
+                            <a href="https://www.youtube.com/channel/UCB0rDQUczComoV1BgXsjYUw" class="connect-with-us youtube">
                                 <i class="fa fa-youtube-play"></i>
                             </a>
                         </li>

@@ -9,6 +9,9 @@
         <div class="login-mail pull-right showSingle" id="2">
             <i class="pe-7s-user"></i>
         </div>
+		<div class="login-user pull-right showSingle" id="3">
+            <i class="pe-7s-global"></i>
+        </div>
     </div>
     <!-- End Top Bar Head -->
 
@@ -44,6 +47,21 @@
                         <button type="submit" class="btn btn-primary btn-lg" style="margin-left:30px;">Professors/Orientadors</button>
                     </form>
                 @endif
+            </div>
+        </div>
+        <!-- End Top Bar Login Body -->
+
+        <!-- ___Start Mail Body___ -->
+        
+        <!-- End Mail Body -->
+    </div><!-- End Top Bar Body -->
+	
+	<div class="top-bar-body">
+       
+        <!-- ___TRADUCTOR___ -->
+        <div class="mail-body targetDiv" id="div3">
+            <div class="row">
+               <div id="google_translate_element" style="margin-left:35%"></div>
             </div>
         </div>
         <!-- End Top Bar Login Body -->
