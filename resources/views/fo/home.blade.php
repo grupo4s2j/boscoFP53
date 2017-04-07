@@ -1,4 +1,6 @@
-@extends('fo.octagon_layout.octagon_master') @section('content')
+@extends('fo.octagon_layout.octagon_master') 
+
+@section('content')
 <!-- ___Main Content___ -->
 @if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
 <div class="main-slider">
@@ -74,12 +76,11 @@
 			</div>
 		</div>
 	@if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
-
-	<div class="row">
-        <div class="col-md-6 col-md-offset-3">
-        {{ $recursos->links() }}
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+            {{ $recursos->links() }}
+            </div>
         </div>
-    </div>
 	@endif
 </div>
 
@@ -89,52 +90,50 @@
 @section('scripts')
 
 <script>
-		$(document).ready(function () {
-			$('#calendar').fullCalendar({
-		    	
-				height: 500,
-				defaultView: 'listWeek', 
-				//defaultDate: '2017-03-12',
-				monthNames: ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'],
-                monthNamesShort: ['Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Des'],
-                dayNames: ['Diumenge', 'Dillluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte'],
-                dayNamesShort: ['Diu', 'Dill', 'Dima', 'Dime', 'Dij', 'Div', 'Dis'],
-				navLinks: false, // can click day/week names to navigate views
-				editable: false, 
-				eventLimit: true, // allow "more" link when too many events
-				events: [
-					@if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
-					@foreach($recursos as $recurso)
-                    @if(!empty($recurso->fechaInicio) && !empty($recurso->fechaFin))
-				{
-                    
-					title: '{{ $recurso->titulo }}', 
-					url: '{{ url('recursos/'. $recurso->id) }}', 
-					start: '{{ $recurso->nFechaInicio }}', 
-					end: '{{ $recurso->nFechaFin }}',
-                    
-				},
-                    @endif
+    $(document).ready(function () {
+        $('#calendar').fullCalendar({
+            height: 500,
+            defaultView: 'listWeek', 
+            //defaultDate: '2017-03-12',
+            monthNames: ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'],
+            monthNamesShort: ['Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Des'],
+            dayNames: ['Diumenge', 'Dillluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte'],
+            dayNamesShort: ['Diu', 'Dill', 'Dima', 'Dime', 'Dij', 'Div', 'Dis'],
+            navLinks: false, // can click day/week names to navigate views
+            editable: false, 
+            eventLimit: true, // allow "more" link when too many events
+            events: [
+                @if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
+                    @foreach($recursos as $recurso)
+                        @if(!empty($recurso->fechaInicio) && !empty($recurso->fechaFin))
+                            {
+
+                                title: '{{ $recurso->titulo }}', 
+                                url: '{{ url('recursos/'. $recurso->id) }}', 
+                                start: '{{ $recurso->nFechaInicio }}', 
+                                end: '{{ $recurso->nFechaFin }}',
+
+                            },
+                        @endif
                     @endforeach
-					@endif
-			]
-			});
-		});
-	</script>
+                @endif
+            ]
+        });
+    });
+</script>
 
+<style>
+    #calendar {
+        font-size: 10.8px;
+        background-color: #fff;
+    }
 
-	<style>
-		#calendar {
-			font-size: 10.8px;
-			background-color: #fff;
-		}
-        
-        .fc-left {
-            font-size: 12px;
-        }
-		.fc-toolbar .fc-header-toolbar{
-			 font-size: 17px;
-		}
-	</style>
+    .fc-left {
+        font-size: 12px;
+    }
+    .fc-toolbar .fc-header-toolbar{
+         font-size: 17px;
+    }
+</style>
 
 @endsection
