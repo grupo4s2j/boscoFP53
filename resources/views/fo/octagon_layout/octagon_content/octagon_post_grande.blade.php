@@ -47,9 +47,6 @@
     </div>
     <!-- End Article & Feature -->
 
-    
-    
-    
     @if(!empty($recurso->entidadorganizativa))
     <div class="single-post-tab">
         <div role="tabpanel">
@@ -66,12 +63,9 @@
                     <div class="row">
                         <div class="each-section single-post-author">
                             <div class="row">
-                                <div class="col-lg-2 post-author-left">
-                                    <img src="images/article-sm.jpg" alt="">
-                                </div>
-                                <div class="col-lg-10 post-author-right">
+                                <div class="col-lg-10 post-author-right col-lg-offset-2">
                                     <h4>{{$recurso->entidadorganizativa->nombre}}</h4>
-                                    <p class="author-bio">Phasellus dapibus ac quam placerat tincidunt. Praesent laoreet mattis odio ut hendrerit. Maecenas venenatis tristique vehicula. Sed faucibus ipsum.</p>
+                                    <p class="author-bio">{{$recurso->entidadorganizativa->breveDesc}}</p>
                                 </div>
 
                             </div>
@@ -81,17 +75,17 @@
                                 <div class="contact-address text-center">
                                     <div class="col-md-4 col-sm-4 address-width">
                                         <i class="pe-7s-map-2"></i>
-                                        <p>123 Web Street, Melbourne, <br>Australia.</p>
+                                        <p>{{$recurso->entidadorganizativa->direccion}}</p>
                                     </div>
 
                                     <div class="col-md-4 col-sm-4 address-width">
                                         <i class="pe-7s-mail-open-file"></i>
-                                        <p>info@octagon.com</p>
+                                        <p>{{$recurso->entidadorganizativa->email}}</p>
                                     </div>
 
                                     <div class="col-md-4 col-sm-4 address-width">
                                         <i class="pe-7s-phone"></i>
-                                        <p>+66 (0) 123 456 7890 <br> +66 (0) 123 456 8097</p>
+                                        <p>{{$recurso->entidadorganizativa->telefono}}</p>
                                     </div>
 
                                 </div>

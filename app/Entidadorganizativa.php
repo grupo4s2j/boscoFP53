@@ -27,7 +27,7 @@ class Entidadorganizativa extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nombre', 'direccion', 'geolocalizacion', 'activo', 'email', 'telefono'];
+    protected $fillable = ['nombre', 'direccion', 'geolocalizacion', 'activo', 'email', 'telefono', 'breveDesc'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
