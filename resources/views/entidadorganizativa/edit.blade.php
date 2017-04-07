@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
             <label for="desc">Breu descripció</label>
-            <input id="desc" name="desc" type="text" class="form-control" required>
+            <input id="desc" name="desc" type="text" rows="5" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="geolocalizacion">Direcció</label>
