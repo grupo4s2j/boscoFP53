@@ -26,9 +26,13 @@
         </div>
         <div class="form-group">
 
-            <label for="telefono">Telefono</label>
+            <label for="telefono">Telèfono</label>
             <input id="telefono" name="telefono" type="number" class="form-control"  value="{!!$entidadorganizativa->
             telefono!!}"  max="999999999" required>
+        </div>
+        <div class="form-group">
+            <label for="desc">Breu descripció</label>
+            <input id="desc" name="desc" type="text" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="geolocalizacion">Direcció</label>

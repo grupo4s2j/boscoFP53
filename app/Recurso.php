@@ -119,7 +119,7 @@ class Recurso extends Model
             }
             $datetimenow->sub($intervalo);
             $i++;
-            if($i = 3) return $recursosTOP;
+            if($i = 10) return $recursosTOP;
         }
 		return $recursosTOP;
     }

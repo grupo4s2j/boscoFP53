@@ -18,8 +18,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * */
 class Entidadorganizativa extends Model
 {
-	
-	
     public $timestamps = false;
     
     protected $table = 'entidadorganizativas';
