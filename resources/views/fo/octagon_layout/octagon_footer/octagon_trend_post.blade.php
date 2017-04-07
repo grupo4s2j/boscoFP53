@@ -1,6 +1,6 @@
 <!-- ___Start Bottom trending post___ -->
 <div class="bottom-trending-post">
-    <h2 class="text-center">Trending Post</h2>
+    <h2 class="text-center">Random Post</h2>
     <div id="trend-post" class="trend-post">
 
         @foreach($recursos as $recurso)
