@@ -10,7 +10,7 @@
             <p class="date"><i class="fa fa-clock-o"></i>{{$recurso->fechaI}} - {{$recurso->fechaF}}</p>
             <p class="category"><i class="fa fa-bookmark"></i>
                 @foreach($recurso->subcategorias as $subcategoria)
-                <a href="{{ url('/categorias/'.$subcategoria->id) }}">{{ $subcategoria->nombre }}</a> /
+                <a href="{{ url('recursos/subcategoria/'.$subcategoria->id) }}">{{ $subcategoria->nombre }}</a> /
                 @endforeach
             </p>
         </div>

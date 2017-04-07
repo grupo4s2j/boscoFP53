@@ -27,7 +27,7 @@
         <div class="user-body targetDiv" id="div2">
             <div class="row">
                 <p>
-                Cambiar de rol a ...
+                Canviar de rol a ...
                 </p>
                 @if($rol == 'profesor')
                     <form method="post" action="{{ url('rolchange')}}">
