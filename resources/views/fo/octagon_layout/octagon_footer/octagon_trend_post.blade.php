@@ -6,12 +6,7 @@
         @foreach($recursos as $recurso)
         <a href="{{ url('recursos/' . $recurso->id) }}">
             <div class="post item" style="height:127px;">
-                @if(file_exists(asset('img/recursos/'. $recurso->img)))
-                    <img class="img-responsive" style="width:100%; height:100%;" src="{{ asset('img/recursos/'. $recurso->img) }}  " alt="" />
-                @else
-                    <img class="img-responsive" style="width:100%; height:100%;" src="{{ asset('img/categorias/content_squares_fab_city.jpg') }}" alt="" />
-                @endif
-                
+                <img class="img-responsive" style="width:100%; height:100%;" src="{{ asset('img/recursos/'. $recurso->img) }}  " alt="" />
                 <div class="overlay">
                     <h3>{{$recurso->titulo}}</h3>
                 </div>
