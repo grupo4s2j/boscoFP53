@@ -364,7 +364,7 @@ class RecursoController extends Controller
             ->where('recursossubcategorias.idSubcategorias', '=', $idsub)
             ->where('recursossubcategorias.idRecursos', '=', $idrec)
             ->get();
-        $subcategoria = Recursossubcategoria::findOrf . ail($subcat[0]->id);
+        $subcategoria = Recursossubcategoria::findOrfail($subcat[0]->id);
         $subcategoria->delete();
         return redirect('recurso/' . $idrec . '/edit/');
     }
