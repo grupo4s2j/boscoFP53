@@ -8,7 +8,7 @@
 		<div class="col-md-12 no-padding">
 			<div id="slider"> 
 				@foreach($recursosTOP as $recurso)
-				<div class="post item"><a href="{{ url('recursos/'. $recurso->id) }}"> <img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}" style="height: 303px; width: 965px;"/></a>
+				<div class="post item"><a href="{{ url('recursos/'. $recurso->id) }}"> <img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}" style="height: 443px; width: 1100px;"/></a>
 					<div class="carousel-caption">
 						<h3>{{$recurso->titulo}}</h3> </div>
 				</div> @endforeach </div>
