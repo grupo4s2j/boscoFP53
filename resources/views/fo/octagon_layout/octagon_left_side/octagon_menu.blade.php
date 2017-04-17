@@ -5,7 +5,7 @@
         <div class="accordion-content">
             <div class="menu-body">
                 <ul>
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/home') }}">Inici</a></li>
                     <li><a href="{{ url('/categorias') }}">Categories</a></li>
                     <li><a href="{{ url('/recursos') }}">Recursos</a></li>
                     <li><a href="{{ url('/nosotros') }}">Nosaltres</a></li>

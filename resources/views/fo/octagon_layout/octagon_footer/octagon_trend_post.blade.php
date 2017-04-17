@@ -6,7 +6,7 @@
         @foreach($recursos as $recurso)
         <a href="{{ url('recursos/' . $recurso->id) }}">
             <div class="post item" style="height:127px;">
-                <img class="img-responsive" style="width:100%; height:100%;" src="{{ asset('img/recursos/'. $recurso->img) }}  " alt="" />
+                <img class="img-responsive" style="width:100%; height:100%; opacity:0.5; background:" src="{{ asset('img/recursos/'. $recurso->img) }}  "/>
                 <div class="overlay">
                     <h3>{{$recurso->titulo}}</h3>
                 </div>
