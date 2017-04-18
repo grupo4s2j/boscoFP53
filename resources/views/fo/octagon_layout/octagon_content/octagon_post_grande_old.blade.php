@@ -5,9 +5,9 @@
 <div class="single-post">
     <!-- ___Start Article & Feature___ -->
     <div class="article-and-feature post-bottom-content bg-box-shadow each-section" data-scroll-index="0">
-        <h3>{{$recurso->titulo}} <span class="mobile-bg">E<a class="mobile-bg" href="#0">Event</a></span></h3>
+        <h3>{{$recurso->titulo}} <span class="travel-bg">P<a class="travel-bg" href="#0">Post</a></span></h3>
         <div class="meta-info">
-            <p class="date"><i class="fa fa-clock-o"></i>{{$recurso->fechaI}} - {{$recurso->fechaF}}</p>
+            <p class="date"><i class="fa fa-clock-o"></i>{{$recurso->fechaPosteo}}</p>
             <p class="category"><i class="fa fa-bookmark"></i>
                 @foreach($recurso->subcategorias as $subcategoria)
                 <a href="{{ url('recursos/subcategoria/'.$subcategoria->id) }}">{{ $subcategoria->nombre }}</a> /
@@ -98,7 +98,7 @@
                 <!-- ___Tab Pane___ -->
                 <div role="tabpanel" class="tab-pane fade" id="user-friendly">
                     <div class="row">
-                        <div id="map"></div>
+                        
                     </div><!-- End Row -->
                 </div><!-- End Tab Pane -->
             </div><!-- End Tab Content -->
@@ -108,21 +108,4 @@
     <!-- End Single Post Tab -->
 </div>
 
-@endsection
-
-@section('script')
-<script>
-    var map = new GMaps({
-        el: '.map',
-        lat: -12.043333,
-        lng: -77.028333,
-        title: 'Lima'
-    });
-/*map.addMarker({
-    lat: -12.043333,
-    lng: -77.028333,
-    title: 'Lima'
-    
-});*/
-</script>
 @endsection

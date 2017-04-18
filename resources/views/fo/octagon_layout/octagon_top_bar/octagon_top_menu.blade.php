@@ -5,7 +5,7 @@
             <!-- ___Start Category Nav Life Style___ -->
             @foreach ($categorias as $categoria) 
                 <li id="{{$categoria->nombre}}" class="mega-menu-li {{$categoria->color}}" style="display:none;">
-                    <a href="{{ url('recursos/categoria/' . $categoria->id) }}" aria-controls="beauty-care" role="tab" data-toggle="tab">{{$categoria->nombre}}</a>
+                    <a href="{{ url('recursos/categoria/' . $categoria->id) }}" aria-controls="{{$categoria->nombre}}" role="tab" data-toggle="tab">{{$categoria->nombre}}</a>
                     <ul>
                         <li>
                             @if(count($categoria->subcategorias) > 0)

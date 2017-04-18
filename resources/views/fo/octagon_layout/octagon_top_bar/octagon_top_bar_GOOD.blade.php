@@ -1,23 +1,28 @@
 <!-- ___Start Top Bar___ -->
 <div class="top-bar">
     <div class="top-bar-head">
-        <div class="search" style="width:100%;">
-            <form id="buscador" name="test-form" method="GET" action="{{ url('/search') }}">
-                <input id="tags" name="search" type="text" class="form-control no-radius" placeholder="Search here |">
-            </form>   
-            <div class="search pull-right showSingle" style="width:73px;height:66px;">
-                <i class="pe-7s-search"></i>
-            </div>
-            <div class="login-mail pull-right showSingle" id="2" style="width:73px;height:66px;">
-                <i class="pe-7s-user"></i>
-            </div>
+        <div class="search">
+            <i class="pe-7s-search showSingle" id="1"></i>
+            <!--<p>what are you looking for?</p>-->
         </div>
         
+        <div class="login-mail pull-right showSingle" id="2">
+            <i class="pe-7s-user"></i>
+        </div>
     </div>
     <!-- End Top Bar Head -->
 
     <!-- ___Start Top Bar Body___ -->
     <div class="top-bar-body">
+        <div class="search-body targetDiv" id="div1">
+            <p>Està buscant alguna cosa?</p>
+            <form id="buscador" name="test-form" method="GET" action="{{ url('/search') }}">
+                {{-- csrf_field() --}}
+                <input id="tags" name="search" type="text" class="form-control no-radius" placeholder="Search here |">
+                <button type="submit" value="Submit" class="btn btn-secondary btn-md">Submit</button>
+            </form>
+        </div>
+
         <!-- ___Start Top Bar Login Body___ -->
         <div class="user-body targetDiv" id="div2">
             <div class="row">
@@ -40,5 +45,9 @@
             </div>
         </div>
         <!-- End Top Bar Login Body -->
+
+        <!-- ___Start Mail Body___ -->
+        
+        <!-- End Mail Body -->
     </div><!-- End Top Bar Body -->
 </div><!-- ___Start Top Bar___ -->

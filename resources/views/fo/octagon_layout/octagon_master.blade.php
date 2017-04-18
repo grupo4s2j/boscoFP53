@@ -48,6 +48,8 @@
     <script src="{{ asset('/js/calendar/moment.min.js') }}"></script>
     <!--<script src="{{-- asset('/js/calendar/jquery.min.js') --}}"></script>-->
     <script src="{{ asset('/js/calendar/fullcalendar.min.js') }}"></script>
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script src="{{ asset('/js/gmaps/gmaps.js') }}"></script>
 </head>
 
 <body>
