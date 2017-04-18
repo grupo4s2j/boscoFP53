@@ -51,6 +51,7 @@
 </head>
 
 <body>
+	
     <div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
         <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;" />
     </div>
@@ -115,15 +116,11 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
-        window.onload = function() {
-            $('#splashscreen').fadeOut();	
-            $('#contenidos').fadeIn();	
+		
+		 window.onload = function() {
+			  $('#splashscreen').hide();
+			  $('#contenidos').show();
         }
-        jQuery(document).ready(function($) {
-			$('#contenidos').removeClass('verContenido');
-            jQuery('.category-nav ').meanmenu();
-        });
-
     </script>
     <!-- View de Categorias y Subcategorias -->
     <!--<script>
