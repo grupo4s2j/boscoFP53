@@ -98,7 +98,7 @@
                 <!-- ___Tab Pane___ -->
                 <div role="tabpanel" class="tab-pane fade" id="user-friendly">
                     <div class="row">
-                        
+                        <div id="map"></div>
                     </div><!-- End Row -->
                 </div><!-- End Tab Pane -->
             </div><!-- End Tab Content -->
@@ -108,4 +108,21 @@
     <!-- End Single Post Tab -->
 </div>
 
+@endsection
+
+@section('script')
+<script>
+    var map = new GMaps({
+        el: '.map',
+        lat: -12.043333,
+        lng: -77.028333,
+        title: 'Lima'
+    });
+/*map.addMarker({
+    lat: -12.043333,
+    lng: -77.028333,
+    title: 'Lima'
+    
+});*/
+</script>
 @endsection
