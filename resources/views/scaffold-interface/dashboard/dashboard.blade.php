@@ -22,9 +22,11 @@
                             <p>{{$users}}</p>
                             </a>
                         </div>
+                        <a href="{{url('users')}}">
                         <div class="icon">
                             <i class="ion ion-person-stalker"></i>
                         </div>
+                        </a>
                         <a href="{{url('users')}}" class="small-box-footer">Veure <i
                                     class="fa fa-arrow-circle-right"></i></a>
 
@@ -76,9 +78,11 @@
                             <p>{{$categoria->count()}}</p>
                             </a>
                         </div>
+                        <a href="{{url('categoria')}}">
                         <div class="icon">
                             <i class="fa fa-square"></i>
                         </div>
+                        </a>
                         <a href="{{url('categoria')}}" class="small-box-footer">Veure <i
                                     class="fa fa-arrow-circle-right"></i></a>
 
@@ -94,9 +98,11 @@
                             <p>{{$subcategoria->count()}}</p>
                             </a>
                         </div>
+                        <a href="{{url('subcategoria')}}">
                         <div class="icon">
                             <i class="fa fa-square-o"></i>
                         </div>
+                        </a>
                         <a href="{{url('subcategoria')}}" class="small-box-footer">Veure <i
                                     class="fa fa-arrow-circle-right"></i></a>
 
@@ -106,16 +112,17 @@
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-gray">
-
                         <div class="inner">
                             <a href="{{url('entidadorganizativa')}}" style="color:white">
                             <h3>Entitats Org.</h3>
                             <p>{{$entidadOrganizativa->count()}}</p>
-                            </a>
+                        </a>
                         </div>
-                        <div class="icon">
+                        <a href="{{ url('entidadorganizativa') }}">
+                        <div class="icon" >
                             <i class="fa fa-briefcase"></i>
                         </div>
+                        <a href="{{ url('entidadorganizativa') }}">
                         <a href="{{url('entidadorganizativa')}}" class="small-box-footer">Veure <i
                                     class="fa fa-arrow-circle-right"></i></a>
 
@@ -131,9 +138,11 @@
                             <p>{{$recurso->count()}}</p>
                     </a>
                         </div>
+                        <a href="{{url('recurso')}}">
                         <div class="icon">
                             <i class="fa fa-newspaper-o"></i>
                         </div>
+                        </a>
                         <a href="{{url('recurso')}}" class="small-box-footer">Veure <i
                                     class="fa fa-arrow-circle-right"></i></a>
                 </div>
@@ -165,12 +174,13 @@
                             <p>{{$tag->count()}}</p>
                     </a>
                         </div>
+                        <a href="{{url('tag')}}">
                         <div class="icon">
                             <i class="fa fa-hashtag"></i>
                         </div>
+                        </a>
                         <a href="{{url('tag')}}" class="small-box-footer">Veure <i
                                     class="fa fa-arrow-circle-right"></i></a>
-
                 </div>
             </div>
             <div class="col-lg-3 col-xs-6">
@@ -183,9 +193,11 @@
                             <p>{{$banner->count()}}</p>
                         </a>
                     </div>
+                    <a href="{{url('banner')}}">
                     <div class="icon">
                         <i class="fa fa-bullhorn"></i>
                     </div>
+                    </a>
                     <a href="{{url('banner')}}" class="small-box-footer">Veure <i
                                 class="fa fa-arrow-circle-right"></i></a>
 
@@ -219,16 +231,15 @@
                             <p>{{$redsocial->count()}}</p>
                         </a>
                     </div>
+                    <a href="{{url('redsocial')}}">
                     <div class="icon">
                         <i class="fa fa-twitter"></i>
                     </div>
+                    </a>
                     <a href="{{url('redsocial')}}" class="small-box-footer">Veure <i
                                 class="fa fa-arrow-circle-right"></i></a>
-
                 </div>
             </div>
-
-
         </div>
     </section>
 @endsection

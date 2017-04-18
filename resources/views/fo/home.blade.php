@@ -5,23 +5,23 @@
 @if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
 <div class="main-slider">
 	<div class="row">
-		<div class="col-md-8 no-padding">
+		<div class="col-md-12 no-padding">
 			<div id="slider"> 
-				@php $firstFiveRecursos = array_slice($recursosTOP, 0, 5);
-				@endphp @foreach($firstFiveRecursos as $recurso)
-				<div class="post item"><a href="{{ url('recursos/'. $recurso->id) }}"> <img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}" style="height: 303px; width: 965px;"/></a>
-					<div class="carousel-caption">
-						<h3>{{$recurso->titulo}}</h3> </div>
+				@foreach($recursosTOP as $recurso)
+				<div class="post item"><a href="{{ url('recursos/'. $recurso->id) }}"> <img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}" style="height: 443px; width: 1100px;"/></a>
+					<div class="carousel-caption" style="background-color:#2a2f33;">
+						<h3>{{$recurso->titulo}}</h3> 
+					</div>
 				</div> @endforeach </div>
 		</div>
-		<div class="col-md-4 no-padding">
+		<!--div class="col-md-4 no-padding">
 			<div class="slider-side-post">
 				@php $lastSoRecursos = array_slice($recursosTOP, -2, 2);@endphp @foreach($lastSoRecursos as $recurso)
 				<div class="post"> <a href="{{ url('recursos/'. $recurso->id) }}"> <img class="img-responsive" src="{{ asset('./img/recursos/' . $recurso->img) }}"/> </a>
 					<div class="post-info">
 						<h3>{{$recurso->titulo}}</h3> </div>
 				</div> @endforeach </div>
-		</div>
+		</div-->
 	</div>
 </div>
 @endif
@@ -67,7 +67,7 @@
 					<div style="margin-top:10%">
 						@foreach($banners as $banner)
 						<div class="banneritem">
-							<a href="{{ url($banner->url) }}"> <img src="{{ asset('./img/banners/' . $banner->img) }}" alt="sharetheligth"> </a>
+							<a href="{{ url($banner->url) }}"> <img src="{{ asset('./img/banners/' . $banner->img) }}"> </a>
 							<div class="clr"></div>
 						</div>
 						@endforeach 

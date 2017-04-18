@@ -876,6 +876,9 @@ width: 100%;
 	padding: 2px;
     
 }
+.verContenido{
+	display:none;
+}
 .bg-box-shadow {
   -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.06);
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.06);
@@ -1553,7 +1556,7 @@ width: 100%;
   font-weight: normal;
 }
 .trend-post {
-  background: #ffffff;
+  background: rgba(0, 0, 0, 0.5);
   width: 100%;
   float: left;
 }

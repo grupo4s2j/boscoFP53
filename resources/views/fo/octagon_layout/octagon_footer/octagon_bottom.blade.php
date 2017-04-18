@@ -5,7 +5,7 @@
             <div class="useful-links widget">
                 <h3>Pàgines d'interés</h3>
                 <ul class="pull-left">
-                    <li><a href="{{ url('/home')}}">Home</a></li>
+                    <li><a href="{{ url('/home')}}">Inici</a></li>
 					<li><a href="{{ url('/categorias')}}">Categories</a></li>
 					<li><a href="{{ url('/recursos')}}">Recursos</a></li>
                 </ul>

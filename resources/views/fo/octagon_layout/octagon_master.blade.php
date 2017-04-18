@@ -48,16 +48,16 @@
     <script src="{{ asset('/js/calendar/moment.min.js') }}"></script>
     <!--<script src="{{-- asset('/js/calendar/jquery.min.js') --}}"></script>-->
     <script src="{{ asset('/js/calendar/fullcalendar.min.js') }}"></script>
-    
     <script src="http://maps.google.com/maps/api/js"></script>
     <script src="{{ asset('/js/gmaps/gmaps.js') }}"></script>
 </head>
 
 <body>
+	
     <div id="splashscreen" style=" width: 100%; height: 100%; background-color: #434343;">
         <img src="{{ asset('img/gifload.gif') }}" style="position: absolute; top: 25%; left: 40%;" />
     </div>
-    <div id="contenidos" style="display: none;">
+    <div id="contenidos" class="verContenido">
 
         <!-- ___Start Home Three Page___ -->
         <div class="container-fluid home-3" id="container-full">
@@ -118,14 +118,14 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
-        window.onload = function() {
-            $('#splashscreen').fadeOut();
-            $('#contenidos').fadeIn();
+		
+		 window.onload = function() {
+			  $('#splashscreen').hide();
+			  $('#contenidos').show();
         }
         jQuery(document).ready(function($) {
             jQuery('.category-nav ').meanmenu();
         });
-
     </script>
     <!-- View de Categorias y Subcategorias -->
     <!--<script>
