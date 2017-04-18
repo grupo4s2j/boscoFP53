@@ -342,7 +342,7 @@ class RecursoController extends Controller
 
         $tags = Recursotag::findTagsInRecurs($id);
 
-        $subcategorias = Subcategoria::orderBy('nombre', 'asc')->get();
+        $subcategorias = Subcategoria::where('activo', '=', '1')->orderBy('nombre', 'asc')->get();
         $recursoSubcategorias = $recurso->subcategorias;
         $ficheros = Fichero::all();
 
