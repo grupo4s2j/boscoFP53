@@ -71,7 +71,8 @@ class TagController extends Controller
             ->where(function ($query) use ($search) {
                 $query->where('tags.nombre', 'like', '%'.$search.'%')
                 ->orWhere('recursos.titulo', 'like', '%'.$search.'%')
-                ->orWhere('recursos.descripcion', 'like', '%'.$search.'%');
+                ->orWhere('recursos.descripcion', 'like', '%'.$search.'%')
+                ->orWhere('recursos.contenido', 'like', '%'.$search.'%');
             })
             ->distinct()
             ->select('recursos.*')
@@ -114,6 +115,12 @@ class TagController extends Controller
     {
         $tags = array($tag);
         $recursos = $this->queryRecursos($tags);
+        
+        $tagRequest = Tag::where('nombre', '=', $tag)->first();
+        //$tagRequest->usado = $tagRequest->usado + 1;
+        $tagRequest->usado = $tagRequest->usado + 1;
+        
+        $tagRequest->save();
 
         return view('fo.tablon_recursos', compact('recursos'));
     }

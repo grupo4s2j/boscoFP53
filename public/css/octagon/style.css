@@ -536,6 +536,28 @@ iframe {
   position: relative;
   text-transform: uppercase;
 }
+.search form {
+  display: inline;
+  background-color: #edeff0;
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+  height: 66px;
+width: 100%;
+  /*border: 0;*/
+  /*width: 800px;*/
+}
+.search form input {
+  display: inline;
+  background-color: #edeff0;
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+  height: 66px;
+  width: 100%;
+  /*border: 0;*/
+  /*width: 800px;*/
+}
 .login-account {padding: 0 80px;}
 .login-account .forgot-pass {
   font-family: "Open Sans", sans-serif;
