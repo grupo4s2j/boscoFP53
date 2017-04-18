@@ -89,7 +89,7 @@ class RecursoController extends Controller
             })
             ->where('recursos.activo', 1)
             ->where('recursos.show', 1)
-            ->where('recursos.fechaPost', '<=', Carbon::now()->format('Y-m-d'))
+            ->where('recursos.fechaPost', '<=', Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
             ->where(function ($query) use ($rol) {
                 $query->where('rol', '=', 0)
                     ->orWhere('rol', '=', $rol);

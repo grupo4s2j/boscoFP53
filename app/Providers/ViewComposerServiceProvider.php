@@ -48,25 +48,46 @@ class ViewComposerServiceProvider extends ServiceProvider
 
             foreach ($categorias as $categoria) {
                 $categoria->colorCSS();
+                $id = $categoria->id;
+                
+                //NUEVO
+                $categoria->recursosCategoria = \App\Recurso::join('recursossubcategorias', 'recursos.id', '=', 'recursossubcategorias.idRecursos')
+                    ->join('subcategorias', 'recursossubcategorias.idSubcategorias', '=', 'subcategorias.id')
+                    ->join('categorias', function ($join) use ($id) {
+                        $join->on('subcategorias.idCategoria', '=', 'categorias.id')
+                            ->where('categorias.id', $id);
+                    })
+                    ->where('recursos.activo', 1)
+                    ->where('recursos.show', 1)
+                    ->where('recursos.fechaPost', '<=', \Carbon\Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
+                    ->where(function ($query) use ($rol) {
+                        $query->where('rol', '=', 0)
+                            ->orWhere('rol', '=', $rol);
+                    })
+                    ->orderBy('recursos.fechaPost', 'desc')
+                    ->take(3)
+                    ->distinct()
+                    ->select('recursos.*')
+                    ->get();
             }
 
             $tags = \App\Tag::topRatedTags();
             if ($rol == 'alumno') {
                 $recursos = \App\Recurso::where('activo', 1)
-                    ->where('fechaPost', '<=', \Carbon\Carbon::now()->format('Y-m-d'))
+                    ->where('fechaPost', '<=', \Carbon\Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
                     ->orderBy('fechaPost', 'desc')
                     ->get();
             } elseif ($rol == 'professor') {
                 $recursos = \App\Recurso::where('activo', 1)
-                    ->where('fechaPost', '<=', \Carbon\Carbon::now()->format('Y-m-d'))
+                    ->where('fechaPost', '<=', \Carbon\Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
                     ->orderBy('fechaPost', 'desc')
                     ->get();
-            }
-            $recursos = \App\Recurso::where('activo', 1)
-                ->where('show', 1)
-                ->where('fechaPost', '<=', \Carbon\Carbon::now()->format('Y-m-d'))
-                ->orderBy('fechaPost', 'desc')
-                ->get();
+            } else
+                $recursos = \App\Recurso::where('activo', 1)
+                    ->where('show', 1)
+                    ->where('fechaPost', '<=', \Carbon\Carbon::now('Europe/London')->format('Y-m-d H:i:s'))
+                    ->orderBy('fechaPost', 'desc')
+                    ->get();
 
             $view->with(compact('categorias', 'tags', 'recursos', 'rol'));
         });
