@@ -183,8 +183,6 @@ class CategoriaController extends Controller
 
         $categoria->color = $request->color;
 
-        $categoria->orden = $request->orden;
-
         $categoria->logo = $request->logo;
 
         $categoria->save();

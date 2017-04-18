@@ -95,6 +95,7 @@ class Recurso extends Model
     public static function getTopPosts($rol){
         $completed = false;
         $recursosTOP = array();
+        $i = 0;
         $datetimenow = (new \DateTime());
         $datetimethen = (new \DateTime());
         $intervalo = new \DateInterval('P1M');
@@ -117,6 +118,8 @@ class Recurso extends Model
                 } 
             }
             $datetimenow->sub($intervalo);
+            $i++;
+            if($i = 10) return $recursosTOP;
         }
 		return $recursosTOP;
     }

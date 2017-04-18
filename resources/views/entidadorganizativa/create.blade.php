@@ -18,21 +18,17 @@
                 <input id="nombre" name="nombre" type="text" class="form-control" required>
             </div>
             <div class="form-group">
-
                 <label for="email">Email</label>
                 <input id="email" name="email" type="email" class="form-control" required>
             </div>
             <div class="form-group">
-
-                <label for="telefono">Telefono</label>
+                <label for="telefono">Telèfon</label>
                 <input id="telefono" name="telefono" type="number" class="form-control" max="999999999" required>
             </div>
             <div class="form-group">
-
-                <label for="nombre">Nom</label>
-                <input id="nombre" name="nombre" type="text" class="form-control" required>
+                <label for="desc">Breu descripció</label>
+                <input id="desc" name="desc" type="text" rows="5" class="form-control" required>
             </div>
-
             <div class="form-group">
                 <label for="geolocalizacion">Direcció</label>
                 <input id="address" name="direccion" type="text" class="form-control" placeholder="Direcció" required>
