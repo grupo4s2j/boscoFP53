@@ -38,7 +38,7 @@
     <header id="top" class="header">
         <div class="text-vertical-center">
             <img src="{{ asset('./img/octagon/logo.png') }}" style="height:200px">
-            <h3 style="color:white;"><b>Este portal te cambiar&aacute; la vida. A mejor.</b></h3>
+            <h2 style="color:white;"><b>Formaci&oacute; industrial</b></h2>
             <br>
             <div class="container">
                 <div class="row">
@@ -59,9 +59,9 @@
                 </div>
             </div>
             <aside id="avisocookies">
-                    Esta pagina utiliza cookies propias con el fin de mejorar el servicio. Si continuas navegando, aceptas su uso. Para mas informacion <a href="http://politicadecookies.com" rel="nofollow">clicka aqui</a>. 
-                    <button class="btn btn-primary" id="aceptarcookies" style="margin-left: 15px;">Aceptar</button>
-        </aside>
+                    Aquesta pàgina utilitza cookies pròpies per tal de millorar el servei. Si continues navegant, acceptes el seu ús. Per més informació <a href="http://politicadecookies.com" rel="nofollow">click aquí</a>. 
+                    <button class="btn btn-primary" id="aceptarcookies" style="margin-left: 15px;">Acceptar</button>
+        	</aside>
         </div>
         
     </header>

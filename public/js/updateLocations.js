@@ -185,7 +185,7 @@ function geocodeAddress(geocoder, resultsMap, address)
 function bindLocationData() {
     document.getElementById('geolocalizacion').setAttribute('value', document.getElementById('lat').value+','+document.getElementById('lng').value);
     document.getElementById('address').setAttribute('value', document.getElementById('googleAddress').value);
-    alert( document.getElementById('googleAddress').value);
+    
 }
 /**
  * Created by Enric Borrallo on 04/01/17.

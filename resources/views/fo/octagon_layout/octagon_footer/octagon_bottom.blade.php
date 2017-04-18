@@ -5,15 +5,16 @@
             <div class="useful-links widget">
                 <h3>Pàgines d'interés</h3>
                 <ul class="pull-left">
-                    <li><a href="{{ url('/home')}}">Home</a></li>
-                    <li><a href="{{ url('/categorias')}}">Categories</a></li>
-					<li><a href="{{ url('/home')}}">About</a></li>
-
+                    <li><a href="{{ url('/home')}}">Inici</a></li>
+					<li><a href="{{ url('/categorias')}}">Categories</a></li>
+					<li><a href="{{ url('/recursos')}}">Recursos</a></li>
                 </ul>
                 <ul class="pull-right">
                     <li><a href="{{ url('/contacto')}}">Contacte</a></li>
-                    <li><a href="#0">Terms of Use</a></li>
-                    <li><a href="#0">Privacy & Policy</a></li>
+					<li><a href="http://g5s2aw.sdslab.cat/">Nosaltres</a></li>
+                    <!--li><a href="#0">Terms of Use</a></li>
+                    <li><a href="#0">Privacy & Policy</a></li-->
+					
                 </ul>
             </div>
         </div>
@@ -27,6 +28,8 @@
                     <p><strong>Email:</strong> info@tsfi.com</p>
                     <p><strong>Tel:</strong> +66 (0) 123 456 7890</p>
                 </div>
+				<h3 style="font-weight: normal; font-size:16px; padding: 0px 0 10px 0px;">Vols traduir la pàgina?</h3>
+				<div id="google_translate_element" style="margin-bottom:6%"></div>
             </div>
         </div>
         <!-- End Column -->
@@ -66,7 +69,7 @@
                         </li>
 
                         <li>
-                            <a href="#0" class="connect-with-us youtube">
+                            <a href="https://www.youtube.com/channel/UCB0rDQUczComoV1BgXsjYUw" class="connect-with-us youtube">
                                 <i class="fa fa-youtube-play"></i>
                             </a>
                         </li>

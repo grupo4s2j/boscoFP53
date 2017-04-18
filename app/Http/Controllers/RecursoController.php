@@ -150,10 +150,26 @@ class RecursoController extends Controller
     {
         $recurso = Recurso::find($id);
 
-        $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost);
-        $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
+        if(!empty($recurso->fechaPost)){
+            $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost); 
+            $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);
+        }
+        if(!empty($recurso->fechaInicio)){
+            $recurso->fechaI = $this->formatFecha($recurso->fechaInicio); 
+            $recurso->horaI = $this->horaPosteo($recurso->fechaInicio);
+            $recurso->nFechaInicio = $this->fechaInicioyFin($recurso->fechaInicio);
+        }
+        if(!empty($recurso->fechaFin)){
+            $recurso->fechaF = $this->formatFecha($recurso->fechaFin); 
+            $recurso->horaF = $this->horaPosteo($recurso->fechaFin);
+            $recurso->nFechaFin = $this->fechaInicioyFin($recurso->fechaFin);
+        }
 
-        return view('fo.recurso_post', compact('recurso'));
+        if(empty($recurso->fechaInicio) && empty($recurso->fechaFin)){
+            return view('fo.octagon_layout.octagon_content.octagon_post_grande', compact('recurso'));
+        }else
+            return view('fo.octagon_layout.octagon_content.octagon_evento_grande', compact('recurso'));
+        
     }
 
     /**
@@ -218,8 +234,8 @@ class RecursoController extends Controller
             $p = $ptag . hasItems();
             if ($p == "[]()") {
                 $newTag = new Tag();
+                $tag = strtolower($tag);
                 $newTag->nombre = $tag;
-                $newTag->usado = 1;
                 $newTag->save();
 
                 $newRecTag = new Recursotag();
@@ -228,10 +244,6 @@ class RecursoController extends Controller
                 $newRecTag->activo = 1;
                 $newRecTag->save();
             } else {
-                $tag = Tag::findOrfail($ptag[0]->id);
-                $tag->usado = $tag->usado + 1;
-                $tag->save();
-
                 $newRecTag = new Recursotag();
                 $newRecTag->idTag = $ptag[0]->id;
                 $newRecTag->idRecursos = $recurso->id;
@@ -330,7 +342,7 @@ class RecursoController extends Controller
 
         $tags = Recursotag::findTagsInRecurs($id);
 
-        $subcategorias = Subcategoria::orderBy('nombre', 'asc')->get();
+        $subcategorias = Subcategoria::where('activo', '=', '1')->orderBy('nombre', 'asc')->get();
         $recursoSubcategorias = $recurso->subcategorias;
         $ficheros = Fichero::all();
 
@@ -368,7 +380,7 @@ class RecursoController extends Controller
             ->where('recursossubcategorias.idSubcategorias', '=', $idsub)
             ->where('recursossubcategorias.idRecursos', '=', $idrec)
             ->get();
-        $subcategoria = Recursossubcategoria::findOrf . ail($subcat[0]->id);
+        $subcategoria = Recursossubcategoria::findOrfail($subcat[0]->id);
         $subcategoria->delete();
         return redirect('recurso/' . $idrec . '/edit/');
     }
@@ -449,8 +461,8 @@ class RecursoController extends Controller
                 $p = $ptag . hasItems();
                 if ($p == "[]()") {
                     $newTag = new Tag();
+                    $tag = strtolower($tag);
                     $newTag->nombre = $tag;
-                    $newTag->usado = 1;
                     $newTag->save();
 
                     $newRecTag = new Recursotag();
@@ -459,10 +471,6 @@ class RecursoController extends Controller
                     $newRecTag->activo = 1;
                     $newRecTag->save();
                 } else {
-                    $tag = Tag::findOrfail($ptag[0]->id);
-                    $tag->usado = $tag->usado + 1;
-                    $tag->save();
-
                     $newRecTag = new Recursotag();
                     $newRecTag->idTag = $ptag[0]->id;
                     $newRecTag->idRecursos = $recurso->id;

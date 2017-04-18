@@ -3,9 +3,11 @@
         <a href="{{ url('recursos/' . $recurso->id) }}"><img class="img-responsive center-block" src="{{ asset('./img/recursos/' . $recurso->img) }}" alt=""></a>
         <a href="{{ url('recursos/'. $recurso->id) }}"><h3>{{$recurso->titulo}}</h3></a>
         <h3><span class="mobile-bg">E<a class="mobile-bg" href="{{ url('recursos/'. $recurso->id) }}">Event</a></span></h3>
-        <span class="date">{{$recurso->fechaPosteo}}</span>
+        <!--<span class="date">{{--$recurso->fechaPosteo--}}</span>-->
         <span class="date">{{$recurso->fechaI}}</span>
-        <span class="date">{{$recurso->fechaF}}</span>
+        @if($recurso->fechaI != $recurso->fechaF)
+            <span class="date">{{$recurso->fechaF}}</span>
+        @endif
 
         <!-- ___Post Meta___ -->
         <div class="article-and-feature post-meta">

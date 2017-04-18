@@ -18,8 +18,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * */
 class Entidadorganizativa extends Model
 {
-	
-	
     public $timestamps = false;
     
     protected $table = 'entidadorganizativas';
@@ -27,7 +25,7 @@ class Entidadorganizativa extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nombre', 'direccion', 'geolocalizacion', 'activo', 'email', 'telefono'];
+    protected $fillable = ['nombre', 'direccion', 'geolocalizacion', 'activo', 'email', 'telefono', 'breveDesc'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
