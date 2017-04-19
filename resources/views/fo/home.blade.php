@@ -93,7 +93,7 @@
     $(document).ready(function () {
         $('#calendar').fullCalendar({
             height: 500,
-            defaultView: 'listWeek', 
+            defaultView: 'listDay', 
             //defaultDate: '2017-03-12',
             monthNames: ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'],
             monthNamesShort: ['Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Des'],
@@ -101,25 +101,30 @@
             dayNamesShort: ['Diu', 'Dill', 'Dima', 'Dime', 'Dij', 'Div', 'Dis'],
             navLinks: false, // can click day/week names to navigate views
             editable: false, 
+			  columnFormat: 'ddd',
             eventLimit: true, // allow "more" link when too many events
             events: [
-                @if(isset($recursos) && !empty($recursos) && count($recursos) >= 1)
-                    @foreach($recursos as $recurso)
-                        @if(!empty($recurso->fechaInicio) && !empty($recurso->fechaFin))
+                    @foreach($eventos as $recurso)
+                        
                             {
-
-                                title: '{{ $recurso->titulo }}', 
+								title: '{{ $recurso->titulo }}', 
                                 url: '{{ url('recursos/'. $recurso->id) }}', 
-                                start: '{{ $recurso->nFechaInicio }}', 
-                                end: '{{ $recurso->nFechaFin }}',
-
+                                start: '{{ $recurso->fechaInicio }}', 
+                                end: '{{ $recurso->fechaFin }}',
                             },
-                        @endif
+                       
                     @endforeach
-                @endif
             ]
         });
+		$('.fc-list-item-time').hide();		
+		$('.fc-today-button').click(function(){
+						$('.fc-list-item-time').hide();		
+
+				});		
     });
+				
+				
+				
 </script>
 
 <style>
