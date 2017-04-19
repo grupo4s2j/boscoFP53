@@ -21,16 +21,21 @@ class MainPageController extends Controller
         $rol = $this->getAndSetCookieValue();
 
         $recursos = Recurso::where('activo', 1)->where('show', 1)->paginate(6);
-
+		
         $recursos = $this->recursosFechaHora($recursos);
-
+		$eventos  =  Recurso::where('fechaInicio','!=', "")
+			->where('fechaFin','!=', "")
+			->where('show', 1)
+			->get();
+		//echo $eventos;
+		//	die();
         //To get recursostop
 		
         $recursosTOP = \App\Recurso::getTopPosts($rol);
         $lastestRecurso = \App\Recurso::getLastestRecursos($rol);
 		$banners = \App\Banner::getBanner();
 			
-        return view('fo.home', compact('recursos','recursosTOP', 'lastestRecurso','banners'));
+        return view('fo.home', compact('recursos','recursosTOP', 'lastestRecurso','banners','eventos'));
         //Podemos hacer referencia a la clase View con un \ o añadiendo use View al principio
     }
 }
