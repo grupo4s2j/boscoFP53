@@ -118,9 +118,8 @@
         });
 		$('.fc-list-item-time').hide();		
 		$('.fc-today-button').click(function(){
-						$('.fc-list-item-time').hide();		
-
-				});		
+			$('.fc-list-item-time').hide();		
+	    });		
     });
 				
 				
