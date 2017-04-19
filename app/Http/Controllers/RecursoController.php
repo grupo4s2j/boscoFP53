@@ -20,6 +20,7 @@ use Carbon\Carbon;
 use App\Notifications;
 use Thujohn\Twitter\Facades;
 use Collective\Html;
+
 // import the Intervention Image Manager Class
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -150,6 +151,10 @@ class RecursoController extends Controller
     {
         $recurso = Recurso::find($id);
 
+        if($recurso->activo == 0 || $recurso->show == 0){
+            return redirect('/');
+        }
+        
         if(!empty($recurso->fechaPost)){
             $recurso->fechaPosteo = $this->formatFecha($recurso->fechaPost); 
             $recurso->horaPosteo = $this->horaPosteo($recurso->fechaPost);

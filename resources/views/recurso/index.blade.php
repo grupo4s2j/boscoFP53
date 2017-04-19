@@ -77,7 +77,7 @@
                                        ><i
                                                 class='material-icons'>Veure</i></a>
                                     @if($recurso->show== 0)
-                                        <a href='#' class='viewShow btn btn-success btn-xs'
+                                        <a href='#' class='viewShow btn btn-default btn-xs'
                                            data-link='/recurso/{!!$recurso->id!!}/enable'><i
                                                     class='material-icons'>Mostrar</i></a>
                                     @else
