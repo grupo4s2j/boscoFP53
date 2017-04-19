@@ -124,9 +124,6 @@
 			  $('#splashscreen').hide();
 			  $('#contenidos').show();
         }
-        jQuery(document).ready(function($) {
-            jQuery('.category-nav ').meanmenu();
-        });
     </script>
     <!-- View de Categorias y Subcategorias -->
     <!--<script>
