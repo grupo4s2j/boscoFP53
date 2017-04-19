@@ -116,11 +116,9 @@ class TagController extends Controller
         $tags = array($tag);
         $recursos = $this->queryRecursos($tags);
         
-        $tagRequest = Tag::where('nombre', '=', $tag)->first();
+        //$tagRequest = Tag::where('nombre', '=', $tag)->first();
         //$tagRequest->usado = $tagRequest->usado + 1;
-        $tagRequest->usado = $tagRequest->usado + 1;
-        
-        $tagRequest->save();
+        //$tagRequest->save();
 
         return view('fo.tablon_recursos', compact('recursos'));
     }

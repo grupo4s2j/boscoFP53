@@ -228,14 +228,13 @@ class RecursoController extends Controller
 
         $recurso->save();
 
-
         foreach ($request->tag_list as $tag) {
             $ptag = Tag::searchTag($tag, 1);
             $p = $ptag . hasItems();
             if ($p == "[]()") {
                 $newTag = new Tag();
-                $tag = strtolower($tag);
                 $newTag->nombre = $tag;
+                $newTag->usado = 1;
                 $newTag->save();
 
                 $newRecTag = new Recursotag();
@@ -244,11 +243,16 @@ class RecursoController extends Controller
                 $newRecTag->activo = 1;
                 $newRecTag->save();
             } else {
+                $tag = Tag::findOrfail($ptag[0]->id);
+                $tag->usado = $tag->usado + 1;
+                $tag->save();
+
                 $newRecTag = new Recursotag();
                 $newRecTag->idTag = $ptag[0]->id;
                 $newRecTag->idRecursos = $recurso->id;
                 $newRecTag->activo = 1;
                 $newRecTag->save();
+
             }
         }
 
@@ -461,8 +465,8 @@ class RecursoController extends Controller
                 $p = $ptag . hasItems();
                 if ($p == "[]()") {
                     $newTag = new Tag();
-                    $tag = strtolower($tag);
                     $newTag->nombre = $tag;
+                    $newTag->usado = 1;
                     $newTag->save();
 
                     $newRecTag = new Recursotag();
@@ -471,13 +475,17 @@ class RecursoController extends Controller
                     $newRecTag->activo = 1;
                     $newRecTag->save();
                 } else {
+                    $tag = Tag::findOrfail($ptag[0]->id);
+                    $tag->usado = $tag->usado + 1;
+                    $tag->save();
+
                     $newRecTag = new Recursotag();
                     $newRecTag->idTag = $ptag[0]->id;
                     $newRecTag->idRecursos = $recurso->id;
                     $newRecTag->activo = 1;
                     $newRecTag->save();
                 }
-            }
+        }
         }
         return redirect('recurso');
     }
