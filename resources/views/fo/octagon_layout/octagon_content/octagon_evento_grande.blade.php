@@ -53,7 +53,7 @@
             <!-- ___Nav Tabs___ -->
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#responsive" aria-controls="responsive" role="tab" data-toggle="tab" aria-expanded="true">Entidad Organizativa</a></li>
-                <li role="presentation" class=""><a href="#user-friendly" aria-controls="user-friendly" role="tab" data-toggle="tab" aria-expanded="false">Mapa</a></li>
+                <!--<li role="presentation" class=""><a href="#user-friendly" aria-controls="user-friendly" role="tab" data-toggle="tab" aria-expanded="false">Mapa</a></li>-->
             </ul>
 
             <!-- ___Tab Content___ -->
@@ -73,21 +73,24 @@
                             <!-- ___Start Address___ -->
                             <div class="row">
                                 <div class="contact-address text-center">
+                                    @if(!empty($recurso->entidadorganizativa->direccion))
                                     <div class="col-md-4 col-sm-4 address-width">
                                         <i class="pe-7s-map-2"></i>
                                         <p>{{$recurso->entidadorganizativa->direccion}}</p>
                                     </div>
-
+                                    @endif
+                                    @if(!empty($recurso->entidadorganizativa->email))
                                     <div class="col-md-4 col-sm-4 address-width">
                                         <i class="pe-7s-mail-open-file"></i>
                                         <p>{{$recurso->entidadorganizativa->email}}</p>
                                     </div>
-
+                                    @endif
+                                    @if(!empty($recurso->entidadorganizativa->telefono))
                                     <div class="col-md-4 col-sm-4 address-width">
                                         <i class="pe-7s-phone"></i>
                                         <p>{{$recurso->entidadorganizativa->telefono}}</p>
                                     </div>
-
+                                    @endif
                                 </div>
                             </div>
                             <!-- End Row -->
@@ -96,11 +99,11 @@
                 </div><!-- End Tab Pane -->
 
                 <!-- ___Tab Pane___ -->
-                <div role="tabpanel" class="tab-pane fade" id="user-friendly">
+                <!--<div role="tabpanel" class="tab-pane fade" id="user-friendly">
                     <div class="row">
                         <div id="map" style="width:400px; height:400px;"></div>
                     </div><!-- End Row -->
-                </div><!-- End Tab Pane -->
+                <!--</div><!-- End Tab Pane -->
             </div><!-- End Tab Content -->
         </div><!-- End Tab Panel -->
     </div>
